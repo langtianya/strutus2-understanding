@@ -1,0 +1,222 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>JSF Plugin</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="guides.html" title="Guides">Guides</A>&nbsp;&gt;&nbsp;<A href="plugin-developers-guide.html" title="Plugin Developers Guide">Plugin Developers Guide</A>&nbsp;&gt;&nbsp;<A href="" title="JSF Plugin">JSF Plugin</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">JSF Plugin</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=44198">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=44198">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=44198">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=44198">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=44198">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=44198">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <DIV class="panelMacro"><TABLE class="infoMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD><A href="http://java.sun.com/j2ee/javaserverfaces" class="external-link" rel="nofollow">JavaServer Faces</A> technology simplifies building user interfaces for JavaServer applications. Developers of various skill levels can quickly build web applications by: assembling reusable UI components in a page; connecting these components to an application data source; and wiring client-generated events to server-side event handlers.</TD></TR></TABLE></DIV>
+
+<P>The JSF Plugin provides support for JavaServer Faces components with no additional configuration.  This plugin combines the familiar Action-based approach to page logic and navigation, and sprinkles in optional support for JSF components. The result lets you easily incorporate component-driven pages as application needs dictate. </P>
+
+<P>The JSF support works by breaking up the JSF Licycle class into Struts Interceptors, one for each JSF phase.  When you include the <TT>jsfStack</TT> stack, you are ensuring the JSF page has its phases execute correctly.  At the end of the phases, the Struts Action itself is executed just like non-JSF pages.  The String return code of the Action is treated like any other Action as well.  Finally, the JSF &quot;render&quot; phase has been transformed into a Result.</P>
+
+<P>JavaServer Faces also has a concept of an &quot;action&quot;, which are generally executed in response to a button click.  The handling of the JSF action is preserved through the <TT>jsfStack</TT> Interceptor stack, but its String result code, rather than being applied against a JSF navigation rule, is treated as a Struts result code thereby keeping the navigation responsibility within Struts.</P>
+
+<P>The limitations of this approach include:</P>
+
+<OL>
+	<LI>Any custom Lifecycle class is ignored</LI>
+	<LI>Any custom NavigationHandler is delegated to only when a Struts 2 navigation option cannot be found</LI>
+</OL>
+
+
+<P>On the other hand, the rest of the JSF functionality, including PhaseListeners, components, multiple backing beans, etc. are preserved.  The Showcase example has a section demonstrating the JSF integration approach.</P>
+
+<H2><A name="JSFPlugin-Features"></A>Features</H2>
+
+<UL>
+	<LI>Allows JSF components on normal Struts pages</LI>
+	<LI>Requires no additional configuration</LI>
+	<LI>Allows the JSF lifecycle to be completely customized</LI>
+	<LI>Preserves most JSF framework features so even complex components should work out of the box</LI>
+</UL>
+
+
+<H2><A name="JSFPlugin-Usage"></A>Usage</H2>
+
+<P>The JSF plugin splits the JSF lifecycle into an optional Interceptor stack and Result, yet retains the page's Action and navigation. Therefore, to use a page with JSF components, you need to:</P>
+
+<OL>
+	<LI>Add the <TT>jsfStack</TT> interceptor stack to your action definition.  This is easiest done by having your package extend <TT>jsf-default</TT>.</LI>
+	<LI>Add a <TT>jsf</TT> result associated with the name <TT>success</TT></LI>
+</OL>
+
+
+<P>You can still add additional interceptors and results, including those that don't use JSF at all.  In fact, the recommended approach is to use regular Struts results to handle inter-page navigation to avoid a common problem of JSF applications where every page request is a HTTP POST.</P>
+
+<P>This approach brings an additional advantage to JSF - every page can have an Action to execute page setup code, and the same Action instance will be automatically available later in the JSF page's expression language as <TT>action</TT>.  This means any common page logic such as retrieving data from a database can remain in your Action, and having that instance available later in your JSF components means the JSF configuration file is completely optional.  The JSF configuration file, <TT>faces-config.xml</TT>, generally contains backing bean definitions and navigation rules, both of which can be solely handled by Struts.</P>
+
+<H3><A name="JSFPlugin-Example"></A>Example</H3>
+
+<P>The following is an example of a regular Struts Action 2 page definition:</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Regular JSF Action</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+&lt;action name=<SPAN class="code-quote">&quot;employee&quot;</SPAN> class=<SPAN class="code-quote">&quot;org.apache.struts.action2.showcase.jsf.EmployeeAction&quot;</SPAN>&gt;
+    &lt;interceptor-ref name=<SPAN class="code-quote">&quot;basicStack&quot;</SPAN>/&gt;
+    &lt;result name=<SPAN class="code-quote">&quot;success&quot;</SPAN>&gt;employee.jsp&lt;/result&gt;
+    &lt;result name=<SPAN class="code-quote">&quot;index&quot;</SPAN> type=<SPAN class="code-quote">&quot;redirect-action&quot;</SPAN>&gt;index&lt;/result&gt;
+&lt;/action&gt;
+</PRE>
+</DIV></DIV>
+
+<P>This is the same action but as a JSF-enabled page:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>JSF-enabled Action</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+&lt;action name=<SPAN class="code-quote">&quot;employee&quot;</SPAN> class=<SPAN class="code-quote">&quot;org.apache.struts.action2.showcase.jsf.EmployeeAction&quot;</SPAN>&gt;
+    &lt;interceptor-ref name=<SPAN class="code-quote">&quot;basicStack&quot;</SPAN>/&gt;
+    &lt;interceptor-ref name=<SPAN class="code-quote">&quot;jsfStack&quot;</SPAN>/&gt;
+    &lt;result name=<SPAN class="code-quote">&quot;success&quot;</SPAN> type=<SPAN class="code-quote">&quot;jsf&quot;</SPAN> /&gt;
+    &lt;result name=<SPAN class="code-quote">&quot;index&quot;</SPAN> type=<SPAN class="code-quote">&quot;redirect-action&quot;</SPAN>&gt;index&lt;/result&gt;
+&lt;/action&gt;
+</PRE>
+</DIV></DIV>
+
+<P>Notice the Action-based navigation remains, but now you can use a page with JSF components and have complete access to the JSF lifecycle. This even supports JSF components that post back to themselves or add PhaseListeners to provide advanced AJAX support.</P>
+
+<H3><A name="JSFPlugin-Settings"></A>Settings</H3>
+
+<P>This plugin does not have any customizable settings.</P>
+
+<H3><A name="JSFPlugin-Installation"></A>Installation</H3>
+
+<P>This plugin can be installed by copying the plugin jar into your application's <TT>/WEB-INF/lib</TT> directory.  No other files need to be copied or created.</P>
+
+<H2><A name="JSFPlugin-Resources"></A>Resources </H2>
+
+<UL>
+	<LI><A href="http://raibledesigns.com/rd/entry/integrating_struts_2_jsf_facelets" class="external-link" rel="nofollow">Integrating Struts 2 + JSF + Facelets</A> (Matt Raible)</LI>
+</UL>
+
+
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

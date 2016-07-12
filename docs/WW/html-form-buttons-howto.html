@@ -1,0 +1,244 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>HTML form buttons HOWTO</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="faqs.html" title="FAQs">FAQs</A>&nbsp;&gt;&nbsp;<A href="cookbook.html" title="Cookbook">Cookbook</A>&nbsp;&gt;&nbsp;<A href="" title="HTML form buttons HOWTO">HTML form buttons HOWTO</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">HTML form buttons HOWTO</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=14233">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=14233">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14233">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14233">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14233">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14233">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <P>This HOWTO will describe the usage of HTML form buttons to invoke different behavior in actions.</P>
+
+<H2><A name="HTMLformbuttonsHOWTO-Usingdifferentmethods"></A>Using different methods</H2>
+<P>The <EM>method</EM> attribute of the submit tag can be used to implement buttons that submit to different methods.</P>
+
+
+<P>These boolean Properties can be tested to determine which button was pressed:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;form action=<SPAN class="code-quote">&quot;MyAction.action&quot;</SPAN>&gt;</SPAN>
+  <SPAN class="code-tag">&lt;s:submit method=<SPAN class="code-quote">&quot;save&quot;</SPAN> value=<SPAN class="code-quote">&quot;Save&quot;</SPAN>/&gt;</SPAN> 
+  <SPAN class="code-tag">&lt;s:submit method=<SPAN class="code-quote">&quot;delete&quot;</SPAN> value=<SPAN class="code-quote">&quot;Delete&quot;</SPAN>/&gt;</SPAN> 
+<SPAN class="code-tag">&lt;/form&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+<SPAN class="code-keyword">public</SPAN> class MyAction <SPAN class="code-keyword">extends</SPAN> Action {
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> save() {
+        message = <SPAN class="code-quote">&quot;The save button was pressed&quot;</SPAN>;
+        <SPAN class="code-keyword">return</SPAN> SUCCES;
+    }
+
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> delete() {
+        message = <SPAN class="code-quote">&quot;The delete button was pressed&quot;</SPAN>;
+        <SPAN class="code-keyword">return</SPAN> SUCCES;
+    }
+ 
+    <SPAN class="code-comment">// Output parameters
+</SPAN>
+    <SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">String</SPAN> message;
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> getMessage() {
+        <SPAN class="code-keyword">return</SPAN> message;
+    }
+}
+</PRE>
+</DIV></DIV>
+
+<P><B>Note</B>: Do not use String properties with buttons and test for the value that's set. This will break as soon as the <EM>value</EM> attribute of the HTML button changes! This is likely because the <EM>value</EM> attribute is used as the button text.</P>
+
+<H2><A name="HTMLformbuttonsHOWTO-DynamicSetofButtons"></A>Dynamic Set of Buttons</H2>
+
+<P>Consider a web page showing a shopping cart or similiar tabular data. Often there is a button belonging to each row, in case of the shopping cart a delete button to remove the item from the cart. The number of buttons is dynamic and the id that couples the button to an item cannot go to the <EM>value</EM> attribute because all buttons should read &quot;delete&quot;.</P>
+
+<P>The solution is to name the buttons like delete[123], delete[594], delete[494] where 123, 594 and 494 are, for example, item ids.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;form action=<SPAN class="code-quote">&quot;UpdateCart.action&quot;</SPAN>&gt;</SPAN>
+  <SPAN class="code-tag">&lt;s:iterate value=<SPAN class="code-quote">&quot;items&quot;</SPAN>&gt;</SPAN>
+    <SPAN class="code-tag">&lt;s:property value=<SPAN class="code-quote">&quot;name&quot;</SPAN>&gt;</SPAN> 
+    <SPAN class="code-tag">&lt;input type=<SPAN class="code-quote">&quot;submit&quot;</SPAN> name=<SPAN class="code-quote">&quot;delete[&lt;s:property value='id'&gt;</SPAN>]&quot;</SPAN> value=<SPAN class="code-quote">&quot;delete&quot;</SPAN> /&gt; <SPAN class="code-tag">&lt;br/&gt;</SPAN>
+  <SPAN class="code-tag">&lt;/s:iterate&gt;</SPAN>
+<SPAN class="code-tag">&lt;/form&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>When the button for the item with the property id == &quot;27&quot; is pressed, a parameter named <EM>delete[27]</EM> and value &quot;delete&quot; is set in your action. The trick is to declare your action's &quot;delete&quot; property as a <TT>java.util.Map</TT>. Then, a key will exist for the button that was pressed.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+<SPAN class="code-keyword">public</SPAN> void class UpdateCart <SPAN class="code-keyword">implements</SPAN> Action {
+
+    <SPAN class="code-comment">// Must be initialized to be usable as a Struts 2 input parameter.
+</SPAN>    <SPAN class="code-keyword">private</SPAN> Map delete = <SPAN class="code-keyword">new</SPAN> HashMap(); 
+
+    /** 
+     * This is somewhat counter intuitive. But a property like <SPAN class="code-quote">&quot;delete[OS:27]&quot;</SPAN>
+     * that is set to <SPAN class="code-quote">&quot;delete&quot;</SPAN> by Struts 2 will be interpreted by the underlying    
+     * OGNL expression engine as &quot;set the property 27 of the action's property
+     * <SPAN class="code-quote">&quot;delete&quot;</SPAN> to the value <SPAN class="code-quote">&quot;delete&quot;</SPAN>. So we must provide a getter <SPAN class="code-keyword">for</SPAN> <SPAN class="code-keyword">this</SPAN>
+     * action. A setter is not needed.
+     */
+    <SPAN class="code-keyword">public</SPAN> Map getDelete() {
+        <SPAN class="code-keyword">return</SPAN> delete;
+    }
+
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> execute() {
+        <SPAN class="code-keyword">for</SPAN> (Iterator i = delete.keySet().iterator(); i.hasNext(); ) {
+            <SPAN class="code-object">String</SPAN> id = (<SPAN class="code-object">String</SPAN>) i.next();
+            ...
+            <SPAN class="code-comment">// <SPAN class="code-keyword">do</SPAN> what ever you want
+</SPAN>            ...
+         }
+         ...
+    }
+}
+</PRE>
+</DIV></DIV>
+
+<P>In this case it would not be necessary to iterate the whole keySet because it contains only one key but the same code can be use to handle sets of checkboxes if this is prefered later:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;form action=<SPAN class="code-quote">&quot;UpdateCart.action&quot;</SPAN>&gt;</SPAN>
+  <SPAN class="code-tag">&lt;s:iterator value=<SPAN class="code-quote">&quot;items&quot;</SPAN>&gt;</SPAN>
+    <SPAN class="code-tag">&lt;s:property value=<SPAN class="code-quote">&quot;name&quot;</SPAN>&gt;</SPAN> 
+    <SPAN class="code-tag">&lt;input type=<SPAN class="code-quote">&quot;checkbox&quot;</SPAN> name=<SPAN class="code-quote">&quot;delete[&lt;s:property value='item'/&gt;</SPAN>]&quot;</SPAN> value=<SPAN class="code-quote">&quot;delete&quot;</SPAN>/&gt; <SPAN class="code-tag">&lt;br/&gt;</SPAN>
+  <SPAN class="code-tag">&lt;/s:iterator&gt;</SPAN>
+  <SPAN class="code-tag">&lt;input type=<SPAN class="code-quote">&quot;submit&quot;</SPAN> name=<SPAN class="code-quote">&quot;updateCart&quot;</SPAN> value=<SPAN class="code-quote">&quot;Update the cart&quot;</SPAN>/&gt;</SPAN>
+<SPAN class="code-tag">&lt;/form&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>The two implementations can even be combined two provide a quick &quot;delete this item&quot; button and a set of checkboxes for &quot;mass updates&quot;. All with the above code, cool eh?</P>
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

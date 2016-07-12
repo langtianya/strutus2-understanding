@@ -1,0 +1,374 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Hello World Using Struts 2</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="tutorials.html" title="Tutorials">Tutorials</A>&nbsp;&gt;&nbsp;<A href="getting-started.html" title="Getting Started">Getting Started</A>&nbsp;&gt;&nbsp;<A href="how-to-create-a-struts-2-web-application.html" title="How To Create A Struts 2 Web Application">How To Create A Struts 2 Web Application</A>&nbsp;&gt;&nbsp;<A href="create-struts-2-web-application-with-artifacts-in-web-inf-lib-and-use-ant-to-build-the-application.html" title="Create Struts 2 Web Application With Artifacts In WEB-INF lib and Use Ant To Build The Application">Create Struts 2 Web Application With Artifacts In WEB-INF lib and Use Ant To Build The Application</A>&nbsp;&gt;&nbsp;<A href="" title="Hello World Using Struts 2">Hello World Using Struts 2</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Hello World Using Struts 2</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=14811871">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=14811871">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14811871">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14811871">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14811871">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14811871">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <P>When you click on a hyperlink or submit an HTML form in a Struts 2 web application, the input is not sent to another server page, but to a Java class that you provide. These classes are called Actions. After the Action fires, a Result selects a resource to render the response. The resource is generally a server page, but it can also be a PDF file, an Excel spreadsheet, or a Java applet window.</P>
+
+<P>Suppose you want to create a simple &quot;Hello World&quot; example that displays a welcome message. After setting up an empty basic Struts 2 web application (see <A href="how-to-create-a-struts-2-web-application.html" title="How To Create A Struts 2 Web Application">How To Create A Struts 2 Web Application</A>), to create a &quot;Hello World&quot; example, you need to do four things:</P>
+<OL>
+	<LI>Create a class to store the welcome message (the model)</LI>
+	<LI>Create a server page to present the message (the view)</LI>
+	<LI>Create an Action class to control the interaction between the user, the model, and the view (the controller)</LI>
+	<LI>Create a mapping (struts.xml) to couple the Action class and view
+<DIV class="panelMacro"><TABLE class="tipMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>By creating these components, we are separating the work flow into three well-known concerns: the View, the Model, and the Controller. Separating concerns makes it easier to manage applications as they become more complex.</TD></TR></TABLE></DIV>
+<P>Let's look at an example model class, Action, server page, and mapping. If you like, fire up your Java IDE, and enter the code as we go.</P>
+<DIV class="panelMacro"><TABLE class="infoMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>This tutorial assumes you've completed the <A href="how-to-create-a-struts-2-web-application.html" title="How To Create A Struts 2 Web Application">How To Create A Struts 2 Web Application</A> tutorial and have a working Basic_Struts2_Ant (or Basic_Struts2_Mvn) project.  The example code for this tutorial, Hello_World_Struts2_Ant or Hello_World_Struts2_Mvn, is available on Google Code - <A href="http://code.google.com/p/struts2-examples/downloads/list" class="external-link" rel="nofollow">http://code.google.com/p/struts2-examples/downloads/list</A>.  After downloading and unzipping the file, you'll have a folder named Hello_World_Struts2_Ant (or Hello_World_Struts_Mvn).  In that folder will be a README.txt file with instructions on now to build and run the example application.</TD></TR></TABLE></DIV></LI>
+</OL>
+
+
+<H2><A name="HelloWorldUsingStruts2-TheCode"></A>The Code</H2>
+<P>Let's modify either the Basic_Struts2_Ant or Basic_Struts2_Mvn project to add a model class to store our message, a view that displays our message, an Action class to act as the controller, and a configuration that ties everything together.</P>
+
+<DIV class="panelMacro"><TABLE class="tipMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>The <A href="http://struts.apache.org/mail.html" class="external-link" rel="nofollow">Struts 2 user mailing list</A> is an excellent place to get help.  If you are having a problem getting this application to work search the Struts 2 mailing list.  If you don't find an answer to your problem, post a question on the mailing list.</TD></TR></TABLE></DIV>
+
+<H3><A name="HelloWorldUsingStruts2-Step1CreateTheModelClassMessageStore.java"></A>Step 1 - Create The Model Class MessageStore.java</H3>
+
+<P>If you're using the Basic_Struts2_Ant project to start with create the MessageStore class in the src folder and if you're using the Basic_Struts2_Mvn class create the MessageStore class in src/main/java.  Be sure to note the package statement below.</P>
+
+<DIV class="panelMacro"><TABLE class="infoMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>Note that in the code shown below the JavaDoc comments are omitted.  In the download example, JavaDoc comments are included.</TD></TR></TABLE></DIV>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Message.java</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+<SPAN class="code-keyword">package</SPAN> org.apache.struts.helloworld.model;
+
+<SPAN class="code-keyword">public</SPAN> class MessageStore {
+	
+	<SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">String</SPAN> message;
+	
+	<SPAN class="code-keyword">public</SPAN> MessageStore() {
+		
+		setMessage(<SPAN class="code-quote">&quot;Hello Struts User&quot;</SPAN>);
+	}
+
+	<SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> getMessage() {
+
+		<SPAN class="code-keyword">return</SPAN> message;
+	}
+
+	<SPAN class="code-keyword">public</SPAN> void setMessage(<SPAN class="code-object">String</SPAN> message) {
+
+		<SPAN class="code-keyword">this</SPAN>.message = message;
+	}
+
+}
+</PRE>
+</DIV></DIV>
+<P>In the model class above note the use of public set and get methods to allow access to the private message String attribute.  The Struts 2 framework requires that objects you want to expose to the view (HelloWorld.jsp) follow the <A href="http://en.wikipedia.org/wiki/JavaBean#JavaBean_conventions" class="external-link" rel="nofollow">JavaBean-style conventions</A>.</P>
+
+
+<H3><A name="HelloWorldUsingStruts2-Step2CreateTheActionClassHelloWorldAction.java"></A>Step 2 - Create The Action Class HelloWorldAction.java</H3>
+<P>We need an Action class to act as the Controller.  The Action class responds to a user action (in this example that action will be clicking an HTML hyperlink and sending a specific URL to the Servlet container).  One or more of the Action class's methods are executed and a String result is returned.  Based on the value of the result, a specific view page (in this example that view page is HelloWorld.jsp) is rendered.</P>
+
+<P>Note the package and import statements below.</P>
+<DIV class="code panel" style="border-style: solid;border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;border-bottom-style: solid;"><B>HelloWorld.java</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+<SPAN class="code-keyword">package</SPAN> org.apache.struts.helloworld.action;
+
+<SPAN class="code-keyword">import</SPAN> org.apache.struts.helloworld.model.MessageStore;
+<SPAN class="code-keyword">import</SPAN> com.opensymphony.xwork2.ActionSupport;
+
+<SPAN class="code-keyword">public</SPAN> class HelloWorldAction <SPAN class="code-keyword">extends</SPAN> ActionSupport {
+
+	<SPAN class="code-keyword">private</SPAN> <SPAN class="code-keyword">static</SPAN> <SPAN class="code-keyword">final</SPAN> <SPAN class="code-object">long</SPAN> serialVersionUID = 1L;
+
+	<SPAN class="code-keyword">private</SPAN> MessageStore messageStore;
+	
+	<SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> execute() <SPAN class="code-keyword">throws</SPAN> Exception {
+		
+		messageStore = <SPAN class="code-keyword">new</SPAN> MessageStore() ;
+		<SPAN class="code-keyword">return</SPAN> SUCCESS;
+	}
+
+	<SPAN class="code-keyword">public</SPAN> MessageStore getMessageStore() {
+		<SPAN class="code-keyword">return</SPAN> messageStore;
+	}
+
+	<SPAN class="code-keyword">public</SPAN> void setMessageStore(MessageStore messageStore) {
+		<SPAN class="code-keyword">this</SPAN>.messageStore = messageStore;
+	}
+
+}
+</PRE>
+</DIV></DIV>
+<P>The Struts 2 framework will create an object of the HelloWorldAction class and call the execute method in response to a user's action (clicking on a hyperlink that sends a specific URL to the Servlet container).</P>
+
+<P>In this example, the execute method creates an object of class MessageStore and then returns the String constant SUCCESS.</P>
+
+<P>Note also the public set and get methods for the private MessageStore object.  Since we want to make the MessageStore object available to the view page (HelloWorld.jsp) we need to follow the <A href="http://en.wikipedia.org/wiki/JavaBean#JavaBean_conventions" class="external-link" rel="nofollow">JavaBean-style</A> of providing get and set methods.</P>
+
+<H3><A name="HelloWorldUsingStruts2-Step3CreateTheViewHelloWorld.jsp"></A>Step 3 - Create The View HelloWorld.jsp</H3>
+<P>We need a server page to present the message that is stored in the model class MessageStore. Create the below jsp in the WebContent folder (for the Ant project) and in src/main/webapp for the Mvn project).</P>
+<DIV class="code panel" style="border-style: solid;border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;border-bottom-style: solid;"><B>HelloWorld.jsp</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-html">
+&lt;%@ page language=<SPAN class="code-quote">&quot;java&quot;</SPAN> contentType=<SPAN class="code-quote">&quot;text/html; charset=ISO-8859-1&quot;</SPAN>
+    pageEncoding=<SPAN class="code-quote">&quot;ISO-8859-1&quot;</SPAN>%&gt;
+<SPAN class="code-tag">&lt;%@ taglib prefix=<SPAN class="code-quote">&quot;s&quot;</SPAN> uri=<SPAN class="code-quote">&quot;/struts-tags&quot;</SPAN> %&gt;</SPAN>
+<SPAN class="code-tag">&lt;!DOCTYPE html PUBLIC <SPAN class="code-quote">&quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot;</SPAN> <SPAN class="code-quote">&quot;http://www.w3.org/TR/html4/loose.dtd&quot;</SPAN>&gt;</SPAN>
+<SPAN class="code-tag">&lt;html&gt;</SPAN>
+<SPAN class="code-tag">&lt;head&gt;</SPAN>
+<SPAN class="code-tag">&lt;meta http-equiv=<SPAN class="code-quote">&quot;Content-Type&quot;</SPAN> content=<SPAN class="code-quote">&quot;text/html; charset=ISO-8859-1&quot;</SPAN>&gt;</SPAN>
+<SPAN class="code-tag">&lt;title&gt;</SPAN>Hello World!<SPAN class="code-tag">&lt;/title&gt;</SPAN>
+<SPAN class="code-tag">&lt;/head&gt;</SPAN>
+<SPAN class="code-tag">&lt;body&gt;</SPAN>
+    <SPAN class="code-tag">&lt;h2&gt;</SPAN><SPAN class="code-tag">&lt;s:property value=<SPAN class="code-quote">&quot;messageStore.message&quot;</SPAN> /&gt;</SPAN><SPAN class="code-tag">&lt;/h2&gt;</SPAN>
+<SPAN class="code-tag">&lt;/body&gt;</SPAN>
+<SPAN class="code-tag">&lt;/html&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+<P>The taglib directive tells the Servlet container that this page will be using the Struts 2 tags and that these tags will be preceded by s.  </P>
+
+<P>The s:property tag displays the value returned by calling the method getMessageStore of the HelloWorldAction controller  class.  That method returns a MessageStore object. By adding the .message onto the messageStore part of the value attribute we are telling the Struts 2 framework to then call the getMessage method of that MessageStore object.  The getMessage method of class MessageStore returns a String.  It is that String that will be displayed by the s:property tag.</P>
+
+<P>We'll learn more about tags in the next tutorial.  See the <A href="struts-tags.html" title="Struts Tags">Struts Tags</A> for more information about tags.</P>
+
+<H3><A name="HelloWorldUsingStruts2-Step4AddTheStrutsConfigurationInstruts.xml"></A>Step 4 - Add The Struts Configuration In struts.xml</H3>
+<P>We need a mapping to tie the URL, the HelloWorldAction class (controller), and <BR>
+the HelloWorld.jsp (the view)  together.  The mapping tells the Struts 2 framework which class will respond to the user's action (the URL), which method of that class will be executed, and what view to render based on the String result that method returns.</P>
+
+<P>Edit the <TT>struts.xml</TT> file (in the Ant project that file is in the src folder and in the Mvn project that file is in the src/main/resources folder) to add the action mapping.  Place the action node (action name=&quot;hello&quot;) between the opening and closing package node, just after the action mapping with the name=&quot;index&quot;.  Your complete struts.xml should look like:</P>
+
+<DIV class="code panel" style="border-style: solid;border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;border-bottom-style: solid;"><B>struts.xml</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;?xml version=<SPAN class="code-quote">&quot;1.0&quot;</SPAN> encoding=<SPAN class="code-quote">&quot;UTF-8&quot;</SPAN>?&gt;</SPAN>
+&lt;!DOCTYPE struts PUBLIC
+    <SPAN class="code-quote">&quot;-//Apache Software Foundation//DTD Struts Configuration 2.0//EN&quot;</SPAN>
+    <SPAN class="code-quote">&quot;http://struts.apache.org/dtds/struts-2.0.dtd&quot;</SPAN>&gt;
+
+<SPAN class="code-tag">&lt;struts&gt;</SPAN>
+
+  <SPAN class="code-tag">&lt;constant name=<SPAN class="code-quote">&quot;struts.devMode&quot;</SPAN> value=<SPAN class="code-quote">&quot;true&quot;</SPAN> /&gt;</SPAN>
+
+  <SPAN class="code-tag">&lt;package name=<SPAN class="code-quote">&quot;basicstruts2&quot;</SPAN> extends=<SPAN class="code-quote">&quot;struts-default&quot;</SPAN>&gt;</SPAN>
+
+  <SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;index&quot;</SPAN>&gt;</SPAN>
+    <SPAN class="code-tag">&lt;result&gt;</SPAN>/index.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+  <SPAN class="code-tag">&lt;/action&gt;</SPAN>
+		
+  <SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;hello&quot;</SPAN> class=<SPAN class="code-quote">&quot;org.apache.struts.helloworld.action.HelloWorldAction&quot;</SPAN> method=<SPAN class="code-quote">&quot;execute&quot;</SPAN>&gt;</SPAN>
+    <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;success&quot;</SPAN>&gt;</SPAN>/HelloWorld.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+  <SPAN class="code-tag">&lt;/action&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;/package&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;/struts&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H3><A name="HelloWorldUsingStruts2-Step5CreateTheURLAction"></A>Step 5 - Create The URL Action</H3>
+<P>In index.jsp (see WebContent folder for Ant project and src/main/webapp for Mvn project) let's add an Action URL the user can click on to tell the Struts 2 framework to run the execute method of the HelloWorldAction class and render the HelloWorld.jsp view.  </P>
+
+<P>First add the taglib directive at the top of the jsp <TT>&lt;%@ taglib prefix=&quot;s&quot; uri=&quot;/struts-tags&quot; %&gt;</TT>.  Next add this p tag <TT>&lt;p&gt;&lt;a href=&quot;&lt;s:url action='hello'/&gt;&quot;&gt;Hello World&lt;/a&gt;&lt;/p&gt;</TT> after the h1 tag.  Your new index.jsp should look like:</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>index.jsp</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-html">
+&lt;%@ page language=<SPAN class="code-quote">&quot;java&quot;</SPAN> contentType=<SPAN class="code-quote">&quot;text/html; charset=ISO-8859-1&quot;</SPAN>
+    pageEncoding=<SPAN class="code-quote">&quot;ISO-8859-1&quot;</SPAN>%&gt;
+<SPAN class="code-tag">&lt;%@ taglib prefix=<SPAN class="code-quote">&quot;s&quot;</SPAN> uri=<SPAN class="code-quote">&quot;/struts-tags&quot;</SPAN> %&gt;</SPAN>
+<SPAN class="code-tag">&lt;!DOCTYPE html PUBLIC <SPAN class="code-quote">&quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot;</SPAN> <SPAN class="code-quote">&quot;http://www.w3.org/TR/html4/loose.dtd&quot;</SPAN>&gt;</SPAN>
+<SPAN class="code-tag">&lt;html&gt;</SPAN>
+<SPAN class="code-tag">&lt;head&gt;</SPAN>
+<SPAN class="code-tag">&lt;meta http-equiv=<SPAN class="code-quote">&quot;Content-Type&quot;</SPAN> content=<SPAN class="code-quote">&quot;text/html; charset=ISO-8859-1&quot;</SPAN>&gt;</SPAN>
+<SPAN class="code-tag">&lt;title&gt;</SPAN>Basic Struts 2 Application - Welcome<SPAN class="code-tag">&lt;/title&gt;</SPAN>
+<SPAN class="code-tag">&lt;/head&gt;</SPAN>
+<SPAN class="code-tag">&lt;body&gt;</SPAN>
+<SPAN class="code-tag">&lt;h1&gt;</SPAN>Welcome To Struts 2!<SPAN class="code-tag">&lt;/h1&gt;</SPAN>
+<SPAN class="code-tag">&lt;p&gt;</SPAN><SPAN class="code-tag">&lt;a href=<SPAN class="code-quote">&quot;&lt;s:url action='hello'/&gt;</SPAN>&quot;</SPAN>&gt;Hello World<SPAN class="code-tag">&lt;/a&gt;</SPAN><SPAN class="code-tag">&lt;/p&gt;</SPAN>
+<SPAN class="code-tag">&lt;/body&gt;</SPAN>
+<SPAN class="code-tag">&lt;/html&gt;</SPAN>
+
+</PRE>
+</DIV></DIV>
+<P>The Struts url tag creates the URL with an action of hello.  The hello action was mapped to the HelloWorldAction class and its execute method.  When the user clicks on the above URL it will cause the Struts 2 framework to run the execute method of the HelloWorldAction class.  After that method returns the String success, the view page HelloWorld.jsp will be rendered.</P>
+
+<H3><A name="HelloWorldUsingStruts2-Step6BuildtheWARFileandRunTheApplication"></A>Step 6 - Build the WAR File and Run The Application</H3>
+<P>If you're using the Ant version, execute ant archive to create the war file.  If you're using the Mvn version execute mvn clean package to create the war file.</P>
+
+<P>Copy the war file to your Servlet container.  After your Servlet container successfully deploys the war file go to this URL <A href="http://localhost:8080/Hello_World_Struts2_Ant/index.action" class="external-link" rel="nofollow">http://localhost:8080/Hello_World_Struts2_Ant/index.action</A> (for the Ant project) or go to this URL <A href="http://localhost:8080/Hello_World_Struts2_Mvn/index.action" class="external-link" rel="nofollow">http://localhost:8080/Hello_World_Struts2_Mvn/index.action</A> (for the Mvn project) where you should see the following:<BR>
+<SPAN class="image-wrap" style=""><IMG src="hello-world-using-struts-2.data/Struts2HelloWorld.png" style="border: 0px solid black"></SPAN></P>
+
+<P>Click on the Hello World link and you should get the HelloWorld.jsp page:</P>
+
+<P><SPAN class="image-wrap" style=""><IMG src="hello-world-using-struts-2.data/Hello.png" style="border: 0px solid black"></SPAN></P>
+
+<H3><A name="HelloWorldUsingStruts2-GettingHelp"></A>Getting Help</H3>
+<P>The <A href="http://struts.apache.org/mail.html" class="external-link" rel="nofollow">Struts 2 user mailing list</A> is an excellent place to get help.  If you are having a problem getting this application to work search the Struts 2 mailing list.  If you don't find an answer to your problem, post a question on the mailing list.</P>
+
+
+<H2><A name="HelloWorldUsingStruts2-HowtheCodeWorks"></A>How the Code Works</H2>
+
+<P>Your browser sends to the web server a request for the URL <A href="http://localhost:8080/Hello_World_Struts2_Ant/hello.action" class="external-link" rel="nofollow">http://localhost:8080/Hello_World_Struts2_Ant/hello.action</A>.</P>
+<OL>
+	<LI>The container receives from the web server a request for the resource <TT>hello.action</TT>. According to the settings loaded from the <A href="webxml.html" title="web.xml">web.xml</A>, the container finds that all requests are being routed to <TT>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</TT>, including the <TT>&#42;.action</TT> requests. The StrutsPrepareAndExecuteFilter is the entry point into the framework.</LI>
+	<LI>The framework looks for an action mapping named &quot;hello&quot;, and it finds that this mapping corresponds to the class &quot;HelloWorldAction&quot;. The framework instantiates the Action and calls the Action's <TT>execute</TT> method.</LI>
+	<LI>The <TT>execute</TT> method creates the MessageStore object and returns <TT>SUCCESS</TT>. The framework checks the action mapping to see what page to load if <TT>SUCCESS</TT> is returned. The framework tells the container to render as the response to the request, the resource <TT>HelloWorld.jsp</TT>.</LI>
+	<LI>As the page <TT>HelloWorld.jsp</TT> is being processed, the <TT>&lt;s:property value=&quot;messageStore.message&quot; /&gt;</TT> tag calls the getter <TT>getMessageStore</TT> of the <TT>HelloWorld</TT> Action and then calls the <TT>getMessage</TT> of the MessageStore object returned by <TT>getMessageStore</TT>, and the tag merges into the response the value of the message attribute.</LI>
+	<LI>A pure HTML response is sent back to the browser.</LI>
+</OL>
+
+
+
+
+
+<H2><A name="HelloWorldUsingStruts2-WhattoRemember"></A>What to Remember</H2>
+
+<P>The framework uses Actions to process HTML forms and other requests. The <TT>Action</TT> class returns a result-name such as <TT>SUCCESS</TT>, <TT>ERROR</TT>, or <TT>INPUT</TT>. Based on the mappings loaded from the <TT>struts.xml</TT>, a given result-name may select a page (as in this example), another action, or some other web resource (image, PDF). </P>
+
+<P>When a server page is rendered, most often it will include dynamic data provided by the Action. To make it easy to display dynamic data, the framework provides a set of tags that can be used along with HTML markup to create a server page.</P>
+
+<DIV class="table-wrap">
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TH class="confluenceTh"> Next </TH>
+<TD class="confluenceTd"> Onward to <A href="using-struts-2-tags.html" title="Using Struts 2 Tags">Using Struts 2 Tags</A> </TD>
+</TR>
+<TR>
+<TH class="confluenceTh"> Prev </TH>
+<TD class="confluenceTd"> Return to <A href="how-to-create-a-struts-2-web-application.html" title="How To Create A Struts 2 Web Application">How To Create A Struts 2 Web Application</A> </TD>
+</TR>
+</TBODY></TABLE>
+</DIV>
+
+        </DIV>
+
+                  <DIV class="tabletitle">
+            Children
+            <SPAN class="smalltext" id="show" style="display: inline;">
+              <A href="javascript:showChildren()">Show Children</A></SPAN>
+            <SPAN class="smalltext" id="hide" style="display: none;">
+              <A href="javascript:hideChildren()">Hide Children</A></SPAN>
+          </DIV>
+          <DIV class="greybox" id="children" style="display: none;">
+                                      <A href="using-struts-2-tags.html" title="Using Struts 2 Tags">Using Struts 2 Tags</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                      </DIV>
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

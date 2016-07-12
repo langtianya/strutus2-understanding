@@ -1,0 +1,332 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Struts Maven Archetypes</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="guides.html" title="Guides">Guides</A>&nbsp;&gt;&nbsp;<A href="core-developers-guide.html" title="Core Developers Guide">Core Developers Guide</A>&nbsp;&gt;&nbsp;<A href="" title="Struts Maven Archetypes">Struts Maven Archetypes</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Struts Maven Archetypes</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=13990">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=13990">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=13990">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=13990">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=13990">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=13990">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <DIV class="panelMacro"><TABLE class="warningMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/forbidden.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>This page is deprecated and replaced by the <A href="struts-2-maven-archetypes.html" title="Struts 2 Maven Archetypes">Struts 2 Maven Archetypes</A> page.
+
+<P>It is being kept (for now) for release note links.</P></TD></TR></TABLE></DIV>
+
+<HR>
+
+<P>Struts provides several Maven Archetypes that create working applications based on a template. </P>
+
+<H2><A name="StrutsMavenArchetypes-AvailableArchetypes"></A>Available Archetypes</H2>
+
+<P>The following archetypes are available:</P>
+
+<H3><A name="StrutsMavenArchetypes-TheStarterArchetype%28struts2archetypestarter%29"></A>The Starter Archetype (struts2-archetype-starter)</H3>
+
+<P>The Starter archetype creates a more featured application using several common technologies used in production applications.</P>
+
+<H4><A name="StrutsMavenArchetypes-Features"></A>Features</H4>
+<UL>
+	<LI>Sitemesh integration</LI>
+	<LI>Action example (both instantiated through Spring and Struts itself)</LI>
+	<LI>Validation example (action and action-alias level)</LI>
+	<LI>Conversion example (global and action level)</LI>
+	<LI>Resource bundle (both global, action and package level)</LI>
+</UL>
+
+
+<H3><A name="StrutsMavenArchetypes-ThePortletBlankArchetype%28struts2archetypeportlet%29"></A>The Portlet Blank Archetype (struts2-archetype-portlet)</H3>
+
+<P>The Portlet blank archetype creates a minimally populated JSR 168 portlet.</P>
+
+<H4><A name="StrutsMavenArchetypes-Features"></A>Features</H4>
+<UL>
+	<LI>View, Edit, and Help mode examples</LI>
+	<LI>Simple form for preferences in Edit mode</LI>
+	<LI>Can be deployed as a servlet or portlet application</LI>
+	<LI>Can use Maven Jetty plugin to deploy as a servlet webapp</LI>
+</UL>
+
+
+<H3><A name="StrutsMavenArchetypes-ThePortletDatabaseArchetype%28struts2archetypedbportlet%29"></A>The Portlet Database Archetype (struts2-archetype-dbportlet)</H3>
+
+<P>The Portlet database archetype creates a simple JSR 168 portlet that displays the contents of a database table.</P>
+
+<H4><A name="StrutsMavenArchetypes-Features"></A>Features</H4>
+<UL>
+	<LI>Uses Spring and Hsql to show a real database query</LI>
+	<LI>Builtin caching of query results</LI>
+	<LI>View, Edit, and Help mode examples</LI>
+	<LI>Simple form for preferences in Edit mode</LI>
+	<LI>Can be deployed as a servlet or portlet application</LI>
+	<LI>Can use Maven Jetty plugin to deploy as a servlet webapp</LI>
+</UL>
+
+
+<H2><A name="StrutsMavenArchetypes-CreatinganApplicationUsinganArchetype"></A>Creating an Application Using an Archetype</H2>
+
+<P>From a working directory for your project, run the following command: </P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+mvn archetype:create   -DgroupId=tutorial \
+                       -DartifactId=tutorial \
+                       -DarchetypeGroupId=org.apache.struts \
+                       -DarchetypeArtifactId=struts2-archetype-starter \
+                       -DarchetypeVersion=2.0.11.2 
+
+</PRE>
+</DIV></DIV>
+
+<P>This table describes the parameters used above:</P>
+
+<DIV class="table-wrap">
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TH class="confluenceTh"> Name </TH>
+<TH class="confluenceTh"> Description </TH>
+</TR>
+<TR>
+<TD class="confluenceTd"> <TT>groupId</TT> </TD>
+<TD class="confluenceTd"> The id for the group the application belongs to.  Usually is the root package for applications in your company, e.g. com.mycompany </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> <TT>artifactId</TT> </TD>
+<TD class="confluenceTd"> The id for the project </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> <TT>package</TT> </TD>
+<TD class="confluenceTd"> The base Java package to use for generated source code.  Defaults to <TT>archetypeGroupId</TT> if not specified. </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> <TT>archetypeGroupId</TT> </TD>
+<TD class="confluenceTd"> The group id of the archetype.  Will always be <TT>org.apache.struts</TT> for Struts archetypes </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> <TT>archetypeArtifactId</TT> </TD>
+<TD class="confluenceTd"> The id of the archetype </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> <TT>archetypeVersion</TT> </TD>
+<TD class="confluenceTd"> The version of the archetype </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> <TT>remoteRepositories</TT> </TD>
+<TD class="confluenceTd"> A list of remote repositories that contain the archetype.  If deployed to the standard Maven repository or locally, this is optional </TD>
+</TR>
+</TBODY></TABLE>
+</DIV>
+
+
+<P>The Archetype will create a ready-run Struts project. Just run &quot;mvn install&quot; to build. </P>
+
+<H2><A name="StrutsMavenArchetypes-CommandQuickReference"></A>Command Quick Reference</H2>
+
+<UL>
+	<LI>To build
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+   mvn install
+</PRE>
+</DIV></DIV></LI>
+</UL>
+
+
+<UL>
+	<LI>To create IntelliJ IDEA project files
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+   mvn idea:idea
+</PRE>
+</DIV></DIV></LI>
+</UL>
+
+
+<UL>
+	<LI>To create Eclipse project files
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+   mvn eclipse:eclipse
+</PRE>
+</DIV></DIV></LI>
+</UL>
+
+
+<UL>
+	<LI>To run test cases
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+   mvn test
+</PRE>
+</DIV></DIV></LI>
+</UL>
+
+
+<UL>
+	<LI>To clean up
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+   mvn clean
+</PRE>
+</DIV></DIV></LI>
+</UL>
+
+
+<UL>
+	<LI>To package
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+   mvn <SPAN class="code-keyword">package</SPAN>
+</PRE>
+</DIV></DIV></LI>
+</UL>
+
+
+<UL>
+	<LI>To grab necessary JAR files etc.
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+   mvn initialize
+</PRE>
+</DIV></DIV></LI>
+</UL>
+
+
+<UL>
+	<LI>To run it with Jetty
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+   mvn jetty:run
+</PRE>
+</DIV></DIV></LI>
+</UL>
+
+
+
+
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

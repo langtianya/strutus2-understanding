@@ -1,0 +1,250 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>FreeMarker Tags</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="guides.html" title="Guides">Guides</A>&nbsp;&gt;&nbsp;<A href="tag-developers-guide.html" title="Tag Developers Guide">Tag Developers Guide</A>&nbsp;&gt;&nbsp;<A href="" title="FreeMarker Tags">FreeMarker Tags</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">FreeMarker Tags</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=14294">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=14294">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14294">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14294">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14294">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14294">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <P>FreeMarker tags are extensions of the generic <A href="struts-tags.html" title="Struts Tags">Struts Tags</A> provided by the framework. You can jump right in just by knowing the generic structure in which the tags can be accessed: <TT>&lt;@s.tag&gt; ...&lt;/@s.tag&gt;</TT>, where <EM>tag</EM> is any of the <A href="struts-tags.html" title="Struts Tags">tags</A> supported by the framework.</P>
+
+<P>For example, in JSP you might create a form using Struts tags.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>JSP Form</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;s:form action=<SPAN class="code-quote">&quot;updatePerson&quot;</SPAN>&gt;</SPAN>
+    <SPAN class="code-tag">&lt;s:textfield label=<SPAN class="code-quote">&quot;First name&quot;</SPAN> name=<SPAN class="code-quote">&quot;firstName&quot;</SPAN>/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;s:submit value=<SPAN class="code-quote">&quot;Update&quot;</SPAN>/&gt;</SPAN>
+<SPAN class="code-tag">&lt;/s:form&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>In FreeMarker the same form can also be built using Struts tags.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>FTL Form</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;@s.form action=<SPAN class="code-quote">&quot;updatePerson&quot;</SPAN>&gt;</SPAN>
+    <SPAN class="code-tag">&lt;@s.textfield label=<SPAN class="code-quote">&quot;First name&quot;</SPAN> name=<SPAN class="code-quote">&quot;firstName&quot;</SPAN>/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;@s.submit value=<SPAN class="code-quote">&quot;Update&quot;</SPAN>/&gt;</SPAN>
+<SPAN class="code-tag">&lt;/@s.form&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+<P><EM>But, wait there's more&#33;</EM></P>
+
+<P>Aside from doing everything that the JSP tags do, the FTL tags boast additional features that you can use to make your pages even easier to code. You can even invoke third-party JSP taglibs as if there were native FTL tags.</P>
+
+<H2><A name="FreeMarkerTags-AttributesandParameters"></A>Attributes and Parameters</H2>
+
+<P>Unlike older versions of JSP (in which the <A href="jsp-tags.html" title="JSP Tags">JSP Tags</A> are based), FreeMarker allows for <EM>dynamic attributes</EM>, much like JSP 2.0. You can supply attributes to the tags that the tag doesn't explicitedly support. Those attributes that cannot be applied directly to the tag object will be set to the tag's general-purpose <TT>parameters</TT> Map.</P>
+
+<P>Suppose we wanted to build an URL in a JSP. The URL needs to take an arbitary parameter to the query string, that (being arbitary) isn't specified on the URL tag. In a JSP, we'd have to use the <TT>url</TT> and <TT>param</TT> tags together.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Creating a URL with a query string (JSP)</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;s:url value=<SPAN class="code-quote">&quot;somePage&quot;</SPAN>&gt;</SPAN>
+    <SPAN class="code-tag">&lt;s:param name=<SPAN class="code-quote">&quot;personId&quot;</SPAN> value=<SPAN class="code-quote">&quot;%{personId}&quot;</SPAN>/&gt;</SPAN>
+<SPAN class="code-tag">&lt;/s:url&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>In FreeMarker, we can pass the arbitrary parameter directly and create the URL in one simple statement.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Creating a URL with a query string (FTL)</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;@s.url value=<SPAN class="code-quote">&quot;somePage&quot;</SPAN> personId=<SPAN class="code-quote">&quot;${personId}&quot;</SPAN>/&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H3><A name="FreeMarkerTags-Usinginlineattributeswithtemplates"></A>Using inline attributes with templates</H3>
+
+<P>Suppose you created a &quot;three column&quot; theme to replace the typical two column theme (xhtml). You might want an additional parameter to display in the third column called &quot;description&quot;. Using FreeMarker, you can just pop the description attribute into the textfield tag, no fuss, no muss.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Passing an attribute to the template</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;@s.form action=<SPAN class="code-quote">&quot;updatePerson&quot;</SPAN>&gt;</SPAN>
+    <SPAN class="code-tag">&lt;@s.textfield label=<SPAN class="code-quote">&quot;First name&quot;</SPAN> name=<SPAN class="code-quote">&quot;firstName&quot;</SPAN> description=<SPAN class="code-quote">&quot;...&quot;</SPAN>/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;@s.submit value=<SPAN class="code-quote">&quot;Update&quot;</SPAN>/&gt;</SPAN>
+<SPAN class="code-tag">&lt;/@s.form&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>In the new template, the description is referenced via the parameters Map: &quot;${parameters.description}&quot;.</P>
+
+<DIV class="panelMacro"><TABLE class="tipMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD><B>Advanced uses of the param tag</B><BR>For simple cases, inline attributes are much easier to use than the <TT>param} tag. But, the {{param} tag is more flexible than inline attributes for advanced use cases. For example, {{param</TT> can take the entire body of the tag and apply that as the <EM>value</EM> attribute.</TD></TR></TABLE></DIV>
+
+<H2><A name="FreeMarkerTags-AttributeTypes"></A>Attribute Types</H2>
+
+<P>Remember that all tag attributes must first be set as Strings - they are then later evaluated (using <A href="ognl.html" title="OGNL">OGNL</A>) to a different type, such as List, int, or boolean. This generally works just fine, but it can be limiting when using FreeMarker which provides more advanced ways to apply attributes. Suppose the following example:</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;@s.select label=<SPAN class="code-quote">&quot;Foo label - ${foo}&quot;</SPAN> name=<SPAN class="code-quote">&quot;${name}&quot;</SPAN> list=<SPAN class="code-quote">&quot;%{{1, 2, 3}}&quot;</SPAN>/&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+<P>What will happen here is that each attribute will be evaluated to a String as best it can. This may involve calling the <TT>toString</TT> method on the internal FreeMarker objects. In this case, all objects will end up being exactly what you would expect. Then, when the tag runs, the <TT>list</TT> attribute will be converted from a String to a List using <A href="ognl.html" title="OGNL">OGNL</A>'s advanced collection support.</P>
+
+<P>But suppose you wish to use FreeMarker's list or hash support instead? You can do this:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;@s.select label=<SPAN class="code-quote">&quot;Foo label - ${foo}&quot;</SPAN> name=<SPAN class="code-quote">&quot;${name}&quot;</SPAN> list=[1, 2, 3]/&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>Notice that the list attribute no longer has quotes around it. Now it will come in to the tag as an object that can't easily be converted to a String. Normally, the tag would just call <TT>toString</TT>, which would return &quot;[1, 2, 3]&quot; and be unable to be converted back to a List by OGNL. Rather than go through all this back and forth, the frameworks's FreeMarker tag support will recognize collections and not pass them through the normal tag attribute. Instead, the framework will set them directly in the <TT>parameters</TT> Map, ready to be consumed by the template.</P>
+
+<P>In the end, everything tends to do what you would expect, but it can help to understand the difference of when OGNL is being used and when it isn't, and how attribute types get converted.</P>
+
+<H2><A name="FreeMarkerTags-JSPTagSupport"></A>JSP Tag Support</H2>
+
+<P>While the framework provides native FreeMarker Tags, you might wish to use other third-party tags that are only available for JSP. Fortunately, FreeMarker has the ability to run JSP tags. To do so, you must include the JspSupportServlet in the application's <TT>web.xml</TT>, as this allows the FreeMarker integration to get access to the required objects needed to emulate a JSP taglib container.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Adding JspSupportSerlvet to web.xml</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;servlet&gt;</SPAN>
+    <SPAN class="code-tag">&lt;servlet-name&gt;</SPAN>JspSupportServlet<SPAN class="code-tag">&lt;/servlet-name&gt;</SPAN>
+    <SPAN class="code-tag">&lt;servlet-class&gt;</SPAN>org.apache.struts2.views.JspSupportServlet<SPAN class="code-tag">&lt;/servlet-class&gt;</SPAN>
+    <SPAN class="code-tag">&lt;load-on-startup&gt;</SPAN>1<SPAN class="code-tag">&lt;/load-on-startup&gt;</SPAN>
+<SPAN class="code-tag">&lt;/servlet&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>Once you've done that, you can simply add something like this in your templates:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;#assign cewolf=JspTaglibs[<SPAN class="code-quote">&quot;/WEB-INF/cewolf.tld&quot;</SPAN>] /&gt;</SPAN>
+...
+<SPAN class="code-tag">&lt;@cewold.xxx ... /&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H2><A name="FreeMarkerTags-Next%3AVelocity"></A>Next: <A href="velocity.html" title="Velocity">Velocity</A></H2>
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

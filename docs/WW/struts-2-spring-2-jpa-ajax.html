@@ -1,0 +1,966 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Struts 2 + Spring 2 + JPA + AJAX</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="tutorials.html" title="Tutorials">Tutorials</A>&nbsp;&gt;&nbsp;<A href="" title="Struts 2 + Spring 2 + JPA + AJAX">Struts 2 + Spring 2 + JPA + AJAX</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Struts 2 + Spring 2 + JPA + AJAX</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=33168">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=33168">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=33168">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=33168">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=33168">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=33168">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <P>On this tutorial we will demonstrate how to setup Struts 2 in Eclipse, and make it work with Spring, Java Persistence API (using Hibernate) and Struts 2 Ajax tags.</P>
+
+<DIV class="panelMacro"><TABLE class="infoMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>Hibernate is licensed under the <A href="http://www.gnu.org/copyleft/lesser.html" class="external-link" rel="nofollow">LGPL</A>, and any application created using Hibernate is subject to the terms of the LGPL.</TD></TR></TABLE></DIV>
+
+<DIV class="panelMacro"><TABLE class="tipMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>Following this tutorial verbatim will require use of a Struts 2 deployment greater than 2.0.3</TD></TR></TABLE></DIV>
+
+<STYLE type="text/css">/*<![CDATA[*/
+div.rbtoc1309183391311 {margin-left: 0px;padding: 0px;}
+div.rbtoc1309183391311 ul {list-style: none;margin-left: 0px;}
+div.rbtoc1309183391311 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</STYLE><DIV class="rbtoc1309183391311">
+<UL>
+    <LI><A href="https://cwiki.apache.org/confluence/pages/viewpage.action#Struts2%252BSpring2%252BJPA%252BAJAX-Prerequisites">Prerequisites</A></LI>
+<UL>
+    <LI><A href="https://cwiki.apache.org/confluence/pages/viewpage.action#Struts2%252BSpring2%252BJPA%252BAJAX-Tomcat">Tomcat</A></LI>
+    <LI><A href="https://cwiki.apache.org/confluence/pages/viewpage.action#Struts2%252BSpring2%252BJPA%252BAJAX-MySql">MySql</A></LI>
+</UL>
+    <LI><A href="https://cwiki.apache.org/confluence/pages/viewpage.action#Struts2%252BSpring2%252BJPA%252BAJAX-Getthecode">Get the code</A></LI>
+<UL>
+    <LI><A href="https://cwiki.apache.org/confluence/pages/viewpage.action#Struts2%252BSpring2%252BJPA%252BAJAX-Showmethecode">Show me the code</A></LI>
+    <LI><A href="https://cwiki.apache.org/confluence/pages/viewpage.action#Struts2%252BSpring2%252BJPA%252BAJAX-Themavenway">The maven way</A></LI>
+</UL>
+    <LI><A href="https://cwiki.apache.org/confluence/pages/viewpage.action#Struts2%252BSpring2%252BJPA%252BAJAX-Doingityourself">Doing it yourself</A></LI>
+<UL>
+    <LI><A href="https://cwiki.apache.org/confluence/pages/viewpage.action#Struts2%252BSpring2%252BJPA%252BAJAX-CreateEclipseproject">Create Eclipse project</A></LI>
+    <LI><A href="https://cwiki.apache.org/confluence/pages/viewpage.action#Struts2%252BSpring2%252BJPA%252BAJAX-Dependencies">Dependencies</A></LI>
+    <LI><A href="https://cwiki.apache.org/confluence/pages/viewpage.action#Struts2%252BSpring2%252BJPA%252BAJAX-Domain">Domain</A></LI>
+    <LI><A href="https://cwiki.apache.org/confluence/pages/viewpage.action#Struts2%252BSpring2%252BJPA%252BAJAX-Personservice.">Person service.</A></LI>
+    <LI><A href="https://cwiki.apache.org/confluence/pages/viewpage.action#Struts2%252BSpring2%252BJPA%252BAJAX-JPAconfiguration">JPA configuration</A></LI>
+    <LI><A href="https://cwiki.apache.org/confluence/pages/viewpage.action#Struts2%252BSpring2%252BJPA%252BAJAX-Spring">Spring</A></LI>
+    <LI><A href="https://cwiki.apache.org/confluence/pages/viewpage.action#Struts2%252BSpring2%252BJPA%252BAJAX-Struts">Struts</A></LI>
+    <LI><A href="https://cwiki.apache.org/confluence/pages/viewpage.action#Struts2%252BSpring2%252BJPA%252BAJAX-Thepages">The pages</A></LI>
+    <LI><A href="https://cwiki.apache.org/confluence/pages/viewpage.action#Struts2%252BSpring2%252BJPA%252BAJAX-Validation">Validation</A></LI>
+</UL>
+    <LI><A href="https://cwiki.apache.org/confluence/pages/viewpage.action#Struts2%252BSpring2%252BJPA%252BAJAX-UsingToplinkEssentialsinsteadofHibernate">Using Toplink Essentials instead of Hibernate</A></LI>
+    <LI><A href="https://cwiki.apache.org/confluence/pages/viewpage.action#Struts2%252BSpring2%252BJPA%252BAJAX-References">References</A></LI>
+</UL></DIV>
+
+<H1><A name="Struts2%2BSpring2%2BJPA%2BAJAX-Prerequisites"></A>Prerequisites</H1>
+<UL>
+	<LI><A href="http://tomcat.apache.org/download-55.cgi" class="external-link" rel="nofollow">Tomcat</A></LI>
+	<LI><A href="http://www.eclipse.org/" class="external-link" rel="nofollow">Eclipse</A></LI>
+	<LI><A href="http://dev.mysql.com/downloads/mysql/5.0.html" class="external-link" rel="nofollow">MySQL Server</A> (<A href="http://www.mysql.com/company/legal/licensing/" class="external-link" rel="nofollow">MySQL licensing policy</A>)</LI>
+</UL>
+
+
+<H2><A name="Struts2%2BSpring2%2BJPA%2BAJAX-Tomcat"></A>Tomcat</H2>
+<P>Install Tomcat before going forward. See Tomcat's installation guide if you have any problem installing it. </P>
+
+<H2><A name="Struts2%2BSpring2%2BJPA%2BAJAX-MySql"></A>MySql</H2>
+<P>Install and configure MySql. Create a database named &quot;quickstart&quot; and run the script below to create the &quot;Person&quot; table. Later, on applicationContext.xml, we'll use 'root' as the user name and password for the database, remember to replace those values with the right ones for your database. </P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-sql">
+CREATE TABLE 'quickstart'.'Person' (
+  'id' INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+  'firstName' <SPAN class="code-object">VARCHAR</SPAN>(45) NOT NULL,
+  'lastName' <SPAN class="code-object">VARCHAR</SPAN>(45) NOT NULL,
+  PRIMARY KEY('id')
+)
+ENGINE = InnoDB;
+</PRE>
+</DIV></DIV>
+
+<H1><A name="Struts2%2BSpring2%2BJPA%2BAJAX-Getthecode"></A>Get the code</H1>
+
+<H2><A name="Struts2%2BSpring2%2BJPA%2BAJAX-Showmethecode"></A>Show me the code</H2>
+<P>You can just download the <A href="http://cwiki.apache.org/confluence/download/attachments/33168/quickstart.zip" class="external-link" rel="nofollow">zipped Eclipse project</A>, add the required dependencies to the lib folder under the /WebContent/WEB-INF/lib folder (relative to project's root folder) and import it into Eclipse.</P>
+
+<H2><A name="Struts2%2BSpring2%2BJPA%2BAJAX-Themavenway"></A>The maven way</H2>
+<P>To run the project this way you will need maven installed.</P>
+<OL>
+	<LI>Download the <A href="http://cwiki.apache.org/confluence/download/attachments/33168/quickstart_maven2.zip" class="external-link" rel="nofollow">zipped project</A></LI>
+	<LI>Download jta jar from <A href="http://java.sun.com/products/jta/" class="external-link" rel="nofollow">here</A>.
+	<UL>
+		<LI>Note that the Download Manager may save the file to your root drive, and it may give the file a .ZIP extension. You must rename the file to <EM>jta-1.1-classes.jar</EM>.</LI>
+		<LI>If a later version is available, update the version references in the next step.</LI>
+	</UL>
+	</LI>
+	<LI>Install the jta jar file running:
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+$ mvn install:install-file -DgroupId=javax.transaction -DartifactId=jta -Dversion=1.1 -Dpackaging=jar -Dfile=c:\path\to\jar\jta-1.1-classes.jar
+</PRE>
+</DIV></DIV></LI>
+	<LI>Bear with me, we are almost there</LI>
+	<LI>cd into quickstart and run:
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+$ mvn jetty:run
+</PRE>
+</DIV></DIV></LI>
+	<LI>Point your browser to <A href="http://localhost:8080/quickstart" class="external-link" rel="nofollow">http://localhost:8080/quickstart</A></LI>
+	<LI>To create an eclipse project run:
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+$ mvn eclipse:eclipse
+</PRE>
+</DIV></DIV>
+<P>or (to create web project for WTP):</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+mvn eclipse:eclipse -Dwtpversion=1.0
+</PRE>
+</DIV></DIV></LI>
+</OL>
+
+
+<H1><A name="Struts2%2BSpring2%2BJPA%2BAJAX-Doingityourself"></A>Doing it yourself</H1>
+
+<H2><A name="Struts2%2BSpring2%2BJPA%2BAJAX-CreateEclipseproject"></A>Create Eclipse project</H2>
+<OL>
+	<LI>Open Eclipse. Seriously, you need to open Eclipse.</LI>
+	<LI>Click File -&gt; New -&gt; Project. Under the &quot;Web&quot; folder, select &quot;Dynamic Web Project&quot; and click &quot;Next&quot;.</LI>
+	<LI>Enter the project name, &quot;quickstart&quot; from here on. The project will be running inside Tomcat, so we need to create a server configuration for it.
+	<OL>
+		<LI>Under &quot;Target Runtime&quot;, click &quot;New&quot;, select &quot;Apache Tomcat  5.5&quot; and click next.</LI>
+		<LI>Enter Tomcat's installation directory and select an installed JRE (1.5 is required)</LI>
+	</OL>
+	</LI>
+	<LI>Now you should be back to the project creation wizard, with Tomcat as your Target Runtime. Click &quot;Next&quot;. Select &quot;Dynamic Web Module&quot; and &quot;Java&quot; facets, and click &quot;Finish&quot;.</LI>
+</OL>
+
+
+<H2><A name="Struts2%2BSpring2%2BJPA%2BAJAX-Dependencies"></A>Dependencies</H2>
+<P>Your project should contain the folders &quot;src&quot;, &quot;build&quot; and &quot;WebContent&quot;. We are going to put all the required jars under &quot;/WebContent/WEB-INF/lib&quot;. To add files to the &quot;lib&quot; folder, just copy them to ${workspace}\quickstart\WebContent\WEB-INF\lib, where ${workspace} is the location of your Eclipse workspace folder. </P>
+
+<P>In the table, the version has been removed from the JAR files, since these may change in future milestone releases. Use whatever version is shipping with the indicated products. </P>
+
+<DIV class="table-wrap">
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TH class="confluenceTh">JAR</TH>
+<TH class="confluenceTh">From</TH>
+<TH class="confluenceTh">License</TH>
+</TR>
+<TR>
+<TD class="confluenceTd">xwork.jar</TD>
+<TD class="confluenceTd"><A href="http://struts.apache.org/" class="external-link" rel="nofollow">Struts 2</A></TD>
+<TD class="confluenceTd"><A href="http://apache.org/licenses/" class="external-link" rel="nofollow">Apache License</A></TD>
+</TR>
+<TR>
+<TD class="confluenceTd">struts2-core.jar</TD>
+<TD class="confluenceTd">Struts 2</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">struts2-spring-plugin.jar</TD>
+<TD class="confluenceTd">Struts 2</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">ognl.jar</TD>
+<TD class="confluenceTd">Struts 2</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">freemarker.jar</TD>
+<TD class="confluenceTd">Struts 2</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">commons-logging-api.jar</TD>
+<TD class="confluenceTd">Struts 2</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">mysql-connector-java.jar</TD>
+<TD class="confluenceTd"><A href="http://www.mysql.com/products/connector/" class="external-link" rel="nofollow">MySql JDBC Driver</A></TD>
+<TD class="confluenceTd"><A href="http://www.mysql.com/company/legal/licensing/" class="external-link" rel="nofollow">MySQL licensing policy</A></TD>
+</TR>
+<TR>
+<TD class="confluenceTd">spring.jar</TD>
+<TD class="confluenceTd"><A href="http://springframework.org/" class="external-link" rel="nofollow">Spring 2.0</A></TD>
+<TD class="confluenceTd"><A href="http://apache.org/licenses/" class="external-link" rel="nofollow">Apache License</A></TD>
+</TR>
+<TR>
+<TD class="confluenceTd">antlr.jar</TD>
+<TD class="confluenceTd"><A href="http://hibernate.org/" class="external-link" rel="nofollow">Hibernate Core</A></TD>
+<TD class="confluenceTd"><A href="http://www.gnu.org/copyleft/lesser.html" class="external-link" rel="nofollow">LGPL</A></TD>
+</TR>
+<TR>
+<TD class="confluenceTd">asm.jar</TD>
+<TD class="confluenceTd">Hibernate Core</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">asm-attrs.jar</TD>
+<TD class="confluenceTd">Hibernate Core</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">cglib.jar</TD>
+<TD class="confluenceTd">Hibernate Core</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">dom4j.jar</TD>
+<TD class="confluenceTd">Hibernate Core</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">jdbc2_0-stdext.jar</TD>
+<TD class="confluenceTd">Hibernate Core</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">ehcache.jar</TD>
+<TD class="confluenceTd">Hibernate Core</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">hibernate3.jar</TD>
+<TD class="confluenceTd">Hibernate Core</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">xml-apis.jar</TD>
+<TD class="confluenceTd">Hibernate Core</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">commons-collections.jar</TD>
+<TD class="confluenceTd">Hibernate Core</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">ejb3-persistence.jar</TD>
+<TD class="confluenceTd"><A href="http://hibernate.org/" class="external-link" rel="nofollow">Hibernate Annotations</A></TD>
+<TD class="confluenceTd"><A href="http://www.gnu.org/copyleft/lesser.html" class="external-link" rel="nofollow">LGPL</A></TD>
+</TR>
+<TR>
+<TD class="confluenceTd">jta.jar</TD>
+<TD class="confluenceTd">Hibernate Annotations</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">hibernate-commons-annotations.jar</TD>
+<TD class="confluenceTd">Hibernate Annotations</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">hibernate-annotations.jar</TD>
+<TD class="confluenceTd">Hibernate Annotations</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">hibernate-entitymanager.jar</TD>
+<TD class="confluenceTd"><A href="http://hibernate.org/" class="external-link" rel="nofollow">Hibernate Entity Manager</A></TD>
+<TD class="confluenceTd"><A href="http://www.gnu.org/copyleft/lesser.html" class="external-link" rel="nofollow">LGPL</A></TD>
+</TR>
+<TR>
+<TD class="confluenceTd">javassist.jar</TD>
+<TD class="confluenceTd">Hibernate Entity Manager</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">jboss-archive-browsing.jar</TD>
+<TD class="confluenceTd">Hibernate Entity Manager</TD>
+</TR>
+</TBODY></TABLE>
+</DIV>
+
+
+<P>Right click on the project and select &quot;Refresh&quot; (to notify Eclipse of the jars that we just added).</P>
+
+<H2><A name="Struts2%2BSpring2%2BJPA%2BAJAX-Domain"></A>Domain</H2>
+<P>Our domain model will consist of just a simple &quot;Person&quot; class with a couple of fields. </P>
+<OL>
+	<LI>Create a new class named &quot;Person&quot; (File -&gt; New -&gt; Class), and enter &quot;quickstart.model&quot; for the package name.</LI>
+	<LI>Add the fields &quot;id&quot; (int), &quot;firstName&quot; (String), and lastName (&quot;String&quot;) with their setter/getter methods.</LI>
+	<LI>Mark your class with the &quot;@Entity&quot; annotation, and the &quot;id&quot; field with the annotations  &quot;@Id&quot; and &quot;@GeneratedValue&quot;.</LI>
+</OL>
+
+
+<P>your class will look like:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Person.java</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+<SPAN class="code-keyword">package</SPAN> quickstart.model;
+
+<SPAN class="code-keyword">import</SPAN> javax.persistence.Entity;
+<SPAN class="code-keyword">import</SPAN> javax.persistence.GeneratedValue;
+<SPAN class="code-keyword">import</SPAN> javax.persistence.Id;
+
+@Entity
+<SPAN class="code-keyword">public</SPAN> class Person {
+    @Id
+    @GeneratedValue
+    <SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">Integer</SPAN> id;
+    <SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">String</SPAN> lastName;
+    <SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">String</SPAN> firstName;
+
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> getFirstName() {
+        <SPAN class="code-keyword">return</SPAN> firstName;
+    }
+
+    <SPAN class="code-keyword">public</SPAN> void setFirstName(<SPAN class="code-object">String</SPAN> firstName) {
+        <SPAN class="code-keyword">this</SPAN>.firstName = firstName;
+    }
+
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> getLastName() {
+        <SPAN class="code-keyword">return</SPAN> lastName;
+    }
+
+    <SPAN class="code-keyword">public</SPAN> void setLastName(<SPAN class="code-object">String</SPAN> lastName) {
+        <SPAN class="code-keyword">this</SPAN>.lastName = lastName;
+    }
+
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">Integer</SPAN> getId() {
+        <SPAN class="code-keyword">return</SPAN> id;
+    }
+
+    <SPAN class="code-keyword">public</SPAN> void setId(<SPAN class="code-object">Integer</SPAN> id) {
+        <SPAN class="code-keyword">this</SPAN>.id = id;
+    }
+}
+</PRE>
+</DIV></DIV>
+
+<P>@Entity will let the provider know that this class can be persisted. @Id marks the &quot;id&quot; field as the primary key for this class. @GeneratedValue will cause the id field to be generated by the provider (Hibernate). Classes and fields are by default mapped to tables and columns with the same name, see JPA's documentation for more details. </P>
+
+<H2><A name="Struts2%2BSpring2%2BJPA%2BAJAX-Personservice."></A>Person service.</H2>
+<P>We will now write the class that will take care of CRUD operations on &quot;Person&quot; objects.</P>
+
+<OL>
+	<LI>Create a new interface (File -&gt; New -&gt; Interface), enter &quot;PersonService&quot; for the name, and &quot;quickstart.service&quot; for the namespace. Set its content to:</LI>
+</OL>
+
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>PersonService.java</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+<SPAN class="code-keyword">package</SPAN> quickstart.service;
+
+<SPAN class="code-keyword">import</SPAN> java.util.List;
+
+<SPAN class="code-keyword">import</SPAN> quickstart.model.Person;
+
+<SPAN class="code-keyword">public</SPAN> <SPAN class="code-keyword">interface</SPAN> PersonService {
+    <SPAN class="code-keyword">public</SPAN> List&lt;Person&gt; findAll();
+
+    <SPAN class="code-keyword">public</SPAN> void save(Person person);
+
+    <SPAN class="code-keyword">public</SPAN> void remove(<SPAN class="code-object">int</SPAN> id);
+
+    <SPAN class="code-keyword">public</SPAN> Person find(<SPAN class="code-object">int</SPAN> id);
+}
+</PRE>
+</DIV></DIV>
+
+<OL>
+	<LI>Create a new class (File -&gt; New -&gt; Class), enter &quot;PersonServiceImpl&quot; for the name and &quot;quickstart.service&quot; for the namespace. Set its content to:</LI>
+</OL>
+
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>PersonServiceImpl.java</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+<SPAN class="code-keyword">package</SPAN> quickstart.service;
+
+<SPAN class="code-keyword">import</SPAN> java.util.List;
+
+<SPAN class="code-keyword">import</SPAN> javax.persistence.EntityManager;
+<SPAN class="code-keyword">import</SPAN> javax.persistence.PersistenceContext;
+<SPAN class="code-keyword">import</SPAN> javax.persistence.Query;
+
+<SPAN class="code-keyword">import</SPAN> org.springframework.transaction.annotation.Transactional;
+
+<SPAN class="code-keyword">import</SPAN> quickstart.model.Person;
+
+@Transactional
+<SPAN class="code-keyword">public</SPAN> class PersonServiceImpl <SPAN class="code-keyword">implements</SPAN> PersonService {
+    <SPAN class="code-keyword">private</SPAN> EntityManager em;
+
+    @PersistenceContext
+    <SPAN class="code-keyword">public</SPAN> void setEntityManager(EntityManager em) {
+        <SPAN class="code-keyword">this</SPAN>.em = em;
+    }
+
+    @SuppressWarnings(<SPAN class="code-quote">&quot;unchecked&quot;</SPAN>)
+    <SPAN class="code-keyword">public</SPAN> List&lt;Person&gt; findAll() {
+        Query query = getEntityManager().createQuery(<SPAN class="code-quote">&quot;select p FROM Person p&quot;</SPAN>);
+        <SPAN class="code-keyword">return</SPAN> query.getResultList();
+    }
+
+    <SPAN class="code-keyword">public</SPAN> void save(Person person) {
+        <SPAN class="code-keyword">if</SPAN> (person.getId() == <SPAN class="code-keyword">null</SPAN>) {
+            <SPAN class="code-comment">// <SPAN class="code-keyword">new</SPAN>
+</SPAN>            em.persist(person);
+        } <SPAN class="code-keyword">else</SPAN> {
+            <SPAN class="code-comment">// update
+</SPAN>            em.merge(person);
+        }
+    }
+
+    <SPAN class="code-keyword">public</SPAN> void remove(<SPAN class="code-object">int</SPAN> id) {
+        Person person = find(id);
+        <SPAN class="code-keyword">if</SPAN> (person != <SPAN class="code-keyword">null</SPAN>) {
+            em.remove(person);
+        }
+    }
+
+    <SPAN class="code-keyword">private</SPAN> EntityManager getEntityManager() {
+        <SPAN class="code-keyword">return</SPAN> em;
+    }
+
+    <SPAN class="code-keyword">public</SPAN> Person find(<SPAN class="code-object">int</SPAN> id) {
+        <SPAN class="code-keyword">return</SPAN> em.find(Person.class, id);
+    }
+
+}
+</PRE>
+</DIV></DIV>
+
+<P>@PersistenceContext will make Spring inject an EntityManager into the service when it is instantiated. The @PersistenceContext  annotation can be placed on the field, or on the setter method. If the class is annotated as @Transactional, Spring will make sure that its methods run inside a transaction.</P>
+
+<H2><A name="Struts2%2BSpring2%2BJPA%2BAJAX-JPAconfiguration"></A>JPA configuration </H2>
+<OL>
+	<LI>Create a folder named &quot;META-INF&quot; under the &quot;src&quot; folder.</LI>
+	<LI>Create a file named &quot;persistence.xml&quot; under the &quot;META-INF&quot; folder and set its content to:</LI>
+</OL>
+
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>persistence.xml</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+&lt;persistence xmlns=<SPAN class="code-quote">&quot;http://java.sun.com/xml/ns/persistence&quot;</SPAN>
+    <SPAN class="code-keyword">xmlns:xsi</SPAN>=<SPAN class="code-quote">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</SPAN>
+    xsi:schemaLocation=<SPAN class="code-quote">&quot;http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd&quot;</SPAN>
+    version=<SPAN class="code-quote">&quot;1.0&quot;</SPAN>&gt;
+    <SPAN class="code-tag">&lt;persistence-unit name=<SPAN class="code-quote">&quot;punit&quot;</SPAN>&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/persistence-unit&gt;</SPAN>
+<SPAN class="code-tag">&lt;/persistence&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>JPA configuration can be set on this file. On this example it will be empty because the datasource configuration will be in the Spring configuration file. </P>
+
+<H2><A name="Struts2%2BSpring2%2BJPA%2BAJAX-Spring"></A>Spring</H2>
+<OL>
+	<LI>Update the content of web.xml under /WebContent/WEB-INF/web.xml to:</LI>
+</OL>
+
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>web.xml</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;?xml version=<SPAN class="code-quote">&quot;1.0&quot;</SPAN> encoding=<SPAN class="code-quote">&quot;UTF-8&quot;</SPAN>?&gt;</SPAN>
+&lt;web-app id=<SPAN class="code-quote">&quot;person&quot;</SPAN> version=<SPAN class="code-quote">&quot;2.4&quot;</SPAN> xmlns=<SPAN class="code-quote">&quot;http://java.sun.com/xml/ns/j2ee&quot;</SPAN>
+    <SPAN class="code-keyword">xmlns:xsi</SPAN>=<SPAN class="code-quote">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</SPAN>
+    xsi:schemaLocation=<SPAN class="code-quote">&quot;http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd&quot;</SPAN>&gt;
+    <SPAN class="code-tag">&lt;display-name&gt;</SPAN>person<SPAN class="code-tag">&lt;/display-name&gt;</SPAN>
+
+    <SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- Include this if you are using Hibernate --&gt;</SPAN></SPAN>
+    <SPAN class="code-tag">&lt;filter&gt;</SPAN>
+        <SPAN class="code-tag">&lt;filter-name&gt;</SPAN>Spring OpenEntityManagerInViewFilter<SPAN class="code-tag">&lt;/filter-name&gt;</SPAN>
+        <SPAN class="code-tag">&lt;filter-class&gt;</SPAN>
+            org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter
+        <SPAN class="code-tag">&lt;/filter-class&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/filter&gt;</SPAN>
+
+    <SPAN class="code-tag">&lt;filter-mapping&gt;</SPAN>
+        <SPAN class="code-tag">&lt;filter-name&gt;</SPAN>Spring OpenEntityManagerInViewFilter<SPAN class="code-tag">&lt;/filter-name&gt;</SPAN>
+        <SPAN class="code-tag">&lt;url-pattern&gt;</SPAN>/*<SPAN class="code-tag">&lt;/url-pattern&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/filter-mapping&gt;</SPAN>
+
+    <SPAN class="code-tag">&lt;filter&gt;</SPAN>
+        <SPAN class="code-tag">&lt;filter-name&gt;</SPAN>struts2<SPAN class="code-tag">&lt;/filter-name&gt;</SPAN>
+        <SPAN class="code-tag">&lt;filter-class&gt;</SPAN>
+            org.apache.struts2.dispatcher.FilterDispatcher
+        <SPAN class="code-tag">&lt;/filter-class&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/filter&gt;</SPAN>
+
+    <SPAN class="code-tag">&lt;filter-mapping&gt;</SPAN>
+        <SPAN class="code-tag">&lt;filter-name&gt;</SPAN>struts2<SPAN class="code-tag">&lt;/filter-name&gt;</SPAN>
+        <SPAN class="code-tag">&lt;url-pattern&gt;</SPAN>/*<SPAN class="code-tag">&lt;/url-pattern&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/filter-mapping&gt;</SPAN>
+
+
+    <SPAN class="code-tag">&lt;welcome-file-list&gt;</SPAN>
+        <SPAN class="code-tag">&lt;welcome-file&gt;</SPAN>index.jsp<SPAN class="code-tag">&lt;/welcome-file&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/welcome-file-list&gt;</SPAN>
+
+    <SPAN class="code-tag">&lt;listener&gt;</SPAN>
+        <SPAN class="code-tag">&lt;listener-class&gt;</SPAN>
+            org.springframework.web.context.ContextLoaderListener
+        <SPAN class="code-tag">&lt;/listener-class&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/listener&gt;</SPAN>
+<SPAN class="code-tag">&lt;/web-app&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>This will make the container redirect all requests to Struts &quot;FilterDispatcher&quot; class. &quot;index.jsp&quot; is set as the home page, and Spring's &quot;ContextLoaderListener&quot; is configured as a listener.</P>
+
+<OL>
+	<LI>Create a file named &quot;applicationContext.xml&quot; under /WebContent/WEB-INF, and set its content to:</LI>
+</OL>
+
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>applicationContext.xml</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;?xml version=<SPAN class="code-quote">&quot;1.0&quot;</SPAN> encoding=<SPAN class="code-quote">&quot;UTF-8&quot;</SPAN>?&gt;</SPAN>
+&lt;beans xmlns=<SPAN class="code-quote">&quot;http://www.springframework.org/schema/beans&quot;</SPAN>
+    <SPAN class="code-keyword">xmlns:xsi</SPAN>=<SPAN class="code-quote">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</SPAN>
+    <SPAN class="code-keyword">xmlns:aop</SPAN>=<SPAN class="code-quote">&quot;http://www.springframework.org/schema/aop&quot;</SPAN>
+    <SPAN class="code-keyword">xmlns:tx</SPAN>=<SPAN class="code-quote">&quot;http://www.springframework.org/schema/tx&quot;</SPAN>
+    xsi:schemaLocation=&quot;
+    http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
+    http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd&quot;&gt;
+
+    &lt;bean
+        class=<SPAN class="code-quote">&quot;org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor&quot;</SPAN> /&gt;
+
+    <SPAN class="code-tag">&lt;bean id=<SPAN class="code-quote">&quot;personService&quot;</SPAN> class=<SPAN class="code-quote">&quot;quickstart.service.PersonServiceImpl&quot;</SPAN> /&gt;</SPAN>
+
+    &lt;bean id=<SPAN class="code-quote">&quot;entityManagerFactory&quot;</SPAN>
+        class=<SPAN class="code-quote">&quot;org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean&quot;</SPAN>&gt;
+        <SPAN class="code-tag">&lt;property name=<SPAN class="code-quote">&quot;dataSource&quot;</SPAN> ref=<SPAN class="code-quote">&quot;dataSource&quot;</SPAN> /&gt;</SPAN>
+        <SPAN class="code-tag">&lt;property name=<SPAN class="code-quote">&quot;jpaVendorAdapter&quot;</SPAN>&gt;</SPAN>
+            &lt;bean
+                class=<SPAN class="code-quote">&quot;org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter&quot;</SPAN>&gt;
+                <SPAN class="code-tag">&lt;property name=<SPAN class="code-quote">&quot;database&quot;</SPAN> value=<SPAN class="code-quote">&quot;MYSQL&quot;</SPAN> /&gt;</SPAN>
+                <SPAN class="code-tag">&lt;property name=<SPAN class="code-quote">&quot;showSql&quot;</SPAN> value=<SPAN class="code-quote">&quot;true&quot;</SPAN> /&gt;</SPAN>
+            <SPAN class="code-tag">&lt;/bean&gt;</SPAN>
+        <SPAN class="code-tag">&lt;/property&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/bean&gt;</SPAN>
+
+    &lt;bean id=<SPAN class="code-quote">&quot;dataSource&quot;</SPAN>
+        class=<SPAN class="code-quote">&quot;org.springframework.jdbc.datasource.DriverManagerDataSource&quot;</SPAN>&gt;
+        <SPAN class="code-tag">&lt;property name=<SPAN class="code-quote">&quot;driverClassName&quot;</SPAN> value=<SPAN class="code-quote">&quot;com.mysql.jdbc.Driver&quot;</SPAN> /&gt;</SPAN>
+        <SPAN class="code-tag">&lt;property name=<SPAN class="code-quote">&quot;url&quot;</SPAN> value=<SPAN class="code-quote">&quot;jdbc:mysql://localhost/quickstart&quot;</SPAN> /&gt;</SPAN>
+        <SPAN class="code-tag">&lt;property name=<SPAN class="code-quote">&quot;username&quot;</SPAN> value=<SPAN class="code-quote">&quot;root&quot;</SPAN> /&gt;</SPAN>
+        <SPAN class="code-tag">&lt;property name=<SPAN class="code-quote">&quot;password&quot;</SPAN> value=<SPAN class="code-quote">&quot;root&quot;</SPAN> /&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/bean&gt;</SPAN>
+
+    &lt;bean id=<SPAN class="code-quote">&quot;transactionManager&quot;</SPAN>
+        class=<SPAN class="code-quote">&quot;org.springframework.orm.jpa.JpaTransactionManager&quot;</SPAN>&gt;
+        <SPAN class="code-tag">&lt;property name=<SPAN class="code-quote">&quot;entityManagerFactory&quot;</SPAN> ref=<SPAN class="code-quote">&quot;entityManagerFactory&quot;</SPAN> /&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/bean&gt;</SPAN>
+
+    <SPAN class="code-tag">&lt;tx:annotation-driven transaction-manager=<SPAN class="code-quote">&quot;transactionManager&quot;</SPAN> /&gt;</SPAN>
+
+    &lt;bean id=<SPAN class="code-quote">&quot;personAction&quot;</SPAN> scope=<SPAN class="code-quote">&quot;prototype&quot;</SPAN>
+        class=<SPAN class="code-quote">&quot;quickstart.action.PersonAction&quot;</SPAN>&gt;
+        <SPAN class="code-tag">&lt;constructor-arg ref=<SPAN class="code-quote">&quot;personService&quot;</SPAN> /&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/bean&gt;</SPAN>
+<SPAN class="code-tag">&lt;/beans&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>Note that the &quot;class&quot; attribute of the bean &quot;personAction&quot; is set to the name of the action class, and the &quot;personService&quot; bean will be passed as a parameter to the action constructor. Change the &quot;url&quot;, &quot;username&quot; and &quot;password&quot; in the &quot;dataSource&quot; bean to the appropiate values for your database. For more details on the rest of the beans on this file, see Spring's documentation. The &quot;scope&quot; attribute is new in Spring 2, and it means that Spring will create a new PersonAction object every time an object of that type is requested. In Struts 2 a new action object is created to serve each request, that's why we need scope=&quot;prototype&quot;.</P>
+
+<H2><A name="Struts2%2BSpring2%2BJPA%2BAJAX-Struts"></A>Struts</H2>
+<P>We will now create a simple Struts action that wraps PersonServices methods, and we will configure Struts to use Spring as the object factory. </P>
+<OL>
+	<LI>Open the new class dialog (File -&gt; New -&gt; Class) and enter &quot;PersonAction&quot; for the classname, and &quot;quickstart.action&quot; for the namespace. Set its content to:</LI>
+</OL>
+
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>PersonAction.java</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+<SPAN class="code-keyword">package</SPAN> quickstart.action;
+
+<SPAN class="code-keyword">import</SPAN> java.util.List;
+
+<SPAN class="code-keyword">import</SPAN> quickstart.model.Person;
+<SPAN class="code-keyword">import</SPAN> quickstart.service.PersonService;
+
+<SPAN class="code-keyword">import</SPAN> com.opensymphony.xwork2.Action;
+<SPAN class="code-keyword">import</SPAN> com.opensymphony.xwork2.Preparable;
+
+<SPAN class="code-keyword">public</SPAN> class PersonAction <SPAN class="code-keyword">implements</SPAN> Preparable {
+    <SPAN class="code-keyword">private</SPAN> PersonService service;
+    <SPAN class="code-keyword">private</SPAN> List&lt;Person&gt; persons;
+    <SPAN class="code-keyword">private</SPAN> Person person;
+    <SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">Integer</SPAN> id;
+
+    <SPAN class="code-keyword">public</SPAN> PersonAction(PersonService service) {
+        <SPAN class="code-keyword">this</SPAN>.service = service;
+    }
+
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> execute() {
+        <SPAN class="code-keyword">this</SPAN>.persons = service.findAll();
+        <SPAN class="code-keyword">return</SPAN> Action.SUCCESS;
+    }
+
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> save() {
+        <SPAN class="code-keyword">this</SPAN>.service.save(person);
+        <SPAN class="code-keyword">this</SPAN>.person = <SPAN class="code-keyword">new</SPAN> Person();
+        <SPAN class="code-keyword">return</SPAN> execute();
+    }
+
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> remove() {
+        service.remove(id);
+        <SPAN class="code-keyword">return</SPAN> execute();
+    }
+
+    <SPAN class="code-keyword">public</SPAN> List&lt;Person&gt; getPersons() {
+        <SPAN class="code-keyword">return</SPAN> persons;
+    }
+
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">Integer</SPAN> getId() {
+        <SPAN class="code-keyword">return</SPAN> id;
+    }
+
+    <SPAN class="code-keyword">public</SPAN> void setId(<SPAN class="code-object">Integer</SPAN> id) {
+        <SPAN class="code-keyword">this</SPAN>.id = id;
+    }
+
+    <SPAN class="code-keyword">public</SPAN> void prepare() <SPAN class="code-keyword">throws</SPAN> Exception {
+        <SPAN class="code-keyword">if</SPAN> (id != <SPAN class="code-keyword">null</SPAN>)
+            person = service.find(id);
+    }
+
+    <SPAN class="code-keyword">public</SPAN> Person getPerson() {
+        <SPAN class="code-keyword">return</SPAN> person;
+    }
+
+    <SPAN class="code-keyword">public</SPAN> void setPerson(Person person) {
+        <SPAN class="code-keyword">this</SPAN>.person = person;
+    }
+}
+</PRE>
+</DIV></DIV>
+
+<P>Look mom my action is a simple POJO!<BR>
+The &quot;Preparable&quot; interface instructs Struts to call the &quot;prepare&quot; method if the &quot;PrepareInterceptor&quot; is applied to the action (by default, it is). The constructor of the action takes a &quot;PersonService&quot; as a parameter, which Spring will take care of passing when the action is instatiated.</P>
+
+<OL>
+	<LI>Create a new file named &quot;struts.xml&quot; under the &quot;src&quot; folder. And set its content to:</LI>
+</OL>
+
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>struts.xml</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;?xml version=<SPAN class="code-quote">&quot;1.0&quot;</SPAN> encoding=<SPAN class="code-quote">&quot;UTF-8&quot;</SPAN> ?&gt;</SPAN>
+&lt;!DOCTYPE struts PUBLIC
+    <SPAN class="code-quote">&quot;-//Apache Software Foundation//DTD Struts Configuration 2.0//EN&quot;</SPAN>
+    <SPAN class="code-quote">&quot;http://struts.apache.org/dtds/struts-2.0.dtd&quot;</SPAN>&gt;
+<SPAN class="code-tag">&lt;struts&gt;</SPAN>
+    <SPAN class="code-tag">&lt;constant name=<SPAN class="code-quote">&quot;struts.objectFactory&quot;</SPAN> value=<SPAN class="code-quote">&quot;spring&quot;</SPAN> /&gt;</SPAN>
+    <SPAN class="code-tag">&lt;constant name=<SPAN class="code-quote">&quot;struts.devMode&quot;</SPAN> value=<SPAN class="code-quote">&quot;true&quot;</SPAN> /&gt;</SPAN>
+
+    <SPAN class="code-tag">&lt;package name=<SPAN class="code-quote">&quot;person&quot;</SPAN> extends=<SPAN class="code-quote">&quot;struts-default&quot;</SPAN>&gt;</SPAN>
+
+        <SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;list&quot;</SPAN> method=<SPAN class="code-quote">&quot;execute&quot;</SPAN> class=<SPAN class="code-quote">&quot;personAction&quot;</SPAN>&gt;</SPAN>
+            <SPAN class="code-tag">&lt;result&gt;</SPAN>pages/list.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+            <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;input&quot;</SPAN>&gt;</SPAN>pages/list.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+        <SPAN class="code-tag">&lt;/action&gt;</SPAN>
+
+        <SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;remove&quot;</SPAN> class=<SPAN class="code-quote">&quot;personAction&quot;</SPAN> method=<SPAN class="code-quote">&quot;remove&quot;</SPAN>&gt;</SPAN>
+            <SPAN class="code-tag">&lt;result&gt;</SPAN>pages/list.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+            <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;input&quot;</SPAN>&gt;</SPAN>pages/list.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+        <SPAN class="code-tag">&lt;/action&gt;</SPAN>
+
+        <SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;save&quot;</SPAN> class=<SPAN class="code-quote">&quot;personAction&quot;</SPAN> method=<SPAN class="code-quote">&quot;save&quot;</SPAN>&gt;</SPAN>
+            <SPAN class="code-tag">&lt;result&gt;</SPAN>pages/list.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+            <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;input&quot;</SPAN>&gt;</SPAN>pages/list.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+        <SPAN class="code-tag">&lt;/action&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/package&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;/struts&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>Setting &quot;struts.objectFactory&quot; to &quot;spring&quot; will force Struts to instantiate the actions using Spring, injecting all the defined dependencies on applicationContext.xml. The &quot;class&quot; attribute for each action alias is set to &quot;personAction&quot;, which is the bean id that we defined on applicationContext.xml for the PersonAction class. This is all that is needed to make Struts work with Spring. </P>
+
+<H2><A name="Struts2%2BSpring2%2BJPA%2BAJAX-Thepages"></A>The pages</H2>
+<P>We only have two pages, &quot;index.jsp&quot; and &quot;list.jsp&quot;. &quot;list.jsp&quot; returns a table with a list of the persons on the database.We have this list on a different page because we are going to add some AJAX to spicy it up. </P>
+
+<OL>
+	<LI>Create a new file named &quot;list.jsp&quot; under /WebContent/pages/ and set its content to:</LI>
+</OL>
+
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>list.jsp</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;%@ taglib prefix=<SPAN class="code-quote">&quot;s&quot;</SPAN> uri=<SPAN class="code-quote">&quot;/struts-tags&quot;</SPAN>%&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;p&gt;</SPAN>Persons<SPAN class="code-tag">&lt;/p&gt;</SPAN>
+<SPAN class="code-tag">&lt;s:if test=<SPAN class="code-quote">&quot;persons.size &gt;</SPAN> 0&quot;</SPAN>&gt;
+	<SPAN class="code-tag">&lt;table&gt;</SPAN>
+		<SPAN class="code-tag">&lt;s:iterator value=<SPAN class="code-quote">&quot;persons&quot;</SPAN>&gt;</SPAN>
+			<SPAN class="code-tag">&lt;tr id=<SPAN class="code-quote">&quot;row_&lt;s:property value=&quot;</SPAN>id<SPAN class="code-quote">&quot;/&gt;</SPAN>&quot;</SPAN>&gt;
+				<SPAN class="code-tag">&lt;td&gt;</SPAN>
+					<SPAN class="code-tag">&lt;s:property value=<SPAN class="code-quote">&quot;firstName&quot;</SPAN> /&gt;</SPAN>
+				<SPAN class="code-tag">&lt;/td&gt;</SPAN>
+				<SPAN class="code-tag">&lt;td&gt;</SPAN>
+					<SPAN class="code-tag">&lt;s:property value=<SPAN class="code-quote">&quot;lastName&quot;</SPAN> /&gt;</SPAN>
+				<SPAN class="code-tag">&lt;/td&gt;</SPAN>
+				<SPAN class="code-tag">&lt;td&gt;</SPAN>
+					<SPAN class="code-tag">&lt;s:url id=<SPAN class="code-quote">&quot;removeUrl&quot;</SPAN> action=<SPAN class="code-quote">&quot;remove&quot;</SPAN>&gt;</SPAN>
+						<SPAN class="code-tag">&lt;s:param name=<SPAN class="code-quote">&quot;id&quot;</SPAN> value=<SPAN class="code-quote">&quot;id&quot;</SPAN> /&gt;</SPAN>
+					<SPAN class="code-tag">&lt;/s:url&gt;</SPAN>
+					<SPAN class="code-tag">&lt;s:a href=<SPAN class="code-quote">&quot;%{removeUrl}&quot;</SPAN> theme=<SPAN class="code-quote">&quot;ajax&quot;</SPAN> targets=<SPAN class="code-quote">&quot;persons&quot;</SPAN>&gt;</SPAN>Remove<SPAN class="code-tag">&lt;/s:a&gt;</SPAN>
+					<SPAN class="code-tag">&lt;s:a id=<SPAN class="code-quote">&quot;a_%{id}&quot;</SPAN> theme=<SPAN class="code-quote">&quot;ajax&quot;</SPAN> notifyTopics=<SPAN class="code-quote">&quot;/edit&quot;</SPAN>&gt;</SPAN>Edit<SPAN class="code-tag">&lt;/s:a&gt;</SPAN>
+				<SPAN class="code-tag">&lt;/td&gt;</SPAN>
+			<SPAN class="code-tag">&lt;/tr&gt;</SPAN>
+		<SPAN class="code-tag">&lt;/s:iterator&gt;</SPAN>
+	<SPAN class="code-tag">&lt;/table&gt;</SPAN>
+<SPAN class="code-tag">&lt;/s:if&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>This is going to render a table with each row showing the first and last name of the person, a link to remove the person, and a link to edit. The remove link has the attribute &quot;targets&quot;, set to &quot;persons&quot;, which means that when the user clicks on it, an asynchronous request will be made to the &quot;remove&quot; action (as configured on struts.xml, &quot;remove&quot; points to the &quot;remove&quot; method in PersonAction), passing the person id as parameter.</P>
+
+<P>When the edit link is clicked on, it will publish the &quot;/edit&quot; topic, which will trigger a javascript function to populate the fields.</P>
+
+<OL>
+	<LI>Create a new file named &quot;index.jsp&quot; under /WebContent and set its content to:</LI>
+</OL>
+
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>index.jsp</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;%@ taglib prefix=<SPAN class="code-quote">&quot;s&quot;</SPAN> uri=<SPAN class="code-quote">&quot;/struts-tags&quot;</SPAN>%&gt;</SPAN>
+<SPAN class="code-tag">&lt;html&gt;</SPAN>
+	<SPAN class="code-tag">&lt;head&gt;</SPAN>
+		<SPAN class="code-tag">&lt;s:head theme=<SPAN class="code-quote">&quot;ajax&quot;</SPAN> debug=<SPAN class="code-quote">&quot;true&quot;</SPAN>/&gt;</SPAN>
+		<SPAN class="code-tag">&lt;script type=<SPAN class="code-quote">&quot;text/javascript&quot;</SPAN>&gt;</SPAN>
+			dojo.event.topic.subscribe(<SPAN class="code-quote">&quot;/save&quot;</SPAN>, function(data, type, request) {
+			    if(type == <SPAN class="code-quote">&quot;load&quot;</SPAN>) {
+					dojo.byId(<SPAN class="code-quote">&quot;id&quot;</SPAN>).value = &quot;&quot;;
+					dojo.byId(<SPAN class="code-quote">&quot;firstName&quot;</SPAN>).value = &quot;&quot;;
+					dojo.byId(<SPAN class="code-quote">&quot;lastName&quot;</SPAN>).value = &quot;&quot;;
+				}
+			});
+
+			dojo.event.topic.subscribe(<SPAN class="code-quote">&quot;/edit&quot;</SPAN>, function(data, type, request) {
+			    if(type == <SPAN class="code-quote">&quot;before&quot;</SPAN>) {
+					var id = data.split(<SPAN class="code-quote">&quot;_&quot;</SPAN>)[1];
+
+					var tr = dojo.byId(<SPAN class="code-quote">&quot;row_&quot;</SPAN>+id);
+					var tds = tr.getElementsByTagName(<SPAN class="code-quote">&quot;td&quot;</SPAN>);
+
+					dojo.byId(<SPAN class="code-quote">&quot;id&quot;</SPAN>).value = id;
+					dojo.byId(<SPAN class="code-quote">&quot;firstName&quot;</SPAN>).value = dojo.string.trim(dojo.dom.textContent(tds[0]));
+					dojo.byId(<SPAN class="code-quote">&quot;lastName&quot;</SPAN>).value = dojo.string.trim(dojo.dom.textContent(tds[1]));
+				}
+			});
+		<SPAN class="code-tag">&lt;/script&gt;</SPAN>
+	<SPAN class="code-tag">&lt;/head&gt;</SPAN>
+	<SPAN class="code-tag">&lt;body&gt;</SPAN>
+	    <SPAN class="code-tag">&lt;s:url action=<SPAN class="code-quote">&quot;list&quot;</SPAN> id=<SPAN class="code-quote">&quot;descrsUrl&quot;</SPAN>/&gt;</SPAN>
+
+        <SPAN class="code-tag">&lt;div style=<SPAN class="code-quote">&quot;width: 300px;border-style: solid&quot;</SPAN>&gt;</SPAN>
+        	<SPAN class="code-tag">&lt;div style=<SPAN class="code-quote">&quot;text-align: right;&quot;</SPAN>&gt;</SPAN>
+    			<SPAN class="code-tag">&lt;s:a theme=<SPAN class="code-quote">&quot;ajax&quot;</SPAN> notifyTopics=<SPAN class="code-quote">&quot;/refresh&quot;</SPAN>&gt;</SPAN>Refresh<SPAN class="code-tag">&lt;/s:a&gt;</SPAN>
+    		<SPAN class="code-tag">&lt;/div&gt;</SPAN>
+    		<SPAN class="code-tag">&lt;s:div id=<SPAN class="code-quote">&quot;persons&quot;</SPAN> theme=<SPAN class="code-quote">&quot;ajax&quot;</SPAN> href=<SPAN class="code-quote">&quot;%{descrsUrl}&quot;</SPAN> loadingText=<SPAN class="code-quote">&quot;Loading...&quot;</SPAN> listenTopics=<SPAN class="code-quote">&quot;/refresh&quot;</SPAN>/&gt;</SPAN>
+        <SPAN class="code-tag">&lt;/div&gt;</SPAN>
+
+        <SPAN class="code-tag">&lt;br/&gt;</SPAN>
+
+		<SPAN class="code-tag">&lt;div style=<SPAN class="code-quote">&quot;width: 300px;border-style: solid&quot;</SPAN>&gt;</SPAN>
+			<SPAN class="code-tag">&lt;p&gt;</SPAN>Person Data<SPAN class="code-tag">&lt;/p&gt;</SPAN>
+			<SPAN class="code-tag">&lt;s:form action=<SPAN class="code-quote">&quot;save&quot;</SPAN> validate=<SPAN class="code-quote">&quot;true&quot;</SPAN>&gt;</SPAN>
+			    <SPAN class="code-tag">&lt;s:textfield id=<SPAN class="code-quote">&quot;id&quot;</SPAN> name=<SPAN class="code-quote">&quot;person.id&quot;</SPAN> cssStyle=<SPAN class="code-quote">&quot;display:none&quot;</SPAN>/&gt;</SPAN>
+				<SPAN class="code-tag">&lt;s:textfield id=<SPAN class="code-quote">&quot;firstName&quot;</SPAN> label=<SPAN class="code-quote">&quot;First Name&quot;</SPAN> name=<SPAN class="code-quote">&quot;person.firstName&quot;</SPAN>/&gt;</SPAN>
+				<SPAN class="code-tag">&lt;s:textfield id=<SPAN class="code-quote">&quot;lastName&quot;</SPAN> label=<SPAN class="code-quote">&quot;Last Name&quot;</SPAN> name=<SPAN class="code-quote">&quot;person.lastName&quot;</SPAN>/&gt;</SPAN>
+				<SPAN class="code-tag">&lt;s:submit theme=<SPAN class="code-quote">&quot;ajax&quot;</SPAN> targets=<SPAN class="code-quote">&quot;persons&quot;</SPAN> notifyTopics=<SPAN class="code-quote">&quot;/save&quot;</SPAN>/&gt;</SPAN>
+			<SPAN class="code-tag">&lt;/s:form&gt;</SPAN>
+		<SPAN class="code-tag">&lt;/div&gt;</SPAN>
+	<SPAN class="code-tag">&lt;/body&gt;</SPAN>
+<SPAN class="code-tag">&lt;/html&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>Look mom no page refresh!<BR>
+The div &quot;persons&quot; will load its content asynchronously, and will show &quot;Loading...&quot; while while the request is on progress (you can use the &quot;indicator&quot; attribute for better progress feedback), you can force it to refresh clicking on the &quot;Refresh&quot; link. The &quot;submit&quot; button, will make an asynchronous request to the action &quot;save&quot; (&quot;save&quot; method on PersonAction), and will publish the topic &quot;/save&quot; to which we subscribed to, using &quot;dojo.event.topic.subscribe&quot;, to clear the input fields.</P>
+
+<H2><A name="Struts2%2BSpring2%2BJPA%2BAJAX-Validation"></A>Validation</H2>
+<P>Because we don't want any John Doe on our database, we will add some basic client side validation to our form. In Struts 2, validation can be placed on xml files with the name pattern ActionName-validation.xml, located on the same package as the action. To add validation to an specific alias of an action (like a method), the validation file name follows the pattern ActionName-alias-validation.xml, where &quot;alias&quot; is the action alias name (in this case a method name, &quot;save&quot;). Add a file named &quot;PersonAction-save-validation.xml&quot; under /src/quickstart/action, and set its content to:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+&lt;!DOCTYPE validators PUBLIC
+<SPAN class="code-quote">&quot;-//OpenSymphony Group//XWork Validator 1.0//EN&quot;</SPAN>
+<SPAN class="code-quote">&quot;http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd&quot;</SPAN>&gt;
+<SPAN class="code-tag">&lt;validators&gt;</SPAN>
+    <SPAN class="code-tag">&lt;field name=<SPAN class="code-quote">&quot;person.firstName&quot;</SPAN>&gt;</SPAN>
+        <SPAN class="code-tag">&lt;field-validator type=<SPAN class="code-quote">&quot;requiredstring&quot;</SPAN>&gt;</SPAN>
+            <SPAN class="code-tag">&lt;message&gt;</SPAN>First name is required!<SPAN class="code-tag">&lt;/message&gt;</SPAN>
+        <SPAN class="code-tag">&lt;/field-validator&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/field&gt;</SPAN>
+    <SPAN class="code-tag">&lt;field name=<SPAN class="code-quote">&quot;person.lastName&quot;</SPAN>&gt;</SPAN>
+        <SPAN class="code-tag">&lt;field-validator type=<SPAN class="code-quote">&quot;requiredstring&quot;</SPAN>&gt;</SPAN>
+            <SPAN class="code-tag">&lt;message&gt;</SPAN>Last name is required!<SPAN class="code-tag">&lt;/message&gt;</SPAN>
+        <SPAN class="code-tag">&lt;/field-validator&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/field&gt;</SPAN>
+<SPAN class="code-tag">&lt;/validators&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>See the Struts documentation for details on existing validators, and how to write, and plug in, your own validators.</P>
+
+<P>To run the project, Right click on your project and Run As -&gt; Run on Server. You can debug it on the same way, Right click on the project and Debug As -&gt; Debug on Server. Download and install Struts 2 Showcase to see more examples.</P>
+
+<H1><A name="Struts2%2BSpring2%2BJPA%2BAJAX-UsingToplinkEssentialsinsteadofHibernate"></A>Using Toplink Essentials instead of Hibernate</H1>
+<OL>
+	<LI>Add this to pom.xml
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+ <SPAN class="code-tag">&lt;repositories&gt;</SPAN>
+     <SPAN class="code-tag">&lt;repository&gt;</SPAN>
+         <SPAN class="code-tag">&lt;id&gt;</SPAN>java.net<SPAN class="code-tag">&lt;/id&gt;</SPAN>
+         <SPAN class="code-tag">&lt;url&gt;</SPAN>https://maven-repository.dev.java.net/nonav/repository<SPAN class="code-tag">&lt;/url&gt;</SPAN>
+         <SPAN class="code-tag">&lt;layout&gt;</SPAN>legacy<SPAN class="code-tag">&lt;/layout&gt;</SPAN>
+     <SPAN class="code-tag">&lt;/repository&gt;</SPAN>
+ <SPAN class="code-tag">&lt;/repositories&gt;</SPAN>
+</PRE>
+</DIV></DIV></LI>
+	<LI>Add this to the <EM>dependencies</EM> node in pom.xml
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;dependency&gt;</SPAN>
+     <SPAN class="code-tag">&lt;groupId&gt;</SPAN>toplink.essentials<SPAN class="code-tag">&lt;/groupId&gt;</SPAN>
+     <SPAN class="code-tag">&lt;artifactId&gt;</SPAN>toplink-essentials<SPAN class="code-tag">&lt;/artifactId&gt;</SPAN>
+     <SPAN class="code-tag">&lt;version&gt;</SPAN>2.0-38<SPAN class="code-tag">&lt;/version&gt;</SPAN>
+     <SPAN class="code-tag">&lt;exclusions&gt;</SPAN>
+         <SPAN class="code-tag">&lt;exclusion&gt;</SPAN>
+             <SPAN class="code-tag">&lt;groupId&gt;</SPAN>javax.transaction<SPAN class="code-tag">&lt;/groupId&gt;</SPAN>
+             <SPAN class="code-tag">&lt;artifactId&gt;</SPAN>jta<SPAN class="code-tag">&lt;/artifactId&gt;</SPAN>
+         <SPAN class="code-tag">&lt;/exclusion&gt;</SPAN>
+     <SPAN class="code-tag">&lt;/exclusions&gt;</SPAN>
+<SPAN class="code-tag">&lt;/dependency&gt;</SPAN>
+</PRE>
+</DIV></DIV></LI>
+	<LI>Replace the jpaVendorAdapter element in <EM>applicationContext.xml</EM> with this:
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;property name=<SPAN class="code-quote">&quot;jpaVendorAdapter&quot;</SPAN>&gt;</SPAN>
+    <SPAN class="code-tag">&lt;bean class=<SPAN class="code-quote">&quot;org.springframework.orm.jpa.vendor.TopLinkJpaVendorAdapter&quot;</SPAN>&gt;</SPAN>
+        <SPAN class="code-tag">&lt;property name=<SPAN class="code-quote">&quot;databasePlatform&quot;</SPAN> value=<SPAN class="code-quote">&quot;oracle.toplink.essentials.platform.database.MySQL4Platform&quot;</SPAN> /&gt;</SPAN>
+        <SPAN class="code-tag">&lt;property name=<SPAN class="code-quote">&quot;generateDdl&quot;</SPAN> value=<SPAN class="code-quote">&quot;true&quot;</SPAN> /&gt;</SPAN> 
+        <SPAN class="code-tag">&lt;property name=<SPAN class="code-quote">&quot;showSql&quot;</SPAN> value=<SPAN class="code-quote">&quot;true&quot;</SPAN> /&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/bean&gt;</SPAN>
+<SPAN class="code-tag">&lt;/property&gt;</SPAN>
+</PRE>
+</DIV></DIV></LI>
+</OL>
+
+
+
+<H1><A name="Struts2%2BSpring2%2BJPA%2BAJAX-References"></A>References</H1>
+<P><A href="http://struts.apache.org/2.x/" class="external-link" rel="nofollow">Struts</A><BR>
+<A href="http://static.springframework.org/spring/docs/2.0.x/reference/orm.html#orm-jpa" class="external-link" rel="nofollow">Spring JPA Doc</A><BR>
+<A href="http://www.eclipse.org/dali/" class="external-link" rel="nofollow">Eclipse Dali</A></P>
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

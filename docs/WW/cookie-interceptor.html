@@ -1,0 +1,251 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Cookie Interceptor</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="guides.html" title="Guides">Guides</A>&nbsp;&gt;&nbsp;<A href="core-developers-guide.html" title="Core Developers Guide">Core Developers Guide</A>&nbsp;&gt;&nbsp;<A href="interceptors.html" title="Interceptors">Interceptors</A>&nbsp;&gt;&nbsp;<A href="" title="Cookie Interceptor">Cookie Interceptor</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Cookie Interceptor</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=48571">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=48571">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=48571">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=48571">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=48571">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=48571">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          
+<P>The aim of this intercepter is to set values in the stack/action based on cookie name/value
+of interest. <P></P>
+
+<P>If an asterisk is present in cookiesName parameter, it will be assume that
+all cookies name are to be injected into struts' action, even though
+cookiesName is comma-separated by other values, e.g. (cookie1,*,cookie2). <P></P>
+
+<P>If cookiesName is left empty it will assume that no cookie will be injected
+into Struts' action. <P></P>
+
+<P>If an asterisk is present in cookiesValue parameter, it will assume that all
+cookies name irrespective of its value will be injected into Struts' action so
+long as the cookie name matches those specified in cookiesName parameter.<P></P>
+
+<P>If cookiesValue is left empty it will assume that all cookie that match the cookieName
+parameter will be injected into Struts' action.<P></P>
+
+<P>The action could implements CookiesAware in order to have a Map
+of filtered cookies set into it. <P></P>
+
+
+
+<P>Parameters</P>
+
+<P><UL>
+     <LI>cookiesName (mandatory) - Name of cookies to be injected into the action. If more
+                                                                than one cookie name is desired it could be comma-separated.
+                                                                If all cookies name is desired, it could simply be *, an asterik.
+                                                                When many cookies name are comma-separated either of the cookie
+                                                       that match the name in the comma-separated list will be qualified.</LI>
+    <LI>cookiesValue (mandatory) - Value of cookies that if its name matches cookieName attribute
+                                                        and its value matched this, will be injected into Struts'
+                                                        action. If more than one cookie name is desired it could be
+                                                        comma-separated. If left empty, it will assume any value would
+                                                        be ok. If more than one value is specified (comma-separated)
+                                                        it will assume a match if either value is matched.</LI>
+    <LI>acceptCookieNames (optional) - Pattern used to check if name of cookie matches the provided patter, to </LI>
+</UL></P>
+
+
+<P>?<BR>
+Extending the Interceptor</P>
+
+<P><UL>
+     populateCookieValueIntoStack - this method will decide if this cookie value is qualified to be
+                                                                                                        populated into the value stack (hence into the action itself)
+     injectIntoCookiesAwareAction - this method will inject selected cookies (as a java.util.Map) into
+                                                                                                       action that implements CookiesAware.
+</UL></P>
+
+
+<P>?<BR>
+Examples</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+&lt;!--
+  This example will inject cookies named either 'cookie1' or 'cookie2' whose
+  value could be either 'cookie1value' or 'cookie2value' into Struts' action.
+--&gt;
+<SPAN class="code-tag">&lt;action ... &gt;</SPAN>
+   <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;cookie&quot;</SPAN>&gt;</SPAN>
+       <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;cookiesName&quot;</SPAN>&gt;</SPAN>cookie1, cookie2<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+       <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;cookiesValue&quot;</SPAN>&gt;</SPAN>cookie1value, cookie2value<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+   <SPAN class="code-tag">&lt;/interceptor-ref&gt;</SPAN>
+   ....
+<SPAN class="code-tag">&lt;/action&gt;</SPAN>
+
+
+&lt;!--
+     This example will inject cookies named either 'cookie1' or 'cookie2'
+    regardless of their value into Struts' action.
+--&gt;
+<SPAN class="code-tag">&lt;action ... &gt;</SPAN>
+  <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;cookie&quot;</SPAN>&gt;</SPAN>
+     <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;cookiesName&quot;</SPAN>&gt;</SPAN>cookie1, cookie2<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+     <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;cookiesValue&quot;</SPAN>&gt;</SPAN>*<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+  <SPAN class="code-tag">&lt;interceptor-ref&gt;</SPAN>
+  ...
+<SPAN class="code-tag">&lt;/action&gt;</SPAN>
+
+
+&lt;!--
+     This example will inject cookies named either 'cookie1' with value
+     'cookie1value' or 'cookie2' with value 'cookie2value' into Struts'
+     action.
+--&gt;
+<SPAN class="code-tag">&lt;action ... &gt;</SPAN>
+  <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;cookie&quot;</SPAN>&gt;</SPAN>
+     <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;cookiesName&quot;</SPAN>&gt;</SPAN>cookie1<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+     <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;cookiesValue&quot;</SPAN>&gt;</SPAN>cookie1value<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+  <SPAN class="code-tag">&lt;/interceptor-ref&gt;</SPAN>
+  <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;cookie&quot;</SPAN>&gt;</SPAN>
+     <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;cookiesName&quot;</SPAN>&lt;cookie2&lt;/param&gt;</SPAN>
+    <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;cookiesValue&quot;</SPAN>&gt;</SPAN>cookie2value<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+  <SPAN class="code-tag">&lt;/interceptor-ref&gt;</SPAN>
+  ....
+<SPAN class="code-tag">&lt;/action&gt;</SPAN>
+
+&lt;!--
+   This example will inject any cookies regardless of its value into
+   Struts' action.
+ --&gt;
+<SPAN class="code-tag">&lt;action ... &gt;</SPAN>
+  <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;cookie&quot;</SPAN>&gt;</SPAN>
+     <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;cookiesName&quot;</SPAN>&gt;</SPAN>*<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+     <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;cookiesValue&quot;</SPAN>&gt;</SPAN>*<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+  <SPAN class="code-tag">&lt;/interceptor-ref&gt;</SPAN>
+   ...
+<SPAN class="code-tag">&lt;/action&gt;</SPAN>
+
+</PRE>
+</DIV></DIV>
+
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

@@ -1,0 +1,168 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>What are some of the framework's best features</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="faqs.html" title="FAQs">FAQs</A>&nbsp;&gt;&nbsp;<A href="" title="What are some of the framework's best features">What are some of the framework's best features</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">What are some of the framework's best features</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=13921">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=13921">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=13921">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=13921">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=13921">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=13921">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          
+<P>Key features of the framework include: </P>
+
+<H3><A name="Whataresomeoftheframework%27sbestfeatures-Core"></A>Core </H3>
+<UL>
+	<LI>Pluggable framework <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&title=architecture&linkCreation=true&fromPageId=13921" class="createlink">architecture</A> that allows request lifecycles to be customized for each action.</LI>
+	<LI>Flexible <A href="validation.html" title="Validation">Validation</A> framework that allows validation rules to be decoupled from action code.</LI>
+	<LI>Hierarchical approach to <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&title=internationalization&linkCreation=true&fromPageId=13921" class="createlink">internationalization</A> that simplifies localizing applications.</LI>
+	<LI>Automatic <A href="type-conversion.html" title="Type Conversion">Type Conversion</A> that transparently maps values from HTTP to native Java data objects, solving one of the most tedious efforts when creating web applications.</LI>
+	<LI>Integrated <A href="dependency-injection.html" title="Dependency Injection">Dependency Injection</A> engine that manages component lifecycle and dependencies.</LI>
+	<LI>Modular <A href="configuration-files.html" title="Configuration Files">Configuration Files</A> that use packages and namespaces to simplify managing large projects with hundreds of actions.</LI>
+	<LI><A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&title=J2SE%205%20Support&linkCreation=true&fromPageId=13921" class="createlink">Java 5 annotations</A> that reduce configuration overhead. (Java 1.4 is the minimum platform.)</LI>
+</UL>
+
+
+<H3><A name="Whataresomeoftheframework%27sbestfeatures-View"></A>View </H3>
+<UL>
+	<LI>Reusable user interface <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&title=tags&linkCreation=true&fromPageId=13921" class="createlink">tags</A> that allow for easy component-oriented development using <A href="themes-and-templates.html" title="Themes and Templates">Themes and Templates</A>. Bundled tags ranges from simple text fields to advanced tags like date pickers and tree views.</LI>
+	<LI>JSTL-compatible expression language (<A href="ognl.html" title="OGNL">OGNL</A>) that exposes properties on multiple objects as if they were a single JavaBean.</LI>
+	<LI>Pluggable <A href="result-types.html" title="Result Types">Result Types</A> that support multiple view technologies, including <A href="jsp.html" title="JSP">JSP</A>, <A href="freemarker.html" title="FreeMarker">FreeMarker</A>, <A href="velocity.html" title="Velocity">Velocity</A>, PDF, and <A href="jasperreports-tutorial.html" title="JasperReports Tutorial">JasperReports</A>.</LI>
+	<LI>Optional <A href="ajax-theme.html" title="ajax theme">ajax theme</A> that simplifes creating <A href="http://en.wikipedia.org/wiki/AJAX" class="external-link" rel="nofollow">interactive web applications</A>.</LI>
+	<LI>Optional <A href="interceptors.html" title="Interceptors">Interceptor</A> plugins that can execute long-running queries in the background, prevent multiple form submissions, or handle custom security schemes.</LI>
+</UL>
+
+
+<H3><A name="Whataresomeoftheframework%27sbestfeatures-Other"></A>Other</H3>
+<UL>
+	<LI>Easy integration with other popular products, including <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&title=Hibernate&linkCreation=true&fromPageId=13921" class="createlink">Hibernate</A>, <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&title=Spring&linkCreation=true&fromPageId=13921" class="createlink">Spring</A>, <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&title=SiteMesh&linkCreation=true&fromPageId=13921" class="createlink">SiteMesh</A>, and <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&title=JSTL&linkCreation=true&fromPageId=13921" class="createlink">JSTL</A>.</LI>
+	<LI>Distributed under the business-friendly <A href="http://apache.org/licenses/LICENSE-2.0" class="external-link" rel="nofollow">Apache License 2.0</A>.</LI>
+</UL>
+
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

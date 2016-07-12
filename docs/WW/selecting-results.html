@@ -1,0 +1,246 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Selecting Results</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="tutorials.html" title="Tutorials">Tutorials</A>&nbsp;&gt;&nbsp;<A href="bootstrap.html" title="Bootstrap">Bootstrap</A>&nbsp;&gt;&nbsp;<A href="" title="Selecting Results">Selecting Results</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Selecting Results</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=13886">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=13886">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=13886">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=13886">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=13886">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=13886">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <P>In the <A href="coding-actions.html" title="Coding Actions">Coding Actions</A> lesson, we created a Logon class that tests for input. In the <EM>Selecting Results</EM> lesson, we act on the outcome of that test.</P>
+
+<H2><A name="SelectingResults-Selectingan%22Input%22Result"></A>Selecting an &quot;Input&quot; Result</H2>
+
+<P>After the Action processes a request, a result is selected to provide the response. A result may simply forward to an HTML page, a JavaServer page, a FreeMaker or Velocity template, or the result might construct a PDF or some other complex report (like JasperReports). There may be multiple results available to an action mapping. To indicate which one to select, the Action class returns a name corresponding to the appropriate result.</P>
+
+<H3><A name="SelectingResults-TheCode"></A>The Code</H3>
+
+<DIV class="code panel" style="border-style: solid;border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;border-bottom-style: solid;"><B>struts.xml</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+&lt;action name=<SPAN class="code-quote">&quot;Logon&quot;</SPAN> class=<SPAN class="code-quote">&quot;tutorial.Logon&quot;</SPAN>&gt;
+  &lt;result type=<SPAN class="code-quote">&quot;redirectAction&quot;</SPAN>&gt;Menu&lt;/result&gt;
+  &lt;result name=<SPAN class="code-quote">&quot;input&quot;</SPAN>&gt;/Logon.jsp&lt;/result&gt;
+&lt;/action&gt;
+</PRE>
+</DIV></DIV>
+
+<H3><A name="SelectingResults-HowTheCodeWorks"></A>How The Code Works</H3>
+
+<UL>
+	<LI>If we enter a username and password into the form, the Logon Action will return &quot;success&quot;.
+	<UL>
+		<LI>&quot;success&quot; is the default result code, so the framework will use the &quot;Menu&quot; action as response. (Which we haven't written yet.)</LI>
+	</UL>
+	</LI>
+	<LI>If we do not enter both credentials, the Logon Action will return &quot;input&quot;, and the framework will use the Logon.jsp as the response.</LI>
+</UL>
+
+
+<P>In the <A href="hello-world.html" title="Hello World">Hello World</A> lesson, our results used the default type, <TT>Dispatcher</TT>. The <TT>Dispatcher</TT> forwards to another web resource. Other kinds of views can be used by specifying a different result type.</P>
+
+<P>The Logon mapping uses a different return type for &quot;success&quot; (the default result code). The <TT>redirectAction</TT> result type takes the name of an Action (as configured in the <TT>struts.xml</TT> file) as a parameter, and then issues a client-side redirect to the new action. As a result, the URI on the browser's location bar will change.</P>
+
+<H2><A name="SelectingResults-UsingaStubPage"></A>Using a Stub Page</H2>
+
+<P>As we develop web applications, we often need to make forward references &ndash; we need to refer to an action we haven't written yet. For example, in the first part of the lesson, the next step is to open the &quot;Menu&quot; page. If we Logon successfully, there will be no where to go, since &quot;Menu&quot; doesn't exist yet.</P>
+
+<P>One way to work around this problem is to create a stub &quot;Menu&quot; page. </P>
+
+<H3><A name="SelectingResults-TheCode"></A>The Code</H3>
+
+<DIV class="code panel" style="border-style: solid;border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;border-bottom-style: solid;"><B>Missing.jsp</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+&lt;html&gt;
+&lt;head&gt;&lt;title&gt;Missing Feature&lt;/title&gt;&lt;/head&gt;
+
+&lt;body&gt;
+&lt;p&gt;
+    This feature is under construction.
+    Please <SPAN class="code-keyword">try</SPAN> again in the next iteration.
+&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</PRE>
+</DIV></DIV>
+
+<H3><A name="SelectingResults-HowtheCodeWorks"></A>How the Code Works</H3>
+
+<UL>
+	<LI>When the Login class returns &quot;Menu&quot;, the framework will match it to our default wildcard mapping.</LI>
+</UL>
+
+
+<UL>
+	<LI>The framework will return the stub &quot;Menu.jsp&quot; for now.</LI>
+</UL>
+
+
+<DIV class="panelMacro"><TABLE class="tipMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>If you are not using wildcards, another way to inject a &quot;missing&quot; page would be to specify a <TT>&lt;default-action-ref&gt;</TT> element</TD></TR></TABLE></DIV>
+
+<H2><A name="SelectingResults-IncludingaMissingPage"></A>Including a Missing Page </H2>
+
+<P>If you are building an application page by page, it can be worthwhile to setup a standard &quot;Missing&quot; page, and then include it from your stubs. </P>
+
+<H3><A name="SelectingResults-TheCode"></A>The Code </H3>
+
+<DIV class="code panel" style="border-style: solid;border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;border-bottom-style: solid;"><B>Menu.jsp</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+&lt;%@ taglib prefix=<SPAN class="code-quote">&quot;s&quot;</SPAN> uri=<SPAN class="code-quote">&quot;/struts-tags&quot;</SPAN> %&gt;
+&lt;s:include value=<SPAN class="code-quote">&quot;Missing.jsp&quot;</SPAN> /&gt; 
+</PRE>
+</DIV></DIV>
+
+<H3><A name="SelectingResults-HowtheCodeWorks"></A>How the Code Works</H3>
+
+<UL>
+	<LI>When the Menu.jsp renders, it will include the content of the standard Missing.jsp.</LI>
+</UL>
+
+
+<H2><A name="SelectingResults-WhattoRemember"></A>What to Remember</H2>
+
+<P>The framework offers a variety of result types. An Action can select the appropriate result by name, without actually knowing what result type will be rendered. </P>
+
+<P><IMG class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/lightbulb_on.gif" height="16" width="16" align="absmiddle" alt="" border="0"> For more, see <A href="result-types.html" title="Result Types">Result Types</A> in the Core Developers Guide.</P>
+
+<DIV class="table-wrap">
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TH class="confluenceTh"> Next </TH>
+<TD class="confluenceTd"> <A href="validating-input.html" title="Validating Input">Validating Input</A> </TD>
+</TR>
+<TR>
+<TH class="confluenceTh"> Prev </TH>
+<TD class="confluenceTd"> <A href="coding-actions.html" title="Coding Actions">Coding Actions</A> </TD>
+</TR>
+</TBODY></TABLE>
+</DIV>
+
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

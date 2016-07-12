@@ -1,0 +1,331 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Multiple Submit Buttons</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="faqs.html" title="FAQs">FAQs</A>&nbsp;&gt;&nbsp;<A href="cookbook.html" title="Cookbook">Cookbook</A>&nbsp;&gt;&nbsp;<A href="" title="Multiple Submit Buttons">Multiple Submit Buttons</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Multiple Submit Buttons</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=14289">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=14289">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14289">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14289">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14289">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14289">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <DIV class="panelMacro"><TABLE class="noteMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>You can be also interested in checking the page <A href="html-form-buttons-howto.html" title="HTML form buttons HOWTO">HTML form buttons HOWTO</A></TD></TR></TABLE></DIV>
+<H1><A name="MultipleSubmitButtons-Originalsolution"></A>Original solution</H1>
+
+<H2><A name="MultipleSubmitButtons-Introduction"></A>Introduction</H2>
+
+<P>Often, we have multiple submit buttons within a single form. The below is just a simple way of identifying which button was clicked, and which actions to take.</P>
+
+<P>There are, of course, many ways of doing this, including the use of JavaScript to identify the actions, etc... You're welcome to pick and choose whichever method you find most useful. Struts 2 is flexible enough.</P>
+
+<H2><A name="MultipleSubmitButtons-Form"></A>Form</H2>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+&lt;button type=<SPAN class="code-quote">&quot;submit&quot;</SPAN> value=<SPAN class="code-quote">&quot;Submit&quot;</SPAN> name=<SPAN class="code-quote">&quot;submit&quot;</SPAN>&gt;
+&lt;button type=<SPAN class="code-quote">&quot;submit&quot;</SPAN> value=<SPAN class="code-quote">&quot;Clear&quot;</SPAN> name=<SPAN class="code-quote">&quot;clear&quot;</SPAN>&gt;
+</PRE>
+</DIV></DIV>
+
+<H2><A name="MultipleSubmitButtons-Actionwithbooleanproperties"></A>Action with boolean properties</H2>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+class MyAction <SPAN class="code-keyword">extends</SPAN> ActionSupport {
+   <SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">boolean</SPAN> submit;
+   <SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">boolean</SPAN> clear;
+   <SPAN class="code-keyword">public</SPAN> void setSubmit(<SPAN class="code-object">boolean</SPAN> submit) {
+      <SPAN class="code-keyword">this</SPAN>.submit = submit;
+   }
+   <SPAN class="code-keyword">public</SPAN> void setClear(<SPAN class="code-object">boolean</SPAN> clear) {
+      <SPAN class="code-keyword">this</SPAN>.clear = clear;
+   }
+   <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> execute() {
+      <SPAN class="code-keyword">if</SPAN> (submit) {
+         doSubmit();
+         <SPAN class="code-keyword">return</SPAN> <SPAN class="code-quote">&quot;submitResult&quot;</SPAN>;
+      }
+      <SPAN class="code-keyword">if</SPAN> (clear) {
+         doClear();
+         <SPAN class="code-keyword">return</SPAN> <SPAN class="code-quote">&quot;clearResult&quot;</SPAN>;
+      }
+      <SPAN class="code-keyword">return</SPAN> <SPAN class="code-keyword">super</SPAN>.execute();
+   }
+}
+</PRE>
+</DIV></DIV>
+
+<H2><A name="MultipleSubmitButtons-Explanation"></A>Explanation</H2>
+
+<P>The boolean properties 'submit' and 'clear' will be set to 'true' or 'false' according weather the submit or clear form element is present in the submitted form.</P>
+
+<P>In this case, the properties are boolean, therefore the values set would be boolean.</P>
+
+<P>There is another method, using String properties, described below...</P>
+
+<H2><A name="MultipleSubmitButtons-Form"></A>Form</H2>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+&lt;button type=<SPAN class="code-quote">&quot;submit&quot;</SPAN> value=<SPAN class="code-quote">&quot;Submit&quot;</SPAN> name=<SPAN class="code-quote">&quot;buttonName&quot;</SPAN>&gt;
+&lt;button type=<SPAN class="code-quote">&quot;submit&quot;</SPAN> value=<SPAN class="code-quote">&quot;Clear&quot;</SPAN> name=<SPAN class="code-quote">&quot;buttonName&quot;</SPAN>&gt;
+</PRE>
+</DIV></DIV>
+
+<H2><A name="MultipleSubmitButtons-ActionwithStringproperties"></A>Action with String properties</H2>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+class MyAction <SPAN class="code-keyword">extends</SPAN> ActionSupport {
+   <SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">String</SPAN> buttonName;
+   <SPAN class="code-keyword">public</SPAN> void setButtonName(<SPAN class="code-object">String</SPAN> buttonName) {
+      <SPAN class="code-keyword">this</SPAN>.buttonName = buttonName;
+   }
+   <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> execute() {
+      <SPAN class="code-keyword">if</SPAN> (<SPAN class="code-quote">&quot;Submit&quot;</SPAN>.equals(buttonName)) {
+         doSubmit();
+         <SPAN class="code-keyword">return</SPAN> <SPAN class="code-quote">&quot;submitResult&quot;</SPAN>;
+      }
+      <SPAN class="code-keyword">if</SPAN> (<SPAN class="code-quote">&quot;Clear&quot;</SPAN>.equals(buttonName)) {
+         doClear();
+         <SPAN class="code-keyword">return</SPAN> <SPAN class="code-quote">&quot;clearResult&quot;</SPAN>;
+      }
+      <SPAN class="code-keyword">return</SPAN> <SPAN class="code-keyword">super</SPAN>.execute();
+   }
+}
+</PRE>
+</DIV></DIV>
+
+<H2><A name="MultipleSubmitButtons-Explanation"></A>Explanation</H2>
+
+<P>In this case, the properties are String, therefore the values set are also String in nature.</P>
+
+<P>I don't really like this method, as it ties in the Action to the Form. (What happens if you want different text to show up on the button ? You would have to change both the form as well as the corresponding action.)</P>
+
+<H2><A name="MultipleSubmitButtons-Conclusion"></A>Conclusion</H2>
+
+<P>There are other ways to achieve the same functionality. There are pros and cons to each methods. Feedback welcome.</P>
+
+<H1><A name="MultipleSubmitButtons-maknyus%27ssolution"></A><A href="https://cwiki.apache.org/confluence/users/viewuserprofile.action?username=maknyus" class="confluence-userlink" data-username="maknyus">Nyong Nyong</A>'s solution</H1>
+
+<DIV class="panelMacro"><TABLE class="noteMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>This was originally taken from comment posted by <A href="https://cwiki.apache.org/confluence/users/viewuserprofile.action?username=maknyus" class="confluence-userlink" data-username="maknyus">Nyong Nyong</A> to this page - you can see it <A href="#comment-30742556" class="external-link" rel="nofollow">here</A></TD></TR></TABLE></DIV>
+
+<P>The more elegant solution is probably by using multiple mappings for same Action. This way you don't need to set &quot;struts.enable.DynamicMethodInvocation&quot; to &quot;true&quot;.</P>
+
+<P>In JSP</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;s:form method=<SPAN class="code-quote">&quot;post&quot;</SPAN> action=<SPAN class="code-quote">&quot;mySubmitAction&quot;</SPAN>&gt;</SPAN>
+    <SPAN class="code-tag">&lt;s:submit value=<SPAN class="code-quote">&quot;Submit&quot;</SPAN>/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;s:submit value=<SPAN class="code-quote">&quot;Clear&quot;</SPAN> action=<SPAN class="code-quote">&quot;myClearAction&quot;</SPAN>/&gt;</SPAN>
+<SPAN class="code-tag">&lt;/form&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>In struts.xml</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;mySubmitAction&quot;</SPAN> class=<SPAN class="code-quote">&quot;MyAction&quot;</SPAN> method=<SPAN class="code-quote">&quot;submit&quot;</SPAN>&gt;</SPAN>
+       <SPAN class="code-tag">&lt;result&gt;</SPAN>submit.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+<SPAN class="code-tag">&lt;/action&gt;</SPAN>
+<SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;myClearAction&quot;</SPAN> class=<SPAN class="code-quote">&quot;MyAction&quot;</SPAN> method=<SPAN class="code-quote">&quot;clear&quot;</SPAN>&gt;</SPAN>
+       <SPAN class="code-tag">&lt;result&gt;</SPAN>submit.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+<SPAN class="code-tag">&lt;/action&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>Then in MyAction class</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+<SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> submit() <SPAN class="code-keyword">throws</SPAN> Exception {
+    <SPAN class="code-comment">// submit button logic here
+</SPAN>    <SPAN class="code-keyword">return</SPAN> SUCCESS;
+}
+
+<SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> clear() <SPAN class="code-keyword">throws</SPAN> Exception {
+    <SPAN class="code-comment">// clear button logic here
+</SPAN>    <SPAN class="code-keyword">return</SPAN> SUCCESS;
+}
+</PRE>
+</DIV></DIV>
+
+<P><BR class="atl-forced-newline">
+For best practice, if you have common data loaded / managed by your actions (submit &amp; clear), then for example, you can define a MyBaseAction class, extended by MySubmitAction and MyClearAction class. Then this is how they looks like:</P>
+
+<P>In struts.xml</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;mySubmitAction&quot;</SPAN> class=<SPAN class="code-quote">&quot;MySubmitAction&quot;</SPAN>&gt;</SPAN>
+       <SPAN class="code-tag">&lt;result&gt;</SPAN>submit.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+<SPAN class="code-tag">&lt;/action&gt;</SPAN>
+<SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;myClearAction&quot;</SPAN> class=<SPAN class="code-quote">&quot;MyClearAction&quot;</SPAN>&gt;</SPAN>
+       <SPAN class="code-tag">&lt;result&gt;</SPAN>submit.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+<SPAN class="code-tag">&lt;/action&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>You don't need to specify a method name anymore, that means we will use the default execute() method.</P>
+
+
+<P>Then in the MyAction, MySubmitAction and MyClearAction class</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>MyAction.java</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+<SPAN class="code-keyword">public</SPAN> class MyAction <SPAN class="code-keyword">extends</SPAN> ActionSupport {
+    <SPAN class="code-comment">// common data or logic here
+</SPAN>}
+</PRE>
+</DIV></DIV>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>MySubmitAction.java</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+<SPAN class="code-keyword">public</SPAN> class MySubmitAction <SPAN class="code-keyword">extends</SPAN> MyAction {
+
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> execute() <SPAN class="code-keyword">throws</SPAN> Exception {
+        <SPAN class="code-comment">// submit button logic here
+</SPAN>        <SPAN class="code-keyword">return</SPAN> SUCCESS;
+    }
+}
+</PRE>
+</DIV></DIV>
+
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>MyClearAction.java</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+<SPAN class="code-keyword">public</SPAN> class MyClearAction <SPAN class="code-keyword">extends</SPAN> MyAction {
+
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> execute() <SPAN class="code-keyword">throws</SPAN> Exception {
+        <SPAN class="code-comment">// clear button logic here
+</SPAN>        <SPAN class="code-keyword">return</SPAN> SUCCESS;
+    }
+}
+</PRE>
+</DIV></DIV>
+
+<P>Credit: <A href="http://stackoverflow.com/a/13336391/844005" class="external-link" rel="nofollow">Andrea Ligios</A></P>
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

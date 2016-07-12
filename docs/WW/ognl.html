@@ -1,0 +1,274 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>OGNL</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="guides.html" title="Guides">Guides</A>&nbsp;&gt;&nbsp;<A href="tag-developers-guide.html" title="Tag Developers Guide">Tag Developers Guide</A>&nbsp;&gt;&nbsp;<A href="" title="OGNL">OGNL</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">OGNL</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=14198">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=14198">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14198">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14198">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14198">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14198">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <P>OGNL is the Object Graph Navigation Language (see <A href="http://www.opensymphony.com/ognl" class="external-link" rel="nofollow">http://www.opensymphony.com/ognl</A> for the full documentation of OGNL). Here, we will cover a few examples of OGNL features that co-exist with the framework. To review basic concepts, refer to <A href="ognl-basics.html" title="OGNL Basics">OGNL Basics</A>.</P>
+
+<P>The framework uses a standard naming context to evaluate OGNL expressions. The top level object dealing with OGNL is a Map (usually referred as a context map or context). OGNL has a notion of there being a root (or default) object within the context. In expression, the properties of the root object can be referenced without any special &quot;marker&quot; notion. References to other objects are marked with a pound sign (<TT>&#35;</TT>).</P>
+
+<P>The framework sets the OGNL context to be our ActionContext, and the value stack to be the OGNL root object. (The value stack is a set of several objects, but to OGNL it appears to be a single object.) Along with the value stack, the framework places other objects in the ActionContext, including Maps representing the application, session, and request contexts. These objects coexist in the ActionContext, alongside the value stack (our OGNL root).</P>
+<DIV class="preformatted panel" style="border-width: 1px;"><DIV class="preformattedContent panelContent">
+<PRE>                     |
+                     |--application
+                     |
+                     |--session
+       context map---|
+                     |--value stack(root)
+                     |
+                     |--action (the current action)
+                     |
+                     |--request
+                     |
+                     |--parameters
+                     |
+                     |--attr (searches page, request, session, then application scopes)
+                     |
+</PRE>
+</DIV></DIV>
+<P><IMG class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/information.gif" height="16" width="16" align="absmiddle" alt="" border="0"> There are other objects in the context map. The diagram is for example only.</P>
+
+<P>The Action instance is always pushed onto the value stack. Because the Action is on the stack, and the stack is the OGNL root, references to Action properties can omit the <TT>&#35;</TT> marker. But, to access other objects in the ActionContext, we must use the <TT>&#35;</TT> notation so OGNL knows not to look in the root object, but for some other object in the ActionContext.</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Referencing an Action property</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;s:property value=<SPAN class="code-quote">&quot;postalCode&quot;</SPAN>/&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+<P>Other (non-root) objects in the ActionContext can be rendered use the <TT>&#35;</TT> notation.</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;s:property value=<SPAN class="code-quote">&quot;#session.mySessionPropKey&quot;</SPAN>/&gt;</SPAN> or
+<SPAN class="code-tag">&lt;s:property value=<SPAN class="code-quote">&quot;#session['mySessionPropKey']&quot;</SPAN>/&gt;</SPAN> or
+<SPAN class="code-tag">&lt;s:property value=<SPAN class="code-quote">&quot;#request['myRequestPropKey']&quot;</SPAN>/&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+<P>The ActionContext is also exposed to Action classes via a static method.</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+ActionContext.getContext().getSession().put(<SPAN class="code-quote">&quot;mySessionPropKey&quot;</SPAN>, mySessionObject);
+</PRE>
+</DIV></DIV>
+<P>You can also put expression for attributes that don't support dynamic content, like below:</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+&lt;c:set <SPAN class="code-keyword">var</SPAN>=<SPAN class="code-quote">&quot;foo&quot;</SPAN> value=<SPAN class="code-quote">&quot;bar&quot;</SPAN> scope=<SPAN class="code-quote">&quot;request&quot;</SPAN>/&gt;
+&lt;s:textfield name=<SPAN class="code-quote">&quot;username&quot;</SPAN> label=<SPAN class="code-quote">&quot;%{#request.foo}&quot;</SPAN> /&gt;
+</PRE>
+</DIV></DIV>
+
+<H2><A name="OGNL-Collections%28Maps%2CLists%2CSets%29"></A>Collections (Maps, Lists, Sets)</H2>
+
+<P>Dealing with Collections (Maps, Lists, and Sets) in the framework comes often, so below please there are a few examples using the select tag.  The <A href="http://www.opensymphony.com/ognl/html/LanguageGuide/collectionConstruction.html" class="external-link" rel="nofollow">OGNL documentation</A> also includes some examples.</P>
+
+<P>Syntax for list:  {e1,e2,e3}. This idiom creates a List containing the String &quot;name1&quot;, &quot;name2&quot; and &quot;name3&quot;. It also selects &quot;name2&quot; as the default value.</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;s:select label=<SPAN class="code-quote">&quot;label&quot;</SPAN> name=<SPAN class="code-quote">&quot;name&quot;</SPAN> list=<SPAN class="code-quote">&quot;{'name1','name2','name3'}&quot;</SPAN> value=<SPAN class="code-quote">&quot;%{'name2'}&quot;</SPAN> /&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+<P>Syntax for map: #{key1:value1,key2:value2}. This idiom creates a map that maps the string &quot;foo&quot; to the string &quot;foovalue&quot; and &quot;bar&quot; to the string &quot;barvalue&quot;:</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;s:select label=<SPAN class="code-quote">&quot;label&quot;</SPAN> name=<SPAN class="code-quote">&quot;name&quot;</SPAN> list=<SPAN class="code-quote">&quot;#{'foo':'foovalue', 'bar':'barvalue'}&quot;</SPAN> /&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+<P>To determine if an element exists in a Collection, use the operations <TT>in</TT> and <TT>not in</TT>.</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;s:if test=<SPAN class="code-quote">&quot;'foo' in {'foo','bar'}&quot;</SPAN>&gt;</SPAN>
+   muhahaha
+<SPAN class="code-tag">&lt;/s:if&gt;</SPAN>
+<SPAN class="code-tag">&lt;s:else&gt;</SPAN>
+   boo
+<SPAN class="code-tag">&lt;/s:else&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;s:if test=<SPAN class="code-quote">&quot;'foo' not in {'foo','bar'}&quot;</SPAN>&gt;</SPAN>
+   muhahaha
+<SPAN class="code-tag">&lt;/s:if&gt;</SPAN>
+<SPAN class="code-tag">&lt;s:else&gt;</SPAN>
+   boo
+<SPAN class="code-tag">&lt;/s:else&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+<P>To select a subset of a collection (called projection), use a wildcard within the collection.</P>
+<UL class="alternate" type="square">
+	<LI>? - All elements matching the selection logic</LI>
+	<LI>^ - Only the first element matching the selection logic</LI>
+	<LI>$ - Only the last element matching the selection logic</LI>
+</UL>
+
+
+<P>To obtain a subset of just male relatives from the object person:</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+person.relatives.{? #this.gender == 'male'}
+</PRE>
+</DIV></DIV>
+
+<H2><A name="OGNL-LambdaExpressions"></A>Lambda Expressions</H2>
+
+<P>OGNL supports basic lamba expression syntax enabling you to write simple functions.</P>
+
+<P>(Dedicated to all you math majors who didn't think you would ever see this one again.)</P>
+
+<P>Fibonacci: if n==0 return 0; elseif n==1 return 1; else return fib(n-2)+fib(n-1);<BR>
+fib(0) = 0<BR>
+fib(1) = 1<BR>
+fib(11) = 89</P>
+
+<DIV class="panelMacro"><TABLE class="infoMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD><B>How the expression works</B><BR>The lambda expression is everything inside the square brackets. The #this variable holds the argument to the expression, which in the following example is the number 11 (the code after the square-bracketed lamba expression, <TT>&#35;fib(11)</TT>).</TD></TR></TABLE></DIV>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;s:property value=<SPAN class="code-quote">&quot;#fib =:[#this==0 ? 0 : #this==1 ? 1 : #fib(#this-2)+#fib(#this-1)], #fib(11)&quot;</SPAN> /&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H2><A name="OGNL-Next%3ATagSyntax"></A>Next: <A href="tag-syntax.html" title="Tag Syntax">Tag Syntax</A></H2>
+        </DIV>
+
+                  <DIV class="tabletitle">
+            Children
+            <SPAN class="smalltext" id="show" style="display: inline;">
+              <A href="javascript:showChildren()">Show Children</A></SPAN>
+            <SPAN class="smalltext" id="hide" style="display: none;">
+              <A href="javascript:hideChildren()">Hide Children</A></SPAN>
+          </DIV>
+          <DIV class="greybox" id="children" style="display: none;">
+                                      <A href="ognl-basics.html" title="OGNL Basics">OGNL Basics</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="ognl-expression-compilation.html" title="OGNL Expression Compilation">OGNL Expression Compilation</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                      </DIV>
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

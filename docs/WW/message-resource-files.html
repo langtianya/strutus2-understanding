@@ -1,0 +1,371 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Message Resource Files</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="tutorials.html" title="Tutorials">Tutorials</A>&nbsp;&gt;&nbsp;<A href="getting-started.html" title="Getting Started">Getting Started</A>&nbsp;&gt;&nbsp;<A href="how-to-create-a-struts-2-web-application.html" title="How To Create A Struts 2 Web Application">How To Create A Struts 2 Web Application</A>&nbsp;&gt;&nbsp;<A href="create-struts-2-web-application-with-artifacts-in-web-inf-lib-and-use-ant-to-build-the-application.html" title="Create Struts 2 Web Application With Artifacts In WEB-INF lib and Use Ant To Build The Application">Create Struts 2 Web Application With Artifacts In WEB-INF lib and Use Ant To Build The Application</A>&nbsp;&gt;&nbsp;<A href="hello-world-using-struts-2.html" title="Hello World Using Struts 2">Hello World Using Struts 2</A>&nbsp;&gt;&nbsp;<A href="using-struts-2-tags.html" title="Using Struts 2 Tags">Using Struts 2 Tags</A>&nbsp;&gt;&nbsp;<A href="coding-struts-2-actions.html" title="Coding Struts 2 Actions">Coding Struts 2 Actions</A>&nbsp;&gt;&nbsp;<A href="processing-forms.html" title="Processing Forms">Processing Forms</A>&nbsp;&gt;&nbsp;<A href="form-validation.html" title="Form Validation">Form Validation</A>&nbsp;&gt;&nbsp;<A href="" title="Message Resource Files">Message Resource Files</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Message Resource Files</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=14811894">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=14811894">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14811894">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14811894">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14811894">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14811894">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <DIV class="panelMacro"><TABLE class="infoMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>This tutorial assumes you've completed the <A href="form-validation.html" title="Form Validation">Form Validation</A> tutorial and have a working Form_Validation_Struts2_Ant (or Form_Validation_Struts2_Mvn) project.  The example code for this tutorial, Message_Resource_Struts2_Ant or Message_Resource_Struts2_Mvn, is available on Google Code - <A href="http://code.google.com/p/struts2-examples/downloads/list" class="external-link" rel="nofollow">http://code.google.com/p/struts2-examples/downloads/list</A>.  After downloading and unzipping the file, you'll have a folder named Message_Resource_Struts2_Ant (or Message_Resource_Struts2_Mvn).  In that folder will be a README.txt file with instructions on now to build and run the example application.</TD></TR></TABLE></DIV>
+
+<H3><A name="MessageResourceFiles-Introduction"></A>Introduction</H3>
+<P>In this tutorial we'll explore using Struts 2 message resource capabilities (also called resource bundles).  Message resources provide a simple way to put text in a view page that is the same through out your application, to create form field labels, and to change text to a specific language based on the user's locale (i18n).</P>
+
+<P>The code provided in this tutorial may be added to the <A href="form-validation.html" title="Form Validation">Form Validation</A> example or you can download this tutorial's complete example from Google Code - <A href="http://code.google.com/p/struts2-examples/downloads/list" class="external-link" rel="nofollow">http://code.google.com/p/struts2-examples/downloads/list</A> as either a Ant build or Maven build project.</P>
+
+<DIV class="panelMacro"><TABLE class="tipMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>The <A href="http://struts.apache.org/mail.html" class="external-link" rel="nofollow">Struts 2 user mailing list</A> is an excellent place to get help.  If you are having a problem getting the tutorial example applications to work search the Struts 2 mailing list.  If you don't find an answer to your problem, post a question on the mailing list.</TD></TR></TABLE></DIV>
+
+<H3><A name="MessageResourceFiles-MessageResourcePropertyFiles"></A>Message Resource Property Files</H3>
+<P>In a Struts 2 web application you may associate a message resource property file with each Struts 2 Action class by creating a properties file with the same name as the Action class and having the .properties extension.  This properties file must go in the same package as the Action class.  For our tutorial example, let's say we want to place the form field labels into a separate file where we can easily change them and also provide the capability to display the labels in other languages.</P>
+
+<P>If you're doing this tutorial after completing <A href="form-validation.html" title="Form Validation">Form Validation</A> then you can make these changes to that tutorial's example application.  Or you can download the finished example application for this tutorial from Google Code - <A href="http://code.google.com/p/struts2-examples/downloads/list" class="external-link" rel="nofollow">http://code.google.com/p/struts2-examples/downloads/list</A>.</P>
+
+<P>Put the text below in a file named Register.properties in the org.apache.struts.register.action package in src folder (if using the Ant version) or in the src/resources/java folder (if using the Maven version).</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Register.properties</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+personBean.firstName=First name
+personBean.lastName=Last name
+personBean.age=Age
+personBean.email=Email
+thankyou=Thank you <SPAN class="code-keyword">for</SPAN> registering %{personBean.firstName}.
+</PRE>
+</DIV></DIV>
+
+<P>The above is just a standard Java properties file.  The key is to the left of the = sign and the value for the key is to the right.  When the Register action is executed these properties will be available to the view page by referencing the key name.</P>
+
+<H3><A name="MessageResourceFiles-Struts2KeyAttribute"></A>Struts 2 Key Attribute</H3>
+<P>The Struts 2 key attribute can be used in the <A href="textfield.html" title="textfield">textfield</A> tag to instruct the framework what value to use for the textfield's name and label attributes.  Instead of providing those attributes and their values directly, you can just use the key attribute.</P>
+
+<P>If you open register.jsp from the <A href="form-validation.html" title="Form Validation">Form Validation</A> tutorial you'll see this Struts 2 textfield tag:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>textfield tag</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;s:textfield name=<SPAN class="code-quote">&quot;personBean.firstName&quot;</SPAN> label=<SPAN class="code-quote">&quot;First name&quot;</SPAN> /&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>Instead of specifying the name and label attributes you can just use the key attribute.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>textfield tag with key attribute</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;s:textfield key=<SPAN class="code-quote">&quot;personBean.firstName&quot;</SPAN>  /&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>The value for the key attribute instructs the Struts 2 framework to use the same value for the name attribute (personBean.firstName).  For the label attribute's value the value of the key attribute is used by the Struts 2 framework to find a key in a properties file with the same value.  So in our example, Struts 2 will look in Register.properties for a key with a value of personBean.firstName.  The value of that key (First name) will be used as the label attribute's value.</P>
+
+<P>To enable the key attribute to find the properties file, the display of the view page must be the result of executing a Struts 2 Action class.  Right now if you examine index.jsp from the <A href="form-validation.html" title="Form Validation">Form Validation</A> tutorial the link to the register.jsp page is a standard URL.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>link to register.jsp</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;p&gt;</SPAN><SPAN class="code-tag">&lt;a href=<SPAN class="code-quote">&quot;register.jsp&quot;</SPAN>&gt;</SPAN>Please register<SPAN class="code-tag">&lt;/a&gt;</SPAN> for our prize drawing.<SPAN class="code-tag">&lt;/p&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>We need to change the above link so that it goes through the Register.java Struts 2 Action class.  Replace the above with this markup.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>link to Register Action class</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;s:url action=<SPAN class="code-quote">&quot;registerInput&quot;</SPAN> var=<SPAN class="code-quote">&quot;registerInputLink&quot;</SPAN> /&gt;</SPAN>
+<SPAN class="code-tag">&lt;p&gt;</SPAN><SPAN class="code-tag">&lt;a href=<SPAN class="code-quote">&quot;${registerInputLink}&quot;</SPAN>&gt;</SPAN>Please register<SPAN class="code-tag">&lt;/a&gt;</SPAN> for our prize drawing.<SPAN class="code-tag">&lt;/p&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>We use the Struts 2 url tag to create a link to action registerInput. We then use that link as the value for the href attribute of the anchor tag.  We must define the registerInput action in struts.xml.  Add the following to struts.xml.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>registerInput action node for struts.xml</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;registerInput&quot;</SPAN> class=<SPAN class="code-quote">&quot;org.apache.struts.register.action.Register&quot;</SPAN> method=<SPAN class="code-quote">&quot;input&quot;</SPAN> &gt;</SPAN>
+	<SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;input&quot;</SPAN>&gt;</SPAN>/register.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+<SPAN class="code-tag">&lt;/action&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>The above action node instructs the Struts 2 framework to execute class Register's input method in response to action registerInput.  The input method is inherited by class Register from class ActionSupport.  The default behavior of the inherited input method is to return the String input.  The result node above specifies that if the returned result is &quot;input&quot; then render the view register.jsp.</P>
+
+<P>By doing the above the view page register.jsp will have access to the properties defined in Register.properties.  The Struts 2 framework will make those properties defined in Register.properties available to the view page since the view page was rendered after Register.java (the Struts 2 Action class) was executed.</P>
+
+<P>Follow the instructions (README.txt) in the project to create the war file and copy the war file to your servlet container.  Open a web browser and navigate to the home page specified in the README.txt file (index.action).  You should see a link to registerInput.action when mousing over the hyperlink Please Register.</P>
+
+<P><SPAN class="image-wrap" style=""><IMG src="message-resource-files.data/registerInput.png" style="border: 0px solid black"></SPAN></P>
+
+<P>When you click on the Please Register link your browser should display the register.jsp.  The form field labels should be the key values from the Register.properties file.</P>
+
+<P><SPAN class="image-wrap" style=""><IMG src="message-resource-files.data/register.png" style="border: 0px solid black"></SPAN></P>
+
+
+<H3><A name="MessageResourceFiles-Struts2TextTag"></A>Struts 2 Text Tag</H3>
+<P>We can also use the Struts 2 text tag to display values from a properties file.  In thankyou.jsp add this text tag instead of the h3 tag that is in thankyou.jsp.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>text tag</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;h3&gt;</SPAN><SPAN class="code-tag">&lt;s:text name=<SPAN class="code-quote">&quot;thankyou&quot;</SPAN> /&gt;</SPAN><SPAN class="code-tag">&lt;/h3&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>Since thankyou.jsp is also rendered after executing the Register.java Action class, the key thankyou and its value will be available to the view page.  </P>
+
+<P><SPAN class="image-wrap" style=""><IMG src="message-resource-files.data/thankyou.png" style="border: 0px solid black"></SPAN></P>
+
+<P>How did the value entered for the first name input field get displayed on thankyou.jsp?  Look back at the value for the thankyou key in the Register.properties file.  </P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Register.properties</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+thankyou=Thank you <SPAN class="code-keyword">for</SPAN> registering %{personBean.firstName}.
+</PRE>
+</DIV></DIV>
+<P>The markup %{personBean.firstName} tells Struts 2 to replace this part with the result of calling getPersonBean, which returns a Person object.  Then call the getFirstName method which returns a String (the value the user inputted into the personBean.firstName form field on register.jsp).</P>
+
+<H3><A name="MessageResourceFiles-PackageLevelProperties"></A>Package Level Properties</H3>
+<P>What if you want a properties file with keys and values that can be referenced from multiple view pages and those view pages are rendered after executing different Action classes?  Struts 2 has the ability to use multiple property files provided the property file is found in the package hierarchy.  </P>
+
+<P>Place the following in a file named package.properties and save that file in package org.apache.struts (in src folder if using Ant version or in src/main/resources if using Maven version)</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>package.properties</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+greeting=Welcome to The Wonderful World of Struts 2
+</PRE>
+</DIV></DIV>
+
+<P>Now any view rendered by an Action that is in the hierarchy org.apache.struts... can use a Struts 2 text tag with a name attribute value of &quot;greeting&quot; to display the value of the greeting property key.  For example add the following markup to helloworld.jsp before the h2 tag.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+&lt;h1&gt;&lt;s:text name=<SPAN class="code-quote">&quot;greeting&quot;</SPAN> /&gt;&lt;/h1&gt;
+</PRE>
+</DIV></DIV>
+
+<P>Then rebuild the war file and deploy it to your servlet container.  Go to index.action and click on the link for Hello World.  You should see:</P>
+
+<P><SPAN class="image-wrap" style=""><IMG src="message-resource-files.data/hellogreeting.png" style="border: 0px solid black"></SPAN></P>
+
+<P>The property keys and values defined in package.properties are available to any view that is rendered after executing an Action class that is the package hierarchy that includes package.properties.</P>
+
+<H3><A name="MessageResourceFiles-GlobalProperties"></A>Global Properties</H3>
+<P>You can also specify a global property file in struts.xml.  The keys and values defined in that property file will be available to all the view pages that are rendered after executing an Action class.</P>
+
+<P>Add the following to a file named global.properties (note the name doesn't have to be global).</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>global.properties</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+contact=For assistance contact &lt;a href='mailto:contact@email.com'&gt;contact@email.com&lt;/a&gt;
+</PRE>
+</DIV></DIV>
+
+<P>Save the global.properties file in either the src folder (if using Ant version) or the src/main/resources folder (if using the Maven version).  </P>
+
+<P>To inform the Struts 2 framework about the global.properties file add the follow node to struts.xml after the constant name=&quot;struts.devmode&quot; node.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Specify Global Property File In struts.xml</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;constant name=<SPAN class="code-quote">&quot;struts.custom.i18n.resources&quot;</SPAN> value=<SPAN class="code-quote">&quot;global&quot;</SPAN> /&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+
+<P>To use the contact key in a view page, add the following markup to index.jsp just before the closing body tag.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Using contact property</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;hr /&gt;</SPAN>
+<SPAN class="code-tag">&lt;s:text name=<SPAN class="code-quote">&quot;contact&quot;</SPAN> /&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>Rebuild the war file, deploy it to your Servlet container, and then go to index.action.  You should see:</P>
+
+<P><SPAN class="image-wrap" style=""><IMG src="message-resource-files.data/contact.png" style="border: 0px solid black"></SPAN></P>
+
+<P>Struts 2 will look for a property key of contact in all the property files starting with the property file that matches the Action class, then in the property files that are in the package hierarchy of the Action class, and then in any property files specified in struts.xml.  For this example Struts 2 will find the contact key in global.properties.  The value of the contact key will be displayed where we have put the text tag.</P>
+
+<P>You can add the text tag above to all the JSPs in this example.</P>
+
+<H3><A name="MessageResourceFiles-Internationalization%28i18n%29"></A>Internationalization (i18n)</H3>
+<P>Using message resource files (resource bundles) also enables you to provide text in different languages.  By default, Struts 2 will use the user's default locale.  If that locale is en for English then the property files used will be the ones without a locale specification (for example Register.properties).  If the locale is not English but say Spanish (es) then Struts 2 will look for a properties file named Register_es.properties.</P>
+
+<P>To provide an example of Struts 2 support for i18n create a file named Register_es.properties and in that file add the following Spanish translations.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Register_es.properties</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+personBean.firstName=Nombre
+personBean.lastName=Apellidos
+personBean.age=Edad
+personBean.email=Correo
+thankyou=Gracias por registrarse, %{personBean.firstName}. 
+</PRE>
+</DIV></DIV>
+
+<DIV class="panelMacro"><TABLE class="noteMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>My apologies to Spanish language speakers for any mistakes in the Spanish translations.</TD></TR></TABLE></DIV>
+
+<P>Save the Register_es.properties file in the same package as Register.properties.</P>
+
+<P>In our example application, we need to tell Struts 2 to use a locale value of es (since we're not in a Spanish locale) instead of the default locale value of our location (which is en). Add the following markup to index.jsp.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Specify The Locale As a URL Parameter</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;h3&gt;</SPAN>Registro espa&ntilde;ol<SPAN class="code-tag">&lt;/h3&gt;</SPAN>
+<SPAN class="code-tag">&lt;s:url action=<SPAN class="code-quote">&quot;registerInput&quot;</SPAN> var=<SPAN class="code-quote">&quot;registerInputLinkES&quot;</SPAN>&gt;</SPAN>
+    <SPAN class="code-tag">&lt;s:param name=<SPAN class="code-quote">&quot;request_locale&quot;</SPAN>&gt;</SPAN>es<SPAN class="code-tag">&lt;/s:param&gt;</SPAN>
+<SPAN class="code-tag">&lt;/s:url&gt;</SPAN>
+<SPAN class="code-tag">&lt;p&gt;</SPAN><SPAN class="code-tag">&lt;a href=<SPAN class="code-quote">&quot;${registerInputLinkES}&quot;</SPAN>&gt;</SPAN>Por favor, reg&iacute;strese<SPAN class="code-tag">&lt;/a&gt;</SPAN> para nuestro sorteo<SPAN class="code-tag">&lt;/p&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>In the above markup we've added a parameter named request_locale to the URL.  The value of that parameter is es.  The Action class that responds to this URL (Register.java) will see that the locale is es and will look for property files with _es (for example Register_es.properties).  It will use those property files to find the values of the property keys referenced by the view page (e.g. personBean.firstName).  </P>
+
+<P>After clicking on the above link you should see the same form as before but with the form field labels in Spanish.</P>
+
+<P><SPAN class="image-wrap" style=""><IMG src="message-resource-files.data/spanishform.png" style="border: 0px solid black"></SPAN></P>
+
+<P>If we implement the same concept by creating _es.properties versions of global.properties (global_es.properties) and package.properties (package_es.properties) then we can create a complete registration web page in Spanish.  Download the finished example application for this tutorial from Google Code - <A href="http://code.google.com/p/struts2-examples/downloads/list" class="external-link" rel="nofollow">http://code.google.com/p/struts2-examples/downloads/list</A> to see those property files and run the complete example with the registration form in Spanish.</P>
+
+<H3><A name="MessageResourceFiles-Summary"></A>Summary</H3>
+<P>We've covered how to use message resources (resource bundles) in Struts 2 and also introduced how Struts 2 enables internationalization (i18n) in this tutorial.  To fully understand these concepts and learn more about Struts 2 consult the main Struts 2 documentation available at <A href="http://struts.apache.org/" class="external-link" rel="nofollow">http://struts.apache.org</A>.</P>
+
+<H3><A name="MessageResourceFiles-UpNext"></A>Up Next</H3>
+
+<P>In our next tutorial we'll cover how to configure Struts 2 to handle any uncaught exceptions.</P>
+
+<DIV class="table-wrap">
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TH class="confluenceTh"> Next </TH>
+<TD class="confluenceTd"> Onward to <A href="exception-handling.html" title="Exception Handling">Exception Handling</A> </TD>
+</TR>
+<TR>
+<TH class="confluenceTh"> Prev </TH>
+<TD class="confluenceTd"> Return to <A href="form-validation.html" title="Form Validation">Form Validation</A> </TD>
+</TR>
+</TBODY></TABLE>
+</DIV>
+
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

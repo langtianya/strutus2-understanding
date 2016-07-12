@@ -1,0 +1,256 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Access to ValueStack from JSPs</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="guides.html" title="Guides">Guides</A>&nbsp;&gt;&nbsp;<A href="tag-developers-guide.html" title="Tag Developers Guide">Tag Developers Guide</A>&nbsp;&gt;&nbsp;<A href="jsp.html" title="JSP">JSP</A>&nbsp;&gt;&nbsp;<A href="" title="Access to ValueStack from JSPs">Access to ValueStack from JSPs</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Access to ValueStack from JSPs</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=14315">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=14315">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14315">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14315">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14315">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14315">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          
+<P>To access the ValueStack from third-party JSP taglibs, expose property values to JSP using the <TT>&lt;s:set</TT> tag.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+&lt;s:set name=<SPAN class="code-quote">&quot;'a'&quot;</SPAN> value=<SPAN class="code-quote">&quot;{ 1, 2, 3, 4 }&quot;</SPAN> scope=<SPAN class="code-quote">&quot;request&quot;</SPAN>/&gt;
+</PRE>
+</DIV></DIV>
+
+<P>After setting parameters, third-party JSP taglibs can access variables or use JSP 2.0 EL (Expression Language). This is convenient as short hand EL expression syntax<BR>
+<TT>${expression</TT>}</P>
+
+<P> can be used in a text or inside of tag attributes:</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+a[0] = ${a[0]}
+
+<SPAN class="code-tag">&lt;sample:tag value=<SPAN class="code-quote">&quot;${a[1]}&quot;</SPAN>/&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+<P>In practice, several variables must be exposed to make effective use of third party taglibs like <A href="http://displaytag.sourceforge.net/11/" class="external-link" rel="nofollow">DisplayTag</A>. Unfortunately, this approach leads to a lot of <TT>&lt;ww:set/&gt;</TT> tags. </P>
+
+<DIV class="panelMacro"><TABLE class="noteMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD><B>Why can't we just replace EL with OGNL?</B><BR>Unfortunately, it isn't that simple. we tinkered with <TT>JSPFactory.setDefault()</TT> to wrap around <TT>getPageContext()</TT> and create <TT>ExpressionEvaluator</TT> that would use OGNL. This strategy works in practice, but code generated by Jasper2 doesn't call <TT>JSPFactory.getPageContext().getExpressionEvaluator()</TT> but goes directly to static method that is hardwired to Jakarta Commons-EL implementation.
+
+<P>Even if this approach did work, it wouldn't be <EM>clean</EM> as <TT>JSPFactory.setDefault()</TT> should only be called by JSP implementation.</P></TD></TR></TABLE></DIV>
+
+<P>There is a simple, if not elegant, solution available in JSP 2.0 EL, for exposing ValueStack to OGNL. It is possible to create custom functions that can be called from EL expressions. Functions have to be 'public static' and specified in a TLD file.<BR>
+To use a function, import the TLD in a JSP file where you've want to use a function. For example, you could access Action properties by evaluating OGNL expression by a function 'vs' (for valuestack) in EL.</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;%@ taglib uri=<SPAN class="code-quote">&quot;/WEB-INF/tld/wwel.tld&quot;</SPAN> prefix=<SPAN class="code-quote">&quot;x&quot;</SPAN> %&gt;</SPAN>
+
+a[0] = ${x:vs('a[0]')}
+a[0] * 4 = ${x:vs('a[0] * 4')}
+
+Current action name: ${x:name()}
+Top of ValueStack: ${x:top()}
+</PRE>
+</DIV></DIV>
+<P>To use this code you've got to add <TT>wwel.tld</TT> and <TT>Functions.java</TT> to your webapp project.</P>
+
+<DIV class="panelMacro"><TABLE class="tipMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>If someone were interested, it would be helpful for a developer (like you!) to define a set of functions that we could include in a future release of the framework.</TD></TR></TABLE></DIV>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>wwel.tld</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;?xml version=<SPAN class="code-quote">&quot;1.0&quot;</SPAN>?&gt;</SPAN>
+&lt;taglib xmlns=<SPAN class="code-quote">&quot;http://java.sun.com/xml/ns/j2ee&quot;</SPAN>
+	<SPAN class="code-keyword">xmlns:xsi</SPAN>=<SPAN class="code-quote">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</SPAN>
+	xsi:schemaLocation=<SPAN class="code-quote">&quot;http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd&quot;</SPAN>
+	version=<SPAN class="code-quote">&quot;2.0&quot;</SPAN>&gt;
+
+<SPAN class="code-tag">&lt;description&gt;</SPAN>
+This taglib enables access to the ValueStack
+from JSP 2.0 Expression Language
+<SPAN class="code-tag">&lt;/description&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;tlib-version&gt;</SPAN>1.0<SPAN class="code-tag">&lt;/tlib-version&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;short-name&gt;</SPAN>wwel<SPAN class="code-tag">&lt;/short-name&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;function&gt;</SPAN>
+	<SPAN class="code-tag">&lt;name&gt;</SPAN>vs<SPAN class="code-tag">&lt;/name&gt;</SPAN>
+	<SPAN class="code-tag">&lt;function-class&gt;</SPAN>com.nmote.wwel.Functions<SPAN class="code-tag">&lt;/function-class&gt;</SPAN>
+	<SPAN class="code-tag">&lt;function-signature&gt;</SPAN>
+		java.lang.Object findOnValueStack(java.lang.String)
+	<SPAN class="code-tag">&lt;/function-signature&gt;</SPAN>
+<SPAN class="code-tag">&lt;/function&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;function&gt;</SPAN>
+	<SPAN class="code-tag">&lt;name&gt;</SPAN>name<SPAN class="code-tag">&lt;/name&gt;</SPAN>
+	<SPAN class="code-tag">&lt;function-class&gt;</SPAN>com.nmote.wwel.Functions<SPAN class="code-tag">&lt;/function-class&gt;</SPAN>
+	<SPAN class="code-tag">&lt;function-signature&gt;</SPAN>
+		java.lang.Object getActionName()
+	<SPAN class="code-tag">&lt;/function-signature&gt;</SPAN>
+<SPAN class="code-tag">&lt;/function&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;function&gt;</SPAN>
+	<SPAN class="code-tag">&lt;name&gt;</SPAN>top<SPAN class="code-tag">&lt;/name&gt;</SPAN>
+	<SPAN class="code-tag">&lt;function-class&gt;</SPAN>com.nmote.wwel.Functions<SPAN class="code-tag">&lt;/function-class&gt;</SPAN>
+	<SPAN class="code-tag">&lt;function-signature&gt;</SPAN>
+		java.lang.Object getTopOfValueStack()
+	<SPAN class="code-tag">&lt;/function-signature&gt;</SPAN>
+<SPAN class="code-tag">&lt;/function&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;/taglib&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Functions.java</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+<SPAN class="code-keyword">package</SPAN> com.nmote.wwel;
+
+<SPAN class="code-keyword">import</SPAN> com.opensymphony.xwork.ActionContext;
+
+/**
+ * Utility functions <SPAN class="code-keyword">for</SPAN> accessing value stack and action context
+ * from JSP 2.0 EL taglibs.
+ */
+<SPAN class="code-keyword">public</SPAN> class Functions {
+
+	<SPAN class="code-keyword">public</SPAN> <SPAN class="code-keyword">static</SPAN> <SPAN class="code-object">Object</SPAN> findOnValueStack(<SPAN class="code-object">String</SPAN> expr) {
+		ActionContext a = ActionContext.getContext();
+		<SPAN class="code-object">Object</SPAN> value = a.getValueStack().findValue(expr);
+		<SPAN class="code-keyword">return</SPAN> value;
+	}
+
+	<SPAN class="code-keyword">public</SPAN> <SPAN class="code-keyword">static</SPAN> <SPAN class="code-object">Object</SPAN> getTopOfValueStack() {
+		ActionContext a = ActionContext.getContext();
+		<SPAN class="code-object">Object</SPAN> value = a.getValueStack().peek();
+		<SPAN class="code-keyword">return</SPAN> value;
+	}
+
+	<SPAN class="code-keyword">public</SPAN> <SPAN class="code-keyword">static</SPAN> <SPAN class="code-object">Object</SPAN> getActionName() {
+		ActionContext a = ActionContext.getContext();
+		<SPAN class="code-object">Object</SPAN> value = a.getName();
+		<SPAN class="code-keyword">return</SPAN> value;
+	}
+}
+</PRE>
+</DIV></DIV>
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

@@ -1,0 +1,756 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>JSON Plugin</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="guides.html" title="Guides">Guides</A>&nbsp;&gt;&nbsp;<A href="plugin-developers-guide.html" title="Plugin Developers Guide">Plugin Developers Guide</A>&nbsp;&gt;&nbsp;<A href="" title="JSON Plugin">JSON Plugin</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">JSON Plugin</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=2850922">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=2850922">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=2850922">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=2850922">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=2850922">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=2850922">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <P>The JSON plugin provides a &quot;json&quot; result type that serializes actions into JSON.  The serialization process is recursive, meaning that the whole object graph, starting on the action class (base class not included) will be serialized (root object can be customized using the &quot;root&quot; attribute). If the interceptor is used, the action will be populated from the JSON content in the request, these are the rules of the interceptor:</P>
+
+<OL>
+	<LI>The &quot;content-type&quot; must be &quot;application/json&quot;</LI>
+	<LI>The JSON content must be well formed, see <A href="http://www.json.org/" class="external-link" rel="nofollow">json.org</A> for grammar.</LI>
+	<LI>Action must have a public &quot;setter&quot; method for fields that must be populated.</LI>
+	<LI>Supported types for population are: Primitives (int,long...String), Date, List, Map, Primitive Arrays, Other class (more on this later), and Array of Other class.</LI>
+	<LI>Any object in JSON, that is to be populated inside a list, or a map, will be of type Map (mapping from properties to values), any whole number will be of type Long, any decimal number will be of type Double, and any array of type List.</LI>
+</OL>
+
+
+<P>Given this JSON string:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+{
+   <SPAN class="code-quote">&quot;doubleValue&quot;</SPAN>: 10.10,
+   <SPAN class="code-quote">&quot;nestedBean&quot;</SPAN>: {
+      <SPAN class="code-quote">&quot;name&quot;</SPAN>: <SPAN class="code-quote">&quot;Mr Bean&quot;</SPAN>
+   },
+   <SPAN class="code-quote">&quot;list&quot;</SPAN>: [<SPAN class="code-quote">&quot;A&quot;</SPAN>, 10, 20.20, {
+      <SPAN class="code-quote">&quot;firstName&quot;</SPAN>: <SPAN class="code-quote">&quot;El Zorro&quot;</SPAN>
+   }],
+   <SPAN class="code-quote">&quot;array&quot;</SPAN>: [10, 20] 
+}
+</PRE>
+</DIV></DIV>
+
+<P>The action must have a &quot;setDoubleValue&quot; method, taking either a &quot;float&quot; or a &quot;double&quot; argument (the interceptor will convert the value to the right one).   There must be a &quot;setNestedBean&quot; whose argument type can be any class, that has a &quot;setName&quot; method taking as argument an &quot;String&quot;.  There must be a &quot;setList&quot; method that takes a &quot;List&quot; as argument, that list will contain: &quot;A&quot; (String), 10 (Long), 20.20 (Double), Map (&quot;firstName&quot; -&gt; &quot;El Zorro&quot;). The &quot;setArray&quot; method can take as parameter either a &quot;List&quot;, or any numeric array.</P>
+
+<DIV class="panelMacro"><TABLE class="tipMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>So serialize your objects to JSON in javascript see <A href="http://json.org/json2.js" class="external-link" rel="nofollow">json2</A></TD></TR></TABLE></DIV>
+
+<H2><A name="JSONPlugin-Installation"></A>Installation</H2>
+
+<P>This plugin can be installed by copying the plugin jar into your application's <TT>/WEB-INF/lib</TT> directory.  No other files need to be copied or created.</P>
+
+<P>To use maven, add this to your pom:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;dependencies&gt;</SPAN>
+   ...
+   <SPAN class="code-tag">&lt;dependency&gt;</SPAN>
+       <SPAN class="code-tag">&lt;groupId&gt;</SPAN>org.apache.struts<SPAN class="code-tag">&lt;/groupId&gt;</SPAN>
+       <SPAN class="code-tag">&lt;artifactId&gt;</SPAN>struts2-json-plugin<SPAN class="code-tag">&lt;/artifactId&gt;</SPAN>
+       <SPAN class="code-tag">&lt;version&gt;</SPAN>STRUTS_VERSION<SPAN class="code-tag">&lt;/version&gt;</SPAN>
+   <SPAN class="code-tag">&lt;/dependency&gt;</SPAN>
+   ...
+<SPAN class="code-tag">&lt;/dependencies&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H2><A name="JSONPlugin-CustomizingSerializationandDeserialization"></A>Customizing Serialization and Deserialization</H2>
+<P>Use the JSON annotation to customize the serialization/deserialization process. Available JSON annotation fields:</P>
+
+<DIV class="table-wrap">
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TH class="confluenceTh">Name</TH>
+<TH class="confluenceTh">Description</TH>
+<TH class="confluenceTh">Default Value</TH>
+<TH class="confluenceTh">Serialization</TH>
+<TH class="confluenceTh">Deserialization</TH>
+</TR>
+<TR>
+<TD class="confluenceTd">name</TD>
+<TD class="confluenceTd">Customize field name</TD>
+<TD class="confluenceTd">empty</TD>
+<TD class="confluenceTd">yes</TD>
+<TD class="confluenceTd">no</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">serialize</TD>
+<TD class="confluenceTd">Include in serialization</TD>
+<TD class="confluenceTd">true</TD>
+<TD class="confluenceTd">yes</TD>
+<TD class="confluenceTd">no</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">deserialize</TD>
+<TD class="confluenceTd">Include in deserialization</TD>
+<TD class="confluenceTd">true</TD>
+<TD class="confluenceTd">no</TD>
+<TD class="confluenceTd">yes</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">format</TD>
+<TD class="confluenceTd">Format used to format/parse a Date field</TD>
+<TD class="confluenceTd">&quot;yyyy-MM-dd'T'HH:mm:ss&quot;</TD>
+<TD class="confluenceTd">yes</TD>
+<TD class="confluenceTd">yes</TD>
+</TR>
+</TBODY></TABLE>
+</DIV>
+
+
+<H3><A name="JSONPlugin-Excludingproperties"></A>Excluding properties</H3>
+<P>A comma-delimited list of regular expressions can be passed to the JSON Result and Interceptor, properties matching any of these regular expressions will be ignored on the serialization process:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- Result fragment --&gt;</SPAN></SPAN>
+<SPAN class="code-tag">&lt;result type=<SPAN class="code-quote">&quot;json&quot;</SPAN>&gt;</SPAN>
+  <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;excludeProperties&quot;</SPAN>&gt;</SPAN>
+    login.password,
+    studentList.*\.sin
+  <SPAN class="code-tag">&lt;/param&gt;</SPAN>
+<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+
+<SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- Interceptor fragment --&gt;</SPAN></SPAN>
+<SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;json&quot;</SPAN>&gt;</SPAN>
+  <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;enableSMD&quot;</SPAN>&gt;</SPAN>true<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+  <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;excludeProperties&quot;</SPAN>&gt;</SPAN>
+    login.password,
+    studentList.*\.sin
+  <SPAN class="code-tag">&lt;/param&gt;</SPAN>
+<SPAN class="code-tag">&lt;/interceptor-ref&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H3><A name="JSONPlugin-Includingproperties"></A>Including properties</H3>
+<P>A comma-delimited list of regular expressions can be passed to the JSON Result to restrict which properties will be serialized. ONLY properties matching any of these regular expressions will be included in the serialized output.</P>
+
+<DIV class="panelMacro"><TABLE class="noteMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD><B>Note</B><BR>Exclude property expressions take precedence over include property expressions. That is, if you use include and exclude property expressions on the same result, include property expressions will not be applied if an exclude exclude property expression matches a property first.</TD></TR></TABLE></DIV> 
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- Result fragment --&gt;</SPAN></SPAN>
+<SPAN class="code-tag">&lt;result type=<SPAN class="code-quote">&quot;json&quot;</SPAN>&gt;</SPAN>
+  <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;includeProperties&quot;</SPAN>&gt;</SPAN>
+    ^entries\[\d+\]\.clientNumber,
+    ^entries\[\d+\]\.scheduleNumber,
+    ^entries\[\d+\]\.createUserId
+  <SPAN class="code-tag">&lt;/param&gt;</SPAN>
+<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H3><A name="JSONPlugin-RootObject"></A>Root Object</H3>
+<P>Use the &quot;root&quot; attribute(OGNL expression) to specify the root object to be serialized. </P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;result type=<SPAN class="code-quote">&quot;json&quot;</SPAN>&gt;</SPAN>
+  <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;root&quot;</SPAN>&gt;</SPAN>
+    person.job
+  <SPAN class="code-tag">&lt;/param&gt;</SPAN>
+<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>The &quot;root&quot; attribute(OGNL expression) can also be used on the interceptor to specify the object that must be populated, <B>make sure this object is not null</B>. </P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;json&quot;</SPAN>&gt;</SPAN>
+  <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;root&quot;</SPAN>&gt;</SPAN>bean1.bean2<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+<SPAN class="code-tag">&lt;/interceptor-ref&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H3><A name="JSONPlugin-Wrapping"></A>Wrapping</H3>
+<P>For several reasons you might want to wrap the JSON output with some text, like wrapping with comments, adding a prefix, or to use file uploads which require the result to be wrapped in a textarea. Use <EM>wrapPrefix</EM> to add content in the beginning and <EM>wrapPostfix</EM> to add content at the end. This settings take precedence over &quot;wrapWithComments&quot; and &quot;prefix&quot; which are deprecated from 0.34 on. Examples:<BR>
+Wrap with comments:</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;result type=<SPAN class="code-quote">&quot;json&quot;</SPAN>&gt;</SPAN>
+  <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;wrapPrefix&quot;</SPAN>&gt;</SPAN>/*<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+  <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;wrapSuffix&quot;</SPAN>&gt;</SPAN>*/<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+</PRE>
+</DIV></DIV>  
+<P>Add a prefix:</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;result type=<SPAN class="code-quote">&quot;json&quot;</SPAN>&gt;</SPAN>
+  <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;wrapPrefix&quot;</SPAN>&gt;</SPAN>{}&amp;&amp;<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+</PRE>
+</DIV></DIV>  
+<P>Wrap for file upload:</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;result type=<SPAN class="code-quote">&quot;json&quot;</SPAN>&gt;</SPAN>
+  <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;wrapPrefix&quot;</SPAN>&gt;</SPAN><SPAN class="code-tag">&lt;![CDATA[&lt;html&gt;</SPAN><SPAN class="code-tag">&lt;body&gt;</SPAN><SPAN class="code-tag">&lt;textarea&gt;</SPAN>]]&gt;<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+  <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;wrapSuffix&quot;</SPAN>&gt;</SPAN><SPAN class="code-tag">&lt;![CDATA[&lt;/textarea&gt;</SPAN><SPAN class="code-tag">&lt;/body&gt;</SPAN><SPAN class="code-tag">&lt;/html&gt;</SPAN>]]&gt;<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+</PRE>
+</DIV></DIV>  
+
+<H3><A name="JSONPlugin-WrapwithComments"></A>Wrap with Comments </H3>
+<DIV class="panelMacro"><TABLE class="warningMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/forbidden.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD><EM>wrapWithComments</EM> is deprecated from 0.34, use <EM>wrapPrefix</EM> and <EM>wrapSuffix</EM> instead.</TD></TR></TABLE></DIV>
+<DIV class="panelMacro"><TABLE class="warningMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/forbidden.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD><EM>wrapWithComments</EM> can turn safe JSON text into dangerous text. For example,
+
+<P><SPAN class="error">&#91;&quot;*/ alert('XSS'); /*&quot;&#93;</SPAN> </P>
+
+<P>Thanks to Douglas Crockford for the tip!. Consider using <B>prefix</B> instead.</P></TD></TR></TABLE></DIV>
+
+<P>If the serialized JSON is <EM>{name: 'El Zorro'}</EM>. Then the output will be: <EM>{}&amp;&amp; ({name: 'El Zorro'}</EM></P>
+
+
+<P>If the &quot;wrapWithComments&quot; (false by default) attribute is set to true, the generated JSON is wrapped with comments like:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+/* {
+   <SPAN class="code-quote">&quot;doubleVal&quot;</SPAN>: 10.10,
+   <SPAN class="code-quote">&quot;nestedBean&quot;</SPAN>: {
+      <SPAN class="code-quote">&quot;name&quot;</SPAN>: <SPAN class="code-quote">&quot;Mr Bean&quot;</SPAN>
+   },
+   <SPAN class="code-quote">&quot;list&quot;</SPAN>: [<SPAN class="code-quote">&quot;A&quot;</SPAN>, 10, 20.20, {
+      <SPAN class="code-quote">&quot;firstName&quot;</SPAN>: <SPAN class="code-quote">&quot;El Zorro&quot;</SPAN>
+   }],
+   <SPAN class="code-quote">&quot;array&quot;</SPAN>: [10, 20] 
+} */
+</PRE>
+</DIV></DIV>
+
+<P>To strip those comments use:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+<SPAN class="code-keyword">var</SPAN> responseObject = eval(<SPAN class="code-quote">&quot;(&quot;</SPAN>+data.substring(data.indexOf(<SPAN class="code-quote">&quot;\/\*&quot;</SPAN>)+2, data.lastIndexOf(<SPAN class="code-quote">&quot;\*\/&quot;</SPAN>))+<SPAN class="code-quote">&quot;)&quot;</SPAN>);
+</PRE>
+</DIV></DIV>
+
+<H3><A name="JSONPlugin-Prefix"></A>Prefix</H3>
+<DIV class="panelMacro"><TABLE class="warningMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/forbidden.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD><EM>prefix</EM> is deprecated from 0.34, use <EM>wrapPrefix</EM> and <EM>wrapSuffix</EM> instead.</TD></TR></TABLE></DIV>
+<P>If the parameter <EM>prefix</EM> is set to true, the generated JSON will be prefixed with &quot;{}&amp;&amp; &quot;. This will help prevent hijacking. See <A href="http://trac.dojotoolkit.org/ticket/6380" class="external-link" rel="nofollow">this Dojo Ticket</A> for details:</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;result type=<SPAN class="code-quote">&quot;json&quot;</SPAN>&gt;</SPAN>
+  <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;prefix&quot;</SPAN>&gt;</SPAN>true<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H3><A name="JSONPlugin-BaseClasses"></A>Base Classes</H3>
+<P>By default properties defined on base classes of the &quot;root&quot; object won't be serialized, to serialize properties in all base classes (up to Object) set &quot;ignoreHierarchy&quot; to false in the JSON result:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;result type=<SPAN class="code-quote">&quot;json&quot;</SPAN>&gt;</SPAN>
+  <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;ignoreHierarchy&quot;</SPAN>&gt;</SPAN>false<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H3><A name="JSONPlugin-Enumerations"></A>Enumerations</H3>
+<P>By default, an Enum is serialized as a name=value pair where value = name().</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+  <SPAN class="code-keyword">public</SPAN> <SPAN class="code-keyword">enum</SPAN> AnEnum {
+     ValueA,
+     ValueB
+  }
+
+  JSON:  <SPAN class="code-quote">&quot;myEnum&quot;</SPAN>:<SPAN class="code-quote">&quot;ValueA&quot;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>Use the &quot;enumAsBean&quot; result parameter to serialize Enum's as a bean with a special property _name with value name().  All properties of the enum are also serialized.</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+  <SPAN class="code-keyword">public</SPAN> <SPAN class="code-keyword">enum</SPAN> AnEnum {
+     ValueA(<SPAN class="code-quote">&quot;A&quot;</SPAN>),
+     ValueB(<SPAN class="code-quote">&quot;B&quot;</SPAN>);
+
+     <SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">String</SPAN> val;
+     
+     <SPAN class="code-keyword">public</SPAN> AnEnum(val) {
+        <SPAN class="code-keyword">this</SPAN>.val = val;
+     }
+     <SPAN class="code-keyword">public</SPAN> getVal() {
+        <SPAN class="code-keyword">return</SPAN> val;
+     }
+   }
+
+  JSON:  myEnum: { <SPAN class="code-quote">&quot;_name&quot;</SPAN>: <SPAN class="code-quote">&quot;ValueA&quot;</SPAN>, <SPAN class="code-quote">&quot;val&quot;</SPAN>: <SPAN class="code-quote">&quot;A&quot;</SPAN> }
+</PRE>
+</DIV></DIV>
+
+<P>Enable this parameter through struts.xml:</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;result type=<SPAN class="code-quote">&quot;json&quot;</SPAN>&gt;</SPAN>
+  <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;enumAsBean&quot;</SPAN>&gt;</SPAN>true<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H3><A name="JSONPlugin-Compressingtheoutput."></A>Compressing the output. </H3>
+<P>Set the <EM>enableGZIP</EM> attribute to true to gzip the generated json response. The request <B>must</B> include &quot;gzip&quot; in the &quot;Accept-Encoding&quot; header for this to work.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;result type=<SPAN class="code-quote">&quot;json&quot;</SPAN>&gt;</SPAN>
+  <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;enableGZIP&quot;</SPAN>&gt;</SPAN>true<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H3><A name="JSONPlugin-Preventingthebrowserfromcachingtheresponse"></A>Preventing the browser from caching the response</H3>
+<P>Set <EM>noCache</EM> to true(false by default) to set the following headers in the response:</P>
+<UL>
+	<LI>Cache-Control: no-cache</LI>
+	<LI>Expires: 0</LI>
+	<LI>Pragma: No-cache</LI>
+</UL>
+
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;result type=<SPAN class="code-quote">&quot;json&quot;</SPAN>&gt;</SPAN>
+  <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;noCache&quot;</SPAN>&gt;</SPAN>true<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H3><A name="JSONPlugin-Excludingpropertieswithnullvalues"></A>Excluding properties with null values</H3>
+<P>By default fields with null values are serialized like {property_name: null}. This can be prevented by setting <EM>excludeNullProperties</EM> to true.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;result type=<SPAN class="code-quote">&quot;json&quot;</SPAN>&gt;</SPAN>
+  <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;excludeNullProperties&quot;</SPAN>&gt;</SPAN>true<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H3><A name="JSONPlugin-StatusandErrorcode"></A>Status and Error code</H3>
+<P>Use <EM>statusCode</EM> to set the status of the response:</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;result type=<SPAN class="code-quote">&quot;json&quot;</SPAN>&gt;</SPAN>
+  <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;statusCode&quot;</SPAN>&gt;</SPAN>304<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>And <EM>errorCode</EM> to send an error(the server might end up sending something to the client which is not the serialized JSON):</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;result type=<SPAN class="code-quote">&quot;json&quot;</SPAN>&gt;</SPAN>
+  <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;errorCode&quot;</SPAN>&gt;</SPAN>404<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H3><A name="JSONPlugin-JSONP"></A>JSONP</H3>
+<P>To enable JSONP, set the parameter <EM>callbackParameter</EM> in either the JSON Result or the Interceptor. A parameter with that name will be read from the request, and it value will be used as the JSONP function. Assuming that a request is made with the parameter &quot;callback&quot;=&quot;exec&quot;:</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;result type=<SPAN class="code-quote">&quot;json&quot;</SPAN>&gt;</SPAN>
+  <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;callbackParameter&quot;</SPAN>&gt;</SPAN>callback<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>And that the serialized JSON is <EM>{name: 'El Zorro'}</EM>. Then the output will be: <EM>exec({name: 'El Zorro'})</EM></P>
+
+<H3><A name="JSONPlugin-ContentType"></A>Content Type</H3>
+<P>Content type will be set to <EM>application/json-rpc</EM> by default if SMD is being used, or <EM>application/json</EM> otherwise. Sometimes it is necessary to set the content type to something else, like when uploading files with Dojo and YUI. Use the <EM>contentType</EM> parameter in those cases.</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;result type=<SPAN class="code-quote">&quot;json&quot;</SPAN>&gt;</SPAN>
+  <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;contentType&quot;</SPAN>&gt;</SPAN>text/html<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H3><A name="JSONPlugin-Encoding"></A>Encoding</H3>
+
+<P>User can define encoding per result or base on default assigned to struts.i18n.encoding. To define encoding for given result add encoding param as below:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;result type=<SPAN class="code-quote">&quot;json&quot;</SPAN>&gt;</SPAN>
+  <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;encoding&quot;</SPAN>&gt;</SPAN>UTF-8<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H2><A name="JSONPlugin-Example"></A>Example</H2>
+
+<H3><A name="JSONPlugin-SetupAction"></A>Setup Action</H3>
+<P>This simple action has some fields:</P>
+
+<P>Example:</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+<SPAN class="code-keyword">import</SPAN> java.util.HashMap;
+<SPAN class="code-keyword">import</SPAN> java.util.Map;
+
+<SPAN class="code-keyword">import</SPAN> com.opensymphony.xwork2.Action;
+
+<SPAN class="code-keyword">public</SPAN> class JSONExample {
+    <SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">String</SPAN> field1 = <SPAN class="code-quote">&quot;str&quot;</SPAN>;
+    <SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">int</SPAN>[] ints = {10, 20};
+    <SPAN class="code-keyword">private</SPAN> Map map = <SPAN class="code-keyword">new</SPAN> HashMap();
+    <SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">String</SPAN> customName = <SPAN class="code-quote">&quot;custom&quot;</SPAN>;
+
+    <SPAN class="code-comment">//'<SPAN class="code-keyword">transient</SPAN>' fields are not serialized
+</SPAN>    <SPAN class="code-keyword">private</SPAN> <SPAN class="code-keyword">transient</SPAN> <SPAN class="code-object">String</SPAN> field2;
+
+    <SPAN class="code-comment">//fields without getter method are not serialized
+</SPAN>    <SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">String</SPAN> field3;
+
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> execute() {
+        map.put(<SPAN class="code-quote">&quot;John&quot;</SPAN>, <SPAN class="code-quote">&quot;Galt&quot;</SPAN>);
+        <SPAN class="code-keyword">return</SPAN> Action.SUCCESS;
+    }
+
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> getField1() {
+        <SPAN class="code-keyword">return</SPAN> field1;
+    }
+
+    <SPAN class="code-keyword">public</SPAN> void setField1(<SPAN class="code-object">String</SPAN> field1) {
+        <SPAN class="code-keyword">this</SPAN>.field1 = field1;
+    }
+
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">int</SPAN>[] getInts() {
+        <SPAN class="code-keyword">return</SPAN> ints;
+    }
+
+    <SPAN class="code-keyword">public</SPAN> void setInts(<SPAN class="code-object">int</SPAN>[] ints) {
+        <SPAN class="code-keyword">this</SPAN>.ints = ints;
+    }
+
+    <SPAN class="code-keyword">public</SPAN> Map getMap() {
+        <SPAN class="code-keyword">return</SPAN> map;
+    }
+
+    <SPAN class="code-keyword">public</SPAN> void setMap(Map map) {
+        <SPAN class="code-keyword">this</SPAN>.map = map;
+    }
+
+    @JSON(name=<SPAN class="code-quote">&quot;newName&quot;</SPAN>)
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> getCustomName() {
+        <SPAN class="code-keyword">return</SPAN> <SPAN class="code-keyword">this</SPAN>.customName;
+    }
+}
+</PRE>
+</DIV></DIV>
+
+<H3><A name="JSONPlugin-Writethemappingfortheaction"></A>Write the mapping for the action</H3>
+<OL>
+	<LI>Add the map inside a package that extends &quot;json-default&quot;</LI>
+	<LI>Add a result of type &quot;json&quot;</LI>
+</OL>
+
+
+<P>Example:</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;?xml version=<SPAN class="code-quote">&quot;1.0&quot;</SPAN> encoding=<SPAN class="code-quote">&quot;UTF-8&quot;</SPAN> ?&gt;</SPAN>
+&lt;!DOCTYPE struts PUBLIC
+    <SPAN class="code-quote">&quot;-//Apache Software Foundation//DTD Struts Configuration 2.0//EN&quot;</SPAN>
+    <SPAN class="code-quote">&quot;http://struts.apache.org/dtds/struts-2.0.dtd&quot;</SPAN>&gt;
+
+<SPAN class="code-tag">&lt;struts&gt;</SPAN>
+
+  <SPAN class="code-tag">&lt;package name=<SPAN class="code-quote">&quot;example&quot;</SPAN>  extends=<SPAN class="code-quote">&quot;json-default&quot;</SPAN>&gt;</SPAN>
+     <SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;JSONExample&quot;</SPAN> class=<SPAN class="code-quote">&quot;example.JSONExample&quot;</SPAN>&gt;</SPAN>
+        <SPAN class="code-tag">&lt;result type=<SPAN class="code-quote">&quot;json&quot;</SPAN>/&gt;</SPAN>
+     <SPAN class="code-tag">&lt;/action&gt;</SPAN>
+  <SPAN class="code-tag">&lt;/package&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;/struts&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H4><A name="JSONPlugin-JSONexampleoutput"></A>JSON example output</H4>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+{  
+   <SPAN class="code-quote">&quot;field1&quot;</SPAN> : <SPAN class="code-quote">&quot;str&quot;</SPAN>, 
+   <SPAN class="code-quote">&quot;ints&quot;</SPAN>: [10, 20],
+   <SPAN class="code-quote">&quot;map&quot;</SPAN>: {
+       <SPAN class="code-quote">&quot;John&quot;</SPAN>:<SPAN class="code-quote">&quot;Galt&quot;</SPAN>
+   },
+   <SPAN class="code-quote">&quot;newName&quot;</SPAN>: <SPAN class="code-quote">&quot;custom&quot;</SPAN>
+}
+</PRE>
+</DIV></DIV>
+
+<H2><A name="JSONPlugin-JSONRPC"></A>JSON RPC</H2>
+<P>The json plugin can be used to execute action methods from javascript and return the output. This feature was developed with Dojo in mind, so it uses <A href="http://manual.dojotoolkit.org/WikiHome/DojoDotBook/Book9" class="external-link" rel="nofollow">Simple Method Definition</A> to advertise the remote service. Let's work it out with an example(useless as most examples).</P>
+
+<P>First write the action:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+<SPAN class="code-keyword">package</SPAN> smd;
+
+<SPAN class="code-keyword">import</SPAN> com.googlecode.jsonplugin.annotations.SMDMethod;
+<SPAN class="code-keyword">import</SPAN> com.opensymphony.xwork2.Action;
+
+<SPAN class="code-keyword">public</SPAN> class SMDAction {
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> smd() {
+        <SPAN class="code-keyword">return</SPAN> Action.SUCCESS;
+    }
+    
+    @SMDMethod
+    <SPAN class="code-keyword">public</SPAN> Bean doSomething(Bean bean, <SPAN class="code-object">int</SPAN> quantity) {
+        bean.setPrice(quantity * 10);
+        <SPAN class="code-keyword">return</SPAN> bean;
+    }
+}
+</PRE>
+</DIV></DIV>
+
+<P>Methods that will be called remotely <B>must</B> be annotated with the <EM>SMDMethod</EM> annotation, for security reasons. The method will take a bean object, modify its price and return it. The action can be annotated with the <EM>SMD</EM> annotation to customize the generated SMD (more on that soon), and parameters can be annotated with <EM>SMDMethodParameter</EM>. As you can see, we have a &quot;dummy&quot;, <EM>smd</EM> method. This method will be used to generate the Simple Method Definition (a definition of all the services provided by this class), using the &quot;json&quot; result.</P>
+
+<P>The bean class:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+<SPAN class="code-keyword">package</SPAN> smd;
+
+<SPAN class="code-keyword">public</SPAN> class Bean {
+    <SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">String</SPAN> type;
+    <SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">int</SPAN> price;
+    
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> getType() {
+        <SPAN class="code-keyword">return</SPAN> type;
+    }
+
+    <SPAN class="code-keyword">public</SPAN> void setType(<SPAN class="code-object">String</SPAN> type) {
+        <SPAN class="code-keyword">this</SPAN>.type = type;
+    }
+
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">int</SPAN> getPrice() {
+        <SPAN class="code-keyword">return</SPAN> price;
+    }
+
+    <SPAN class="code-keyword">public</SPAN> void setPrice(<SPAN class="code-object">int</SPAN> price) {
+        <SPAN class="code-keyword">this</SPAN>.price = price;
+    }
+
+}
+</PRE>
+</DIV></DIV>
+
+<P>The mapping:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;package name=<SPAN class="code-quote">&quot;RPC&quot;</SPAN> namespace=<SPAN class="code-quote">&quot;/nodecorate&quot;</SPAN> extends=<SPAN class="code-quote">&quot;json-default&quot;</SPAN>&gt;</SPAN>
+    <SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;SMDAction&quot;</SPAN> class=<SPAN class="code-quote">&quot;smd.SMDAction&quot;</SPAN> method=<SPAN class="code-quote">&quot;smd&quot;</SPAN>&gt;</SPAN>
+        <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;json&quot;</SPAN>&gt;</SPAN>
+            <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;enableSMD&quot;</SPAN>&gt;</SPAN>true<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+        <SPAN class="code-tag">&lt;/interceptor-ref&gt;</SPAN>
+        <SPAN class="code-tag">&lt;result type=<SPAN class="code-quote">&quot;json&quot;</SPAN>&gt;</SPAN>
+             <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;enableSMD&quot;</SPAN>&gt;</SPAN>true<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+        <SPAN class="code-tag">&lt;/result&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/action&gt;</SPAN>
+<SPAN class="code-tag">&lt;/package&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>Nothing special here, except that <B>both</B> the interceptor and the result must be applied to the action, and &quot;enableSMD&quot; must be enabled for both.</P>
+
+<P>Now the javascript code:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+&lt;s:url id=<SPAN class="code-quote">&quot;smdUrl&quot;</SPAN> namespace=<SPAN class="code-quote">&quot;/nodecorate&quot;</SPAN> action=<SPAN class="code-quote">&quot;SMDAction&quot;</SPAN> /&gt;
+&lt;script type=<SPAN class="code-quote">&quot;text/javascript&quot;</SPAN>&gt;
+    <SPAN class="code-comment">//load dojo RPC
+</SPAN>    dojo.require(<SPAN class="code-quote">&quot;dojo.rpc.*&quot;</SPAN>);
+    
+    <SPAN class="code-comment">//create service object(proxy) using SMD (generated by the json result)
+</SPAN>    <SPAN class="code-keyword">var</SPAN> service = <SPAN class="code-keyword">new</SPAN> dojo.rpc.JsonService(<SPAN class="code-quote">&quot;${smdUrl}&quot;</SPAN>);
+    
+    <SPAN class="code-comment">//function called when remote method returns
+</SPAN>    <SPAN class="code-keyword">var</SPAN> callback = function(bean) {
+        alert(<SPAN class="code-quote">&quot;Price <SPAN class="code-keyword">for</SPAN> &quot;</SPAN> + bean.type + <SPAN class="code-quote">&quot; is &quot;</SPAN> + bean.price);
+    };
+    
+    <SPAN class="code-comment">//parameter
+</SPAN>    <SPAN class="code-keyword">var</SPAN> bean = {type: <SPAN class="code-quote">&quot;Mocca&quot;</SPAN>};
+    
+    <SPAN class="code-comment">//execute remote method
+</SPAN>    <SPAN class="code-keyword">var</SPAN> defered = service.doSomething(bean, 5);
+
+    <SPAN class="code-comment">//attach callback to defered object
+</SPAN>    defered.addCallback(callback);
+&lt;/script&gt;
+</PRE>
+</DIV></DIV>
+
+<P>Dojo's JsonService will make a request to the action to load the SMD, which will return a JSON object with the definition of the available remote methods, using that information Dojo creates a &quot;proxy&quot; for those methods. Because of the asynchronous nature of the request, when the method is executed, a deferred object is returned, to which a callback function can be attached. The callback function will receive as a parameter the object returned from your action. That's it.</P>
+
+<H2><A name="JSONPlugin-Proxiedobjects"></A>Proxied objects</H2>
+<P>As annotations are not inherited in Java, some user might experience problems while trying to serialize objects that are proxied. eg. when you have attached AOP interceptors to your action. </P>
+
+<P>In this situation, the plugin will not detect the annotations on methods in your action.</P>
+
+<P>To overcome this, set the &quot;ignoreInterfaces&quot; result parameter to false (true by default) to request that the plugin inspects all interfaces and superclasses of the action for annotations on the action's methods.  </P>
+
+<P>NOTE: This parameter should only be set to false if your action could be a proxy as there is a performance cost caused by recursion through the interfaces.  </P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+&lt;action name=<SPAN class="code-quote">&quot;contact&quot;</SPAN> class=<SPAN class="code-quote">&quot;<SPAN class="code-keyword">package</SPAN>.ContactAction&quot;</SPAN> method=<SPAN class="code-quote">&quot;smd&quot;</SPAN>&gt;
+   &lt;interceptor-ref name=<SPAN class="code-quote">&quot;json&quot;</SPAN>&gt;
+      &lt;param name=<SPAN class="code-quote">&quot;enableSMD&quot;</SPAN>&gt;<SPAN class="code-keyword">true</SPAN>&lt;/param&gt;
+      &lt;param name=<SPAN class="code-quote">&quot;ignoreSMDMethodInterfaces&quot;</SPAN>&gt;<SPAN class="code-keyword">false</SPAN>&lt;/param&gt;
+   &lt;/interceptor-ref&gt;
+   &lt;result type=<SPAN class="code-quote">&quot;json&quot;</SPAN>&gt;
+      &lt;param name=<SPAN class="code-quote">&quot;enableSMD&quot;</SPAN>&gt;<SPAN class="code-keyword">true</SPAN>&lt;/param&gt;
+      &lt;param name=<SPAN class="code-quote">&quot;ignoreInterfaces&quot;</SPAN>&gt;<SPAN class="code-keyword">false</SPAN>&lt;/param&gt;
+   &lt;/result&gt;
+   &lt;interceptor-ref name=<SPAN class="code-quote">&quot;<SPAN class="code-keyword">default</SPAN>&quot;</SPAN>/&gt;
+&lt;/action&gt;
+</PRE>
+</DIV></DIV>
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

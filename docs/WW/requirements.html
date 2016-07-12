@@ -1,0 +1,504 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Requirements</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="guides.html" title="Guides">Guides</A>&nbsp;&gt;&nbsp;<A href="contributors-guide.html" title="Contributors Guide">Contributors Guide</A>&nbsp;&gt;&nbsp;<A href="" title="Requirements">Requirements</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Requirements</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=29362">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=29362">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=29362">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=29362">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=29362">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=29362">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <DIV class="panelMacro"><TABLE class="noteMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>Under Construction</TD></TR></TABLE></DIV>
+
+<H2><A name="Requirements-Struts2%3AAPlausibleRequirementsDocument"></A>Struts 2: A Plausible Requirements Document</H2>
+
+<DIV class="panelMacro"><TABLE class="infoMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>The outline for this document is adapted from <A href="http://www.amazon.com/exec/obidos/tg/detail/-/0201702258/apachesoftwar-20/" class="external-link" rel="nofollow">Writing Effective Use Cases</A>, pages 13-14.</TD></TR></TABLE></DIV>
+
+<H3><A name="Requirements-Chapter1.PurposeandScope"></A>Chapter 1. Purpose and Scope</H3>
+
+<DIV class="table-wrap">
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TH class="confluenceTh"> <A href="#Requirements-Mission">1a.</A></TH>
+<TD class="confluenceTd"> What is the overall scope and goal? What is our mission statement? </TD>
+</TR>
+<TR>
+<TH class="confluenceTh"> <A href="#Requirements-Stakeholders">1b.</A></TH>
+<TD class="confluenceTd"> Who are the Stakeholders? (Who cares if we build the system or not?) </TD>
+</TR>
+<TR>
+<TH class="confluenceTh"> <A href="#Requirements-Topics">1c.</A></TH>
+<TD class="confluenceTd"> What topics are within our scope? What topics are out of scope? </TD>
+</TR>
+</TBODY></TABLE>
+</DIV>
+
+
+<H3><A name="Requirements-Chapter2.TermsUsed%2FGlossary%23Glossary"></A>Chapter 2. <A href="#Requirements-Glossary">Terms Used / Glossary</A></H3>
+
+<H3><A name="Requirements-Chapter3.TheUseCasesUseCases%28%29"></A>Chapter 3. <A href="use-cases.html" title="Use Cases">The Use Cases</A> <IMG class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/star_yellow.gif" height="16" width="16" align="absmiddle" alt="" border="0"></H3>
+
+<DIV class="table-wrap">
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TH class="confluenceTh"> <A href="use-cases.html#UseCases-Actors">3a.</A> </TH>
+<TD class="confluenceTd"> The primary actors and their general goals </TD>
+</TR>
+<TR>
+<TH class="confluenceTh"> <A href="use-cases.html#UseCases-Business">3b.</A> </TH>
+<TD class="confluenceTd"> The business use cases (operations concepts) </TD>
+</TR>
+<TR>
+<TH class="confluenceTh"> <A href="use-cases.html#UseCases-Development">3c.</A> </TH>
+<TD class="confluenceTd"> The development use cases (developer concepts) </TD>
+</TR>
+<TR>
+<TH class="confluenceTh"> <A href="use-cases.html#UseCases-Framework">3d.</A> </TH>
+<TD class="confluenceTd"> The framework use cases (system concepts) </TD>
+</TR>
+</TBODY></TABLE>
+</DIV>
+
+
+<H3><A name="Requirements-Chapter4.TheTechnologyUsed"></A>Chapter 4. The Technology Used</H3>
+
+<DIV class="table-wrap">
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TH class="confluenceTh"> <A href="#Requirements-Technology">4a.</A> </TH>
+<TD class="confluenceTd"> What technology requirements are there for this system? </TD>
+</TR>
+<TR>
+<TH class="confluenceTh"> <A href="#Requirements-Systems">4b.</A>    </TH>
+<TD class="confluenceTd"> With what systems will this system interface? What are the interface requirements? </TD>
+</TR>
+</TBODY></TABLE>
+</DIV>
+
+
+<H3><A name="Requirements-Chapter5.Otherrequirements"></A>Chapter 5. Other requirements</H3>
+
+<DIV class="table-wrap">
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TH class="confluenceTh"> <A href="#Requirements-Process">5a</A>. </TH>
+<TD class="confluenceTd"> Development process </TD>
+</TR>
+<TR>
+<TD class="confluenceTd">&nbsp;</TD>
+<TD class="confluenceTd"> Q1. Who are the project participants? </TD>
+</TR>
+<TR>
+<TD class="confluenceTd">&nbsp;</TD>
+<TD class="confluenceTd"> Q2. What values will be reflected? (Simple, soon, fast, or flexible?)  </TD>
+</TR>
+<TR>
+<TD class="confluenceTd">&nbsp;</TD>
+<TD class="confluenceTd"> Q3. What feedback or project visibility do the users and sponsors expect? </TD>
+</TR>
+<TR>
+<TD class="confluenceTd">&nbsp;</TD>
+<TD class="confluenceTd"> Q4. What can we import? What must we build? What other systems have a similar scope? </TD>
+</TR>
+<TR>
+<TD class="confluenceTd">&nbsp;</TD>
+<TD class="confluenceTd"> Q5. Under what other process requirements does the project operate? </TD>
+</TR>
+<TR>
+<TH class="confluenceTh"> <A href="#Requirements-Rules">5b.</A>     </TH>
+<TD class="confluenceTd"> Business Rules</TD>
+</TR>
+<TR>
+<TH class="confluenceTh"> <A href="#Requirements-Peformance">5c.</A> </TH>
+<TD class="confluenceTd"> Performance</TD>
+</TR>
+<TR>
+<TH class="confluenceTh"> <A href="#Requirements-Operations">5d.</A> </TH>
+<TD class="confluenceTd"> Operations, security, documentation</TD>
+</TR>
+<TR>
+<TH class="confluenceTh"> <A href="#Requirements-Usability">5e.</A>  </TH>
+<TD class="confluenceTd"> Use and usability</TD>
+</TR>
+<TR>
+<TH class="confluenceTh"> <A href="#Requirements-Maintenance">5f.</A></TH>
+<TD class="confluenceTd"> Maintenance and portability</TD>
+</TR>
+<TR>
+<TH class="confluenceTh"> <A href="#Requirements-Deferred">5g.</A>   </TH>
+<TD class="confluenceTd"> Unresolved or deferred</TD>
+</TR>
+</TBODY></TABLE>
+</DIV>
+
+
+<HR>
+
+<P><A name="Requirements-Mission"></A></P>
+<H4><A name="Requirements-Mission"></A>Mission </H4>
+
+<P>What is the overall scope and goal? What is our mission statement?</P>
+
+<DIV class="table-wrap">
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TH class="confluenceTh">Scope </TH>
+<TD class="confluenceTd"> MVC framework for professional web application developers and development teams. </TD>
+</TR>
+<TR>
+<TH class="confluenceTh">Goal</TH>
+<TD class="confluenceTd"> Encourage developers to use a supplied set of base classes and tag libraries (thereby avoiding a potential tangle mess of pages). </TD>
+</TR>
+<TR>
+<TH class="confluenceTh">Mission Statement </TH>
+<TD class="confluenceTd"> Create the web framework that we want to use to build our own applications: a MVC framework that balances flexibility with uniformity. </TD>
+</TR>
+</TBODY></TABLE>
+</DIV>
+
+
+<P><A name="Requirements-Stakeholders"></A></P>
+<H4><A name="Requirements-Stakeholders"></A>Stakeholders </H4>
+
+<P>Who are the Stakeholders? (Who cares if we build the system or not?) </P>
+
+<DIV class="table-wrap">
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TH class="confluenceTh"> Stakeholder            </TH>
+<TH class="confluenceTh"> Rationale </TH>
+</TR>
+<TR>
+<TD class="confluenceTd">Apache Software Foundation</TD>
+<TD class="confluenceTd"> <IMG class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" height="16" width="16" align="absmiddle" alt="" border="0"> ... </TD>
+</TR>
+<TR>
+<TD class="confluenceTd">Apache Struts PMC         </TD>
+<TD class="confluenceTd">&nbsp;</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">Other Struts Committers   </TD>
+<TD class="confluenceTd">&nbsp;</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">Other Struts contributors </TD>
+<TD class="confluenceTd">&nbsp;</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">Other Users and teams     </TD>
+<TD class="confluenceTd">&nbsp;</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">Container, Extension, and IDE makers</TD>
+<TD class="confluenceTd">&nbsp;</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">Information Technology Managers</TD>
+<TD class="confluenceTd">&nbsp;</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">Government contractors    </TD>
+<TD class="confluenceTd">&nbsp;</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">Other MVC frameworks      </TD>
+<TD class="confluenceTd">&nbsp;</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">Web platform vendors (Sun)</TD>
+<TD class="confluenceTd">&nbsp;</TD>
+</TR>
+</TBODY></TABLE>
+</DIV>
+
+
+<P><A name="Requirements-Topics"></A></P>
+<H4><A name="Requirements-Topics"></A>Topics </H4>
+
+<DIV class="table-wrap">
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TH class="confluenceTh">In/Out of Scope </TH>
+<TH class="confluenceTh">Topic      </TH>
+</TR>
+<TR>
+<TH class="confluenceTh"> <IMG class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/lightbulb_on.gif" height="16" width="16" align="absmiddle" alt="" border="0">            </TH>
+<TD class="confluenceTd"> Utilizing HTTP and HTML implementations                </TD>
+</TR>
+<TR>
+<TH class="confluenceTh"> <IMG class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/lightbulb.gif" height="16" width="16" align="absmiddle" alt="" border="0">           </TH>
+<TD class="confluenceTd"> Implementing or extending HTTP and HTML specifications </TD>
+</TR>
+<TR>
+<TH class="confluenceTh"> <IMG class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/lightbulb.gif" height="16" width="16" align="absmiddle" alt="" border="0">           </TH>
+<TD class="confluenceTd"> Naming the framework something else                    </TD>
+</TR>
+<TR>
+<TD class="confluenceTd">&nbsp;</TD>
+<TD class="confluenceTd"> <IMG class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" height="16" width="16" align="absmiddle" alt="" border="0"> ...                                                </TD>
+</TR>
+</TBODY></TABLE>
+</DIV>
+
+
+<P><A name="Requirements-Glossary"></A></P>
+<H4><A name="Requirements-Glossary"></A>Glossary </H4>
+
+<UL>
+	<LI><B>MVC</B> - ...</LI>
+	<LI>HTTP</LI>
+	<LI>HTML</LI>
+	<LI>Front Controller</LI>
+	<LI>Dispatcher</LI>
+	<LI>request</LI>
+	<LI>response</LI>
+	<LI>Page Controller</LI>
+	<LI>container</LI>
+	<LI>Dependency Injection</LI>
+	<LI>Inversion of Control</LI>
+	<LI>domain object</LI>
+	<LI>URL pattern</LI>
+	<LI>resource</LI>
+	<LI>singletons</LI>
+</UL>
+
+
+<P><A name="Requirements-Technology"></A></P>
+<H4><A name="Requirements-Technology"></A>Technology</H4>
+
+<P>What technology requirements are there for this system?</P>
+
+<UL>
+	<LI>Java 5</LI>
+	<LI>Servlet API 2.4</LI>
+	<LI>JSP API 2.0</LI>
+	<LI>HTTP 1.0</LI>
+	<LI>HTML 4.01 / XHTML 1.0</LI>
+	<LI>JavaScript/ECMAScript ECMA-262</LI>
+</UL>
+
+
+<P><A name="Requirements-Systems"></A></P>
+<H4><A name="Requirements-Systems"></A>Systems</H4>
+
+<P>With what systems will this system interface? What are the interface requirements?</P>
+
+<UL>
+	<LI>Popular web browsers utilizing HTTP / HTML</LI>
+	<LI>JavaScript</LI>
+	<LI>JavaScript AJAX libraries</LI>
+	<LI>Data access libraries utilizing singletons or Dependency Injection</LI>
+	<LI>Web application resources (server pages, servlets) utilizing Servlet API</LI>
+	<LI>Java compilers and code formattings utilizing the source code</LI>
+	<LI>Unit testing lbiraries utilizing the Java and Servlet APIs</LI>
+	<LI>Electronic mail systems utilizing SMTP, POP3, or IMAP, usually via JavaMail</LI>
+	<LI><IMG class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" height="16" width="16" align="absmiddle" alt="" border="0"> ...</LI>
+</UL>
+
+
+<P><A name="Requirements-Process"></A></P>
+<H4><A name="Requirements-Process"></A>Process </H4>
+
+<P>Development process </P>
+
+<H5><A name="Requirements-Whoaretheprojectparticipants%3F"></A>Who are the project participants? </H5>
+
+<P>The <A href="http://struts.apache.org/volunteers.html" class="external-link" rel="nofollow">Apache Struts PMC and other Struts committers</A>, along with other volunteer contributors. </P>
+
+<H5><A name="Requirements-Whatvalueswillbereflected%3F%28Simple%2Csoon%2Cfast%2Corflexible%3F%29"></A>What values will be reflected? (Simple, soon, fast, or flexible?) </H5>
+
+<P>Simple and flexible. </P>
+
+<H5><A name="Requirements-Whatfeedbackorprojectvisibilitydotheusersandsponsorsexpect%3F"></A>What feedback or project visibility do the users and sponsors expect?</H5>
+
+<P>The project is expected to be transparent. All development decisions are expected to take place on the public mailing list. The private PMC list is only to be used when discussing individuals (new committers) and a rapid response to a new security issue.</P>
+
+<H5><A name="Requirements-Whatcanweimport%3FWhatmustwebuild%3FWhatothersystemshaveasimilarscope%3F"></A>What can we import? What must we build? What other systems have a similar scope?</H5>
+
+<P>Import </P>
+<UL>
+	<LI>Various Jakarta Commons and Open Symphony packages, including XWork</LI>
+	<LI>Other packages under a compatible license</LI>
+</UL>
+
+
+<P>Build </P>
+<UL>
+	<LI>Web Compatibility layer over XWork</LI>
+	<LI>UI tags that utilize framework resources</LI>
+</UL>
+
+
+<H5><A name="Requirements-Underwhatotherprocessrequirementsdoestheprojectoperate%3F"></A>Under what other process requirements does the project operate?</H5>
+
+<P>The <A href="http://www.apache.org/foundation/bylaws.html" class="external-link" rel="nofollow">ASF Bylaws</A>, other relevant resolutions of the <A href="http://www.apache.org/foundation/board/calendar.html" class="external-link" rel="nofollow">ASF Board</A>, and the <A href="http://struts.apache.org/bylaws.html" class="external-link" rel="nofollow">Apache Struts Project Charter</A> (in that order). See also <A href="http://www.apache.org/foundation/how-it-works.html" class="external-link" rel="nofollow">How the ASF works</A>.</P>
+
+<P><A name="Requirements-Rules"></A></P>
+<H4><A name="Requirements-BusinessRules"></A>Business Rules</H4>
+
+<P><IMG class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" height="16" width="16" align="absmiddle" alt="" border="0"> ...</P>
+
+<P><A name="Requirements-Performance"></A></P>
+<H4><A name="Requirements-Performance"></A>Performance</H4>
+
+<P><IMG class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" height="16" width="16" align="absmiddle" alt="" border="0"> ...</P>
+
+<P><A name="Requirements-Operations"></A></P>
+<H4><A name="Requirements-Operations%2Csecurity%2Cdocumentation"></A>Operations, security, documentation</H4>
+
+<P><IMG class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" height="16" width="16" align="absmiddle" alt="" border="0"> ...</P>
+
+<P><A name="Requirements-Usability"></A></P>
+<H4><A name="Requirements-Useandusability"></A>Use and usability</H4>
+
+<P><IMG class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" height="16" width="16" align="absmiddle" alt="" border="0"> ...</P>
+
+<P><A name="Requirements-Maintenance"></A></P>
+<H4><A name="Requirements-Maintenanceandportability"></A>Maintenance and portability</H4>
+
+<P><IMG class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" height="16" width="16" align="absmiddle" alt="" border="0"> ...</P>
+
+<P><A name="Requirements-Deferred"></A></P>
+<H4><A name="Requirements-Unresolvedordeferred"></A>Unresolved or deferred</H4>
+
+<P><IMG class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" height="16" width="16" align="absmiddle" alt="" border="0"> ...</P>
+
+        </DIV>
+
+                  <DIV class="tabletitle">
+            Children
+            <SPAN class="smalltext" id="show" style="display: inline;">
+              <A href="javascript:showChildren()">Show Children</A></SPAN>
+            <SPAN class="smalltext" id="hide" style="display: none;">
+              <A href="javascript:hideChildren()">Hide Children</A></SPAN>
+          </DIV>
+          <DIV class="greybox" id="children" style="display: none;">
+                                      <A href="use-cases.html" title="Use Cases">Use Cases</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                      </DIV>
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

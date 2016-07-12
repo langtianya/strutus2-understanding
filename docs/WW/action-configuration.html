@@ -1,0 +1,343 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Action Configuration</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="guides.html" title="Guides">Guides</A>&nbsp;&gt;&nbsp;<A href="core-developers-guide.html" title="Core Developers Guide">Core Developers Guide</A>&nbsp;&gt;&nbsp;<A href="configuration-elements.html" title="Configuration Elements">Configuration Elements</A>&nbsp;&gt;&nbsp;<A href="" title="Action Configuration">Action Configuration</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Action Configuration</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=14122">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=14122">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14122">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14122">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14122">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14122">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <P>The action mappings are the basic &quot;unit-of-work&quot; in the framework. Essentially, the action maps an identifier to a handler class. When a request matches the action's name, the framework uses the mapping to determine how to process the request.</P>
+
+<DIV>
+<UL>
+    <LI><A href="#ActionConfiguration-ActionMappings">Action Mappings</A></LI>
+    <LI><A href="#ActionConfiguration-ActionNames">Action Names</A></LI>
+    <LI><A href="#ActionConfiguration-ActionMethods">Action Methods</A></LI>
+    <LI><A href="#ActionConfiguration-WildcardMethod">Wildcard Method</A></LI>
+    <LI><A href="#ActionConfiguration-DynamicMethodInvocation">Dynamic Method Invocation</A></LI>
+    <LI><A href="#ActionConfiguration-ActionSupportDefault">ActionSupport Default</A></LI>
+    <LI><A href="#ActionConfiguration-PostBackDefault">Post-Back Default</A></LI>
+    <LI><A href="#ActionConfiguration-ActionDefault">Action Default</A></LI>
+<UL>
+    <LI><A href="#ActionConfiguration-WildcardDefault">Wildcard Default</A></LI>
+</UL>
+    <LI><A href="#ActionConfiguration-Next%253AWildcardMappings">Next: Wildcard Mappings</A></LI>
+</UL></DIV>
+
+<H2><A name="ActionConfiguration-ActionMappings"></A>Action Mappings</H2>
+
+<P>The action mapping can specify a set of result types, a set of exception handlers, and an interceptor stack. Only the <TT>name</TT> attribute is required. The other attributes can also be provided at package scope.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>A Logon Action</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+&lt;action name=<SPAN class="code-quote">&quot;Logon&quot;</SPAN> class=<SPAN class="code-quote">&quot;tutorial.Logon&quot;</SPAN>&gt;
+  &lt;result type=<SPAN class="code-quote">&quot;redirectAction&quot;</SPAN>&gt;Menu&lt;/result&gt;
+  &lt;result name=<SPAN class="code-quote">&quot;input&quot;</SPAN>&gt;/Logon.jsp&lt;/result&gt;
+&lt;/action&gt;
+</PRE>
+</DIV></DIV>
+
+<H2><A name="ActionConfiguration-ActionNames"></A>Action Names</H2>
+
+<P>In a web application, the <TT>name</TT> attribute is matched as part of the location requested by a browser (or other HTTP client). The framework will drop the host and application name and the extension and match what's in the middle: the action name. So, a request for <TT><A href="http://www.planetstruts.org/struts2-mailreader/Welcome.do" class="external-link" rel="nofollow">http://www.planetstruts.org/struts2-mailreader/Welcome.do</A></TT> will map to the <TT>Welcome</TT> action.</P>
+
+<P>Within an application a link to an action is usually generated by a Struts Tag. The tag can specify the action by name, and the framework will render the default extension and anything else that is needed. Forms may also submit directly to a Struts Action name (rather than a &quot;raw&quot; URI).</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>A Hello Form</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+&lt;s:form action=<SPAN class="code-quote">&quot;Hello&quot;</SPAN>&gt;
+    &lt;s:textfield label=<SPAN class="code-quote">&quot;Please enter your name&quot;</SPAN> name=<SPAN class="code-quote">&quot;name&quot;</SPAN>/&gt;
+    &lt;s:submit/&gt;
+&lt;/s:form&gt;
+</PRE>
+</DIV></DIV>
+
+<DIV class="panelMacro"><TABLE class="infoMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD><B>Action Names With Slashes</B><BR>If your action names have slashes in them (for example, <TT>&lt;action name=&quot;admin/home&quot; class=&quot;tutorial.Admin&quot;/&gt;</TT>) you need to specifically allow slashes in your action names via a constant in the <TT>struts.xml</TT> file by specifying <TT>&lt;constant name=&quot;struts.enable.SlashesInActionNames&quot; value=&quot;true&quot;/&gt;</TT>. See <A href="https://issues.apache.org/jira/browse/WW-1383" class="external-link" rel="nofollow">JIRA Issue WW-1383</A> for discussion as there are side effects to setting this property to <TT>true</TT>.</TD></TR></TABLE></DIV>
+
+<DIV class="panelMacro"><TABLE class="noteMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD><B>Action Names with Dots and Dashes</B><BR>Although action naming is pretty flexible, one should pay attention when using dots (eg. <TT>create.user</TT>) and/or dashes (eg. <TT>my-action</TT>). While the dot notation has no known side effects at this time, the dash notation will cause problems with the generated JavaScript for certain tags and themes. Use with caution, and always try to use camelcase action names (eg. <TT>createUser</TT>) or underscores (eg. <TT>my_action</TT>).</TD></TR></TABLE></DIV>
+
+<H2><A name="ActionConfiguration-ActionMethods"></A>Action Methods</H2>
+
+<P>The default entry method to the handler class is defined by the Action interface.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Action interface</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+<SPAN class="code-keyword">public</SPAN> <SPAN class="code-keyword">interface</SPAN> Action {
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> execute() <SPAN class="code-keyword">throws</SPAN> Exception;
+}
+</PRE>
+</DIV></DIV>
+
+<P><IMG class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/information.gif" height="16" width="16" align="absmiddle" alt="" border="0"> Implementing the Action interface is optional. If Action is not implemented, the framework will use reflection to look for an <TT>execute</TT> method.</P>
+
+<P>Sometimes, developers like to create more than one entry point to an Action. For example, in the case of a data-access Action, a developer might want separate entry-points for <TT>create</TT>, <TT>retrieve</TT>, <TT>update</TT>, and <TT>delete</TT>. A different entry point can be specified by the <TT>method</TT> attribute.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;delete&quot;</SPAN> class=<SPAN class="code-quote">&quot;example.CrudAction&quot;</SPAN> method=<SPAN class="code-quote">&quot;delete&quot;</SPAN>&gt;</SPAN>
+    ...
+</PRE>
+</DIV></DIV>
+
+<P><IMG class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" height="16" width="16" align="absmiddle" alt="" border="0"> If there is no <TT>execute</TT> method and no other method specified in the configuration the framework will throw an exception.</P>
+
+
+<H2><A name="ActionConfiguration-WildcardMethod"></A>Wildcard Method</H2>
+
+<P>Many times, a set of action mappings will share a common pattern. For example, all your <TT>edit</TT> actions might start with the word &quot;edit&quot;, and call the <TT>edit</TT> method on the Action class. The <TT>delete</TT> actions might use the same pattern, but call the <TT>delete</TT> method instead. </P>
+
+<P>Rather than code a separate mapping for each action class that uses this pattern, you can write it once as a wildcard mapping. </P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;*Crud&quot;</SPAN> class=<SPAN class="code-quote">&quot;example.Crud&quot;</SPAN> method=<SPAN class="code-quote">&quot;{1}&quot;</SPAN>&gt;</SPAN>
+    ...
+</PRE>
+</DIV></DIV>
+
+<P>Here, a reference to &quot;editCrud&quot; will call the <TT>edit</TT> method on an instance of the Crud Action class. Likewise, a reference to &quot;deleteCrud&quot; will call the <TT>delete</TT> method instead. </P>
+
+<P>Another common approach is to postfix the method name and set it off with an exclamation point (aka &quot;bang&quot;), underscore, or other special character. </P>
+
+<UL>
+	<LI>&quot;action=Crud_input&quot;</LI>
+	<LI>&quot;action=Crud_delete&quot;</LI>
+</UL>
+
+
+<P>To use a postfix wildcard, just move the asterisk and add an underscore.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;Crud_*&quot;</SPAN> class=<SPAN class="code-quote">&quot;example.Crud&quot;</SPAN> method=<SPAN class="code-quote">&quot;{1}&quot;</SPAN>&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>From the framework's perspective, a wildcard mapping creates a new &quot;virtual&quot; mapping with all the same attributes as a conventional, static mapping. As a result, you can use the expanded wildcard name as the name of validation, type conversion, and message resource files, just as if it were an Action name (which it is!). </P>
+
+<UL>
+	<LI><TT>Crud_input-validation.xml</TT></LI>
+	<LI><TT>Crud_delete-conversion.xml</TT></LI>
+</UL>
+
+
+<DIV class="panelMacro"><TABLE class="warningMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/forbidden.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>If Wildcard Method mapping uses a &quot;&#33;&quot; in the action name, the Wildcard Method will overlap with another flexible approach to mapping, <A href="#ActionConfiguration-DynamicMethodInvocation">Dynamic Method Invocation</A>. To use action names that include the &quot;&#33;&quot; character, set <TT>struts.enable.DynamicMethodInvocation</TT> to <TT>FALSE</TT> in the application configuration.</TD></TR></TABLE></DIV>
+
+<H2><A name="ActionConfiguration-DynamicMethodInvocation"></A>Dynamic Method Invocation</H2>
+
+<P>There's a feature embedded in WebWork 2 that lets the &quot;&#33;&quot; (bang) character invoke a method other than <TT>execute</TT>. In WebWork, it doesn't really have a name. During the S2 discussions, we coined the term &quot;dynamic method invocation&quot; to describe how WW/S2 use the bang notation.</P>
+
+<P>Dynamic Method Invocation (DMI) will use the string following a &quot;&#33;&quot; character in an action name as the name of a method to invoke (instead of <TT>execute</TT>). A reference to &quot;<TT>Category!create.action</TT>&quot;, says to use the &quot;Category&quot; action mapping, but call the <TT>create</TT> method instead. </P>
+
+<P>For Struts 2, we added a switch to disable DMI for two reasons. First, DMI can cause security issues if POJO actions are used. Second, DMI overlaps with the Wildcard Method feature that we brought over from Struts 1 (and from Cocoon before that). If you have security concerns, or would like to use the &quot;!&quot; character with Wildcard Method actions, then set <TT>struts.enable.DynamicMethodInvocation</TT> to <TT>FALSE</TT> in the application configuration. </P>
+
+<P>The framework does support DMI, just like WebWork 2, but there are problems with way DMI is implemented. Essentially, the code scans the action name for a &quot;&#33;&quot; character, and finding one, tricks the framework into invoking the other method instead of <TT>execute</TT>. The other method is invoked, but it uses the same configuration as the <TT>execute</TT> method, including validations. The framework &quot;believes&quot; it is invoking the <TT>Category</TT> action with the <TT>execute</TT> method.</P>
+
+<P>The Wildcard Method feature is implemented differently. When a Wildcard Method action is invoked, the framework acts as if the matching action had been hardcoded in the configuration. The framework &quot;believes&quot; it's executing the action <TT>Category!create</TT> and &quot;knows&quot; it is executing the <TT>create</TT> method of the corresponding Action class. Accordingly, we can add for a Wildcard Method action mapping its own validations, message resources, and type converters, just like a conventional action mapping. For this reason, the <A href="#ActionConfiguration-WildcardMethod">Wildcard Method</A> is preferred.</P>
+
+<P>In Struts 2.3, an option was added to restrict the methods that DMI can invoke.  First, set the attribute <TT>strict-method-invocation=&quot;true&quot;</TT> on your <TT>&lt;package&gt;</TT> element.  This tells Struts to reject any method that is not explicitly allowed via either the <TT>method</TT> attribute (including wildcards) or the <TT>&lt;allowed-methods&gt;</TT> tag.   Then specify <TT>&lt;allowed-methods&gt;</TT> as a comma-separated list of method names in your <TT>&lt;action&gt;</TT>.  (If you specify a <TT>method</TT> attribute for your action, you do not need to list it in <TT>&lt;allowed-methods&gt;</TT>.)</P>
+
+<P>Note that you can specify <TT>&lt;allowed-methods&gt;</TT> even without <TT>strict-method-invocation</TT>.  This restricts access only for the specific actions that have <TT>&lt;allowed-methods&gt;</TT>.</P>
+
+<H2><A name="ActionConfiguration-ActionSupportDefault"></A>ActionSupport Default</H2>
+
+<P>If the class attribute in an action mapping is left blank, the <TT>com.opensymphony.xwork2.ActionSupport</TT> class is used as a default.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+&lt;action name=<SPAN class="code-quote">&quot;Hello&quot;</SPAN>&gt;
+   <SPAN class="code-comment">// ...
+</SPAN>&lt;/action&gt;
+</PRE>
+</DIV></DIV>
+
+<P><IMG class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/information.gif" height="16" width="16" align="absmiddle" alt="" border="0"> The ActionSupport class has an <TT>execute</TT> method that returns &quot;success&quot; and an <TT>input</TT> method that returns &quot;input&quot;.<BR>
+<IMG class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/information.gif" height="16" width="16" align="absmiddle" alt="" border="0"> To specify a different class as the default Action class, set the <TT>default-class-ref</TT> package attribute. </P>
+
+<P><IMG class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/lightbulb_on.gif" height="16" width="16" align="absmiddle" alt="" border="0"> For more about using wildcards, see <A href="wildcard-mappings.html" title="Wildcard Mappings">Wildcard Mappings</A>.</P>
+
+<H2><A name="ActionConfiguration-PostBackDefault"></A>Post-Back Default</H2>
+
+<P>A good practice is to link to actions rather than pages. Linking to actions encapsulates which server page renders, and ensures that an Action class can fire before a page renders. </P>
+
+<P>Another common workflow stategy is to first render a page using an alternate method, like <TT>input</TT> and then have it submit back to the default <TT>execute</TT> method. </P>
+
+<P>Using these two strategies together creates an opportunity to use a &quot;post-back&quot; form that doesn't specify an action. The form simply submits back to the action that created it.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Posting Back</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+&lt;s:form&gt;
+    &lt;s:textfield label=<SPAN class="code-quote">&quot;Please enter your name&quot;</SPAN> name=<SPAN class="code-quote">&quot;name&quot;</SPAN>/&gt;
+    &lt;s:submit/&gt;
+&lt;/s:form&gt;
+</PRE>
+</DIV></DIV>
+
+<H2><A name="ActionConfiguration-ActionDefault"></A>Action Default</H2>
+
+<P>Usually, if an action is requested, and the framework can't map the request to an action name, the result will be the usual &quot;404 - Page not found&quot; error. But, if you would prefer that an omnibus action handle any unmatched requests, you can specify a default action. If no other action matches, the default action is used instead.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;package name=<SPAN class="code-quote">&quot;Hello&quot;</SPAN> extends=<SPAN class="code-quote">&quot;action-default&quot;</SPAN>&gt;</SPAN>
+
+    <SPAN class="code-tag">&lt;default-action-ref name=<SPAN class="code-quote">&quot;UnderConstruction&quot;</SPAN>/&gt;</SPAN>
+
+    <SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;UnderConstruction&quot;</SPAN>&gt;</SPAN>
+        <SPAN class="code-tag">&lt;result&gt;</SPAN>/UnderConstruction.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/action&gt;</SPAN>
+
+    ...
+</PRE>
+</DIV></DIV>
+
+<P>There are no special requirements for the default action. Each package can have its own default action, but there should only be one default action per namespace.</P>
+
+<DIV class="panelMacro"><TABLE class="warningMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/forbidden.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD><B>One to a Namespace</B><BR>The default action features should be set up so that there is only one default action per namespace. If you have multiple packages declaring a default action with the same namespace, there is no guarantee which action will be the default.</TD></TR></TABLE></DIV>
+
+<H3><A name="ActionConfiguration-WildcardDefault"></A>Wildcard Default </H3>
+
+<P>Using wildcards is another approach to default actions. A wildcard action at the end of the configuration can be used to catch unmatched references. </P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;*&quot;</SPAN>&gt;</SPAN>
+  <SPAN class="code-tag">&lt;result&gt;</SPAN>/{1}.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+<SPAN class="code-tag">&lt;/action&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>When a new action is needed, just add a stub page.</P>
+
+<P><IMG class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" height="16" width="16" align="absmiddle" alt="" border="0"> It's important to put a &quot;catchall&quot; wildcard mapping like this at the end of your configuration so it won't attempt to map every request!</P>
+
+<H2><A name="ActionConfiguration-Next%3AWildcardMappings"></A>Next: <A href="wildcard-mappings.html" title="Wildcard Mappings">Wildcard Mappings</A></H2>
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

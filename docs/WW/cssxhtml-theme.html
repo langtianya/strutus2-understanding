@@ -1,0 +1,367 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>css_xhtml theme</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="guides.html" title="Guides">Guides</A>&nbsp;&gt;&nbsp;<A href="tag-developers-guide.html" title="Tag Developers Guide">Tag Developers Guide</A>&nbsp;&gt;&nbsp;<A href="struts-tags.html" title="Struts Tags">Struts Tags</A>&nbsp;&gt;&nbsp;<A href="ui-tags.html" title="UI Tags">UI Tags</A>&nbsp;&gt;&nbsp;<A href="themes-and-templates.html" title="Themes and Templates">Themes and Templates</A>&nbsp;&gt;&nbsp;<A href="" title="css_xhtml theme">css_xhtml theme</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">css_xhtml theme</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=14215">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=14215">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14215">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14215">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14215">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14215">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <P>The css_xhtml theme provides all the basics that the <A href="simple-theme.html" title="simple theme">simple theme</A> provides and adds several features.</P>
+
+<UL>
+	<LI>Standard two-column CSS-based layout, using <TT>&lt;div&gt;</TT> for the HTML <A href="struts-tags.html" title="Struts Tags">Struts Tags</A> (<A href="form.html" title="form">form</A>, <A href="textfield.html" title="textfield">textfield</A>, <A href="select.html" title="select">select</A>, etc)</LI>
+	<LI>Labels for each of the HTML <A href="struts-tags.html" title="Struts Tags">Struts Tags</A>, placed according to the CSS stylesheet</LI>
+	<LI><A href="validation.html" title="Validation">Validation</A> and error reporting</LI>
+	<LI><A href="pure-javascript-client-side-validation.html" title="Pure JavaScript Client Side Validation">Pure JavaScript Client Side Validation</A> using 100% JavaScript on the browser</LI>
+</UL>
+
+
+<H2><A name="css_xhtmltheme-WrappingtheSimpleTheme"></A>Wrapping the Simple Theme</H2>
+
+<P>The xhtml theme uses the &quot;wrapping&quot; technique described by <A href="extending-themes.html" title="Extending Themes">Extending Themes</A>. Let's look at how the HTML tags are wrapped by a standard header and footer. For example, in the <A href="textfield.html" title="textfield">textfield</A> template, <TT>text.ftl</TT>, the <TT>controlheader.ftl</TT> and <TT>controlfooter.ftl</TT> templates are wrapped around the simple template.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">&lt;#--
+/*
+ * $Id$
+ *
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * <SPAN class="code-quote">&quot;License&quot;</SPAN>); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *  http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * <SPAN class="code-quote">&quot;AS IS&quot;</SPAN> BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+--&gt;
+<SPAN class="code-tag">&lt;#--include <SPAN class="code-quote">&quot;/${parameters.templateDir}/css_xhtml/controlheader.ftl&quot;</SPAN> / --&gt;</SPAN>
+<SPAN class="code-tag">&lt;#include <SPAN class="code-quote">&quot;/${parameters.templateDir}/${parameters.theme}/controlheader.ftl&quot;</SPAN> /&gt;</SPAN>
+<SPAN class="code-tag">&lt;#include <SPAN class="code-quote">&quot;/${parameters.templateDir}/simple/text.ftl&quot;</SPAN> /&gt;</SPAN>
+<SPAN class="code-tag">&lt;#include <SPAN class="code-quote">&quot;/${parameters.templateDir}/css_xhtml/controlfooter.ftl&quot;</SPAN> /&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H3><A name="css_xhtmltheme-CSSXHTMLthemeheader"></A>CSS XHTML theme header</H3>
+
+<P>The header used by the HTML tags in the css_xhtml theme is complicated. Unlike the <A href="xhtml-theme.html" title="xhtml theme">xhtml theme</A>, the CSS theme does not use a <TT>labelposition</TT> attribute. Instead, the label position is defined by CSS rules.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">&lt;#--
+/*
+ * $Id$
+ *
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * <SPAN class="code-quote">&quot;License&quot;</SPAN>); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *  http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * <SPAN class="code-quote">&quot;AS IS&quot;</SPAN> BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+--&gt;
+<SPAN class="code-tag">&lt;#include <SPAN class="code-quote">&quot;/${parameters.templateDir}/css_xhtml/controlheader-core.ftl&quot;</SPAN>&gt;</SPAN>
+<SPAN class="code-tag">&lt;#if parameters.labelposition?default(<SPAN class="code-quote">&quot;top&quot;</SPAN>) == 'top'&gt;</SPAN>
+<SPAN class="code-tag">&lt;div &lt;#rt/&gt;</SPAN>
+<SPAN class="code-tag">&lt;#else&gt;</SPAN>
+<SPAN class="code-tag">&lt;span &lt;#rt/&gt;</SPAN>
+<SPAN class="code-tag">&lt;/#if&gt;</SPAN>
+<SPAN class="code-tag">&lt;#if parameters.id??&gt;</SPAN>id=<SPAN class="code-quote">&quot;wwctrl_${parameters.id}&quot;</SPAN><SPAN class="code-tag">&lt;#rt/&gt;</SPAN><SPAN class="code-tag">&lt;/#if&gt;</SPAN> class=<SPAN class="code-quote">&quot;wwctrl&quot;</SPAN>&gt;
+    
+</PRE>
+</DIV></DIV>
+
+<P>Note that the <TT>fieldErrors</TT>, usually caused by <A href="validation.html" title="Validation">Validation</A>, are displayed in a <TT>div</TT> block before the element is displayed.</P>
+
+<H3><A name="css_xhtmltheme-CSSXHTMLthemefooter"></A>CSS XHTML theme footer</H3>
+
+<P>And the <TT>controlfooter.ftl</TT> contents:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">&lt;#--
+/*
+ * $Id$
+ *
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * <SPAN class="code-quote">&quot;License&quot;</SPAN>); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *  http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * <SPAN class="code-quote">&quot;AS IS&quot;</SPAN> BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+--&gt;
+${parameters.after?if_exists}<SPAN class="code-tag">&lt;#t/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;#lt/&gt;</SPAN>
+<SPAN class="code-tag">&lt;#if parameters.labelposition?default(<SPAN class="code-quote">&quot;top&quot;</SPAN>) == 'top'&gt;</SPAN>
+<SPAN class="code-tag">&lt;/div&gt;</SPAN> <SPAN class="code-tag">&lt;#rt/&gt;</SPAN>
+<SPAN class="code-tag">&lt;#else&gt;</SPAN>
+<SPAN class="code-tag">&lt;/span&gt;</SPAN> <SPAN class="code-tag">&lt;#rt/&gt;</SPAN>
+<SPAN class="code-tag">&lt;/#if&gt;</SPAN>
+<SPAN class="code-tag">&lt;#if parameters.errorposition?default(<SPAN class="code-quote">&quot;top&quot;</SPAN>) == 'bottom'&gt;</SPAN>
+<SPAN class="code-tag">&lt;#assign hasFieldErrors = parameters.name?? &amp;&amp; fieldErrors?? &amp;&amp; fieldErrors[parameters.name]??/&gt;</SPAN>
+<SPAN class="code-tag">&lt;#if hasFieldErrors&gt;</SPAN>
+<SPAN class="code-tag">&lt;div &lt;#rt/&gt;</SPAN><SPAN class="code-tag">&lt;#if parameters.id??&gt;</SPAN>id=<SPAN class="code-quote">&quot;wwerr_${parameters.id}&quot;</SPAN><SPAN class="code-tag">&lt;#rt/&gt;</SPAN><SPAN class="code-tag">&lt;/#if&gt;</SPAN> class=<SPAN class="code-quote">&quot;wwerr&quot;</SPAN>&gt;
+<SPAN class="code-tag">&lt;#list fieldErrors[parameters.name] as error&gt;</SPAN>
+    <SPAN class="code-tag">&lt;div&lt;#rt/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;#if parameters.id??&gt;</SPAN>
+     errorFor=<SPAN class="code-quote">&quot;${parameters.id}&quot;</SPAN><SPAN class="code-tag">&lt;#rt/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/#if&gt;</SPAN>
+    class=<SPAN class="code-quote">&quot;errorMessage&quot;</SPAN>&gt;
+             ${error?html}
+    <SPAN class="code-tag">&lt;/div&gt;</SPAN><SPAN class="code-tag">&lt;#t/&gt;</SPAN>
+<SPAN class="code-tag">&lt;/#list&gt;</SPAN>
+<SPAN class="code-tag">&lt;/div&gt;</SPAN><SPAN class="code-tag">&lt;#t/&gt;</SPAN>
+<SPAN class="code-tag">&lt;/#if&gt;</SPAN>
+<SPAN class="code-tag">&lt;/#if&gt;</SPAN>
+<SPAN class="code-tag">&lt;/div&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H2><A name="css_xhtmltheme-SpecialInterest"></A>Special Interest</H2>
+
+<P>Two css_xhtml templates of special interest are <TT>head</TT> and <TT>form</TT>.</P>
+
+<H3><A name="css_xhtmltheme-Headtemplate"></A>Head template </H3>
+
+<P>The css_xhtml <A href="head.html" title="head">head</A> template is similar to the xhtml head template. The difference is that CSS is used to provide the layout. </P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">&lt;#--
+/*
+ * $Id$
+ *
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * <SPAN class="code-quote">&quot;License&quot;</SPAN>); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *  http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * <SPAN class="code-quote">&quot;AS IS&quot;</SPAN> BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+--&gt;
+<SPAN class="code-tag">&lt;link rel=<SPAN class="code-quote">&quot;stylesheet&quot;</SPAN> href=<SPAN class="code-quote">&quot;&lt;@s.url value='/struts/css_xhtml/styles.css' includeParams='none' encode='false' /&gt;</SPAN>&quot;</SPAN> type=<SPAN class="code-quote">&quot;text/css&quot;</SPAN> /&gt;
+<SPAN class="code-tag">&lt;#include <SPAN class="code-quote">&quot;/${parameters.templateDir}/simple/head.ftl&quot;</SPAN> /&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>The head includes a style sheet.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">/*
+ * $Id$
+ *
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * <SPAN class="code-quote">&quot;License&quot;</SPAN>); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *  http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * <SPAN class="code-quote">&quot;AS IS&quot;</SPAN> BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+
+.wwFormTable {}
+.label {
+    font-style:italic;
+    float:left;
+    width:30%
+}
+.errorLabel {font-style:italic; color:red; }
+.errorMessage {font-weight:bold; color:red; }
+.checkboxLabel {}
+.checkboxErrorLabel {color:red; }
+.required {color:red;}
+</PRE>
+</DIV></DIV>
+
+<H3><A name="css_xhtmltheme-Formtemplate"></A>Form template</H3>
+
+<P>The css_xhtml <A href="form.html" title="form">form</A> template is almost exactly like the <A href="xhtml-form-template.html" title="xhtml form template">xhtml form template</A>, including support for <A href="pure-javascript-client-side-validation.html" title="Pure JavaScript Client Side Validation">Pure JavaScript Client Side Validation</A>. The difference is that instead of printing out an opening and closing <TT>&lt;table&gt;</TT> element, there are no elements. Instead, the CSS rules for the individual HTML tags are assumed to handle all display logic. However, as noted, client-side validation is still supported.</P>
+        </DIV>
+
+                  <DIV class="tabletitle">
+            Children
+            <SPAN class="smalltext" id="show" style="display: inline;">
+              <A href="javascript:showChildren()">Show Children</A></SPAN>
+            <SPAN class="smalltext" id="hide" style="display: none;">
+              <A href="javascript:hideChildren()">Hide Children</A></SPAN>
+          </DIV>
+          <DIV class="greybox" id="children" style="display: none;">
+                                      <A href="cssxhtml-form-template.html" title="css_xhtml form template">css_xhtml form template</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="cssxhtml-head-template.html" title="css_xhtml head template">css_xhtml head template</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                      </DIV>
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

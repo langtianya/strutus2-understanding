@@ -1,0 +1,282 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>RestfulActionMapper</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="guides.html" title="Guides">Guides</A>&nbsp;&gt;&nbsp;<A href="core-developers-guide.html" title="Core Developers Guide">Core Developers Guide</A>&nbsp;&gt;&nbsp;<A href="actionmapper.html" title="ActionMapper">ActionMapper</A>&nbsp;&gt;&nbsp;<A href="" title="RestfulActionMapper">RestfulActionMapper</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">RestfulActionMapper</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=33965">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=33965">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=33965">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=33965">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=33965">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=33965">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <H2><A name="RestfulActionMapper-RestfulActionMapper"></A>RestfulActionMapper</H2>
+
+<P>A custom action mapper using the following format:</P>
+<DIV class="preformatted panel" style="border-width: 1px;"><DIV class="preformattedContent panelContent">
+<PRE>http://HOST/ACTION_NAME/PARAM_NAME1/PARAM_VALUE1/PARAM_NAME2/PARAM_VALUE2</PRE>
+</DIV></DIV>
+
+<P>You can have as many parameters you'd like to use. Alternatively the URL can be shortened to the following:</P>
+
+<DIV class="preformatted panel" style="border-width: 1px;"><DIV class="preformattedContent panelContent">
+<PRE>http://HOST/ACTION_NAME/PARAM_VALUE1/PARAM_NAME2/PARAM_VALUE2</PRE>
+</DIV></DIV>
+
+<P>This is the same as:</P>
+
+<DIV class="preformatted panel" style="border-width: 1px;"><DIV class="preformattedContent panelContent">
+<PRE>http://HOST/ACTION_NAME/ACTION_NAME + &quot;Id&quot;/PARAM_VALUE1/PARAM_NAME2/PARAM_VALUE2</PRE>
+</DIV></DIV>
+
+<P>Suppose for example we would like to display some articles by id at using the following URL sheme:</P>
+
+<DIV class="preformatted panel" style="border-width: 1px;"><DIV class="preformattedContent panelContent">
+<PRE>http://HOST/article/Id</PRE>
+</DIV></DIV>
+
+<P>Your action just needs a setArticleId() method, and requests such as /article/1, /article/2, etc will all map to that URL pattern.</P>
+
+<H2><A name="RestfulActionMapper-Restful2ActionMapper"></A>Restful2ActionMapper</H2>
+
+<P>Improved restful action mapper that adds several ReST-style improvements to action mapping, but supports fully-customized URL's via XML. The two primary REST enhancements are:</P>
+<UL>
+	<LI>If the method is not specified (via '!' or 'method:' prefix), the method is &quot;guessed&quot; at using ReST-style conventions that examine the URL and the HTTP method.</LI>
+	<LI>Parameters are extracted from the action name, if parameter name/value pairs are specified using PARAM_NAME/PARAM_VALUE syntax.</LI>
+</UL>
+
+
+<P>These two improvements allow a GET request for 'category/action/movie/Thrillers' to be mapped to the action name 'movie' with an id of 'Thrillers' with an extra parameter named 'category' with a value of 'action'.  A single action mapping can then handle all CRUD operations using wildcards, e.g.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;movie/*&quot;</SPAN> className=<SPAN class="code-quote">&quot;app.MovieAction&quot;</SPAN>&gt;</SPAN>
+    <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;id&quot;</SPAN>&gt;</SPAN>{0}<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+    ...
+<SPAN class="code-tag">&lt;/action&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>This mapper supports the following parameters:</P>
+<UL>
+	<LI><EM>struts.mapper.idParameterName</EM> - if set, this value will be the name of the parameter under which the id is stored.  The id will then be removed from the action name.  This allows restful actions to not require wildcards.</LI>
+</UL>
+
+
+<P>The following URL's will invoke its methods:</P>
+<DIV class="table-wrap">
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TH class="confluenceTh">Request                    </TH>
+<TH class="confluenceTh">method called</TH>
+</TR>
+<TR>
+<TD class="confluenceTd"> GET: /movie/               </TD>
+<TD class="confluenceTd">method=&quot;index&quot; </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> GET: /movie/Thrillers      </TD>
+<TD class="confluenceTd"> method=&quot;view&quot;, id=&quot;Thrillers&quot; </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> GET: /movie/Thrillers!edit </TD>
+<TD class="confluenceTd"> method=&quot;edit&quot;, id=&quot;Thrillers&quot; </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> GET: /movie/new            </TD>
+<TD class="confluenceTd"> method=&quot;editNew&quot; </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> POST: /movie/              </TD>
+<TD class="confluenceTd"> method=&quot;create&quot; </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> PUT: /movie/Thrillers      </TD>
+<TD class="confluenceTd"> method=&quot;update&quot;, id=&quot;Thrillers&quot; </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> DELETE: /movie/Thrillers   </TD>
+<TD class="confluenceTd"> method=&quot;remove&quot;, id=&quot;Thrillers&quot; </TD>
+</TR>
+</TBODY></TABLE>
+</DIV>
+
+
+<P>To simulate the HTTP methods PUT and DELETE, since they aren't supported by HTML, the HTTP parameter &quot;__http_method&quot; will be used.</P>
+
+<P>The syntax and design for this feature was inspired by the REST support in Ruby on Rails. See <A href="http://ryandaigle.com/articles/2006/08/01/whats-new-in-edge-rails-simply-restful-support-and-how-to-use-it" class="external-link" rel="nofollow">Simple RESTful support</A></P>
+
+<H3><A name="RestfulActionMapper-Example"></A>Example</H3>
+<P>To use the Restful2ActionMapper in an existing struts application we have to change the strus.mapper.class constant and let it point to the Restful2ActionMapper</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;constant name=<SPAN class="code-quote">&quot;struts.mapper.class&quot;</SPAN> value=<SPAN class="code-quote">&quot;org.apache.struts2.dispatcher.mapper.Restful2ActionMapper&quot;</SPAN> /&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>The problem with the above approach is that we may break existing actions because the Restful2ActionMapper tries to guess the method name using conventions that aren't applicable to normal action classes.</P>
+
+<P>To overcome the above problem, we have to use a different action mapper depending on the url we want to process. REST actions will be processed by the Restful2ActionMapper and non-REST actions by the DefaultActionMapper</P>
+
+<P>To achieve that we have to rely on namespaces and the PrefixBasedActionMapper that can choose which action mapper to use for a particular url based on a prefix (the action namespace).</P>
+
+<P>To put everything together, we create a package for our rest actions</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;package name=<SPAN class="code-quote">&quot;rest&quot;</SPAN> namespace=<SPAN class="code-quote">&quot;/rest&quot;</SPAN> extends=<SPAN class="code-quote">&quot;struts-default&quot;</SPAN>&gt;</SPAN>
+    ....interceptor config
+    <SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;movie/*&quot;</SPAN> class=<SPAN class="code-quote">&quot;app.MovieAction&quot;</SPAN>&gt;</SPAN>
+        <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;id&quot;</SPAN>&gt;</SPAN>{0}<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+        ....results
+    <SPAN class="code-tag">&lt;/action&gt;</SPAN>
+    ....
+<SPAN class="code-tag">&lt;/package&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>All other actions remain in their existing packages and namespaces we use the PrefixBasedActionMapper telling it to use the Restful2ActionMapper for actions in the /rest namespace and the DefaultActionMapper for all other actions</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;constant name=<SPAN class="code-quote">&quot;struts.mapper.class&quot;</SPAN> value=<SPAN class="code-quote">&quot;org.apache.struts2.dispatcher.mapper.PrefixBasedActionMapper&quot;</SPAN> /&gt;</SPAN>
+<SPAN class="code-tag">&lt;constant name=<SPAN class="code-quote">&quot;struts.mapper.prefixMapping&quot;</SPAN> value=<SPAN class="code-quote">&quot;/rest:restful2,:struts&quot;</SPAN> /&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>For the Restful2ActionMapper to work we also have to set</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;constant name=<SPAN class="code-quote">&quot;struts.enable.SlashesInActionNames&quot;</SPAN> value=<SPAN class="code-quote">&quot;true&quot;</SPAN> /&gt;</SPAN>
+<SPAN class="code-tag">&lt;constant name=<SPAN class="code-quote">&quot;struts.mapper.alwaysSelectFullNamespace&quot;</SPAN> value=<SPAN class="code-quote">&quot;false&quot;</SPAN> /&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>Thanks to Antonios Gkogkakis for the example!</P>
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

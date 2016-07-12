@@ -1,0 +1,208 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>What is the ActionContext?</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="faqs.html" title="FAQs">FAQs</A>&nbsp;&gt;&nbsp;<A href="" title="What is the ActionContext?">What is the ActionContext?</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">What is the ActionContext?</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=13994">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=13994">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=13994">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=13994">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=13994">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=13994">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          
+
+<P>A striking attribute of the framework is the brevity of its signatures. For example:</P>
+
+<DIV class="table-wrap">
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TH class="confluenceTh"> S1 Action </TH>
+<TD class="confluenceTd"> <DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">ActionForward execute(ActionMapping, ActionForm, ServletRequest, ServletResponse)</PRE>
+</DIV></DIV></TD>
+</TR>
+<TR>
+</TR>
+<TR>
+<TH class="confluenceTh"> S2 Action </TH>
+<TD class="confluenceTd"> <DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java"><SPAN class="code-object">String</SPAN> execute()</PRE>
+</DIV></DIV> </TD>
+</TR>
+</TBODY></TABLE>
+</DIV>
+
+
+<P>How can this be? How can a key method take no arguments and yet perform useful work within an application?</P>
+
+<P>To keep signatures brief, and methods useful, the framework uses two techniques: <EM>Dependency Injection</EM> and <EM>Thread Local</EM>, both of which, in turn, rely on the <EM>ActionContext</EM>. </P>
+
+<H2><A name="WhatistheActionContext%3F-DependencyInjection"></A>Dependency Injection </H2>
+
+<P>Many Interceptors are used to populate propertes on an Action. For example, the <A href="servlet-config-interceptor.html" title="Servlet Config Interceptor">Servlet Config Interceptor</A> can set Map properties representing the HTTP Request, Session, and Appplication objects. </P>
+
+<P>Though, the signature for an Interceptor is nearly as brief as Action: </P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java"><SPAN class="code-object">String</SPAN> intercept(ActionInvocation invocation)</PRE>
+</DIV></DIV>
+
+<P>Looking through <SPAN class="error">&#91;ActionInvocation&#93;</SPAN>, there are several interesting properties, but nothing that reveals the HTTP contexts. (Good thing! since it is a web-independant XWork class.)</P>
+
+<P>So how does an Interceptor obtain the HTTP contexts to inject? </P>
+
+<H2><A name="WhatistheActionContext%3F-ThreadLocal"></A>ThreadLocal </H2>
+
+<P>The <SPAN class="error">&#91;ThreadLocal&#93;</SPAN> class is not a new kid on the block. It's been available to developers since Java 1.2. In effect, each thread has its own copy of the variables on a ThreadLocal class. </P>
+
+<P>The framework uses ThreadLocal in connection with the ActionContext class to make servlet configuration and other runtime details available. </P>
+
+<H2><A name="WhatistheActionContext%3F-ActionContext"></A>ActionContext</H2>
+
+<P>From <EM>anywhere</EM> within an Struts 2 application, you can obtain a reference to the <SPAN class="error">&#91;ActionContext&#93;</SPAN> by calling  </P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">ActionContext context = ActionContext.getContext();
+</PRE>
+</DIV></DIV>
+
+<P>For example, if a helper class is called from an Action, and if it happens to need access to ServletContext (maybe it is writing a file and needs ServletContext to get a path to it), the helper can obtain the ActionContext directly. Nothing needs to be passed from the Action.  </P>
+
+<P>In frameworks like Struts 1, details like the runtime request and response are passed around like hot potatoes. In Struts 2, such details are bundled together in the ActionContext. In S1, Actions are bound to HTTP through the execute signature. In S2, Actions can be a plain old Java object, and each bound to HTTP only to the extent required. </P>
+
+<P>Of course, the dark side of ThreadLocal is that it is easy to bind business logic classes to XWork. An otherwise pristine business class could grab request parameters directly from the ActionContext. The request parameters are exposed as a plain Map, so binding to HTTP is avoided, but the class still becomes bound to XWork. Of course, if you've decided to use XWork as your business logic framework, then binding to ActionContext might not be a problem. </P>
+
+<P>The darker side is that classes that depend heavily on ThreadLocal can be diffcult to unit test. A cleaner design centralizes access to ThreadLocal variables, so that other classes are easier to test.</P>
+
+<H2><A name="WhatistheActionContext%3F-Backtods%3AFAQs"></A>Back to <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=ds&title=FAQs" class="createlink">ds:FAQs</A></H2>
+
+<HR>
+
+<P>This material originally adopted from <A href="http://wiki.apache.org/struts/ActionContext?action=edit" class="external-link" rel="nofollow">http://wiki.apache.org/struts/ActionContext?action=edit</A>.</P>
+
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

@@ -1,0 +1,304 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>One time steps</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="guides.html" title="Guides">Guides</A>&nbsp;&gt;&nbsp;<A href="contributors-guide.html" title="Contributors Guide">Contributors Guide</A>&nbsp;&gt;&nbsp;<A href="creating-and-signing-a-distribution.html" title="Creating and Signing a Distribution">Creating and Signing a Distribution</A>&nbsp;&gt;&nbsp;<A href="creating-and-signing-a-struts-23x-distribution.html" title="Creating and Signing a Struts 2.3.x Distribution">Creating and Signing a Struts 2.3.x Distribution</A>&nbsp;&gt;&nbsp;<A href="" title="One time steps">One time steps</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">One time steps</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=27832952">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=27832952">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=27832952">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=27832952">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=27832952">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=27832952">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <H1><A name="Onetimesteps-Content"></A>Content</H1>
+<STYLE type="text/css">/*<![CDATA[*/
+div.rbtoc1323245335620 {margin-left: 0px;padding: 0px;}
+div.rbtoc1323245335620 ul {list-style: none;margin-left: 0px;}
+div.rbtoc1323245335620 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</STYLE><DIV class="rbtoc1323245335620">
+<UL>
+    <LI><SPAN class="TOCOutline">1</SPAN> <A href="#Onetimesteps-Content">Content</A></LI>
+<UL>
+    <LI><SPAN class="TOCOutline">1.1</SPAN> <A href="#Onetimesteps-Keysandconfiguration">Keys and configuration</A></LI>
+<UL>
+    <LI><SPAN class="TOCOutline">1.1.1</SPAN> <A href="#Onetimesteps-CreateandinstallaSSHkey">Create and install a SSH key</A></LI>
+    <LI><SPAN class="TOCOutline">1.1.2</SPAN> <A href="#Onetimesteps-CreateaPGPkey">Create a PGP key</A></LI>
+    <LI><SPAN class="TOCOutline">1.1.3</SPAN> <A href="#Onetimesteps-UpdateMavensettingsforourservers">Update Maven settings for our servers</A></LI>
+    <LI><SPAN class="TOCOutline">1.1.4</SPAN> <A href="#Onetimesteps-IncreaseMemorySettingsforMaven">Increase Memory Settings for Maven</A></LI>
+</UL>
+    <LI><SPAN class="TOCOutline">1.2</SPAN> <A href="#Onetimesteps-Resources">Resources</A></LI>
+    <LI><SPAN class="TOCOutline">1.3</SPAN> <A href="#Onetimesteps-Retagging">Retagging</A></LI>
+    <LI><SPAN class="TOCOutline">1.4</SPAN> <A href="#Onetimesteps-Amendingalogentry">Amending a log entry</A></LI>
+</UL>
+</UL></DIV>
+
+<H2><A name="Onetimesteps-Keysandconfiguration"></A>Keys and configuration</H2>
+
+<H3><A name="Onetimesteps-CreateandinstallaSSHkey"></A>Create and install a SSH key </H3>
+
+<UL>
+	<LI>See <A href="http://sial.org/howto/openssh/publickey-auth/" class="external-link" rel="nofollow">OpenSSH Public Key Authentication</A></LI>
+</UL>
+
+
+<DIV class="panelMacro"><TABLE class="noteMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>If you get hung up during release:perform because Maven can't verify the authenticity of a host, then there could be one of two <BR>
+different problems. The first problem, which is an easy fix, is to go to the command line and use SSH to log in to that host. You <BR>
+should receive a prompt to add the host to your known_hosts file. If you add the host to your known_hosts file from the command line <BR>
+SSH, then you should be able to try release:perform again and have more success. There is a chance though that this won't fix maven.
+
+<P>Maven doesn't appear to understand hashed known_hosts files. There is some information here - <A href="http://itso.iu.edu/Hashing_the_OpenSSH_known__hosts_File" class="external-link" rel="nofollow">known_hosts file Hashing</A>. <BR>
+If your known_hosts file is hashed, you can solve this one of a few different ways. If you perform a deploy:deploy instead of <BR>
+release:perform, then maven will leave a prompt open for you to type 'yes' and have maven add the host (in a way that Jsch, the library <BR>
+which provides Maven Wagon with the SSH/SCP functionality, understands) to your known_hosts file. Another option is to remove your <BR>
+known_hosts file, update your SSH configuration so that it does not hash the hostname in known_hosts and try to log in from the command <BR>
+line.</P></TD></TR></TABLE></DIV>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+mkdir ~/.ssh
+chmod 700 ~/.ssh
+ssh-keygen -q -f ~/.ssh/id_rsa -t rsa
+#Enter a passphrase
+chmod go-rwx ~/.ssh/*
+
+#copy the <SPAN class="code-keyword">public</SPAN> key to people.apache.org
+scp ~/.ssh/id_rsa.pub people.apache.org:/home/$USERNAME
+
+# next, setup the <SPAN class="code-keyword">public</SPAN> key on server
+ssh people.apache.org
+mkdir ~/.ssh
+chmod 700 ~/.ssh
+cat ~/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys
+chmod 600 ~/.ssh/authorized_keys
+rm ~/id_rsa.pub
+</PRE>
+</DIV></DIV>
+
+<H3><A name="Onetimesteps-CreateaPGPkey"></A>Create a PGP key</H3>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+svn co https:<SPAN class="code-comment">//svn.apache.org/repos/asf/struts/maven/trunk/build struts-maven-build
+</SPAN>cd struts-maven-build
+(gpg --fingerprint --list-sigs &lt;your name&gt; &amp;&amp; gpg --armor --export &lt;your name&gt;) &gt;&gt; KEYS
+scp KEYS people.apache.org:/www/www.apache.org/dist/struts
+svn commit KEYS -m <SPAN class="code-quote">&quot;Add <SPAN class="code-keyword">public</SPAN> key&quot;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H3><A name="Onetimesteps-UpdateMavensettingsforourservers"></A>Update Maven settings for our servers</H3>
+<P>Create a settings.xml under ~/.m2 and follow below instructions:</P>
+<UL>
+	<LI>create profile - <A href="http://maven.apache.org/developers/release/apache-release.html#Prerequisites" class="external-link" rel="nofollow">Releasing a Maven-based</A></LI>
+	<LI>enable Apache servers <A href="http://maven.apache.org/developers/committer-settings.html" class="external-link" rel="nofollow">Committer Settings</A></LI>
+</UL>
+
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+&lt;settings xmlns=<SPAN class="code-quote">&quot;http:<SPAN class="code-comment">//maven.apache.org/POM/4.0.0&quot;</SPAN>
+</SPAN>          xmlns:xsi=<SPAN class="code-quote">&quot;http:<SPAN class="code-comment">//www.w3.org/2001/XMLSchema-instance&quot;</SPAN>
+</SPAN>          xsi:schemaLocation=<SPAN class="code-quote">&quot;http:<SPAN class="code-comment">//maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd&quot;</SPAN>&gt;
+</SPAN>  &lt;servers&gt;
+    &lt;!-- To publish a snapshot of some part of Maven --&gt;
+    &lt;server&gt;
+      &lt;id&gt;apache.snapshots.https&lt;/id&gt;
+      &lt;username&gt; &lt;!-- YOUR APACHE LDAP USERNAME --&gt; &lt;/username&gt;
+      &lt;password&gt; &lt;!-- YOUR APACHE LDAP PASSWORD --&gt; &lt;/password&gt;
+    &lt;/server&gt;
+    &lt;!-- To publish a website of some part of Maven --&gt;
+    &lt;server&gt;
+      &lt;id&gt;apache.website&lt;/id&gt;
+      &lt;username&gt; &lt;!-- YOUR APACHE LDAP USERNAME --&gt; &lt;/username&gt;
+      &lt;filePermissions&gt;664&lt;/filePermissions&gt;
+      &lt;directoryPermissions&gt;775&lt;/directoryPermissions&gt;
+    &lt;/server&gt;
+    &lt;!-- To stage a release of some part of Maven --&gt;
+    &lt;server&gt;
+      &lt;id&gt;apache.releases.https&lt;/id&gt;
+      &lt;username&gt; &lt;!-- YOUR APACHE LDAP USERNAME --&gt; &lt;/username&gt;
+      &lt;password&gt; &lt;!-- YOUR APACHE LDAP PASSWORD --&gt; &lt;/password&gt;
+    &lt;/server&gt;
+    &lt;!-- To stage a website of some part of Maven --&gt;
+    &lt;server&gt;
+      &lt;id&gt;stagingSite&lt;/id&gt; &lt;!-- must match hard-coded repository identifier in site:stage-deploy --&gt;
+      &lt;username&gt; &lt;!-- YOUR APACHE LDAP USERNAME --&gt; &lt;/username&gt;
+      &lt;filePermissions&gt;664&lt;/filePermissions&gt;
+      &lt;directoryPermissions&gt;775&lt;/directoryPermissions&gt;
+    &lt;/server&gt;
+  &lt;/servers&gt;
+  &lt;profiles&gt;
+    &lt;profile&gt;
+      &lt;id&gt;apache-release&lt;/id&gt;
+      &lt;properties&gt;
+        &lt;gpg.passphrase&gt; &lt;!-- YOUR KEY PASSPHRASE --&gt; &lt;/gpg.passphrase&gt;
+      &lt;/properties&gt;
+    &lt;/profile&gt;
+  &lt;/profiles&gt;
+&lt;/settings&gt;
+</PRE>
+</DIV></DIV>
+
+<H3><A name="Onetimesteps-IncreaseMemorySettingsforMaven"></A>Increase Memory Settings for Maven</H3>
+
+<P>To complete a full build and all the tests, it may be neccesary to increase the amount of memory available to Maven. The simplest thing is to set an environment variable.</P>
+<UL>
+	<LI><TT>MAVEN_OPTS=-Xmx512m</TT> or even <TT>MAVEN_OPTS=-Xmx1024m</TT></LI>
+</UL>
+
+
+<H2><A name="Onetimesteps-Resources"></A>Resources</H2>
+
+<UL>
+	<LI>Apache Struts <A href="http://struts.apache.org/releases.html#Releases" class="external-link" rel="nofollow">Release Guidelines</A></LI>
+	<LI><A href="http://wiki.apache.org/struts/StrutsMaintenanceMaven" class="external-link" rel="nofollow">Struts Maintenance Guide for Maven </A></LI>
+	<LI><A href="http://apache.org/dev/release-signing.html" class="external-link" rel="nofollow">Signing Releases</A></LI>
+	<LI><A href="http://wiki.wsmoak.net/cgi-bin/wiki.pl?ReleaseSigning" class="external-link" rel="nofollow">Wendy's notes on Release Signing</A></LI>
+	<LI>Apache <A href="http://apache.org/dev/mirrors.html" class="external-link" rel="nofollow">Mirroring Guidelines</A></LI>
+</UL>
+
+
+<H2><A name="Onetimesteps-Retagging"></A>Retagging</H2>
+
+<P>If a tagged build needs to be retagged, be sure to delete the old tag first.</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+svn delete https:<SPAN class="code-comment">//svn.apache.org/repos/asf/struts/struts2/tags/STRUTS_#_#_# -m <SPAN class="code-quote">&quot;WW-### Removing first <SPAN class="code-keyword">try</SPAN> at 2.#.#.&quot;</SPAN></SPAN>
+</PRE>
+</DIV></DIV>
+
+<H2><A name="Onetimesteps-Amendingalogentry"></A>Amending a log entry</H2>
+
+<P>If the commit was fine, but the log was wrong, updating the log entry is easy. For example,</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+&gt; svn propset --revprop -r 504523 svn:log <SPAN class="code-quote">&quot;WW-1715 Branch <SPAN class="code-keyword">for</SPAN> 2.0.x at Struts 2.0.6-SNAPSHOT r504196&quot;</SPAN>
+&gt; property 'svn:log' set on repository revision 504523
+</PRE>
+</DIV></DIV>
+<P>See <TT>svn help propset</TT> for more.</P>
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

@@ -1,0 +1,237 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Struts 2 Annotations</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="tutorials.html" title="Tutorials">Tutorials</A>&nbsp;&gt;&nbsp;<A href="getting-started.html" title="Getting Started">Getting Started</A>&nbsp;&gt;&nbsp;<A href="" title="Struts 2 Annotations">Struts 2 Annotations</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Struts 2 Annotations</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=24184167">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=24184167">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=24184167">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=24184167">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=24184167">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=24184167">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <DIV class="panelMacro"><TABLE class="infoMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>The example code for this tutorial, Struts2_Annotations_Ant or Struts2_Annotations_Mvn, is available on Google Code - <A href="http://code.google.com/p/struts2-examples/downloads/list" class="external-link" rel="nofollow">http://code.google.com/p/struts2-examples/downloads/list</A>. After downloading and unzipping the file, you'll have a folder named Struts2_Annotations_Ant (or Struts2_Annotations_Mvn). In that folder will be a README.txt file with instructions on now to build and run the example application.</TD></TR></TABLE></DIV>
+
+<H3><A name="Struts2Annotations-Introduction"></A>Introduction</H3>
+
+<P>In our previous tutorials we've been using an XML file (struts.xml) to configure our applications.  The XML file wires up the action names (register), with ActionSupport classes (RegisterAction.java), and with the result to render back to the browser (register.jsp).  Struts 2 provides an alternative to using XML to configure your application by using standard naming conventions and annotations for your action names, ActionSupport classes, and results.  </P>
+
+<DIV class="panelMacro"><TABLE class="infoMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>This tutorial assumes you understand how to apply annotations to Java classes and methods.  If you're not familiar with annotations, consult the <A href="http://download.oracle.com/javase/tutorial/java/javaOO/annotations.html" class="external-link" rel="nofollow">Java online tutorial</A>.</TD></TR></TABLE></DIV>
+
+<DIV class="panelMacro"><TABLE class="tipMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>The <A href="http://struts.apache.org/mail.html" class="external-link" rel="nofollow">Struts 2 user mailing list</A> is an excellent place to get help. If you are having a problem getting the tutorial example applications to work search the Struts 2 mailing list. If you don't find an answer to your problem, post a question on the mailing list.</TD></TR></TABLE></DIV>
+
+<H3><A name="Struts2Annotations-Struts2ConventionPlugin"></A>Struts 2 Convention Plugin</H3>
+<P>Struts 2 enables the use of standard naming conventions and annotations when you include the Convention plugin in your application's class path.  If you're using Maven you'll need to add a dependency:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Convention Plugin Dependency</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+
+<SPAN class="code-tag">&lt;dependency&gt;</SPAN>
+  <SPAN class="code-tag">&lt;groupId&gt;</SPAN>org.apache.struts<SPAN class="code-tag">&lt;/groupId&gt;</SPAN>
+  <SPAN class="code-tag">&lt;artifactId&gt;</SPAN>struts2-convention-plugin<SPAN class="code-tag">&lt;/artifactId&gt;</SPAN>
+  <SPAN class="code-tag">&lt;version&gt;</SPAN>2.2.1<SPAN class="code-tag">&lt;/version&gt;</SPAN>
+<SPAN class="code-tag">&lt;/dependency&gt;</SPAN>
+
+</PRE>
+</DIV></DIV>
+
+<P>If you're using Ant then copy the struts2-convention-plugin jar file from the Struts 2 download to your WEB-INF/lib folder.</P>
+
+<DIV class="panelMacro"><TABLE class="tipMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>The convention plugin provide several different ways you can configure your Struts 2 application without using XML.  Consult the <A href="convention-plugin.html" title="Convention Plugin">Convention Plugin</A> documentation for complete details. This tutorial only examines one simple way of following the conventions provided by the Convention plugin.</TD></TR></TABLE></DIV>
+
+<P>When you run the example application you'll see on the index.jsp page a link to Get your hello.  This URL for the link is hello.action.  When you click on this link, the execute method of class HelloAction.java (which is a Struts 2 ActionSupport class) is run.  The view page rendered back to the browser after the execute method returns success is hello-success.jsp.</P>
+
+<P>None of the above is wired up using XML but rather happens because the application follows the standard naming conventions expected by the Convention plugin.  The first convention is that the ActionSupport class, HelloAction.java, is in package org.apache.struts.struts2annotations.action.  One of the Convention plugin's defaults is to look for ActionSupport classes that are in package structure that ends in action.  The next convention the application follows is that HelloAction.java extends the ActionSupport class and defines an execute method.  The link is hello.action.  When the Struts 2 filter sees a request for hello.action it will map that request to the HelloAction class's execute method due to the Convention plugin being used.  </P>
+
+<P>So a link of hello.action causes the execute method of class HelloAction to be run.  That method returns &quot;success.&quot;  Because the application is using the Convention plugin, Struts 2 will render back to the browser a view page named hello-success.jsp that is located in WEB-INF/content (by default the Convention plugin expects all view pages to be in this location).  If the execute method returns &quot;input&quot; or &quot;error&quot; then the view page rendered would have been hello-input.jsp or hello-error.jsp.</P>
+
+<H3><A name="Struts2Annotations-Struts2ConfigurationPlugin"></A>Struts 2 Configuration Plugin</H3>
+<P>In a <A href="debugging-struts.html" title="Debugging Struts">previous tutorial</A> we reviewed how to use the Struts 2 Configuration plugin to view the details of how Struts 2 has configured your application.  When using the Convention plugin, it's very handy to also use the Configuration plugin during development.  On the example application's home page is a link to the application's configuration.  Click on that link and then the hello link on the left menu (under Actions in default).  You'll see the configuration for the hello action including it's Action class, result, and view page.</P>
+
+
+<P><SPAN class="image-wrap" style=""><IMG src="struts-2-annotations.data/Screen%20shot%202010-10-24%20at%2010.51.45%20AM.png" style="border: 1px solid black"></SPAN></P>
+
+<H3><A name="Struts2Annotations-Annotations"></A>Annotations</H3>
+
+<P>If you want to go beyond the simple naming conventions provided by the Convention plugin, you can use the Struts 2 annotations also provided by the plugin.  For example, a common work-flow for a Struts 2 application is to first execute the ActionSupport class's input method to setup form field default values and then to run the execute method of the same ActionSupport class when the form is submitted (to validate and save the user's input).</P>
+
+<P>The link to Register for the drawing on the example application's home page follows this work flow.  The link value is register-input.action.  If you examine the RegisterAction.java class you'll find the input method with an Action annotation.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Action Annotation</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+
+@Action(<SPAN class="code-quote">&quot;register-input&quot;</SPAN>)
+<SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> input() <SPAN class="code-keyword">throws</SPAN> Exception {
+
+	logger.info(<SPAN class="code-quote">&quot;In input method of class Register&quot;</SPAN>);
+		
+	<SPAN class="code-keyword">return</SPAN> INPUT;
+}
+
+</PRE>
+</DIV></DIV>
+
+<P>The Action annotation tells Struts 2 to execute the annotated method when the action link value equals the Action annotation's value (&quot;register-input&quot;).  So a link of register-input.action will call the input method of class RegisterAction.  On the example application's home page is a link to Register for the drawing with a URL of register-input.action.  </P>
+
+<P>The input method above returns &quot;input&quot;.  By the standards of the Convention plugin, the view page rendered will be register-input.jsp (from WEB-INF/content).  On that view page is a Struts 2 form tag with an action attribute value of register.  When submitting the form, the execute method of class RegisterAction will be run.  Since the execute method returns success, the view page rendered is register-success.jsp.</P>
+
+<H3><A name="Struts2Annotations-Struts2ConfigurationValues"></A>Struts 2 Configuration Values</H3>
+<P>In previous examples, we included in struts.xml values for some of the Struts 2 configuration parameters.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>struts.xml parameter configuration</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+
+<SPAN class="code-tag">&lt;constant name=<SPAN class="code-quote">&quot;struts.devMode&quot;</SPAN> value=<SPAN class="code-quote">&quot;true&quot;</SPAN> /&gt;</SPAN>
+
+</PRE>
+</DIV></DIV>
+
+<P>When we don't use a struts.xml file, we can set the value of these Struts 2 parameters by using filter parameters in web.xml:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Struts 2 Parameter Configurate web.xml</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+
+<SPAN class="code-tag">&lt;filter&gt;</SPAN>
+  <SPAN class="code-tag">&lt;filter-name&gt;</SPAN>struts2<SPAN class="code-tag">&lt;/filter-name&gt;</SPAN>
+    <SPAN class="code-tag">&lt;filter-class&gt;</SPAN>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter<SPAN class="code-tag">&lt;/filter-class&gt;</SPAN>
+      <SPAN class="code-tag">&lt;init-param&gt;</SPAN>
+	  <SPAN class="code-tag">&lt;param-name&gt;</SPAN>struts.devMode<SPAN class="code-tag">&lt;/param-name&gt;</SPAN>
+	  <SPAN class="code-tag">&lt;param-value&gt;</SPAN>true<SPAN class="code-tag">&lt;/param-value&gt;</SPAN>
+      <SPAN class="code-tag">&lt;/init-param&gt;</SPAN>
+<SPAN class="code-tag">&lt;/filter&gt;</SPAN>
+
+</PRE>
+</DIV></DIV>
+
+
+<H3><A name="Struts2Annotations-Summary"></A>Summary</H3>
+
+<P>We've just scratched the surface of what the Struts 2 convention plugin provides to reduce or eliminate the need to use an XML file to configure your Struts 2 application.  The Struts 2 Convention plugin provides ways to map multiple actions to the same method, map results to different view pages, map errors to view pages, and much more.  Be sure to read through the <A href="convention-plugin.html" title="Convention Plugin">Convention Plugin</A> documentation for alternative ways to configure your Struts 2 application.</P>
+
+
+
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

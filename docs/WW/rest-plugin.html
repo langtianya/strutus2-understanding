@@ -1,0 +1,548 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>REST Plugin</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="guides.html" title="Guides">Guides</A>&nbsp;&gt;&nbsp;<A href="plugin-developers-guide.html" title="Plugin Developers Guide">Plugin Developers Guide</A>&nbsp;&gt;&nbsp;<A href="" title="REST Plugin">REST Plugin</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">REST Plugin</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=70699">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=70699">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=70699">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=70699">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=70699">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=70699">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <DIV class="panelMacro"><TABLE class="infoMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>This plugin is only available with Struts 2.1.1 or later</TD></TR></TABLE></DIV>
+
+<DIV>
+<UL>
+    <LI><SPAN class="TOCOutline">1</SPAN> <A href="#RESTPlugin-Overview">Overview</A></LI>
+<UL>
+    <LI><SPAN class="TOCOutline">1.1</SPAN> <A href="#RESTPlugin-Features">Features</A></LI>
+    <LI><SPAN class="TOCOutline">1.2</SPAN> <A href="#RESTPlugin-MappingRESTURLstoStruts2Actions">Mapping REST URLs to Struts 2 Actions</A></LI>
+<UL>
+    <LI><SPAN class="TOCOutline">1.2.1</SPAN> <A href="#RESTPlugin-RESTfulURLMappingLogic">RESTful URL Mapping Logic</A></LI>
+</UL>
+    <LI><SPAN class="TOCOutline">1.3</SPAN> <A href="#RESTPlugin-ContentTypes">Content Types</A></LI>
+</UL>
+    <LI><SPAN class="TOCOutline">2</SPAN> <A href="#RESTPlugin-Usage">Usage</A></LI>
+<UL>
+    <LI><SPAN class="TOCOutline">2.1</SPAN> <A href="#RESTPlugin-SettingUp">Setting Up</A></LI>
+<UL>
+    <LI><SPAN class="TOCOutline">2.1.1</SPAN> <A href="#RESTPlugin-Configuration%2528%257B%257Bstruts.xml%257D%257D%2529">Configuration ( <TT>struts.xml</TT> )</A></LI>
+<UL>
+    <LI><SPAN class="TOCOutline">2.1.1.1</SPAN> <A href="#RESTPlugin-RESTOnlyConfiguration">REST Only Configuration</A></LI>
+    <LI><SPAN class="TOCOutline">2.1.1.2</SPAN> <A href="#RESTPlugin-RESTandnonRESTfulURL%2527sTogetherConfiguration">REST and non-RESTful URL's Together Configuration</A></LI>
+</UL>
+</UL>
+    <LI><SPAN class="TOCOutline">2.2</SPAN> <A href="#RESTPlugin-WriteYourControllerActions">Write Your Controller Actions</A></LI>
+</UL>
+    <LI><SPAN class="TOCOutline">3</SPAN> <A href="#RESTPlugin-AdvancedTopics">Advanced Topics</A></LI>
+<UL>
+    <LI><SPAN class="TOCOutline">3.1</SPAN> <A href="#RESTPlugin-CustomContentTypeHandlers">Custom ContentTypeHandlers</A></LI>
+    <LI><SPAN class="TOCOutline">3.2</SPAN> <A href="#RESTPlugin-Settings">Settings</A></LI>
+</UL>
+    <LI><SPAN class="TOCOutline">4</SPAN> <A href="#RESTPlugin-Resources">Resources</A></LI>
+    <LI><SPAN class="TOCOutline">5</SPAN> <A href="#RESTPlugin-VersionHistory">Version History</A></LI>
+</UL></DIV>
+
+
+
+<H2><A name="RESTPlugin-Overview"></A>Overview</H2>
+
+<P>The REST Plugin provides high level support for the implementation of RESTful resource based web applications.  The REST plugin can cooperate with the <A href="convention-plugin.html" title="Convention Plugin">Convention Plugin</A> to support a zero configuration approach to declaring your actions and results, but you can always use the REST plugin with XML style configuration if you like.</P>
+
+<P>If you prefer to see a working code example, instead of reading through an explanation, you can download the <A href="http://struts.apache.org/2.x/index.html" class="external-link" rel="nofollow">struts2 sample apps</A> and check out the <TT>struts2-rest-showcase</TT> application, a complete WAR file, that demonstrates a simple REST web program.</P>
+
+
+<H3><A name="RESTPlugin-Features"></A>Features</H3>
+
+<UL>
+	<LI>Ruby on Rails REST-style URLs</LI>
+	<LI>Zero XML config when used with Convention Plugin</LI>
+	<LI>Built-in serialization and deserialization support for XML and JSON</LI>
+	<LI>Automatic error handling</LI>
+	<LI>Type-safe configuration of the HTTP response</LI>
+	<LI>Automatic conditional GET support</LI>
+</UL>
+
+
+<H3><A name="RESTPlugin-MappingRESTURLstoStruts2Actions"></A>Mapping REST URLs to Struts 2 Actions</H3>
+
+<P>The main functionality of the REST plugin lies in the interpretation of incoming request URL's according the RESTful rules.  In the Struts 2 framework, this 'mapping' of request URL's to Actions is handled by in implementation of the <A href="http://struts.apache.org/2.x/struts2-core/apidocs/org/apache/struts2/dispatcher/mapper/ActionMapper.html" class="external-link" rel="nofollow"><TT>ActionMapper</TT></A> interface.  Out of the box, Struts 2 uses the <A href="http://struts.apache.org/2.x/struts2-core/apidocs/org/apache/struts2/dispatcher/mapper/DefaultActionMapper.html" class="external-link" rel="nofollow"><TT>DefaultActionMapper</TT></A> to map URL's to Actions via the logic you are probably already familiar with.  </P>
+
+<DIV class="panelMacro"><TABLE class="noteMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD><EM>Actions or Controllers</EM>?  Most Struts 2 developers are familiar with the Action.  They are the things that get executed by the incoming requests.  In the context of the REST plugin, just to keep you on your toes, we'll adopt the RESTful lingo and refer to our Actions as <EM>Controllers</EM>.  Don't be confused; it's just a name!</TD></TR></TABLE></DIV>
+
+<P>The REST plugin provides an alternative implementation, <A href="http://struts.apache.org/2.x/struts2-plugins/struts2-rest-plugin/apidocs/org/apache/struts2/rest/RestActionMapper.html" class="external-link" rel="nofollow"><TT>RestActionMapper</TT></A>, that provides the RESTful logic that maps a URL to a give action class ( aka 'controller' in RESTful terms ) and, more specifically, to the invocation of a method on that controller class.  The following section, which comes from the Javadoc for the class, details this logic.  </P>
+
+<H4><A name="RESTPlugin-RESTfulURLMappingLogic"></A>RESTful URL Mapping Logic</H4>
+
+
+<P>This Restful action mapper enforces Ruby-On-Rails Rest-style mappings.  If the method 
+is not specified (via '!' or 'method:' prefix), the method is &quot;guessed&quot; at using 
+ReST-style conventions that examine the URL and the HTTP method.  Special care has
+been given to ensure this mapper works correctly with the codebehind plugin so that
+XML configuration is unnecessary.</P>
+
+<P><P>
+  This mapper supports the following parameters:
+</P>
+<UL>
+  <LI><CODE>struts.mapper.idParameterName</CODE> - If set, this value will be the name
+      of the parameter under which the id is stored.  The id will then be removed
+      from the action name.  Whether or not the method is specified, the mapper will 
+      try to truncate the identifier from the url and store it as a parameter.
+  </LI>
+  <LI><CODE>struts.mapper.indexMethodName</CODE> - The method name to call for a GET
+      request with no id parameter. Defaults to 'index'.
+  </LI>
+  <LI><CODE>struts.mapper.getMethodName</CODE> - The method name to call for a GET
+      request with an id parameter. Defaults to 'show'.
+  </LI>
+  <LI><CODE>struts.mapper.postMethodName</CODE> - The method name to call for a POST
+      request with no id parameter. Defaults to 'create'.
+  </LI>
+  <LI><CODE>struts.mapper.putMethodName</CODE> - The method name to call for a PUT
+      request with an id parameter. Defaults to 'update'.
+  </LI>
+  <LI><CODE>struts.mapper.deleteMethodName</CODE> - The method name to call for a DELETE
+      request with an id parameter. Defaults to 'destroy'.
+  </LI>
+  <LI><CODE>struts.mapper.editMethodName</CODE> - The method name to call for a GET
+      request with an id parameter and the 'edit' view specified. Defaults to 'edit'.
+  </LI>
+  <LI><CODE>struts.mapper.newMethodName</CODE> - The method name to call for a GET
+      request with no id parameter and the 'new' view specified. Defaults to 'editNew'.
+  </LI>
+</UL>
+<P>
+The following URL's will invoke its methods:
+</P>
+<UL> 
+ <LI><CODE>GET:    /movies                =&gt; method=&quot;index&quot;</CODE></LI>
+ <LI><CODE>GET:    /movies/Thrillers      =&gt; method=&quot;show&quot;, id=&quot;Thrillers&quot;</CODE></LI>
+ <LI><CODE>GET:    /movies/Thrillers;edit =&gt; method=&quot;edit&quot;, id=&quot;Thrillers&quot;</CODE></LI>
+ <LI><CODE>GET:    /movies/Thrillers/edit =&gt; method=&quot;edit&quot;, id=&quot;Thrillers&quot;</CODE></LI>
+ <LI><CODE>GET:    /movies/new            =&gt; method=&quot;editNew&quot;</CODE></LI>
+ <LI><CODE>POST:   /movies                =&gt; method=&quot;create&quot;</CODE></LI>
+ <LI><CODE>PUT:    /movies/Thrillers      =&gt; method=&quot;update&quot;, id=&quot;Thrillers&quot;</CODE></LI>
+ <LI><CODE>DELETE: /movies/Thrillers      =&gt; method=&quot;destroy&quot;, id=&quot;Thrillers&quot;</CODE></LI>
+</UL>
+<P>
+To simulate the HTTP methods PUT and DELETE, since they aren't supported by HTML,
+the HTTP parameter &quot;_method&quot; will be used.
+</P></P>
+
+<P>Or, expressed as a table:</P>
+<DIV class="table-wrap">
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TH class="confluenceTh"> HTTP method </TH>
+<TH class="confluenceTh"> URI </TH>
+<TH class="confluenceTh"> Class.method </TH>
+<TH class="confluenceTh"> parameters </TH>
+</TR>
+<TR>
+<TD class="confluenceTd"> GET </TD>
+<TD class="confluenceTd"> /movie </TD>
+<TD class="confluenceTd"> Movie.index </TD>
+<TD class="confluenceTd">&nbsp;</TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> POST </TD>
+<TD class="confluenceTd"> /movie </TD>
+<TD class="confluenceTd"> Movie.create </TD>
+<TD class="confluenceTd">&nbsp;</TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> PUT </TD>
+<TD class="confluenceTd"> /movie/Thrillers </TD>
+<TD class="confluenceTd"> Movie.update </TD>
+<TD class="confluenceTd"> id=&quot;Thrillers&quot; </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> DELETE </TD>
+<TD class="confluenceTd"> /movie/Thrillers </TD>
+<TD class="confluenceTd"> Movie.destroy </TD>
+<TD class="confluenceTd"> id=&quot;Thrillers&quot; </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> GET </TD>
+<TD class="confluenceTd"> /movie/Thrillers </TD>
+<TD class="confluenceTd"> Movie.show </TD>
+<TD class="confluenceTd"> id=&quot;Thrillers&quot; </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> GET </TD>
+<TD class="confluenceTd"> /movie/Thrillers/edit </TD>
+<TD class="confluenceTd"> Movie.edit </TD>
+<TD class="confluenceTd"> id=&quot;Thrillers&quot; </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> GET </TD>
+<TD class="confluenceTd"> /movie/new </TD>
+<TD class="confluenceTd"> Movie.editNew </TD>
+<TD class="confluenceTd">&nbsp;</TD>
+</TR>
+</TBODY></TABLE>
+</DIV>
+
+
+<H3><A name="RESTPlugin-ContentTypes"></A>Content Types</H3>
+
+<P>In addition to providing mapping of RESTful URL's to Controller ( Action ) invocations, the REST plugin also provides the ability to produce multiple representations of the resource data.  By default, the plugin can return the resource in the following content types:  </P>
+
+<P>*HTML<BR>
+*XML <BR>
+*JSON</P>
+
+<P>There is nothing configure here, just add the conent type extension to your RESTful URL.  The framework will take care of the rest.  So, for instance, assuming a Controller called Movies and a movie with the id of superman, the following URL's will all hit the </P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+http:<SPAN class="code-comment">//my.company.com/myapp/movies/superman
+</SPAN>http:<SPAN class="code-comment">//my.company.com/myapp/movies/superman.xml
+</SPAN>http:<SPAN class="code-comment">//my.company.com/myapp/movies/superman.xhtml
+</SPAN>http:<SPAN class="code-comment">//my.company.com/myapp/movies/superman.json</SPAN>
+</PRE>
+</DIV></DIV>
+
+<DIV class="panelMacro"><TABLE class="noteMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>Note, these content types are supported as incoming data types as well.  And, if you need, you can extend the functionality by writing your own implementations of org.apache.struts2.rest.handler.ContentTypeHandler and registering them with the system.</TD></TR></TABLE></DIV>
+
+<H2><A name="RESTPlugin-Usage"></A>Usage</H2>
+<P>This section will walk you through a quick demo.  Here are the steps in the sequence that we will follow.</P>
+
+<P>*Setting Up your Project<BR>
+*Configuring your Project<BR>
+*Writing your Controllers</P>
+
+<H3><A name="RESTPlugin-SettingUp"></A>Setting Up</H3>
+
+<P>Assuming you have a normal Struts 2 application, all you need to do for this REST demo is to add the following two plugins:</P>
+
+<P> *Struts 2 Rest Plugin<BR>
+ *<A href="http://struts.apache.org/2.3.8/docs/convention-plugin.html" class="external-link" rel="nofollow">Struts 2 Convention Plugin </A></P>
+
+<P>Note, you can download the jars for these plugins from <A href="http://search.maven.org/#search%257Cga%257C1%257Cstruts2-convention-plugin" class="external-link" rel="nofollow">Maven Central</A></P>
+
+<H4><A name="RESTPlugin-Configuration%28%7B%7Bstruts.xml%7D%7D%29"></A>Configuration ( <TT>struts.xml</TT> )</H4>
+
+<P>Just dropping the plugin's into your application may not produce exactly the desired effect.  There are a couple of considerations.  The first consideration is whether you want to have any non-RESTful URL's coexisting with your RESTful URL's.  We'll show two configurations.  The first assumes all you want to do is REST.  The second assumes you want to keep other non-RESTful URL's alive in the same Struts 2 application.</P>
+
+<DIV class="panelMacro"><TABLE class="noteMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>As with all configuration of Struts 2, we prefer using <TT>&lt;constant/&gt;</TT> elements in our <TT>struts.xml</TT>.</TD></TR></TABLE></DIV>
+
+<H5><A name="RESTPlugin-RESTOnlyConfiguration"></A>REST Only Configuration</H5>
+
+<P>Instruct Struts to use the REST action mapper:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;constant name=<SPAN class="code-quote">&quot;struts.mapper.class&quot;</SPAN> value=<SPAN class="code-quote">&quot;rest&quot;</SPAN> /&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>At this point, the REST mapper has replaced the DefaultActionMapper so all incoming URL's will be interpreted as RESTful URL's.  </P>
+
+<P>We're relying on the Convention plugin to find our controllers, so we need to configure the convention plugin a bit:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;constant name=<SPAN class="code-quote">&quot;struts.convention.action.suffix&quot;</SPAN> value=<SPAN class="code-quote">&quot;Controller&quot;</SPAN>/&gt;</SPAN>
+<SPAN class="code-tag">&lt;constant name=<SPAN class="code-quote">&quot;struts.convention.action.mapAllMatches&quot;</SPAN> value=<SPAN class="code-quote">&quot;true&quot;</SPAN>/&gt;</SPAN>
+<SPAN class="code-tag">&lt;constant name=<SPAN class="code-quote">&quot;struts.convention.default.parent.package&quot;</SPAN> value=<SPAN class="code-quote">&quot;rest-default&quot;</SPAN>/&gt;</SPAN>
+<SPAN class="code-tag">&lt;constant name=<SPAN class="code-quote">&quot;struts.convention.package.locators&quot;</SPAN> value=<SPAN class="code-quote">&quot;example&quot;</SPAN>/&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<DIV class="panelMacro"><TABLE class="noteMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>Note, you don't have to use the Convention plugin just to use the REST plugin.  The actions of your RESTful application can be defined in XML just as easily as by convention.  The REST mapper doesn't care how the application came to know about your actions when it maps a URL to an invocation of one of it's methods.</TD></TR></TABLE></DIV>
+
+<H5><A name="RESTPlugin-RESTandnonRESTfulURL%27sTogetherConfiguration"></A>REST and non-RESTful URL's Together Configuration</H5>
+
+<P>If you want to keep using some non-RESTful URL's alongside your REST stuff, then you'll have to provide for a configuration that utilizes to mappers.  </P>
+
+<DIV class="panelMacro"><TABLE class="noteMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>Plugins contain their own configuration.  If you look in the Rest plugin jar, you'll see the <TT>struts-plugin.xml</TT> and in that you'll see some configuration settings made by the plugin.  Often, the plugin just sets things the way it wants them. You may frequently need to override those settings in your own <TT>struts.xml</TT>.</TD></TR></TABLE></DIV>   
+
+<P>First, you'll need to re-assert the extensions that struts knows about because the rest plugin will have thrown out the default <TT>action</TT> extension.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+  <SPAN class="code-tag">&lt;constant name=<SPAN class="code-quote">&quot;struts.action.extension&quot;</SPAN> value=<SPAN class="code-quote">&quot;xhtml,,xml,json,action&quot;</SPAN>/&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>Next, we will configure the <TT>PrefixBasedActionMapper</TT>, which is part of the core Struts 2 distribution, to have some URL's routed to the Rest mapper and others to the default mapper.  </P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+  <SPAN class="code-tag">&lt;constant name=<SPAN class="code-quote">&quot;struts.mapper.class&quot;</SPAN> value=<SPAN class="code-quote">&quot;org.apache.struts2.dispatcher.mapper.PrefixBasedActionMapper&quot;</SPAN> /&gt;</SPAN>
+  <SPAN class="code-tag">&lt;constant name=<SPAN class="code-quote">&quot;struts.mapper.prefixMapping&quot;</SPAN> value=<SPAN class="code-quote">&quot;/rest:rest,:struts&quot;</SPAN>/&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>And, again, we're relying on the Convention plugin to find our controllers, so we need to configure the convention plugin a bit:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;constant name=<SPAN class="code-quote">&quot;struts.convention.action.suffix&quot;</SPAN> value=<SPAN class="code-quote">&quot;Controller&quot;</SPAN>/&gt;</SPAN>
+<SPAN class="code-tag">&lt;constant name=<SPAN class="code-quote">&quot;struts.convention.action.mapAllMatches&quot;</SPAN> value=<SPAN class="code-quote">&quot;true&quot;</SPAN>/&gt;</SPAN>
+<SPAN class="code-tag">&lt;constant name=<SPAN class="code-quote">&quot;struts.convention.default.parent.package&quot;</SPAN> value=<SPAN class="code-quote">&quot;rest-default&quot;</SPAN>/&gt;</SPAN>
+<SPAN class="code-tag">&lt;constant name=<SPAN class="code-quote">&quot;struts.convention.package.locators&quot;</SPAN> value=<SPAN class="code-quote">&quot;example&quot;</SPAN>/&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+
+<H3><A name="RESTPlugin-WriteYourControllerActions"></A>Write Your Controller Actions</H3>
+
+<P>Once everything is configured, you need to create the controllers.  Controllers are simply actions created with the purpose of handling requests for a give RESTful resource.  As we saw in the mapping logic above, various REST URL's will hit different methods on the controller.  Traditionally, normal Struts 2 actions expose the <TT>execute</TT> method as their target method.  Here's a sample controller for a <EM>orders</EM> resource.  Note, this sample doesn't implement all of the methods that can be hit via the RESTful action mapper's interpretation of URL's.  </P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+<SPAN class="code-keyword">package</SPAN> org.apache.struts2.<SPAN class="code-keyword">rest</SPAN>.example;
+
+<SPAN class="code-keyword">public</SPAN> class OrdersController <SPAN class="code-keyword">implements</SPAN> ModelDriven&lt;Order&gt; {
+
+    <SPAN class="code-keyword">private</SPAN> OrderManager orderManager;
+    <SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">String</SPAN> id;
+    <SPAN class="code-keyword">private</SPAN> Order model;
+
+    <SPAN class="code-comment">// Handles /orders/{id} GET requests
+</SPAN>    <SPAN class="code-keyword">public</SPAN> HttpHeaders show() {
+        model = orderManager.findOrder(id);
+        <SPAN class="code-keyword">return</SPAN> <SPAN class="code-keyword">new</SPAN> DefaultHttpHeaders(<SPAN class="code-quote">&quot;show&quot;</SPAN>)
+            .withETag(model.getUniqueStamp())
+            .lastModified(model.getLastModified());
+    }
+
+    <SPAN class="code-comment">// Handles /orders/{id} PUT requests
+</SPAN>    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> update() {
+        orderManager.updateOrder(model);
+        <SPAN class="code-keyword">return</SPAN> <SPAN class="code-quote">&quot;update&quot;</SPAN>;
+    }
+
+    <SPAN class="code-comment">// getters and setters
+</SPAN>}
+</PRE>
+</DIV></DIV>
+
+<P>In this example, the <TT>ModelDriven</TT> interface is used to ensure that only my model, the Order object in this case, is returned to the client, otherwise, the whole <TT>OrdersController</TT> object would be serialized.</P>
+
+<DIV class="panelMacro"><TABLE class="noteMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>Where's ActionSupport?  Normally, you extend ActionSupport when writing Struts 2 actions.  In these case, our controller doesn't do that.  Why, you ask?  ActionSupport provides a bunch of important functionality to our actions, including support for i18n and validation.  All of this functionality, in the RESTful case, is provided by the default interceptor stack defined in the REST plugin's struts-plugin.xml file.  Unless you willfully break your controller's membership in the rest-default package in which that stack is defined, then you'll get all that functionality you are used to inheriting from ActionSupport.</TD></TR></TABLE></DIV>
+
+<P>You may wonder why the <TT>show()</TT> method returns a <TT>HttpHeaders</TT> object and the <TT>update()</TT> method returns the expected result code String.  The REST Plugin adds support for action methods that return <TT>HttpHeaders</TT> objects as a way for the action to have more control over the response.  In this example, we wanted to ensure the response included the ETag header and a last modified date so that the information will be cached properly by the client.  The <TT>HttpHeaders</TT> object is a convenient way to control the response in a type-safe way.</P>
+
+<P>Also, notice we aren't returning the usual &quot;success&quot; result code in either method.  This allows us to use the special features of the <A href="codebehind-plugin.html" title="Codebehind Plugin">Codebehind Plugin</A> to intuitively select the result template to process when this resource is accessed with the <TT>.xhtml</TT> extension.  In this case, we can provide a customized XHTML view of the resource by creating <TT>/orders-show.jsp</TT> and <TT>/orders-update.jsp</TT> for the respective methods.</P>
+
+<H2><A name="RESTPlugin-AdvancedTopics"></A>Advanced Topics</H2>
+
+<P>The following sections describe some of the non-standard bells and whistles that you might need to utilize for your application's more non-standard requirements.</P>
+
+<H3><A name="RESTPlugin-CustomContentTypeHandlers"></A>Custom ContentTypeHandlers</H3>
+
+<P>If you need to handle extensions that aren't supported by the default handlers, you can create your own <TT>ContentTypeHandler</TT> implementation and define it in your <TT>struts.xml</TT>:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;bean name=<SPAN class="code-quote">&quot;yaml&quot;</SPAN> type=<SPAN class="code-quote">&quot;org.apache.struts2.rest.handler.ContentTypeHandler&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.mycompany.MyYamlContentHandler&quot;</SPAN> /&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>If the built-in content type handlers don't do what you need, you can override the handling of any extension by providing an alternate handler.  First, define your own <TT>ContentTypeHandler</TT> and declare with its own alias. For example:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;bean name=<SPAN class="code-quote">&quot;myXml&quot;</SPAN> type=<SPAN class="code-quote">&quot;org.apache.struts2.rest.handler.ContentTypeHandler&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.mycompany.MyXmlContentHandler&quot;</SPAN> /&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>Then, tell the REST Plugin to override the handler for the desired extension with yours.  In <TT>struts.properties</TT>, it would look like this:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+struts.<SPAN class="code-keyword">rest</SPAN>.handlerOverride.xml=myXml
+</PRE>
+</DIV></DIV>
+
+
+<H3><A name="RESTPlugin-Settings"></A>Settings</H3>
+
+<P>The following settings can be customized.  See the <A href="http://cwiki.apache.org/confluence/display/WW/Configuration%20Files" class="external-link" rel="nofollow">developer guide</A>.<BR>
+For more configuration options see the <A href="convention-plugin.html" title="Convention Plugin">Convention Plugin Documentation</A></P>
+
+<DIV class="table-wrap">
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TH class="confluenceTh"> Setting </TH>
+<TH class="confluenceTh"> Description </TH>
+<TH class="confluenceTh"> Default </TH>
+<TH class="confluenceTh"> Possible Values </TH>
+</TR>
+<TR>
+<TD class="confluenceTd"> <TT>struts.rest.handlerOverride.EXTENSION</TT> </TD>
+<TD class="confluenceTd"> The alias for the <TT>ContentTypeHandler</TT> implementation that handles the EXTENSION value </TD>
+<TD class="confluenceTd"> N/A </TD>
+<TD class="confluenceTd"> Any declared alias for a <TT>ContentTypeHandler</TT> implementation </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> <TT>struts.rest.defaultExtension</TT> </TD>
+<TD class="confluenceTd"> The default extension to use when none is explicitly specified in the request </TD>
+<TD class="confluenceTd"> <TT>xhtml</TT> </TD>
+<TD class="confluenceTd"> Any extension </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> <TT>struts.rest.validationFailureStatusCode</TT> </TD>
+<TD class="confluenceTd"> The HTTP status code to return on validation failure </TD>
+<TD class="confluenceTd"> <TT>400</TT> </TD>
+<TD class="confluenceTd"> Any HTTP status code as an integer </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> <TT>struts.rest.namespace</TT> </TD>
+<TD class="confluenceTd"> Optional parameter to specify namespace for REST services </TD>
+<TD class="confluenceTd"> <TT>/</TT> </TD>
+<TD class="confluenceTd"> eg. /rest </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> <TT>struts.rest.content.restrictToGET</TT> </TD>
+<TD class="confluenceTd"> Optional parameter, if set to true blocks returning content from any other methods than GET, if set to false, the content can be returned for any kind of method </TD>
+<TD class="confluenceTd"> <TT>true</TT> </TD>
+<TD class="confluenceTd"> eg. put struts.rest.content.restrictToGET = false in struts.properties </TD>
+</TR>
+</TBODY></TABLE>
+</DIV>
+
+
+
+<H2><A name="RESTPlugin-Resources"></A>Resources</H2>
+
+<UL>
+	<LI><A href="http://www.b-simple.de/documents" class="external-link" rel="nofollow">http://www.b-simple.de/documents</A> &#45; Short RESTful Rails tutorial (PDF, multiple languages)</LI>
+	<LI><A href="http://www.amazon.com/RESTful-Web-Services-Leonard-Richardson/dp/0596529260" class="external-link" rel="nofollow">RESTful Web Services</A> &#45; Highly recommend book from O'Reilly</LI>
+	<LI><A href="http://raibledesigns.com/rd/entry/go_light_with_apache_struts" class="external-link" rel="nofollow">Go Light with Apache Struts 2 and REST</A> - Presentation by Don Brown at ApacheCon US 2008</LI>
+</UL>
+
+
+<H2><A name="RESTPlugin-VersionHistory"></A>Version History</H2>
+
+<P>From Struts 2.1.1&#43;</P>
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

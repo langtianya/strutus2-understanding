@@ -1,0 +1,452 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Portlet Tutorial (WebWork 2.2)</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="tutorials.html" title="Tutorials">Tutorials</A>&nbsp;&gt;&nbsp;<A href="" title="Portlet Tutorial (WebWork 2.2)">Portlet Tutorial (WebWork 2.2)</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Portlet Tutorial (WebWork 2.2)</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=14047">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=14047">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14047">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14047">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14047">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14047">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <DIV class="panelMacro"><TABLE class="noteMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD><B>Check out the new updated <A href="struts-2-portlet-tutorial.html" title="Struts 2 Portlet Tutorial">Struts 2 Portlet Tutorial</A></B></TD></TR></TABLE></DIV>
+
+<DIV class="panelMacro"><TABLE class="noteMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>The Portlet support is experimental. Feedback is appreciated!</TD></TR></TABLE></DIV>
+
+<H1><A name="PortletTutorial%28WebWork2.2%29-Index"></A>Index</H1>
+
+<OL>
+	<LI><A href="#PortletTutorial%2528WebWork2.2%2529-intro">Introduction</A></LI>
+	<LI><A href="#PortletTutorial%2528WebWork2.2%2529-installeclipse">Installing Eclipse</A></LI>
+	<LI><A href="#PortletTutorial%2528WebWork2.2%2529-installjboss">Installing JBoss Portal 2.2</A></LI>
+	<LI><A href="#PortletTutorial%2528WebWork2.2%2529-createproject">Creating the project</A></LI>
+	<LI><A href="#PortletTutorial%2528WebWork2.2%2529-classpath">Classpath settings</A></LI>
+	<LI><A href="#PortletTutorial%2528WebWork2.2%2529-portlet.xml">portlet.xml</A></LI>
+	<LI><A href="#PortletTutorial%2528WebWork2.2%2529-web.xml">web.xml</A></LI>
+	<LI><A href="#PortletTutorial%2528WebWork2.2%2529-helloworld">Hello World&#33;</A></LI>
+	<LI><A href="#PortletTutorial%2528WebWork2.2%2529-xwork.xml">xwork.xml</A></LI>
+	<LI><A href="#PortletTutorial%2528WebWork2.2%2529-jbossdescriptors">JBoss Portal descriptors</A></LI>
+	<LI><A href="#PortletTutorial%2528WebWork2.2%2529-deployment">Deployment</A></LI>
+	<LI><A href="#PortletTutorial%2528WebWork2.2%2529-next">Next step</A></LI>
+	<LI><A href="#PortletTutorial%2528WebWork2.2%2529-redeploy">Re-deployment</A></LI>
+</OL>
+
+
+<H1><A name="PortletTutorial%28WebWork2.2%29-StepbyStepTutorial"></A>Step-by-Step Tutorial</H1>
+
+
+<H2><A name="PortletTutorial%28WebWork2.2%29-Introduction"></A>Introduction <A name="PortletTutorial%28WebWork2.2%29-intro"></A></H2>
+
+<P>This tutorial walks you through the process of building a simple portlet application, using Eclipse, JBoss Portal 2.2 and the WebWork Portlet framework.</P>
+
+<H2><A name="PortletTutorial%28WebWork2.2%29-InstallingEclipse"></A>Installing Eclipse <A name="PortletTutorial%28WebWork2.2%29-installeclipse"></A></H2>
+
+<P>In the tutorial, we will be using Eclipse 3.1.1 which can be downloaded from <A href="http://www.eclipse.org/" class="external-link" rel="nofollow">http://www.eclipse.org</A></P>
+
+<H2><A name="PortletTutorial%28WebWork2.2%29-InstallingJBossPortal2.2"></A>Installing JBoss Portal 2.2 <A name="PortletTutorial%28WebWork2.2%29-installjboss"></A></H2>
+
+<P>JBoss Portal 2.2 can be found at <A href="http://www.jboss.com/products/jbossportal/downloads" class="external-link" rel="nofollow">http://www.jboss.com/products/jbossportal/downloads</A>.</P>
+
+<H2><A name="PortletTutorial%28WebWork2.2%29-Creatingtheproject"></A>Creating the project <A name="PortletTutorial%28WebWork2.2%29-createproject"></A></H2>
+
+<P>A Portlet application is basically packaged as a regular web application, but with an additional descriptor; portlet.xml. The first step of the tutorial is to create the project structure in eclipse. First, let's create the Java project itself using the new project wizard. We call the project 'MyPortlet'. Make sure to select the &quot;Create separate source and output folders&quot; radio button, and hit &quot;next&quot;. In the next wizard step, set the output folder for the 'src' source folder to 'MyPortlet/webapp/WEB-INF/classes'. This makes sure it will be easy for us to export the application as a WAR file when we're done.</P>
+
+<P><EM>New project wizard</EM></P>
+
+<P><SPAN class="image-wrap" style=""><IMG src="portlet-tutorial-webwork-22.data/new-project-1.jpg" style="border: 0px solid black"></SPAN></P>
+
+<P><EM>New project wizard, cont</EM></P>
+
+<P><SPAN class="image-wrap" style=""><IMG src="portlet-tutorial-webwork-22.data/new-project-2.jpg" style="border: 0px solid black"></SPAN></P>
+
+<H2><A name="PortletTutorial%28WebWork2.2%29-Classpathsettings"></A>Classpath settings <A name="PortletTutorial%28WebWork2.2%29-classpath"></A></H2>
+
+<P>Before buliding the application itself, we need to add some required jar files to the build classpath and the WEB-INF/lib folder. Firstly, create the WEB-INF/lib folder and download the WebWork 2.2.1 distribution and unzip it to your local harddrive. Locate the jar files shown in the screenshot and and put them in the newly created WEB-INF/lib folder. Select all the jar files, and right click and select &quot;Build Path &#45;&gt; Add to Build Path&quot;. Now your local project should look similar to the screenshot.</P>
+
+<P><SPAN class="image-wrap" style=""><IMG src="portlet-tutorial-webwork-22.data/buildpath.jpg" style="border: 0px solid black"></SPAN></P>
+<DIV class="panelMacro"><TABLE class="noteMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>If there are jar files here that aren't included in the webwork distribution you have downloaded, you can safely assume that they are not needed.</TD></TR></TABLE></DIV>
+
+<H2><A name="PortletTutorial%28WebWork2.2%29-portlet.xml"></A>portlet.xml <A name="PortletTutorial%28WebWork2.2%29-portlet.xml"></A></H2>
+
+<P>Next thing we do is create a portlet.xml file in the WEB-INF folder. In this file, write the following:</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>portlet.xml</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+&lt;portlet-app version=<SPAN class="code-quote">&quot;1.0&quot;</SPAN> xmlns=<SPAN class="code-quote">&quot;http:<SPAN class="code-comment">//java.sun.com/xml/ns/portlet/portlet-app_1_0.xsd&quot;</SPAN>
+</SPAN>         xmlns:xsi=<SPAN class="code-quote">&quot;http:<SPAN class="code-comment">//www.w3.org/2001/XMLSchema-instance&quot;</SPAN>
+</SPAN>xsi:schemaLocation=<SPAN class="code-quote">&quot;http:<SPAN class="code-comment">//java.sun.com/xml/ns/portlet/portlet-app_1_0.xsd http://java.sun.com/xml/ns/portlet/portlet-app_1_0.xsd&quot;</SPAN>&gt;
+</SPAN>  &lt;portlet&gt;
+    &lt;description xml:lang=<SPAN class="code-quote">&quot;EN&quot;</SPAN>&gt;My very first WebWork Portlet&lt;/description&gt;
+    &lt;portlet-name&gt;MyPortlet&lt;/portlet-name&gt;
+    &lt;display-name xml:lang=<SPAN class="code-quote">&quot;EN&quot;</SPAN>&gt;My first WebWork Portlet&lt;/display-name&gt;
+
+    &lt;portlet-class&gt;com.opensymphony.webwork.portlet.dispatcher.Jsr168Dispatcher&lt;/portlet-class&gt;
+
+    &lt;init-param&gt;
+      &lt;!-- The view mode namespace. Maps to a namespace in the xwork config file --&gt;
+      &lt;name&gt;viewNamespace&lt;/name&gt;
+      &lt;value&gt;/view&lt;/value&gt;
+    &lt;/init-param&gt;
+    &lt;init-param&gt;
+      &lt;!-- The <SPAN class="code-keyword">default</SPAN> action to invoke in view mode --&gt;
+      &lt;name&gt;defaultViewAction&lt;/name&gt;
+      &lt;value&gt;index&lt;/value&gt;
+    &lt;/init-param&gt;
+
+    &lt;expiration-cache&gt;0&lt;/expiration-cache&gt;
+
+    &lt;supports&gt;
+      &lt;mime-type&gt;text/html&lt;/mime-type&gt;
+    &lt;/supports&gt;
+
+    &lt;supported-locale&gt;en&lt;/supported-locale&gt;
+
+    &lt;portlet-info&gt;
+      &lt;title&gt;My very own WebWork Portlet&lt;/title&gt;
+      &lt;<SPAN class="code-object">short</SPAN>-title&gt;WWPortlet&lt;/<SPAN class="code-object">short</SPAN>-title&gt;
+      &lt;keywords&gt;webwork,portlet&lt;/keywords&gt;
+    &lt;/portlet-info&gt;
+  &lt;/portlet&gt;
+&lt;/portlet-app&gt;
+</PRE>
+</DIV></DIV>
+<P>This portlet.xml file sets up the portlet using the <EM>com.opensymphony.webwork.portlet.dispatcher.Jsr168Dispatcher</EM> Portlet implementation. It also tells the Portlet that it will map the <EM>view</EM> portlet mode to a <EM>/view</EM> namespace in the XWork configuration, which we must remember when building our XWork actions. In addition, it tells the portlet that if it does not find an action parameter in the portlet request, the default action to invoke is the &quot;index&quot; action, which<BR>
+should reside in the <EM>/view</EM> namespace in our xwork configuration.</P>
+
+<H2><A name="PortletTutorial%28WebWork2.2%29-web.xml"></A>web.xml <A name="PortletTutorial%28WebWork2.2%29-web.xml"></A></H2>
+
+<P>The WebWork Portlet support also requires you to include a web.xml descriptor that sets up some special servlets and filters needed to enable support for the WebWork tag libraries and template languages, since it relies on some of the interfaces and classes in the Servlet API. So create a web.xml file in the WEB-INF folder, and add the following:</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>web.xml</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+&lt;?xml version=<SPAN class="code-quote">&quot;1.0&quot;</SPAN> encoding=<SPAN class="code-quote">&quot;UTF-8&quot;</SPAN>?&gt;
+&lt;!DOCTYPE web-app PUBLIC <SPAN class="code-quote">&quot;-<SPAN class="code-comment">//Sun Microsystems, Inc.//DTD Web Application 2.3//EN&quot;</SPAN> <SPAN class="code-quote">&quot;http://java.sun.com/dtd/web-app_2_3.dtd&quot;</SPAN>&gt;
+</SPAN>&lt;web-app&gt;
+	&lt;filter&gt;
+		&lt;filter-name&gt;webwork&lt;/filter-name&gt;
+		&lt;filter-class&gt;
+			com.opensymphony.webwork.dispatcher.FilterDispatcher
+		&lt;/filter-class&gt;
+	&lt;/filter&gt;
+
+	&lt;filter-mapping&gt;
+		&lt;filter-name&gt;webwork&lt;/filter-name&gt;
+		&lt;url-pattern&gt;/*&lt;/url-pattern&gt;
+	&lt;/filter-mapping&gt;
+
+	&lt;listener&gt;
+		&lt;listener-class&gt;
+			com.opensymphony.webwork.portlet.context.ServletContextHolderListener
+		&lt;/listener-class&gt;
+	&lt;/listener&gt;
+
+
+	&lt;servlet&gt;
+		&lt;servlet-name&gt;preparator&lt;/servlet-name&gt;
+		&lt;servlet-class&gt;
+			com.opensymphony.webwork.portlet.context.PreparatorServlet
+		&lt;/servlet-class&gt;
+	&lt;/servlet&gt;
+
+	&lt;taglib&gt;
+		&lt;taglib-uri&gt;/webwork&lt;/taglib-uri&gt;
+		&lt;taglib-location&gt;/WEB-INF/lib/webwork-2.2.1.jar&lt;/taglib-location&gt;
+	&lt;/taglib&gt;
+
+&lt;/web-app&gt;
+</PRE>
+</DIV></DIV>
+<P>The FilterDispatcher makes sure that URLs to stylesheets and js files within the webwork jar file resolve correctly. The ServletContextHolderListener is a Servlet context listener that stores a reference to the servlet context of the web application. This is needed by some of the initialization procedures used in the WebWork Portlet. The 'preparator' servlet is a special servlet that, before dispatching to a view (like JSP/ftl or velocity) initializes the HttpServletRequest/Response, and other Servlet API classes in the ServletActionContext that is used in many of the JSPs and templates.</P>
+
+<H2><A name="PortletTutorial%28WebWork2.2%29-HelloWorld%5C%21"></A>Hello World&#33; <A name="PortletTutorial%28WebWork2.2%29-helloworld"></A></H2>
+
+<P>With these basic project structure, <EM>portlet.xml</EM> and <EM>web.xml</EM> in place, it's time to do the mandatory &quot;Hello World&quot; example, so let's create a place to store our JSP files. Create a <EM>WEB-INF/pages/view</EM> folder, and within this folder, create the file &quot;helloWorld.jsp&quot;. In this file, we simply put:</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>helloWorld.jsp</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+&lt;H2&gt;Hello world!&lt;/H2&gt;
+</PRE>
+</DIV></DIV>
+
+<H2><A name="PortletTutorial%28WebWork2.2%29-xwork.xml"></A>xwork.xml <A name="PortletTutorial%28WebWork2.2%29-xwork.xml"></A></H2>
+
+<P>At this point, it's time to prepare the xwork configuration file, xwork.xml. Create an empty file named xwork.xml in the root of the 'src' folder. In this file we put:</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>xwork.xml</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+&lt;?xml version=<SPAN class="code-quote">&quot;1.0&quot;</SPAN> encoding=<SPAN class="code-quote">&quot;ISO-8859-1&quot;</SPAN>?&gt;
+&lt;!DOCTYPE xwork PUBLIC
+    <SPAN class="code-quote">&quot;-<SPAN class="code-comment">//OpenSymphony Group//XWork 1.0//EN&quot;</SPAN>
+</SPAN>    <SPAN class="code-quote">&quot;http:<SPAN class="code-comment">//www.opensymphony.com/xwork/xwork-1.0.dtd&quot;</SPAN>&gt;
+</SPAN>&lt;xwork&gt;
+	&lt;include file=<SPAN class="code-quote">&quot;webwork-portlet-<SPAN class="code-keyword">default</SPAN>.xml&quot;</SPAN> /&gt;
+
+	&lt;<SPAN class="code-keyword">package</SPAN> name=<SPAN class="code-quote">&quot;view&quot;</SPAN> <SPAN class="code-keyword">extends</SPAN>=<SPAN class="code-quote">&quot;webwork-portlet-<SPAN class="code-keyword">default</SPAN>&quot;</SPAN>
+		namespace=<SPAN class="code-quote">&quot;/view&quot;</SPAN>&gt;
+		&lt;action name=<SPAN class="code-quote">&quot;index&quot;</SPAN>
+			class=<SPAN class="code-quote">&quot;com.opensymphony.xwork.ActionSupport&quot;</SPAN>&gt;
+			&lt;result name=<SPAN class="code-quote">&quot;success&quot;</SPAN>&gt;/WEB-INF/pages/view/helloWorld.jsp&lt;/result&gt;
+		&lt;/action&gt;
+	&lt;/<SPAN class="code-keyword">package</SPAN>&gt;
+&lt;/xwork&gt;
+</PRE>
+</DIV></DIV>
+<DIV class="panelMacro"><TABLE class="noteMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>If you're using version 2.2.1 of WebWork, include the file webwork-default.xml instead.</TD></TR></TABLE></DIV>
+<P>&nbsp;<BR>
+&nbsp;<BR>
+Some important things to notice are that we create a package with namespace <EM>view</EM>, and our package extends the <EM>webwork-portlet-default</EM> package. The <EM>webwork-portlet-default</EM> package contains some special result types needed to run WebWork/XWork in a portlet container.</P>
+
+<H2><A name="PortletTutorial%28WebWork2.2%29-JBossPortaldescriptors"></A>JBoss Portal descriptors <A name="PortletTutorial%28WebWork2.2%29-jbossdescriptors"></A></H2>
+
+<P>In addition to the regular <EM>portlet.xml</EM> and <EM>web.xml</EM> descriptors, JBoss Portal 2.2 requires us to add a couple of JBoss specific descriptor files. On of these descriptor files is named according to the name of the context root of our application, which in this case is the name of the exported war file itself. We will later create a war file named MyPortlet.war, so the name of the JBoss descriptor becomes 'MyPortlet-object.xml'. So we create this file in the WEB-INF folder, and insert the following text:</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>MyPortlet-object.xml</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+&lt;?xml version=<SPAN class="code-quote">&quot;1.0&quot;</SPAN> encoding=<SPAN class="code-quote">&quot;UTF-8&quot;</SPAN>?&gt;
+&lt;deployments&gt;
+	&lt;deployment&gt;
+		&lt;<SPAN class="code-keyword">if</SPAN>-exists&gt;overwrite&lt;/<SPAN class="code-keyword">if</SPAN>-exists&gt;
+		&lt;parent-ref&gt;<SPAN class="code-keyword">default</SPAN>&lt;/parent-ref&gt;
+		&lt;properties /&gt;
+		&lt;page&gt;
+			&lt;page-name&gt;MyPortlet Tutorial&lt;/page-name&gt;
+			&lt;properties /&gt;
+			&lt;window&gt;
+				&lt;window-name&gt;MyPortletWindow&lt;/window-name&gt;
+				&lt;instance-ref&gt;MyPortletInstance&lt;/instance-ref&gt;
+				&lt;region&gt;center&lt;/region&gt;
+				&lt;height&gt;0&lt;/height&gt;
+			&lt;/window&gt;
+		&lt;/page&gt;
+	&lt;/deployment&gt;
+	&lt;deployment&gt;
+		&lt;<SPAN class="code-keyword">if</SPAN>-exists&gt;overwrite&lt;/<SPAN class="code-keyword">if</SPAN>-exists&gt;
+		&lt;instance&gt;
+			&lt;instance-name&gt;MyPortletInstance&lt;/instance-name&gt;
+			&lt;component-ref&gt;MyPortlet.MyPortlet&lt;/component-ref&gt;
+		&lt;/instance&gt;
+	&lt;/deployment&gt;
+&lt;/deployments&gt;
+</PRE>
+</DIV></DIV>
+<P>In addition, we need two other files, <EM>jboss-app.xml</EM> and <EM>jboss-portlet.xml</EM> which looks like this:</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>jboss-app.xml</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+&lt;jboss-app&gt;
+   &lt;app-name&gt;MyPortlet&lt;/app-name&gt;
+&lt;/jboss-app&gt;
+</PRE>
+</DIV></DIV>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>jboss-portlet.xml</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+&lt;portlet-app&gt;
+   &lt;portlet&gt;
+      &lt;portlet-name&gt;MyPortlet&lt;/portlet-name&gt;
+      &lt;security&gt;
+      &lt;/security&gt;
+   &lt;/portlet&gt;
+&lt;/portlet-app&gt;
+</PRE>
+</DIV></DIV>
+
+<H2><A name="PortletTutorial%28WebWork2.2%29-Deployment"></A>Deployment</H2>
+
+<P>Now we have a project structure that looks like this:</P>
+
+<P><EM>Project structure</EM><BR>
+<SPAN class="image-wrap" style=""><IMG src="portlet-tutorial-webwork-22.data/project-structure-hello-world-1.jpg" style="border: 0px solid black"></SPAN></P>
+
+<P>Now it's time to try our incredible HelloWorld portlet. In a Windows Explorer session, we select the WEB-INF folder and zip it up and name the file 'MyPortlet.war'. Drop this war file in the server/default/deploy folder of JBoss Portal, and start the server. By default, the URL for JBoss portal is <A href="http://localhost:8080/portal" class="external-link" rel="nofollow">http://localhost:8080/portal</A>, so point your browser to this address, and you will get to the front page of the portal, where you should get a &quot;MyPortlet Tutorial&quot; menu entry, as shown in the screenshot below. When pressing this menu link, you will get to our fantastic &quot;Hello World&quot; page&#33;</P>
+
+<P><EM>JBoss Portal front page</EM><BR>
+<SPAN class="image-wrap" style=""><IMG src="portlet-tutorial-webwork-22.data/jboss-portal-frontpage.jpg" style="border: 0px solid black"></SPAN></P>
+
+<P><EM>MyPortlet portlet page</EM><BR>
+<SPAN class="image-wrap" style=""><IMG src="portlet-tutorial-webwork-22.data/jboss-portal-portlet-page.jpg" style="border: 0px solid black"></SPAN></P>
+
+<H2><A name="PortletTutorial%28WebWork2.2%29-Nextstep"></A>Next step <A name="PortletTutorial%28WebWork2.2%29-next"></A></H2>
+
+<P>Next, let's do something a bit more interesting, namely create a simple form and display a result page. Let's start by creating our JSP that displays our form. Create a new file, 'helloForm.jsp' in the WEB-INF/pages/view/ folder. We will use the WebWork tag library to build the form on our page. The form itself will ask the user for a first name and last name, something like this:</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>helloForm.jsp</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+&lt;%@ taglib uri=<SPAN class="code-quote">&quot;/webwork&quot;</SPAN> prefix=<SPAN class="code-quote">&quot;ww&quot;</SPAN> %&gt;
+
+&lt;H2&gt;Hi there! Please enter your name&lt;/H2&gt;
+&lt;ww:form action=<SPAN class="code-quote">&quot;helloWorld&quot;</SPAN> method=<SPAN class="code-quote">&quot;POST&quot;</SPAN>&gt;
+	&lt;ww:textfield label=<SPAN class="code-quote">&quot;First name&quot;</SPAN> name=<SPAN class="code-quote">&quot;firstName&quot;</SPAN> value=<SPAN class="code-quote">&quot;%{firstName}&quot;</SPAN>/&gt;
+	&lt;ww:textfield label=<SPAN class="code-quote">&quot;Last name&quot;</SPAN> name=<SPAN class="code-quote">&quot;lastName&quot;</SPAN> value=<SPAN class="code-quote">&quot;%{lastName}&quot;</SPAN>/&gt;
+	&lt;ww:submit value=<SPAN class="code-quote">&quot;Say hello!&quot;</SPAN>/&gt;
+&lt;/ww:form&gt;
+</PRE>
+</DIV></DIV>
+<P>Now we're ready to code some Java, not much, but at least a little bit. We create a new package in our <EM>src</EM> folder, let's name it <EM>com.opensymphony.webwork.portlet.tutorial</EM>. In this package, create a <EM>HelloWorldAction</EM> class. In usual WebWork manners, this class extends the ActionSupport class from the XWork framework, and we'll add a couple of properties that maps to our form in the JSP we just created:</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>HelloWorldAction.java</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+<SPAN class="code-keyword">package</SPAN> com.opensymphony.webwork.portlet.tutorial;
+
+<SPAN class="code-keyword">import</SPAN> com.opensymphony.xwork.ActionSupport;
+
+<SPAN class="code-keyword">public</SPAN> class HelloWorldAction <SPAN class="code-keyword">extends</SPAN> ActionSupport {
+	<SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">String</SPAN> firstName;
+	<SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">String</SPAN> lastName;
+	<SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> getFirstName() {
+		<SPAN class="code-keyword">return</SPAN> firstName;
+	}
+	<SPAN class="code-keyword">public</SPAN> void setFirstName(<SPAN class="code-object">String</SPAN> firstName) {
+		<SPAN class="code-keyword">this</SPAN>.firstName = firstName;
+	}
+	<SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> getLastName() {
+		<SPAN class="code-keyword">return</SPAN> lastName;
+	}
+	<SPAN class="code-keyword">public</SPAN> void setLastName(<SPAN class="code-object">String</SPAN> lastName) {
+		<SPAN class="code-keyword">this</SPAN>.lastName = lastName;
+	}
+}
+</PRE>
+</DIV></DIV>
+<P>We also need a JSP to display the processed input. We'll just use the old helloWorld.jsp and modify it a bit. As with <EM>helloForm.jsp</EM>, we import the WebWork tag library, and we use the <EM>ww:property</EM> tags to display the input from the form:</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>helloWorld.jsp</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+&lt;%@ taglib prefix=<SPAN class="code-quote">&quot;ww&quot;</SPAN> uri=<SPAN class="code-quote">&quot;/webwork&quot;</SPAN> %&gt;
+
+&lt;H2&gt;Hello &lt;ww:property value=<SPAN class="code-quote">&quot;firstName&quot;</SPAN>/&gt; &lt;ww:property value=<SPAN class="code-quote">&quot;lastName&quot;</SPAN>/&gt;&lt;/H2&gt;
+&lt;p/&gt;
+&lt;a xhref=<SPAN class="code-quote">&quot;&lt;ww:url action=&quot;</SPAN>helloWorldInput<SPAN class="code-quote">&quot;/&gt;&quot;</SPAN>&gt;Back to form&lt;/a&gt;
+</PRE>
+</DIV></DIV>
+
+<H2><A name="PortletTutorial%28WebWork2.2%29-Redeployment"></A>Re-deployment <A name="PortletTutorial%28WebWork2.2%29-redeploy"></A></H2>
+
+<P>Now we're ready to do a re-deployment of our application, so zip up a new war and drop it in the <EM>server/default/deploy</EM> folder. The &quot;MyPortlet Tutorial&quot; page will now display:</P>
+
+<P><EM>Hello World form</EM><BR>
+<SPAN class="image-wrap" style=""><IMG src="portlet-tutorial-webwork-22.data/hello-world-form-1.jpg" style="border: 0px solid black"></SPAN></P>
+
+<P>Enter some data, and press the &quot;Say hello&#33;&quot; button, and you will get a nice little personalized &quot;hello&quot; message:</P>
+
+<P><EM>Personalized Hello World</EM></P>
+
+<P><SPAN class="image-wrap" style=""><IMG src="portlet-tutorial-webwork-22.data/hello-world-result-1.jpg" style="border: 0px solid black"></SPAN></P>
+
+<H2><A name="PortletTutorial%28WebWork2.2%29-BacktoTutorials"></A>Back to <A href="tutorials.html" title="Tutorials">Tutorials</A></H2>
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

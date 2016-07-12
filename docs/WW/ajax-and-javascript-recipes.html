@@ -1,0 +1,1241 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Ajax and JavaScript Recipes</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="guides.html" title="Guides">Guides</A>&nbsp;&gt;&nbsp;<A href="tag-developers-guide.html" title="Tag Developers Guide">Tag Developers Guide</A>&nbsp;&gt;&nbsp;<A href="struts-tags.html" title="Struts Tags">Struts Tags</A>&nbsp;&gt;&nbsp;<A href="ajax-tags.html" title="Ajax Tags">Ajax Tags</A>&nbsp;&gt;&nbsp;<A href="" title="Ajax and JavaScript Recipes">Ajax and JavaScript Recipes</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Ajax and JavaScript Recipes</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=56182">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=56182">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=56182">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=56182">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=56182">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=56182">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <DIV class="panelMacro"><TABLE class="warningMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/forbidden.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD><B>Dojo plugin is deprecated</B><BR>The Dojo plugin will be deprecated on Struts 2.1</TD></TR></TABLE></DIV>
+
+<STYLE type="text/css">/*<![CDATA[*/
+div.rbtoc1247384732277 {margin-left: 0px;padding: 0px;}
+div.rbtoc1247384732277 ul {list-style: none;margin-left: 0px;padding-left: 20px;}
+div.rbtoc1247384732277 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</STYLE><DIV class="rbtoc1247384732277">
+<UL>
+    <LI><A href="#AjaxandJavaScriptRecipes-Common">Common</A></LI>
+    <LI><A href="#AjaxandJavaScriptRecipes-Requests">Requests</A></LI>
+<UL>
+    <LI><A href="#AjaxandJavaScriptRecipes-Requestistriggeredbyatopic">Request is triggered by a topic</A></LI>
+    <LI><A href="#AjaxandJavaScriptRecipes-Attachedtoanevent">Attached to an event</A></LI>
+    <LI><A href="#AjaxandJavaScriptRecipes-Attachedtoaneventonmultiplesources">Attached to an event on multiple sources</A></LI>
+    <LI><A href="#AjaxandJavaScriptRecipes-Attachedtomultipleeventsonmultiplesources">Attached to multiple events on multiple sources</A></LI>
+    <LI><A href="#AjaxandJavaScriptRecipes-Updatetargetelementwithcontentreturnedfromurl">Update target element with content returned from url</A></LI>
+    <LI><A href="#AjaxandJavaScriptRecipes-Updatemultipletargetelementswithcontentreturnedfromurl">Update multiple target elements with content returned from url</A></LI>
+    <LI><A href="#AjaxandJavaScriptRecipes-Showindicatorwhilerequestisinprogress">Show indicator while request is in progress</A></LI>
+    <LI><A href="#AjaxandJavaScriptRecipes-Highlightcontentoftargetwithbluecolor%252Cfor2seconds">Highlight content of target with blue color, for 2 seconds</A></LI>
+    <LI><A href="#AjaxandJavaScriptRecipes-ExecuteJavaScriptinthereturnedcontent">Execute JavaScript in the returned content</A></LI>
+    <LI><A href="#AjaxandJavaScriptRecipes-Publishatopicbeforetherequest">Publish a topic before the request</A></LI>
+    <LI><A href="#AjaxandJavaScriptRecipes-Publishatopicaftertherequest">Publish a topic after the request</A></LI>
+    <LI><A href="#AjaxandJavaScriptRecipes-Publishatopiconerror">Publish a topic on error</A></LI>
+    <LI><A href="#AjaxandJavaScriptRecipes-Showafixederrormessageonerror">Show a fixed error message on error</A></LI>
+    <LI><A href="#AjaxandJavaScriptRecipes-Preventarequest">Prevent a request</A></LI>
+    <LI><A href="#AjaxandJavaScriptRecipes-Submitaform%2528plainform%2529">Submit a form (plain form)</A></LI>
+    <LI><A href="#AjaxandJavaScriptRecipes-Submitaform%2528usings%253Aformtag%2529">Submit a form (using s:form tag)</A></LI>
+</UL>
+    <LI><A href="#AjaxandJavaScriptRecipes-Div">Div</A></LI>
+<UL>
+    <LI><A href="#AjaxandJavaScriptRecipes-Loadsitscontentafterpageisloaded">Loads its content after page is loaded</A></LI>
+    <LI><A href="#AjaxandJavaScriptRecipes-Reloadscontentwhentopicispublished">Reloads content when topic is published</A></LI>
+    <LI><A href="#AjaxandJavaScriptRecipes-Updatesitscontentevery2seconds%252Cshowsindicatorwhileloadingcontent">Updates its content every 2 seconds, shows indicator while loading content</A></LI>
+    <LI><A href="#AjaxandJavaScriptRecipes-Loadsitscontentafteradelayof2seconds">Loads its content after a delay of 2 seconds</A></LI>
+    <LI><A href="#AjaxandJavaScriptRecipes-Showsometextwhilecontentisloaded">Show some text while content is loaded</A></LI>
+    <LI><A href="#AjaxandJavaScriptRecipes-Fixederrormessage">Fixed error message</A></LI>
+    <LI><A href="#AjaxandJavaScriptRecipes-ExecuteJavaScriptinthereturnedcontent">Execute JavaScript in the returned content</A></LI>
+    <LI><A href="#AjaxandJavaScriptRecipes-Controlrefreshtimerusingtopics">Control refresh timer using topics</A></LI>
+</UL>
+    <LI><A href="#AjaxandJavaScriptRecipes-DateandTimepicker">Date and Time picker</A></LI>
+<UL>
+    <LI><A href="#AjaxandJavaScriptRecipes-Datepicker">Date picker</A></LI>
+    <LI><A href="#AjaxandJavaScriptRecipes-Timepicker">Time picker</A></LI>
+    <LI><A href="#AjaxandJavaScriptRecipes-SetvaluefromanString">Set value from an String</A></LI>
+    <LI><A href="#AjaxandJavaScriptRecipes-Setvaluefromstack%2528valuemustevaluatetoeitheraDate%252CCalendar%252CoranStringthatcanbeparsedusingtheformatsdefinedinSimpleDateFormat%252CandRFC3339%2529">Set value from stack (value must evaluate to either a Date, Calendar, or an String that can be parsed using the formats defined in SimpleDateFormat, and RFC 3339)</A></LI>
+    <LI><A href="#AjaxandJavaScriptRecipes-Set%252FGetvalueusingJavaScript">Set/Get value using JavaScript</A></LI>
+    <LI><A href="#AjaxandJavaScriptRecipes-Stylethetextbox">Style the textbox</A></LI>
+    <LI><A href="#AjaxandJavaScriptRecipes-Publishtopicwhenvaluechanges">Publish topic when value changes</A></LI>
+    <LI><A href="#AjaxandJavaScriptRecipes-Useotherlocales.">Use other locales.</A></LI>
+</UL>
+    <LI><A href="#AjaxandJavaScriptRecipes-TabbedPanel">Tabbed Panel</A></LI>
+<UL>
+    <LI><A href="#AjaxandJavaScriptRecipes-LocalTabs">Local Tabs</A></LI>
+    <LI><A href="#AjaxandJavaScriptRecipes-Localandremotetabs">Local and remote tabs</A></LI>
+    <LI><A href="#AjaxandJavaScriptRecipes-Fixedsize%2528sizedoesnotadjusttocurrenttab%2529">Fixed size (size does not adjust to current tab)</A></LI>
+    <LI><A href="#AjaxandJavaScriptRecipes-Donotloadtab2whenpageloads%2528itwillbeloadedwhenselected%2529">Do not load tab 2 when page loads (it will be loaded when selected)</A></LI>
+    <LI><A href="#AjaxandJavaScriptRecipes-Reloadtabscontentwhenselected">Reload tabs content when selected</A></LI>
+    <LI><A href="#AjaxandJavaScriptRecipes-Disabledtabs">Disabled tabs</A></LI>
+    <LI><A href="#AjaxandJavaScriptRecipes-Enable%252FDisabletabsusingJavaScript">Enable/Disable tabs using JavaScript</A></LI>
+    <LI><A href="#AjaxandJavaScriptRecipes-SetTablabelspositiontobottom%2528canbe%253Atop%252Cright%252Cbottom%252Cleft%2529">Set Tab labels position to bottom (can be: top, right, bottom, left)</A></LI>
+    <LI><A href="#AjaxandJavaScriptRecipes-Allowtab2toberemoved%2528closed%2529">Allow tab 2 to be removed(closed)</A></LI>
+    <LI><A href="#AjaxandJavaScriptRecipes-Publishtopicswhentabisselected">Publish topics when tab is selected</A></LI>
+    <LI><A href="#AjaxandJavaScriptRecipes-SelecttabusingJavaScript">Select tab using JavaScript</A></LI>
+    <LI><A href="#AjaxandJavaScriptRecipes-Preventtab2frombeingselected">Prevent tab 2 from being selected</A></LI>
+    <LI><A href="#AjaxandJavaScriptRecipes-Customizetemplatecsspath%2528Dojowidgettemplatecss%2529">Customize template css path (Dojo widget template css)</A></LI>
+</UL>
+    <LI><A href="#AjaxandJavaScriptRecipes-Autocompleter">Autocompleter</A></LI>
+<UL>
+    <LI><A href="#AjaxandJavaScriptRecipes-Fixedlist">Fixed list</A></LI>
+    <LI><A href="#AjaxandJavaScriptRecipes-Setinitialvalue">Set initial value</A></LI>
+    <LI><A href="#AjaxandJavaScriptRecipes-Forcevalidoption%2528restoreoptionwhenfocusislost%2529">Force valid option (restore option when focus is lost)</A></LI>
+    <LI><A href="#AjaxandJavaScriptRecipes-UsingtheJSONplugintogeneratethevalues%2528oneofthepossibleways%2529">Using the JSON plugin to generate the values (one of the possible ways)</A></LI>
+    <LI><A href="#AjaxandJavaScriptRecipes-Exampleaction">Example action</A></LI>
+    <LI><A href="#AjaxandJavaScriptRecipes-Setinitialkeyandvalue">Set initial key and value</A></LI>
+    <LI><A href="#AjaxandJavaScriptRecipes-Changedefaultkeyname">Change default key name</A></LI>
+    <LI><A href="#AjaxandJavaScriptRecipes-JSONaccepted">JSON accepted</A></LI>
+    <LI><A href="#AjaxandJavaScriptRecipes-Loadcharacterswhileusertypes%2528whentextsize%253E%253D3%2529">Load characters while user types (when text size &gt;= 3)</A></LI>
+    <LI><A href="#AjaxandJavaScriptRecipes-Hidedropdownarrow">Hide dropdown arrow</A></LI>
+    <LI><A href="#AjaxandJavaScriptRecipes-Limitoptionsshownto3">Limit options shown to 3</A></LI>
+    <LI><A href="#AjaxandJavaScriptRecipes-Allmatchingoptionsareshown">All matching options are shown</A></LI>
+    <LI><A href="#AjaxandJavaScriptRecipes-Setdropdownheightandwidth%252Cinpixels">Set dropdown height and width, in pixels</A></LI>
+    <LI><A href="#AjaxandJavaScriptRecipes-Disableitwhenpageisloaded">Disable it when page is loaded</A></LI>
+    <LI><A href="#AjaxandJavaScriptRecipes-Disableit%252FenableitusingJavaScript">Disable it/enable it using JavaScript</A></LI>
+    <LI><A href="#AjaxandJavaScriptRecipes-Reloadoptionswhentopicispublished">Reload options when topic is published</A></LI>
+    <LI><A href="#AjaxandJavaScriptRecipes-Submitformwhenoptionsareloaded">Submit form when options are loaded</A></LI>
+    <LI><A href="#AjaxandJavaScriptRecipes-Filterfieldstopbesubmittedwhenoptionsareloaded%2528returntruetoinclude%2529">Filter fields top be submitted when options are loaded (return true to include)</A></LI>
+    <LI><A href="#AjaxandJavaScriptRecipes-Linktwoautocompleters%252Cusingtopics">Link two autocompleters, using topics</A></LI>
+    <LI><A href="#AjaxandJavaScriptRecipes-Showoptions%252Cbutdon%2527tmakesuggestion%2528autocomple%2529inthetextbox">Show options, but don't make suggestion (autocomple) in the textbox</A></LI>
+    <LI><A href="#AjaxandJavaScriptRecipes-Preventoptionsfromloadingwhenpageloads">Prevent options from loading when page loads</A></LI>
+</UL>
+</UL></DIV>
+
+
+<H4><A name="AjaxandJavaScriptRecipes-Common"></A>Common</H4>
+<P>All examples on this page assume the following JSP fragment is on the same page as the example.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;%@ taglib prefix=<SPAN class="code-quote">&quot;s&quot;</SPAN> uri=<SPAN class="code-quote">&quot;/struts-tags&quot;</SPAN> %&gt;</SPAN>
+<SPAN class="code-tag">&lt;%@ taglib prefix=<SPAN class="code-quote">&quot;sx&quot;</SPAN> uri=<SPAN class="code-quote">&quot;/struts-dojo-tags&quot;</SPAN> %&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;head&gt;</SPAN>
+    <SPAN class="code-tag">&lt;sx:head /&gt;</SPAN>
+<SPAN class="code-tag">&lt;/head&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;s:url id=<SPAN class="code-quote">&quot;url&quot;</SPAN> value=<SPAN class="code-quote">&quot;/MyAction.action&quot;</SPAN> /&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H4><A name="AjaxandJavaScriptRecipes-Requests"></A>Requests</H4>
+<H5><A name="AjaxandJavaScriptRecipes-Requestistriggeredbyatopic"></A>Request is triggered by a topic</H5>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;s:submit value=<SPAN class="code-quote">&quot;Make Request&quot;</SPAN> onclick=<SPAN class="code-quote">&quot;dojo.event.topic.publish('/request')&quot;</SPAN> /&gt;</SPAN>
+<SPAN class="code-tag">&lt;sx:bind listenTopics=<SPAN class="code-quote">&quot;/request&quot;</SPAN> href=<SPAN class="code-quote">&quot;%{#url}&quot;</SPAN> /&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H5><A name="AjaxandJavaScriptRecipes-Attachedtoanevent"></A>Attached to an event</H5>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;s:submit value=<SPAN class="code-quote">&quot;Make Request&quot;</SPAN> id=<SPAN class="code-quote">&quot;submit&quot;</SPAN> /&gt;</SPAN>
+<SPAN class="code-tag">&lt;sx:bind sources=<SPAN class="code-quote">&quot;submit&quot;</SPAN> events=<SPAN class="code-quote">&quot;onclick&quot;</SPAN> href=<SPAN class="code-quote">&quot;%{#url}&quot;</SPAN> /&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H5><A name="AjaxandJavaScriptRecipes-Attachedtoaneventonmultiplesources"></A>Attached to an event on multiple sources</H5>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;s:submit value=<SPAN class="code-quote">&quot;Make Request&quot;</SPAN> id=<SPAN class="code-quote">&quot;submit0&quot;</SPAN> /&gt;</SPAN>
+<SPAN class="code-tag">&lt;s:submit value=<SPAN class="code-quote">&quot;Make Request&quot;</SPAN> id=<SPAN class="code-quote">&quot;submit1&quot;</SPAN> /&gt;</SPAN>
+<SPAN class="code-tag">&lt;sx:bind sources=<SPAN class="code-quote">&quot;submit0,submit1&quot;</SPAN> events=<SPAN class="code-quote">&quot;onclick&quot;</SPAN> href=<SPAN class="code-quote">&quot;%{#url}&quot;</SPAN> /&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H5><A name="AjaxandJavaScriptRecipes-Attachedtomultipleeventsonmultiplesources"></A>Attached to multiple events on multiple sources</H5>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;s:textarea id=<SPAN class="code-quote">&quot;area0&quot;</SPAN> /&gt;</SPAN>
+<SPAN class="code-tag">&lt;s:textarea id=<SPAN class="code-quote">&quot;area1&quot;</SPAN> /&gt;</SPAN>
+<SPAN class="code-tag">&lt;sx:bind sources=<SPAN class="code-quote">&quot;area0,area1&quot;</SPAN> events=<SPAN class="code-quote">&quot;onfocus,onchange&quot;</SPAN> href=<SPAN class="code-quote">&quot;%{#url}&quot;</SPAN> /&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H5><A name="AjaxandJavaScriptRecipes-Updatetargetelementwithcontentreturnedfromurl"></A>Update target element with content returned from url</H5>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;s:div id=<SPAN class="code-quote">&quot;div&quot;</SPAN> /&gt;</SPAN>
+
+<SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- With a bind tag --&gt;</SPAN></SPAN>
+<SPAN class="code-tag">&lt;s:submit value=<SPAN class="code-quote">&quot;Make Request&quot;</SPAN> id=<SPAN class="code-quote">&quot;submit&quot;</SPAN> /&gt;</SPAN>
+<SPAN class="code-tag">&lt;sx:bind targets=<SPAN class="code-quote">&quot;div&quot;</SPAN> sources=<SPAN class="code-quote">&quot;submit&quot;</SPAN> events=<SPAN class="code-quote">&quot;onclick&quot;</SPAN> href=<SPAN class="code-quote">&quot;%{#url}&quot;</SPAN> /&gt;</SPAN>
+
+<SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- With a submit tag --&gt;</SPAN></SPAN>
+<SPAN class="code-tag">&lt;sx:submit targets=<SPAN class="code-quote">&quot;div&quot;</SPAN> value=<SPAN class="code-quote">&quot;Make Request&quot;</SPAN> href=<SPAN class="code-quote">&quot;%{#url}&quot;</SPAN> /&gt;</SPAN>
+
+<SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- With an anchor tag --&gt;</SPAN></SPAN>
+<SPAN class="code-tag">&lt;sx:a targets=<SPAN class="code-quote">&quot;div&quot;</SPAN> value=<SPAN class="code-quote">&quot;Make Request&quot;</SPAN> href=<SPAN class="code-quote">&quot;%{#url}&quot;</SPAN> /&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H5><A name="AjaxandJavaScriptRecipes-Updatemultipletargetelementswithcontentreturnedfromurl"></A>Update multiple target elements with content returned from url</H5>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;s:div id=<SPAN class="code-quote">&quot;div0&quot;</SPAN> /&gt;</SPAN>
+<SPAN class="code-tag">&lt;s:div id=<SPAN class="code-quote">&quot;div1&quot;</SPAN> /&gt;</SPAN>
+
+<SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- With a bind tag --&gt;</SPAN></SPAN>
+<SPAN class="code-tag">&lt;s:submit value=<SPAN class="code-quote">&quot;Make Request&quot;</SPAN> id=<SPAN class="code-quote">&quot;submit&quot;</SPAN> /&gt;</SPAN>
+<SPAN class="code-tag">&lt;sx:bind targets=<SPAN class="code-quote">&quot;div0,div1&quot;</SPAN> sources=<SPAN class="code-quote">&quot;submit&quot;</SPAN> events=<SPAN class="code-quote">&quot;onclick&quot;</SPAN> href=<SPAN class="code-quote">&quot;%{#url}&quot;</SPAN> /&gt;</SPAN>
+
+<SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- With a submit tag --&gt;</SPAN></SPAN>
+<SPAN class="code-tag">&lt;sx:submit targets=<SPAN class="code-quote">&quot;div0,div1&quot;</SPAN> href=<SPAN class="code-quote">&quot;%{#url}&quot;</SPAN> /&gt;</SPAN>
+
+<SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- With an anchor tag --&gt;</SPAN></SPAN>
+<SPAN class="code-tag">&lt;sx:a targets=<SPAN class="code-quote">&quot;div0,div1&quot;</SPAN> href=<SPAN class="code-quote">&quot;%{#url}&quot;</SPAN> /&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H5><A name="AjaxandJavaScriptRecipes-Showindicatorwhilerequestisinprogress"></A>Show indicator while request is in progress</H5>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;img id=<SPAN class="code-quote">&quot;indicator&quot;</SPAN> src=<SPAN class="code-quote">&quot;${pageContext.request.contextPath}/images/indicator.gif&quot;</SPAN> style=<SPAN class="code-quote">&quot;display:none&quot;</SPAN> /&gt;</SPAN>
+
+<SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- With a bind tag --&gt;</SPAN></SPAN>
+<SPAN class="code-tag">&lt;s:submit value=<SPAN class="code-quote">&quot;Make Request&quot;</SPAN> id=<SPAN class="code-quote">&quot;submit&quot;</SPAN> /&gt;</SPAN>
+<SPAN class="code-tag">&lt;sx:bind indicator=<SPAN class="code-quote">&quot;indicator&quot;</SPAN> sources=<SPAN class="code-quote">&quot;submit&quot;</SPAN> events=<SPAN class="code-quote">&quot;onclick&quot;</SPAN> href=<SPAN class="code-quote">&quot;%{#url}&quot;</SPAN> /&gt;</SPAN>
+
+<SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- With a submit tag --&gt;</SPAN></SPAN>
+<SPAN class="code-tag">&lt;sx:submit indicator=<SPAN class="code-quote">&quot;indicator&quot;</SPAN> href=<SPAN class="code-quote">&quot;%{#url}&quot;</SPAN> /&gt;</SPAN>
+
+<SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- With an anchor tag --&gt;</SPAN></SPAN>
+<SPAN class="code-tag">&lt;sx:a indicator=<SPAN class="code-quote">&quot;indicator&quot;</SPAN> href=<SPAN class="code-quote">&quot;%{#url}&quot;</SPAN> /&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H5><A name="AjaxandJavaScriptRecipes-Highlightcontentoftargetwithbluecolor%2Cfor2seconds"></A>Highlight content of target with blue color, for 2 seconds</H5>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;s:div id=<SPAN class="code-quote">&quot;div&quot;</SPAN> /&gt;</SPAN>
+
+<SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- With a bind tag --&gt;</SPAN></SPAN>
+<SPAN class="code-tag">&lt;s:submit value=<SPAN class="code-quote">&quot;Make Request&quot;</SPAN> id=<SPAN class="code-quote">&quot;submit&quot;</SPAN> /&gt;</SPAN>
+<SPAN class="code-tag">&lt;sx:bind highlightColor=<SPAN class="code-quote">&quot;blue&quot;</SPAN> highlightDuration=<SPAN class="code-quote">&quot;2000&quot;</SPAN> targets=<SPAN class="code-quote">&quot;div&quot;</SPAN> sources=<SPAN class="code-quote">&quot;submit&quot;</SPAN> events=<SPAN class="code-quote">&quot;onclick&quot;</SPAN> href=<SPAN class="code-quote">&quot;%{#url}&quot;</SPAN> /&gt;</SPAN>
+
+<SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- With a submit tag --&gt;</SPAN></SPAN>
+<SPAN class="code-tag">&lt;sx:submit highlightColor=<SPAN class="code-quote">&quot;blue&quot;</SPAN> highlightDuration=<SPAN class="code-quote">&quot;2000&quot;</SPAN> targets=<SPAN class="code-quote">&quot;div&quot;</SPAN> href=<SPAN class="code-quote">&quot;%{#url}&quot;</SPAN> /&gt;</SPAN>
+
+<SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- With an anchor tag --&gt;</SPAN></SPAN>
+<SPAN class="code-tag">&lt;sx:a highlightColor=<SPAN class="code-quote">&quot;blue&quot;</SPAN> highlightDuration=<SPAN class="code-quote">&quot;2000&quot;</SPAN> targets=<SPAN class="code-quote">&quot;div&quot;</SPAN> href=<SPAN class="code-quote">&quot;%{#url}&quot;</SPAN> /&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H5><A name="AjaxandJavaScriptRecipes-ExecuteJavaScriptinthereturnedcontent"></A>Execute JavaScript in the returned content</H5>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;s:div id=<SPAN class="code-quote">&quot;div&quot;</SPAN> /&gt;</SPAN>
+
+<SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- With a bind tag --&gt;</SPAN></SPAN>
+<SPAN class="code-tag">&lt;s:submit value=<SPAN class="code-quote">&quot;Make Request&quot;</SPAN> id=<SPAN class="code-quote">&quot;submit&quot;</SPAN> /&gt;</SPAN>
+<SPAN class="code-tag">&lt;sx:bind executeScripts=<SPAN class="code-quote">&quot;true&quot;</SPAN> targets=<SPAN class="code-quote">&quot;div&quot;</SPAN> sources=<SPAN class="code-quote">&quot;submit&quot;</SPAN> events=<SPAN class="code-quote">&quot;onclick&quot;</SPAN> href=<SPAN class="code-quote">&quot;%{#url}&quot;</SPAN> /&gt;</SPAN>
+
+<SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- With a submit tag --&gt;</SPAN></SPAN>
+<SPAN class="code-tag">&lt;sx:submit executeScripts=<SPAN class="code-quote">&quot;true&quot;</SPAN> targets=<SPAN class="code-quote">&quot;div&quot;</SPAN> href=<SPAN class="code-quote">&quot;%{#url}&quot;</SPAN> /&gt;</SPAN>
+
+<SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- With an anchor tag --&gt;</SPAN></SPAN>
+<SPAN class="code-tag">&lt;sx:a executeScripts=<SPAN class="code-quote">&quot;true&quot;</SPAN> targets=<SPAN class="code-quote">&quot;div&quot;</SPAN> href=<SPAN class="code-quote">&quot;%{#url}&quot;</SPAN> /&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H5><A name="AjaxandJavaScriptRecipes-Publishatopicbeforetherequest"></A>Publish a topic before the request</H5>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;script type=<SPAN class="code-quote">&quot;text/javascript&quot;</SPAN>&gt;</SPAN>
+dojo.event.topic.subscribe(<SPAN class="code-quote">&quot;/before&quot;</SPAN>, function(event, widget){
+   alert('inside a topic event. before request');
+   //event: event object
+   //widget: widget that published the topic
+});
+<SPAN class="code-tag">&lt;/script&gt;</SPAN>
+
+<SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- With a bind tag --&gt;</SPAN></SPAN>
+<SPAN class="code-tag">&lt;s:submit value=<SPAN class="code-quote">&quot;Make Request&quot;</SPAN> id=<SPAN class="code-quote">&quot;submit&quot;</SPAN> /&gt;</SPAN>
+<SPAN class="code-tag">&lt;sx:bind beforeNotifyTopics=<SPAN class="code-quote">&quot;/before&quot;</SPAN> sources=<SPAN class="code-quote">&quot;submit&quot;</SPAN> events=<SPAN class="code-quote">&quot;onclick&quot;</SPAN> href=<SPAN class="code-quote">&quot;%{#url}&quot;</SPAN> /&gt;</SPAN>
+
+<SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- With a submit tag --&gt;</SPAN></SPAN>
+<SPAN class="code-tag">&lt;sx:submit beforeNotifyTopics=<SPAN class="code-quote">&quot;/before&quot;</SPAN> href=<SPAN class="code-quote">&quot;%{#url}&quot;</SPAN> /&gt;</SPAN>
+
+<SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- With an anchor tag --&gt;</SPAN></SPAN>
+<SPAN class="code-tag">&lt;sx:a beforeNotifyTopics=<SPAN class="code-quote">&quot;/before&quot;</SPAN> href=<SPAN class="code-quote">&quot;%{#url}&quot;</SPAN> /&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H5><A name="AjaxandJavaScriptRecipes-Publishatopicaftertherequest"></A>Publish a topic after the request</H5>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;script type=<SPAN class="code-quote">&quot;text/javascript&quot;</SPAN>&gt;</SPAN>
+dojo.event.topic.subscribe(<SPAN class="code-quote">&quot;/after&quot;</SPAN>, function(data, request, widget){
+   alert('inside a topic event. after request');
+   //data : text returned from request
+   //request: XMLHttpRequest object
+   //widget: widget that published the topic
+});
+<SPAN class="code-tag">&lt;/script&gt;</SPAN>
+
+<SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- With a bind tag --&gt;</SPAN></SPAN>
+<SPAN class="code-tag">&lt;s:submit value=<SPAN class="code-quote">&quot;Make Request&quot;</SPAN> id=<SPAN class="code-quote">&quot;submit&quot;</SPAN> /&gt;</SPAN>
+<SPAN class="code-tag">&lt;sx:bind afterNotifyTopics=<SPAN class="code-quote">&quot;/after&quot;</SPAN> sources=<SPAN class="code-quote">&quot;submit&quot;</SPAN> events=<SPAN class="code-quote">&quot;onclick&quot;</SPAN> href=<SPAN class="code-quote">&quot;%{#url}&quot;</SPAN> /&gt;</SPAN>
+
+<SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- With a submit tag --&gt;</SPAN></SPAN>
+<SPAN class="code-tag">&lt;sx:submit afterNotifyTopics=<SPAN class="code-quote">&quot;/after&quot;</SPAN> href=<SPAN class="code-quote">&quot;%{#url}&quot;</SPAN> /&gt;</SPAN>
+
+<SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- With an anchor tag --&gt;</SPAN></SPAN>
+<SPAN class="code-tag">&lt;sx:a afterNotifyTopics=<SPAN class="code-quote">&quot;/after&quot;</SPAN> href=<SPAN class="code-quote">&quot;%{#url}&quot;</SPAN> /&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+
+<H5><A name="AjaxandJavaScriptRecipes-Publishatopiconerror"></A>Publish a topic on error</H5>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;script type=<SPAN class="code-quote">&quot;text/javascript&quot;</SPAN>&gt;</SPAN>
+dojo.event.topic.subscribe(<SPAN class="code-quote">&quot;/error&quot;</SPAN>, function(error, request, widget){
+   alert('inside a topic event. on error');
+   //error : error object (error.message has the error message)
+   //request: XMLHttpRequest object
+   //widget: widget that published the topic
+});
+<SPAN class="code-tag">&lt;/script&gt;</SPAN>
+
+<SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- With a bind tag --&gt;</SPAN></SPAN>
+<SPAN class="code-tag">&lt;s:submit value=<SPAN class="code-quote">&quot;Make Request&quot;</SPAN> id=<SPAN class="code-quote">&quot;submit&quot;</SPAN> /&gt;</SPAN>
+<SPAN class="code-tag">&lt;sx:bind errorNotifyTopics=<SPAN class="code-quote">&quot;/error&quot;</SPAN> sources=<SPAN class="code-quote">&quot;submit&quot;</SPAN> events=<SPAN class="code-quote">&quot;onclick&quot;</SPAN> href=<SPAN class="code-quote">&quot;%{#url}&quot;</SPAN> /&gt;</SPAN>
+
+<SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- With a submit tag --&gt;</SPAN></SPAN>
+<SPAN class="code-tag">&lt;sx:submit errorNotifyTopics=<SPAN class="code-quote">&quot;/error&quot;</SPAN> href=<SPAN class="code-quote">&quot;%{#url}&quot;</SPAN> /&gt;</SPAN>
+
+<SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- With an anchor tag --&gt;</SPAN></SPAN>
+<SPAN class="code-tag">&lt;sx:a errorNotifyTopics=<SPAN class="code-quote">&quot;/error&quot;</SPAN> href=<SPAN class="code-quote">&quot;%{#url}&quot;</SPAN> /&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H5><A name="AjaxandJavaScriptRecipes-Showafixederrormessageonerror"></A>Show a fixed error message on error</H5>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;div id=<SPAN class="code-quote">&quot;div&quot;</SPAN> /&gt;</SPAN>
+
+<SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- With a bind tag --&gt;</SPAN></SPAN>
+<SPAN class="code-tag">&lt;s:submit value=<SPAN class="code-quote">&quot;Make Request&quot;</SPAN> id=<SPAN class="code-quote">&quot;submit&quot;</SPAN> /&gt;</SPAN>
+<SPAN class="code-tag">&lt;sx:bind errorText=<SPAN class="code-quote">&quot;Error Loading&quot;</SPAN> targets=<SPAN class="code-quote">&quot;div&quot;</SPAN> sources=<SPAN class="code-quote">&quot;submit&quot;</SPAN> events=<SPAN class="code-quote">&quot;onclick&quot;</SPAN> href=<SPAN class="code-quote">&quot;%{#url}&quot;</SPAN> /&gt;</SPAN>
+
+<SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- With a submit tag --&gt;</SPAN></SPAN>
+<SPAN class="code-tag">&lt;sx:submit errorText=<SPAN class="code-quote">&quot;Error Loading&quot;</SPAN> targets=<SPAN class="code-quote">&quot;div&quot;</SPAN> href=<SPAN class="code-quote">&quot;%{#url}&quot;</SPAN> /&gt;</SPAN>
+
+<SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- With an anchor tag --&gt;</SPAN></SPAN>
+<SPAN class="code-tag">&lt;sx:a errorText=<SPAN class="code-quote">&quot;Error Loading&quot;</SPAN> targets=<SPAN class="code-quote">&quot;div&quot;</SPAN> href=<SPAN class="code-quote">&quot;%{#url}&quot;</SPAN> /&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H5><A name="AjaxandJavaScriptRecipes-Preventarequest"></A>Prevent a request</H5>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;script type=<SPAN class="code-quote">&quot;text/javascript&quot;</SPAN>&gt;</SPAN>
+dojo.event.topic.subscribe(<SPAN class="code-quote">&quot;/before&quot;</SPAN>, function(event, widget){
+   alert('I will stop this request');
+   event.cancel = true;
+});
+<SPAN class="code-tag">&lt;/script&gt;</SPAN>
+
+
+<SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- With a bind tag --&gt;</SPAN></SPAN>
+<SPAN class="code-tag">&lt;s:submit value=<SPAN class="code-quote">&quot;Make Request&quot;</SPAN> id=<SPAN class="code-quote">&quot;submit&quot;</SPAN> /&gt;</SPAN>
+<SPAN class="code-tag">&lt;sx:bind beforeNotifyTopics=<SPAN class="code-quote">&quot;/before&quot;</SPAN> sources=<SPAN class="code-quote">&quot;submit&quot;</SPAN> events=<SPAN class="code-quote">&quot;onclick&quot;</SPAN> href=<SPAN class="code-quote">&quot;%{#url}&quot;</SPAN> /&gt;</SPAN>
+
+<SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- With a submit tag --&gt;</SPAN></SPAN>
+<SPAN class="code-tag">&lt;sx:submit beforeNotifyTopics=<SPAN class="code-quote">&quot;/before&quot;</SPAN> href=<SPAN class="code-quote">&quot;%{#url}&quot;</SPAN> /&gt;</SPAN>
+
+<SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- With an anchor tag --&gt;</SPAN></SPAN>
+<SPAN class="code-tag">&lt;sx:a beforeNotifyTopics=<SPAN class="code-quote">&quot;/before&quot;</SPAN> href=<SPAN class="code-quote">&quot;%{#url}&quot;</SPAN> /&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H5><A name="AjaxandJavaScriptRecipes-Submitaform%28plainform%29"></A>Submit a form (plain form)</H5>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;form id=<SPAN class="code-quote">&quot;form&quot;</SPAN>&gt;</SPAN>
+  <SPAN class="code-tag">&lt;input type=textbox name=<SPAN class="code-quote">&quot;data&quot;</SPAN>&gt;</SPAN>
+<SPAN class="code-tag">&lt;/form&gt;</SPAN>
+
+<SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- With a bind tag --&gt;</SPAN></SPAN>
+<SPAN class="code-tag">&lt;s:submit value=<SPAN class="code-quote">&quot;Make Request&quot;</SPAN> id=<SPAN class="code-quote">&quot;submit&quot;</SPAN> /&gt;</SPAN>
+<SPAN class="code-tag">&lt;sx:bind formId=<SPAN class="code-quote">&quot;form&quot;</SPAN> sources=<SPAN class="code-quote">&quot;submit&quot;</SPAN> events=<SPAN class="code-quote">&quot;onclick&quot;</SPAN> href=<SPAN class="code-quote">&quot;%{#url}&quot;</SPAN> /&gt;</SPAN>
+
+<SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- With a submit tag --&gt;</SPAN></SPAN>
+<SPAN class="code-tag">&lt;sx:submit formId=<SPAN class="code-quote">&quot;form&quot;</SPAN> href=<SPAN class="code-quote">&quot;%{#url}&quot;</SPAN> /&gt;</SPAN>
+
+<SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- With an anchor tag --&gt;</SPAN></SPAN>
+<SPAN class="code-tag">&lt;sx:a formId=<SPAN class="code-quote">&quot;form&quot;</SPAN> href=<SPAN class="code-quote">&quot;%{#url}&quot;</SPAN> /&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H5><A name="AjaxandJavaScriptRecipes-Submitaform%28usings%3Aformtag%29"></A>Submit a form (using s:form tag)</H5>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- With a submit tag --&gt;</SPAN></SPAN>
+<SPAN class="code-tag">&lt;s:form namespace=<SPAN class="code-quote">&quot;/mynamespace&quot;</SPAN> action=<SPAN class="code-quote">&quot;MyAction&quot;</SPAN>&gt;</SPAN>
+  <SPAN class="code-tag">&lt;input type=textbox name=<SPAN class="code-quote">&quot;data&quot;</SPAN>&gt;</SPAN>
+  <SPAN class="code-tag">&lt;sx:submit /&gt;</SPAN>
+<SPAN class="code-tag">&lt;/s:form&gt;</SPAN>
+
+<SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- With an anchor tag --&gt;</SPAN></SPAN>
+<SPAN class="code-tag">&lt;s:form namespace=<SPAN class="code-quote">&quot;/mynamespace&quot;</SPAN> action=<SPAN class="code-quote">&quot;MyAction&quot;</SPAN>&gt;</SPAN>
+  <SPAN class="code-tag">&lt;input type=textbox name=<SPAN class="code-quote">&quot;data&quot;</SPAN>&gt;</SPAN>
+  <SPAN class="code-tag">&lt;sx:a /&gt;</SPAN>
+<SPAN class="code-tag">&lt;/s:form&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H4><A name="AjaxandJavaScriptRecipes-Div"></A>Div</H4>
+<H5><A name="AjaxandJavaScriptRecipes-Loadsitscontentafterpageisloaded"></A>Loads its content after page is loaded</H5>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;sx:div href=<SPAN class="code-quote">&quot;%{#url}&quot;</SPAN>&gt;</SPAN>
+  Initial Content
+<SPAN class="code-tag">&lt;/sx:div&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H5><A name="AjaxandJavaScriptRecipes-Reloadscontentwhentopicispublished"></A>Reloads content when topic is published</H5>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;sx:div href=<SPAN class="code-quote">&quot;%{#url}&quot;</SPAN> listenTopics=<SPAN class="code-quote">&quot;/refresh&quot;</SPAN>&gt;</SPAN>
+  Initial Content
+<SPAN class="code-tag">&lt;/sx:div&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;s:submit value=<SPAN class="code-quote">&quot;Refresh&quot;</SPAN> onclick=<SPAN class="code-quote">&quot;dojo.event.topic.publish('/refresh')&quot;</SPAN> /&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H5><A name="AjaxandJavaScriptRecipes-Updatesitscontentevery2seconds%2Cshowsindicatorwhileloadingcontent"></A>Updates its content every 2 seconds, shows indicator while loading content</H5>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;img id=<SPAN class="code-quote">&quot;indicator&quot;</SPAN> src=<SPAN class="code-quote">&quot;${pageContext.request.contextPath}/images/indicator.gif&quot;</SPAN> style=<SPAN class="code-quote">&quot;display:none&quot;</SPAN>/&gt;</SPAN>
+<SPAN class="code-tag">&lt;sx:div href=<SPAN class="code-quote">&quot;%{#url}&quot;</SPAN> updateFreq=<SPAN class="code-quote">&quot;2000&quot;</SPAN>&gt;</SPAN>
+  Initial Content
+<SPAN class="code-tag">&lt;/sx:div&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H5><A name="AjaxandJavaScriptRecipes-Loadsitscontentafteradelayof2seconds"></A>Loads its content after a delay of 2 seconds</H5>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;sx:div href=<SPAN class="code-quote">&quot;%{#url}&quot;</SPAN> delay=<SPAN class="code-quote">&quot;2000&quot;</SPAN>&gt;</SPAN>
+  Initial Content
+<SPAN class="code-tag">&lt;/sx:div&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+
+<H5><A name="AjaxandJavaScriptRecipes-Showsometextwhilecontentisloaded"></A>Show some text while content is loaded</H5>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;sx:div href=<SPAN class="code-quote">&quot;%{#url}&quot;</SPAN> loadingText=<SPAN class="code-quote">&quot;reloading&quot;</SPAN> showLoadingText=<SPAN class="code-quote">&quot;true&quot;</SPAN>&gt;</SPAN>
+  Initial Content
+<SPAN class="code-tag">&lt;/sx:div&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H5><A name="AjaxandJavaScriptRecipes-Fixederrormessage"></A>Fixed error message</H5>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;sx:div href=<SPAN class="code-quote">&quot;noaction&quot;</SPAN> errorText=<SPAN class="code-quote">&quot;Error loading content&quot;</SPAN>&gt;</SPAN>
+  Initial Content
+<SPAN class="code-tag">&lt;/sx:div&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H5><A name="AjaxandJavaScriptRecipes-ExecuteJavaScriptinthereturnedcontent"></A>Execute JavaScript in the returned content</H5>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;sx:div href=<SPAN class="code-quote">&quot;%{#url}&quot;</SPAN> executeScripts=<SPAN class="code-quote">&quot;true&quot;</SPAN>&gt;</SPAN>
+  Initial Content
+<SPAN class="code-tag">&lt;/sx:div&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H5><A name="AjaxandJavaScriptRecipes-Controlrefreshtimerusingtopics"></A>Control refresh timer using topics</H5>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-html">
+&lt;sx:div href=<SPAN class="code-quote">&quot;%{#url}&quot;</SPAN>
+        listenTopics=<SPAN class="code-quote">&quot;/refresh&quot;</SPAN>
+	startTimerListenTopics=<SPAN class="code-quote">&quot;/startTimer&quot;</SPAN>
+	stopTimerListenTopics=<SPAN class="code-quote">&quot;/stopTimer&quot;</SPAN>
+	updateFreq=<SPAN class="code-quote">&quot;3000&quot;</SPAN>&gt;
+  Initial Content
+<SPAN class="code-tag">&lt;/sx:div&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;s:submit value=<SPAN class="code-quote">&quot;Refresh&quot;</SPAN> onclick=<SPAN class="code-quote">&quot;dojo.event.topic.publish('/refresh')&quot;</SPAN> /&gt;</SPAN>
+<SPAN class="code-tag">&lt;s:submit value=<SPAN class="code-quote">&quot;Start refresh timer&quot;</SPAN> onclick=<SPAN class="code-quote">&quot;dojo.event.topic.publish('/startTimer')&quot;</SPAN> /&gt;</SPAN>
+<SPAN class="code-tag">&lt;s:submit value=<SPAN class="code-quote">&quot;Stop refresh timer&quot;</SPAN> onclick=<SPAN class="code-quote">&quot;dojo.event.topic.publish('/stopTimer')&quot;</SPAN> /&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H4><A name="AjaxandJavaScriptRecipes-DateandTimepicker"></A>Date and Time picker</H4>
+<H5><A name="AjaxandJavaScriptRecipes-Datepicker"></A>Date picker</H5>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;sx:datetimepicker name=<SPAN class="code-quote">&quot;picker&quot;</SPAN> /&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H5><A name="AjaxandJavaScriptRecipes-Timepicker"></A>Time picker</H5>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;sx:datetimepicker type=<SPAN class="code-quote">&quot;time&quot;</SPAN> name=<SPAN class="code-quote">&quot;picker&quot;</SPAN> /&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H5><A name="AjaxandJavaScriptRecipes-SetvaluefromanString"></A>Set value from an String</H5>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;sx:datetimepicker value=<SPAN class="code-quote">&quot;%{'2007-01-01'}&quot;</SPAN> name=<SPAN class="code-quote">&quot;picker&quot;</SPAN> /&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H5><A name="AjaxandJavaScriptRecipes-Setvaluefromstack%28valuemustevaluatetoeitheraDate%2CCalendar%2CoranStringthatcanbeparsedusingtheformatsdefinedinSimpleDateFormat%2CandRFC3339%29"></A>Set value from stack (value must evaluate to either a Date, Calendar, or an String that can be parsed using the formats defined in SimpleDateFormat, and RFC 3339)</H5>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;sx:datetimepicker value=<SPAN class="code-quote">&quot;date&quot;</SPAN> name=<SPAN class="code-quote">&quot;picker&quot;</SPAN> /&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H5><A name="AjaxandJavaScriptRecipes-Set%2FGetvalueusingJavaScript"></A>Set/Get value using JavaScript</H5>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;script type=<SPAN class="code-quote">&quot;text/javascript&quot;</SPAN>&gt;</SPAN>
+  function setValue() {
+     var picker = dojo.widget.byId(<SPAN class="code-quote">&quot;picker&quot;</SPAN>);
+     
+     //string value
+     picker.setValue('2007-01-01');
+     
+     //Date value
+     picker.setValue(new Date());
+  }
+  
+  function showValue() {
+     var picker = dojo.widget.byId(<SPAN class="code-quote">&quot;picker&quot;</SPAN>);
+     
+     //string value
+     var stringValue = picker.getValue();
+     alert(stringValue);
+      
+     //date value
+     var dateValue = picker.getDate();
+     alert(dateValue);
+  }
+<SPAN class="code-tag">&lt;/script&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;sx:datetimepicker id=<SPAN class="code-quote">&quot;picker&quot;</SPAN> /&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H5><A name="AjaxandJavaScriptRecipes-Stylethetextbox"></A>Style the textbox</H5>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;sx:datetimepicker id=<SPAN class="code-quote">&quot;picker&quot;</SPAN> cssStye=<SPAN class="code-quote">&quot;background:red&quot;</SPAN> cssClass=<SPAN class="code-quote">&quot;someclass&quot;</SPAN>/&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H5><A name="AjaxandJavaScriptRecipes-Publishtopicwhenvaluechanges"></A>Publish topic when value changes</H5>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;script type=<SPAN class="code-quote">&quot;text/javascript&quot;</SPAN>&gt;</SPAN>
+  dojo.event.topic.subscribe(<SPAN class="code-quote">&quot;/value&quot;</SPAN>, function(text, date, widget){
+      alert('value changed');
+      //textEntered: String entered in the textbox
+      //date: JavaScript Date object with the value selected
+      //widget: widget that published the topic 
+  });
+<SPAN class="code-tag">&lt;/script&gt;</SPAN> 
+
+<SPAN class="code-tag">&lt;sx:datetimepicker label=<SPAN class="code-quote">&quot;Order Date&quot;</SPAN> valueNotifyTopics=<SPAN class="code-quote">&quot;/value&quot;</SPAN>/&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H5><A name="AjaxandJavaScriptRecipes-Useotherlocales."></A>Use other locales. </H5>
+
+<DIV class="panelMacro"><TABLE class="warningMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/forbidden.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>Locales must be specified in the sx:head tag.</TD></TR></TABLE></DIV>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;sx:head extraLocales=<SPAN class="code-quote">&quot;en-us,nl-nl,de-de&quot;</SPAN> /&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;sx:datetimepicker label=<SPAN class="code-quote">&quot;In German&quot;</SPAN> name=<SPAN class="code-quote">&quot;dddp7&quot;</SPAN> value=<SPAN class="code-quote">&quot;%{'2006-06-28'}&quot;</SPAN> language=<SPAN class="code-quote">&quot;de-de&quot;</SPAN> /&gt;</SPAN>
+<SPAN class="code-tag">&lt;sx:datetimepicker label=<SPAN class="code-quote">&quot;In Dutch&quot;</SPAN>  name=<SPAN class="code-quote">&quot;dddp8&quot;</SPAN> value=<SPAN class="code-quote">&quot;%{'2006-06-28'}&quot;</SPAN> language=<SPAN class="code-quote">&quot;nl-nl&quot;</SPAN> /&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H4><A name="AjaxandJavaScriptRecipes-TabbedPanel"></A>Tabbed Panel</H4>
+<H5><A name="AjaxandJavaScriptRecipes-LocalTabs"></A>Local Tabs</H5>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;sx:tabbedpanel id=<SPAN class="code-quote">&quot;tabContainer&quot;</SPAN>&gt;</SPAN>
+   <SPAN class="code-tag">&lt;sx:div label=<SPAN class="code-quote">&quot;Tab 1&quot;</SPAN> &gt;</SPAN>
+       Local Tab 1
+   <SPAN class="code-tag">&lt;/sx:div&gt;</SPAN>   
+   <SPAN class="code-tag">&lt;sx:div label=<SPAN class="code-quote">&quot;Tab 2&quot;</SPAN> &gt;</SPAN>
+       Local Tab 2
+   <SPAN class="code-tag">&lt;/sx:div&gt;</SPAN>   
+<SPAN class="code-tag">&lt;/sx:tabbedpanel&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H5><A name="AjaxandJavaScriptRecipes-Localandremotetabs"></A>Local and remote tabs</H5>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;sx:tabbedpanel id=<SPAN class="code-quote">&quot;tabContainer&quot;</SPAN>&gt;</SPAN>
+   <SPAN class="code-tag">&lt;sx:div label=<SPAN class="code-quote">&quot;Local Tab 1&quot;</SPAN> &gt;</SPAN>
+       Tab 1
+   <SPAN class="code-tag">&lt;/sx:div&gt;</SPAN>   
+   <SPAN class="code-tag">&lt;sx:div label=<SPAN class="code-quote">&quot;Remote Tab 2&quot;</SPAN> href=<SPAN class="code-quote">&quot;%{#url}&quot;</SPAN>&gt;</SPAN>
+       Remote Tab 2
+   <SPAN class="code-tag">&lt;/sx:div&gt;</SPAN>   
+<SPAN class="code-tag">&lt;/sx:tabbedpanel&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H5><A name="AjaxandJavaScriptRecipes-Fixedsize%28sizedoesnotadjusttocurrenttab%29"></A>Fixed size (size does not adjust to current tab)</H5>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;sx:tabbedpanel cssStyle=<SPAN class="code-quote">&quot;width: 500px; height: 300px;&quot;</SPAN> doLayout=<SPAN class="code-quote">&quot;true&quot;</SPAN> id=<SPAN class="code-quote">&quot;tabContainer&quot;</SPAN>&gt;</SPAN>
+   <SPAN class="code-tag">&lt;sx:div label=<SPAN class="code-quote">&quot;Tab 1&quot;</SPAN> &gt;</SPAN>
+       Local Tab 1
+   <SPAN class="code-tag">&lt;/sx:div&gt;</SPAN>   
+   <SPAN class="code-tag">&lt;sx:div label=<SPAN class="code-quote">&quot;Tab 2&quot;</SPAN> &gt;</SPAN>
+       Local Tab 2
+   <SPAN class="code-tag">&lt;/sx:div&gt;</SPAN>   
+<SPAN class="code-tag">&lt;/sx:tabbedpanel&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H5><A name="AjaxandJavaScriptRecipes-Donotloadtab2whenpageloads%28itwillbeloadedwhenselected%29"></A>Do not load tab 2 when page loads (it will be loaded when selected)</H5>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;sx:tabbedpanel id=<SPAN class="code-quote">&quot;tabContainer&quot;</SPAN>&gt;</SPAN>
+   <SPAN class="code-tag">&lt;sx:div label=<SPAN class="code-quote">&quot;Remote Tab 1&quot;</SPAN> href=<SPAN class="code-quote">&quot;%{#url}&quot;</SPAN>&gt;</SPAN>
+       Remote Tab 1
+   <SPAN class="code-tag">&lt;/sx:div&gt;</SPAN>  
+   <SPAN class="code-tag">&lt;sx:div label=<SPAN class="code-quote">&quot;Remote Tab 2&quot;</SPAN> href=<SPAN class="code-quote">&quot;%{#url}&quot;</SPAN> preload=<SPAN class="code-quote">&quot;false&quot;</SPAN>&gt;</SPAN>
+       Remote Tab 1
+   <SPAN class="code-tag">&lt;/sx:div&gt;</SPAN>      
+<SPAN class="code-tag">&lt;/sx:tabbedpanel&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H5><A name="AjaxandJavaScriptRecipes-Reloadtabscontentwhenselected"></A>Reload tabs content when selected</H5>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;sx:tabbedpanel id=<SPAN class="code-quote">&quot;tabContainer&quot;</SPAN>&gt;</SPAN>
+   <SPAN class="code-tag">&lt;sx:div label=<SPAN class="code-quote">&quot;Remote Tab 1&quot;</SPAN> href=<SPAN class="code-quote">&quot;%{#url}&quot;</SPAN> refreshOnShow=<SPAN class="code-quote">&quot;true&quot;</SPAN>&gt;</SPAN>
+       Remote Tab 1
+   <SPAN class="code-tag">&lt;/sx:div&gt;</SPAN>  
+   <SPAN class="code-tag">&lt;sx:div label=<SPAN class="code-quote">&quot;Remote Tab 2&quot;</SPAN> href=<SPAN class="code-quote">&quot;%{#url}&quot;</SPAN> refreshOnShow=<SPAN class="code-quote">&quot;true&quot;</SPAN>&gt;</SPAN>
+       Remote Tab 2
+   <SPAN class="code-tag">&lt;/sx:div&gt;</SPAN>      
+<SPAN class="code-tag">&lt;/sx:tabbedpanel&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H5><A name="AjaxandJavaScriptRecipes-Disabledtabs"></A>Disabled tabs</H5>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;sx:tabbedpanel id=<SPAN class="code-quote">&quot;tabContainer&quot;</SPAN>&gt;</SPAN>
+   <SPAN class="code-tag">&lt;sx:div label=<SPAN class="code-quote">&quot;Tab 1&quot;</SPAN> &gt;</SPAN>
+       Local Tab 1
+   <SPAN class="code-tag">&lt;/sx:div&gt;</SPAN>   
+   <SPAN class="code-tag">&lt;sx:div label=<SPAN class="code-quote">&quot;Tab 2&quot;</SPAN> disabled=<SPAN class="code-quote">&quot;true&quot;</SPAN>&gt;</SPAN>
+       Local Tab 2
+   <SPAN class="code-tag">&lt;/sx:div&gt;</SPAN>   
+<SPAN class="code-tag">&lt;/sx:tabbedpanel&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H5><A name="AjaxandJavaScriptRecipes-Enable%2FDisabletabsusingJavaScript"></A>Enable/Disable tabs using JavaScript</H5>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;script type=<SPAN class="code-quote">&quot;text/javascript&quot;</SPAN>&gt;</SPAN>
+   function enableTab(param) {
+      var tabContainer = dojo.widget.byId('tabContainer');
+      tabContainer.enableTab(param);
+   }
+    
+   
+   function disableTab(param) {
+      var tabContainer = dojo.widget.byId('tabContainer');
+      tabContainer.disableTab(param);
+   }
+<SPAN class="code-tag">&lt;/script&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;sx:tabbedpanel id=<SPAN class="code-quote">&quot;tabContainer&quot;</SPAN> id=<SPAN class="code-quote">&quot;tabContainer&quot;</SPAN>&gt;</SPAN>
+   <SPAN class="code-tag">&lt;sx:div id=<SPAN class="code-quote">&quot;tab1&quot;</SPAN> label=<SPAN class="code-quote">&quot;Tab 1&quot;</SPAN>&gt;</SPAN>
+       Local Tab 1
+   <SPAN class="code-tag">&lt;/sx:div&gt;</SPAN>   
+   <SPAN class="code-tag">&lt;sx:div id=<SPAN class="code-quote">&quot;tab2&quot;</SPAN> label=<SPAN class="code-quote">&quot;Tab 2&quot;</SPAN> disabled=<SPAN class="code-quote">&quot;true&quot;</SPAN>&gt;</SPAN>
+       Local Tab 2
+   <SPAN class="code-tag">&lt;/sx:div&gt;</SPAN>   
+<SPAN class="code-tag">&lt;/sx:tabbedpanel&gt;</SPAN>
+
+<SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- By Tab Index --&gt;</SPAN></SPAN>
+<SPAN class="code-tag">&lt;input type=<SPAN class="code-quote">&quot;button&quot;</SPAN> onclick=<SPAN class="code-quote">&quot;enableTab(1)&quot;</SPAN> value=<SPAN class="code-quote">&quot;Enable Tab 2 using Index&quot;</SPAN> /&gt;</SPAN>
+<SPAN class="code-tag">&lt;input type=<SPAN class="code-quote">&quot;button&quot;</SPAN> onclick=<SPAN class="code-quote">&quot;disableTab(1)&quot;</SPAN> value=<SPAN class="code-quote">&quot;Disable Tab 2 using Index&quot;</SPAN> /&gt;</SPAN>
+    
+<SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- By Tab Id --&gt;</SPAN></SPAN>
+<SPAN class="code-tag">&lt;input type=<SPAN class="code-quote">&quot;button&quot;</SPAN> onclick=<SPAN class="code-quote">&quot;enableTab('tab2')&quot;</SPAN> value=<SPAN class="code-quote">&quot;Enable Tab 2 using Id&quot;</SPAN> /&gt;</SPAN>
+<SPAN class="code-tag">&lt;input type=<SPAN class="code-quote">&quot;button&quot;</SPAN> onclick=<SPAN class="code-quote">&quot;disableTab('tab2')&quot;</SPAN> value=<SPAN class="code-quote">&quot;Disable Tab 2 using Id&quot;</SPAN> /&gt;</SPAN>
+   
+<SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- By Widget --&gt;</SPAN></SPAN>
+<SPAN class="code-tag">&lt;input type=<SPAN class="code-quote">&quot;button&quot;</SPAN> onclick=<SPAN class="code-quote">&quot;enableTab(dojo.widget.byId('tab2'))&quot;</SPAN> value=<SPAN class="code-quote">&quot;Enable Tab 2 using widget&quot;</SPAN> /&gt;</SPAN>
+<SPAN class="code-tag">&lt;input type=<SPAN class="code-quote">&quot;button&quot;</SPAN> onclick=<SPAN class="code-quote">&quot;disableTab(dojo.widget.byId('tab2'))&quot;</SPAN> value=<SPAN class="code-quote">&quot;Disable Tab 2 using widget&quot;</SPAN> /&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H5><A name="AjaxandJavaScriptRecipes-SetTablabelspositiontobottom%28canbe%3Atop%2Cright%2Cbottom%2Cleft%29"></A>Set Tab labels position to bottom (can be: top, right, bottom, left)</H5>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;sx:tabbedpanel labelposition=<SPAN class="code-quote">&quot;bottom&quot;</SPAN> id=<SPAN class="code-quote">&quot;tabContainer&quot;</SPAN>&gt;</SPAN>
+   <SPAN class="code-tag">&lt;sx:div label=<SPAN class="code-quote">&quot;Tab 1&quot;</SPAN> &gt;</SPAN>
+       Local Tab 1
+   <SPAN class="code-tag">&lt;/sx:div&gt;</SPAN>   
+   <SPAN class="code-tag">&lt;sx:div label=<SPAN class="code-quote">&quot;Tab 2&quot;</SPAN> &gt;</SPAN>
+       Local Tab 2
+   <SPAN class="code-tag">&lt;/sx:div&gt;</SPAN>   
+<SPAN class="code-tag">&lt;/sx:tabbedpanel&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H5><A name="AjaxandJavaScriptRecipes-Allowtab2toberemoved%28closed%29"></A>Allow tab 2 to be removed(closed)</H5>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;sx:tabbedpanel id=<SPAN class="code-quote">&quot;tabContainer&quot;</SPAN>&gt;</SPAN>
+   <SPAN class="code-tag">&lt;sx:div label=<SPAN class="code-quote">&quot;Tab 1&quot;</SPAN> &gt;</SPAN>
+       Local Tab 1
+   <SPAN class="code-tag">&lt;/sx:div&gt;</SPAN>   
+   <SPAN class="code-tag">&lt;sx:div label=<SPAN class="code-quote">&quot;Tab 2&quot;</SPAN>  closable=<SPAN class="code-quote">&quot;true&quot;</SPAN>&gt;</SPAN>
+       Local Tab 2
+   <SPAN class="code-tag">&lt;/sx:div&gt;</SPAN>   
+<SPAN class="code-tag">&lt;/sx:tabbedpanel&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H5><A name="AjaxandJavaScriptRecipes-Publishtopicswhentabisselected"></A>Publish topics when tab is selected</H5>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;script type=<SPAN class="code-quote">&quot;text/javascript&quot;</SPAN>&gt;</SPAN>
+   dojo.event.topic.subscribe('/before', function(event, tab, tabContainer) {
+      alert(<SPAN class="code-quote">&quot;Before selecting tab&quot;</SPAN>);
+   });
+
+   dojo.event.topic.subscribe('/after', function(tab, tabContainer) {
+      alert(<SPAN class="code-quote">&quot;After tab was selected&quot;</SPAN>);
+   });
+<SPAN class="code-tag">&lt;/script&gt;</SPAN>
+<SPAN class="code-tag">&lt;sx:tabbedpanel beforeSelectTabNotifyTopics=<SPAN class="code-quote">&quot;/before&quot;</SPAN> afterSelectTabNotifyTopics=<SPAN class="code-quote">&quot;/after&quot;</SPAN> id=<SPAN class="code-quote">&quot;tabContainer&quot;</SPAN>&gt;</SPAN>
+   <SPAN class="code-tag">&lt;sx:div label=<SPAN class="code-quote">&quot;Tab 1&quot;</SPAN>&gt;</SPAN>
+       Local Tab 1
+   <SPAN class="code-tag">&lt;/sx:div&gt;</SPAN>   
+   <SPAN class="code-tag">&lt;sx:div label=<SPAN class="code-quote">&quot;Tab 2&quot;</SPAN>&gt;</SPAN>
+       Local Tab 2
+   <SPAN class="code-tag">&lt;/sx:div&gt;</SPAN>   
+<SPAN class="code-tag">&lt;/sx:tabbedpanel&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H5><A name="AjaxandJavaScriptRecipes-SelecttabusingJavaScript"></A>Select tab using JavaScript</H5>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;script type=<SPAN class="code-quote">&quot;text/javascript&quot;</SPAN>&gt;</SPAN>
+   function selectTab(id) {
+     var tabContainer = dojo.widget.byId(<SPAN class="code-quote">&quot;tabContainer&quot;</SPAN>);
+     tabContainer.selectTab(id);
+   }
+<SPAN class="code-tag">&lt;/script&gt;</SPAN>
+<SPAN class="code-tag">&lt;sx:tabbedpanel id=<SPAN class="code-quote">&quot;tabContainer&quot;</SPAN>&gt;</SPAN>
+   <SPAN class="code-tag">&lt;sx:div label=<SPAN class="code-quote">&quot;Tab 1&quot;</SPAN> id=<SPAN class="code-quote">&quot;tab1&quot;</SPAN>&gt;</SPAN>
+       Local Tab 1
+   <SPAN class="code-tag">&lt;/sx:div&gt;</SPAN>   
+   <SPAN class="code-tag">&lt;sx:div label=<SPAN class="code-quote">&quot;Tab 2&quot;</SPAN> id=<SPAN class="code-quote">&quot;tab2&quot;</SPAN>&gt;</SPAN>
+       Local Tab 2
+   <SPAN class="code-tag">&lt;/sx:div&gt;</SPAN>   
+<SPAN class="code-tag">&lt;/sx:tabbedpanel&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;input type=<SPAN class="code-quote">&quot;button&quot;</SPAN> onclick=<SPAN class="code-quote">&quot;selectTab('tab1')&quot;</SPAN> value=<SPAN class="code-quote">&quot;Select tab 1&quot;</SPAN> /&gt;</SPAN>
+<SPAN class="code-tag">&lt;input type=<SPAN class="code-quote">&quot;button&quot;</SPAN> onclick=<SPAN class="code-quote">&quot;selectTab('tab2')&quot;</SPAN> value=<SPAN class="code-quote">&quot;Select tab 2&quot;</SPAN> /&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H5><A name="AjaxandJavaScriptRecipes-Preventtab2frombeingselected"></A>Prevent tab 2 from being selected</H5>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;script type=<SPAN class="code-quote">&quot;text/javascript&quot;</SPAN>&gt;</SPAN>
+   dojo.event.topic.subscribe('/before', function(event, tab, tabContainer) {
+      event.cancel = tab.widgetId == <SPAN class="code-quote">&quot;tab2&quot;</SPAN> ;
+   });
+<SPAN class="code-tag">&lt;/script&gt;</SPAN>
+<SPAN class="code-tag">&lt;sx:tabbedpanel beforeSelectTabNotifyTopics=<SPAN class="code-quote">&quot;/before&quot;</SPAN> id=<SPAN class="code-quote">&quot;tabContainer&quot;</SPAN>&gt;</SPAN>
+   <SPAN class="code-tag">&lt;sx:div id=<SPAN class="code-quote">&quot;tab1&quot;</SPAN> label=<SPAN class="code-quote">&quot;Tab 1&quot;</SPAN>&gt;</SPAN>
+       Local Tab 1
+   <SPAN class="code-tag">&lt;/sx:div&gt;</SPAN>   
+   <SPAN class="code-tag">&lt;sx:div id=<SPAN class="code-quote">&quot;tab2&quot;</SPAN> label=<SPAN class="code-quote">&quot;Tab 2&quot;</SPAN>&gt;</SPAN>
+       Local Tab 2
+   <SPAN class="code-tag">&lt;/sx:div&gt;</SPAN>   
+<SPAN class="code-tag">&lt;/sx:tabbedpanel&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H5><A name="AjaxandJavaScriptRecipes-Customizetemplatecsspath%28Dojowidgettemplatecss%29"></A>Customize template css path (Dojo widget template css)</H5>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;sx:tabbedpanel templateCssPath=<SPAN class="code-quote">&quot;%{#cssUrl}&quot;</SPAN> id=<SPAN class="code-quote">&quot;tabContainer&quot;</SPAN>&gt;</SPAN>
+   <SPAN class="code-tag">&lt;sx:div id=<SPAN class="code-quote">&quot;tab1&quot;</SPAN> label=<SPAN class="code-quote">&quot;Tab 1&quot;</SPAN>&gt;</SPAN>
+       Local Tab 1
+   <SPAN class="code-tag">&lt;/sx:div&gt;</SPAN>   
+   <SPAN class="code-tag">&lt;sx:div id=<SPAN class="code-quote">&quot;tab2&quot;</SPAN> label=<SPAN class="code-quote">&quot;Tab 2&quot;</SPAN>&gt;</SPAN>
+       Local Tab 2
+   <SPAN class="code-tag">&lt;/sx:div&gt;</SPAN>   
+<SPAN class="code-tag">&lt;/sx:tabbedpanel&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H4><A name="AjaxandJavaScriptRecipes-Autocompleter"></A>Autocompleter</H4>
+<H5><A name="AjaxandJavaScriptRecipes-Fixedlist"></A>Fixed list</H5>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;sx:autocompleter list=<SPAN class="code-quote">&quot;{'apple','banana','grape','pear'}&quot;</SPAN> /&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H5><A name="AjaxandJavaScriptRecipes-Setinitialvalue"></A>Set initial value</H5>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;sx:autocompleter list=<SPAN class="code-quote">&quot;{'apple','banana','grape','pear'}&quot;</SPAN> value=<SPAN class="code-quote">&quot;apple&quot;</SPAN>/&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H5><A name="AjaxandJavaScriptRecipes-Forcevalidoption%28restoreoptionwhenfocusislost%29"></A>Force valid option (restore option when focus is lost)</H5>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;sx:autocompleter list=<SPAN class="code-quote">&quot;{'apple','banana','grape','pear'}&quot;</SPAN> forceValidOption=<SPAN class="code-quote">&quot;true&quot;</SPAN>/&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H5><A name="AjaxandJavaScriptRecipes-UsingtheJSONplugintogeneratethevalues%28oneofthepossibleways%29"></A>Using the JSON plugin to generate the values (one of the possible ways)</H5>
+<P>The action</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>AutocompleterExample.java</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+<SPAN class="code-keyword">public</SPAN> class AutocompleterExample <SPAN class="code-keyword">extends</SPAN> ActionSupport {
+
+   <SPAN class="code-keyword">public</SPAN> Map&lt;<SPAN class="code-object">String</SPAN>, <SPAN class="code-object">String</SPAN>&gt; getOptions() {
+      Map&lt;<SPAN class="code-object">String</SPAN>,<SPAN class="code-object">String</SPAN>&gt; options = <SPAN class="code-keyword">new</SPAN> HashMap&lt;<SPAN class="code-object">String</SPAN>,<SPAN class="code-object">String</SPAN>&gt;();
+      options.put(<SPAN class="code-quote">&quot;Florida&quot;</SPAN>, <SPAN class="code-quote">&quot;FL&quot;</SPAN>);
+      options.put(<SPAN class="code-quote">&quot;Alabama&quot;</SPAN>, <SPAN class="code-quote">&quot;AL&quot;</SPAN>);
+
+      <SPAN class="code-keyword">return</SPAN> options;
+   }
+}
+</PRE>
+</DIV></DIV>
+
+<P>The mapping:</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>struts.xml</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;struts&gt;</SPAN>
+...
+   <SPAN class="code-tag">&lt;package name=<SPAN class="code-quote">&quot;autocompleter&quot;</SPAN> namespace=<SPAN class="code-quote">&quot;/autocompleter&quot;</SPAN> extends=<SPAN class="code-quote">&quot;json-default&quot;</SPAN>&gt;</SPAN>
+       <SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;getStates&quot;</SPAN> class=<SPAN class="code-quote">&quot;AutocompleterExample&quot;</SPAN>&gt;</SPAN>
+           <SPAN class="code-tag">&lt;result type=<SPAN class="code-quote">&quot;json&quot;</SPAN>&gt;</SPAN>
+               <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;root&quot;</SPAN>&gt;</SPAN>options<SPAN class="code-tag">&lt;/param&gt;</SPAN><SPAN class="code-tag">&lt;/result&gt;</SPAN>
+       <SPAN class="code-tag">&lt;/action&gt;</SPAN>
+   <SPAN class="code-tag">&lt;/package&gt;</SPAN>
+...
+<SPAN class="code-tag">&lt;/struts&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>The JSP (fragment):</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;s:url id=<SPAN class="code-quote">&quot;optionsUrl&quot;</SPAN> namespace=<SPAN class="code-quote">&quot;/autocompleter&quot;</SPAN> action=<SPAN class="code-quote">&quot;getStates&quot;</SPAN> /&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;sx:autocompleter href=<SPAN class="code-quote">&quot;%{#optionsUrl}&quot;</SPAN> /&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H5><A name="AjaxandJavaScriptRecipes-Exampleaction"></A>Example action</H5>
+<P>When a form containing an autocompleter is submitted, two values will be submitted for each autocompleter, one for the selected value, and one for its associated key.</P>
+
+<P>The action:</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>MyAction.java</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+<SPAN class="code-keyword">public</SPAN> MyAction <SPAN class="code-keyword">extends</SPAN> ActionSupport {
+    <SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">String</SPAN> optionsKey;
+    <SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">String</SPAN> options;
+
+    ...    
+}
+</PRE>
+</DIV></DIV>
+
+<P>The JSP:</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;s:form id=<SPAN class="code-quote">&quot;form&quot;</SPAN>&gt;</SPAN>
+  <SPAN class="code-tag">&lt;sx:autocompleter name=<SPAN class="code-quote">&quot;options&quot;</SPAN> label=<SPAN class="code-quote">&quot;Options&quot;</SPAN> /&gt;</SPAN>
+<SPAN class="code-tag">&lt;/s:form&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H5><A name="AjaxandJavaScriptRecipes-Setinitialkeyandvalue"></A>Set initial key and value</H5>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;s:url id=<SPAN class="code-quote">&quot;optionsUrl&quot;</SPAN> namespace=<SPAN class="code-quote">&quot;/autocompleter&quot;</SPAN> action=<SPAN class="code-quote">&quot;getStates&quot;</SPAN> /&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;sx:autocompleter href=<SPAN class="code-quote">&quot;%{#optionsUrl}&quot;</SPAN> value=<SPAN class="code-quote">&quot;Florida&quot;</SPAN> keyValue=<SPAN class="code-quote">&quot;FL&quot;</SPAN>/&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+
+<H5><A name="AjaxandJavaScriptRecipes-Changedefaultkeyname"></A>Change default key name</H5>
+<P>The action:</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>MyAction.java</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+<SPAN class="code-keyword">public</SPAN> MyAction <SPAN class="code-keyword">extends</SPAN> ActionSupport {
+    <SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">String</SPAN> superKey;
+    <SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">String</SPAN> options;
+
+    ...    
+}
+</PRE>
+</DIV></DIV>
+
+<P>The JSP:</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;s:form id=<SPAN class="code-quote">&quot;form&quot;</SPAN>&gt;</SPAN>
+  <SPAN class="code-tag">&lt;sx:autocompleter keyName=<SPAN class="code-quote">&quot;superKey&quot;</SPAN> name=<SPAN class="code-quote">&quot;options&quot;</SPAN> label=<SPAN class="code-quote">&quot;Options&quot;</SPAN> /&gt;</SPAN>
+<SPAN class="code-tag">&lt;/s:form&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H5><A name="AjaxandJavaScriptRecipes-JSONaccepted"></A>JSON accepted</H5>
+<P>for this autocompleter:</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;sx:autocompleter name=<SPAN class="code-quote">&quot;state&quot;</SPAN> /&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>The following JSON will be accepted:</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Map(recommended as it is the easiest one to generate)</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-javascript">
+{
+    &quot;Alabama&quot; : &quot;AL&quot;,
+    &quot;Alaska&quot; : &quot;AK&quot;
+}
+</PRE>
+</DIV></DIV>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Array of arrays</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-javascript">
+[
+    [&quot;Alabama&quot;, &quot;AL&quot;],
+    [&quot;Alaska&quot;, &quot;AK&quot;]
+]
+</PRE>
+</DIV></DIV>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Array inside object, same name as field</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-javascript">
+{
+    &quot;state&quot; : [
+        [&quot;Alabama&quot;,&quot;AL&quot;],
+        [&quot;Alaska&quot;,&quot;AK&quot;]
+    ]
+}     
+</PRE>
+</DIV></DIV>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Map inside object, same name as field</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-javascript">
+{
+    &quot;state&quot; : {
+        &quot;Alabama&quot; : &quot;Alabama&quot;,
+        &quot;Alaska&quot; : &quot;AK&quot;
+    }
+}    
+</PRE>
+</DIV></DIV>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Array inside object, field in response starts with the name of the autocompleter(&quot;state&quot; in this example)</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-javascript">
+{
+    &quot;states&quot; : [
+        [&quot;Alabama&quot;,&quot;AL&quot;],
+        [&quot;Alaska&quot;,&quot;AK&quot;]
+    ]
+}     
+</PRE>
+</DIV></DIV>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>No name match, use first array found, and hope for the best</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-javascript">
+{
+    &quot;Australopithecus&quot; : [
+       [&quot;Alabama&quot;,&quot;AL&quot;],
+       [&quot;Alaska&quot;,&quot;AK&quot;]
+    ]
+}     
+</PRE>
+</DIV></DIV>
+
+<H5><A name="AjaxandJavaScriptRecipes-Loadcharacterswhileusertypes%28whentextsize%3E%3D3%29"></A>Load characters while user types (when text size &gt;= 3)</H5>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;sx:autocompleter href=<SPAN class="code-quote">&quot;%{#url}&quot;</SPAN> loadOnTextChange=<SPAN class="code-quote">&quot;true&quot;</SPAN> loadMinimumCount=<SPAN class="code-quote">&quot;3&quot;</SPAN> /&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H5><A name="AjaxandJavaScriptRecipes-Hidedropdownarrow"></A>Hide dropdown arrow</H5>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;sx:autocompleter href=<SPAN class="code-quote">&quot;%{#url}&quot;</SPAN> showDownArrow=<SPAN class="code-quote">&quot;false&quot;</SPAN> /&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H5><A name="AjaxandJavaScriptRecipes-Limitoptionsshownto3"></A>Limit options shown to 3</H5>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;sx:autocompleter href=<SPAN class="code-quote">&quot;%{#url}&quot;</SPAN> resultsLimit=<SPAN class="code-quote">&quot;3&quot;</SPAN> /&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H5><A name="AjaxandJavaScriptRecipes-Allmatchingoptionsareshown"></A>All matching options are shown</H5>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;sx:autocompleter href=<SPAN class="code-quote">&quot;%{#url}&quot;</SPAN> resultsLimit=<SPAN class="code-quote">&quot;-1&quot;</SPAN> /&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H5><A name="AjaxandJavaScriptRecipes-Setdropdownheightandwidth%2Cinpixels"></A>Set dropdown height and width, in pixels</H5>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;sx:autocompleter href=<SPAN class="code-quote">&quot;%{#url}&quot;</SPAN> dropdownHeight=<SPAN class="code-quote">&quot;180&quot;</SPAN> dropdownWidth=<SPAN class="code-quote">&quot;200&quot;</SPAN> /&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H5><A name="AjaxandJavaScriptRecipes-Disableitwhenpageisloaded"></A>Disable it when page is loaded</H5>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;sx:autocompleter href=<SPAN class="code-quote">&quot;%{#url}&quot;</SPAN> disabled=<SPAN class="code-quote">&quot;true&quot;</SPAN> /&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H5><A name="AjaxandJavaScriptRecipes-Disableit%2FenableitusingJavaScript"></A>Disable it/enable it using JavaScript</H5>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;script type=<SPAN class="code-quote">&quot;text/javascript&quot;</SPAN>&gt;</SPAN>
+  function enableit() {
+     var autoCompleter = dojo.widget.byId(<SPAN class="code-quote">&quot;auto&quot;</SPAN>);
+     autoCompleter.enable();
+  }
+
+  function disableit() {
+     var autoCompleter = dojo.widget.byId(<SPAN class="code-quote">&quot;auto&quot;</SPAN>);
+     autoCompleter.disable();
+  }
+<SPAN class="code-tag">&lt;/script&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;sx:autocompleter id=<SPAN class="code-quote">&quot;auto&quot;</SPAN> href=<SPAN class="code-quote">&quot;%{#url}&quot;</SPAN> /&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H5><A name="AjaxandJavaScriptRecipes-Reloadoptionswhentopicispublished"></A>Reload options when topic is published</H5>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;sx:autocompleter listenTopics=<SPAN class="code-quote">&quot;/reload&quot;</SPAN> href=<SPAN class="code-quote">&quot;%{#url}&quot;</SPAN> /&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H5><A name="AjaxandJavaScriptRecipes-Submitformwhenoptionsareloaded"></A>Submit form when options are loaded</H5>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;s:form id=<SPAN class="code-quote">&quot;form&quot;</SPAN>&gt;</SPAN>
+  <SPAN class="code-tag">&lt;input type=<SPAN class="code-quote">&quot;textbox&quot;</SPAN> name=<SPAN class="code-quote">&quot;data&quot;</SPAN>&gt;</SPAN>
+<SPAN class="code-tag">&lt;/s:form&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;sx:autocompleter formId=<SPAN class="code-quote">&quot;form&quot;</SPAN> href=<SPAN class="code-quote">&quot;%{#url}&quot;</SPAN>  /&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H5><A name="AjaxandJavaScriptRecipes-Filterfieldstopbesubmittedwhenoptionsareloaded%28returntruetoinclude%29"></A>Filter fields top be submitted when options are loaded (return true to include)</H5>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;script type=<SPAN class="code-quote">&quot;text/javascript&quot;</SPAN>&gt;</SPAN>
+  function filter(input) {
+     return input.name == <SPAN class="code-quote">&quot;data1&quot;</SPAN>;
+  }
+<SPAN class="code-tag">&lt;/script&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;s:form id=<SPAN class="code-quote">&quot;form&quot;</SPAN>&gt;</SPAN>
+  <SPAN class="code-tag">&lt;input type=<SPAN class="code-quote">&quot;textbox&quot;</SPAN> name=<SPAN class="code-quote">&quot;data0&quot;</SPAN>&gt;</SPAN>
+  <SPAN class="code-tag">&lt;input type=<SPAN class="code-quote">&quot;textbox&quot;</SPAN> name=<SPAN class="code-quote">&quot;data1&quot;</SPAN>&gt;</SPAN>
+<SPAN class="code-tag">&lt;/s:form&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;sx:autocompleter formId=<SPAN class="code-quote">&quot;form&quot;</SPAN> formFilter=<SPAN class="code-quote">&quot;filter&quot;</SPAN> href=<SPAN class="code-quote">&quot;%{#url}&quot;</SPAN> /&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H5><A name="AjaxandJavaScriptRecipes-Linktwoautocompleters%2Cusingtopics"></A>Link two autocompleters, using topics</H5>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;form id=<SPAN class="code-quote">&quot;selectForm&quot;</SPAN>&gt;</SPAN>
+   <SPAN class="code-tag">&lt;sx:autocompleter  name=<SPAN class="code-quote">&quot;select&quot;</SPAN> list=<SPAN class="code-quote">&quot;{'fruits','colors'}&quot;</SPAN>  valueNotifyTopics=<SPAN class="code-quote">&quot;/changed&quot;</SPAN> /&gt;</SPAN>
+<SPAN class="code-tag">&lt;/form&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;sx:autocompleter  href=<SPAN class="code-quote">&quot;%{#url}&quot;</SPAN> formId=<SPAN class="code-quote">&quot;selectForm&quot;</SPAN> listenTopics=<SPAN class="code-quote">&quot;/changed&quot;</SPAN> /&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H5><A name="AjaxandJavaScriptRecipes-Showoptions%2Cbutdon%27tmakesuggestion%28autocomple%29inthetextbox"></A>Show options, but don't make suggestion (autocomple) in the textbox</H5>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;sx:autocompleter autoComplete=<SPAN class="code-quote">&quot;false&quot;</SPAN> href=<SPAN class="code-quote">&quot;%{#url}&quot;</SPAN> /&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H5><A name="AjaxandJavaScriptRecipes-Preventoptionsfromloadingwhenpageloads"></A>Prevent options from loading when page loads</H5>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;sx:autocompleter preload=<SPAN class="code-quote">&quot;false&quot;</SPAN> href=<SPAN class="code-quote">&quot;%{#url}&quot;</SPAN> /&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

@@ -1,0 +1,304 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Create Struts 2 Web Application Using Maven To Manage Artifacts and To Build The Application</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="tutorials.html" title="Tutorials">Tutorials</A>&nbsp;&gt;&nbsp;<A href="getting-started.html" title="Getting Started">Getting Started</A>&nbsp;&gt;&nbsp;<A href="how-to-create-a-struts-2-web-application.html" title="How To Create A Struts 2 Web Application">How To Create A Struts 2 Web Application</A>&nbsp;&gt;&nbsp;<A href="" title="Create Struts 2 Web Application Using Maven To Manage Artifacts and To Build The Application">Create Struts 2 Web Application Using Maven To Manage Artifacts and To Build The Application</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Create Struts 2 Web Application Using Maven To Manage Artifacts and To Build The Application</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=14811868">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=14811868">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14811868">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14811868">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14811868">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14811868">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <P>You can download this complete example project, Basic_Struts2_Mvn, from Google Code - <A href="http://code.google.com/p/struts2-examples/downloads/list" class="external-link" rel="nofollow">http://code.google.com/p/struts2-examples/downloads/list</A>.  After unzipping the download you should have a folder named Basic_Struts2_Mvn.  In that folder is a README.txt file that has instructions for building and running this example.</P>
+
+<DIV class="panelMacro"><TABLE class="infoMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>This tutorial assumes you know how to create a Java web application that uses Maven to manage artifacts and build the web application archive (war) file.</TD></TR></TABLE></DIV>
+
+<H3><A name="CreateStruts2WebApplicationUsingMavenToManageArtifactsandToBuildTheApplication-Step1CreateAJavaWebApplication"></A>Step 1 - Create A Java Web Application</H3>
+<P>In your Java IDE create a Java web application with a project name of Basic_Struts2_Mvn that follows the standard Maven project folder structure.  In your pom.xml include the following:</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>pom.xml build node</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+	<SPAN class="code-tag">&lt;build&gt;</SPAN>
+		<SPAN class="code-tag">&lt;finalName&gt;</SPAN>Basic_Struts2_Mvn<SPAN class="code-tag">&lt;/finalName&gt;</SPAN>
+	<SPAN class="code-tag">&lt;/build&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H3><A name="CreateStruts2WebApplicationUsingMavenToManageArtifactsandToBuildTheApplication-Step2Addindex.jsp"></A>Step 2 - Add index.jsp</H3>
+<P>Our next step is to add a simple index.jsp to this web application. Create an index.jsp under src/main/webapp with a title of &quot;Basic Struts 2 Application - Welcome&quot; and in the body add an h1 heading of &quot;Welcome to Struts 2!&quot;</P>
+
+<P>Run mvn clean package to create the war file. Copy the war file into your Servlet container so that it will deploy the war file.</P>
+
+<P>Start up your Servlet container and in a web browser go to <A href="http://localhost:8080/Basic_Struts2_Mvn/index.jsp" class="external-link" rel="nofollow">http://localhost:8080/Basic_Struts2_Mvn/index.jsp</A>. You should see the following:</P>
+
+<P><SPAN class="image-wrap" style=""><IMG src="create-struts-2-web-application-using-maven-to-manage-artifacts-and-to-build-the-application.data/Basic_Struts2_Mvn.png" style="border: 0px solid black"></SPAN></P>
+
+<H3><A name="CreateStruts2WebApplicationUsingMavenToManageArtifactsandToBuildTheApplication-Step3AddStruts2JarFilesToClassPath"></A>Step 3 - Add Struts 2 Jar Files To Class Path</H3>
+
+<P>Now that we know we have a working Java web application, lets add the minimal required Struts 2 framework Jar files to our web application's class path. In pom.xml add the following dependency node:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>pom.xml dependency node</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;dependency&gt;</SPAN>
+	<SPAN class="code-tag">&lt;groupId&gt;</SPAN>org.apache.struts<SPAN class="code-tag">&lt;/groupId&gt;</SPAN>
+	<SPAN class="code-tag">&lt;artifactId&gt;</SPAN>struts2-core<SPAN class="code-tag">&lt;/artifactId&gt;</SPAN>
+	<SPAN class="code-tag">&lt;version&gt;</SPAN>X.X.X.X<SPAN class="code-tag">&lt;/version&gt;</SPAN>
+<SPAN class="code-tag">&lt;/dependency&gt;</SPAN>
+
+</PRE>
+</DIV></DIV>
+<P>Of course replace the X.X.X.X with the current Struts 2 version.  Maven will get the struts2-core jar and the other jar files struts2-core requires (transitive dependencies).  (NOTE:  Beginning with Struts version 2.2.3 you do not need to specify a separate dependency node for javassist.)</P>
+
+<H3><A name="CreateStruts2WebApplicationUsingMavenToManageArtifactsandToBuildTheApplication-Step4AddLogging"></A>Step 4 - Add Logging</H3>
+<P>To see what's happening under the hood, the example application for this tutorial uses log4j.  You'll need to add to pom.xml a dependency node for the log4j jar file:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>pom.xml log4j dependency node</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;dependency&gt;</SPAN>
+	<SPAN class="code-tag">&lt;groupId&gt;</SPAN>log4j<SPAN class="code-tag">&lt;/groupId&gt;</SPAN>
+	<SPAN class="code-tag">&lt;artifactId&gt;</SPAN>log4j<SPAN class="code-tag">&lt;/artifactId&gt;</SPAN>
+	<SPAN class="code-tag">&lt;version&gt;</SPAN>1.2.14<SPAN class="code-tag">&lt;/version&gt;</SPAN>
+<SPAN class="code-tag">&lt;/dependency&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>Setup a log4j.xml configuration in the src/main/resources folder.  You can copy the one from the example application, which contains the following</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>log4j.xml</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;?xml version=<SPAN class="code-quote">&quot;1.0&quot;</SPAN> encoding=<SPAN class="code-quote">&quot;UTF-8&quot;</SPAN> ?&gt;</SPAN>
+<SPAN class="code-tag">&lt;!DOCTYPE log4j:configuration PUBLIC <SPAN class="code-quote">&quot;-//log4j/log4j Configuration//EN&quot;</SPAN> <SPAN class="code-quote">&quot;log4j.dtd&quot;</SPAN>&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;log4j:configuration <SPAN class="code-keyword">xmlns:log4j</SPAN>=<SPAN class="code-quote">&quot;http://jakarta.apache.org/log4j/&quot;</SPAN>&gt;</SPAN>
+    
+    <SPAN class="code-tag">&lt;appender name=<SPAN class="code-quote">&quot;STDOUT&quot;</SPAN> class=<SPAN class="code-quote">&quot;org.apache.log4j.ConsoleAppender&quot;</SPAN>&gt;</SPAN>
+       <SPAN class="code-tag">&lt;layout class=<SPAN class="code-quote">&quot;org.apache.log4j.PatternLayout&quot;</SPAN>&gt;</SPAN> 
+          <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;ConversionPattern&quot;</SPAN> value=<SPAN class="code-quote">&quot;%d %-5p %c.%M:%L - %m%n&quot;</SPAN>/&gt;</SPAN> 
+       <SPAN class="code-tag">&lt;/layout&gt;</SPAN> 
+    <SPAN class="code-tag">&lt;/appender&gt;</SPAN>
+ 
+    <SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- specify the logging level for loggers from other libraries --&gt;</SPAN></SPAN>
+    <SPAN class="code-tag">&lt;logger name=<SPAN class="code-quote">&quot;com.opensymphony&quot;</SPAN>&gt;</SPAN>
+    	<SPAN class="code-tag">&lt;level value=<SPAN class="code-quote">&quot;DEBUG&quot;</SPAN> /&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/logger&gt;</SPAN>
+
+    <SPAN class="code-tag">&lt;logger name=<SPAN class="code-quote">&quot;org.apache.struts2&quot;</SPAN>&gt;</SPAN>
+    	 <SPAN class="code-tag">&lt;level value=<SPAN class="code-quote">&quot;DEBUG&quot;</SPAN> /&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/logger&gt;</SPAN>
+  
+   <SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- for all other loggers log only info and above log messages --&gt;</SPAN></SPAN>
+     <SPAN class="code-tag">&lt;root&gt;</SPAN>
+        <SPAN class="code-tag">&lt;priority value=<SPAN class="code-quote">&quot;INFO&quot;</SPAN>/&gt;</SPAN> 
+        <SPAN class="code-tag">&lt;appender-ref ref=<SPAN class="code-quote">&quot;STDOUT&quot;</SPAN> /&gt;</SPAN> 
+     <SPAN class="code-tag">&lt;/root&gt;</SPAN> 
+    
+<SPAN class="code-tag">&lt;/log4j:configuration&gt;</SPAN> 
+</PRE>
+</DIV></DIV>
+<P>Note the above log4j configuration specifies the console as the log target.  </P>
+
+<H3><A name="CreateStruts2WebApplicationUsingMavenToManageArtifactsandToBuildTheApplication-Step5AddStruts2ServletFilter"></A>Step 5 - Add Struts 2 Servlet Filter</H3>
+<P>To enable the Struts 2 framework to work with your web application you need to add a Servlet filter class and filter mapping to web.xml.  Below is the filter and filter-mapping nodes you should add to web.xml.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>web.xml Servlet Filter</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;filter&gt;</SPAN>
+  <SPAN class="code-tag">&lt;filter-name&gt;</SPAN>struts2<SPAN class="code-tag">&lt;/filter-name&gt;</SPAN>
+  <SPAN class="code-tag">&lt;filter-class&gt;</SPAN>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter<SPAN class="code-tag">&lt;/filter-class&gt;</SPAN>
+<SPAN class="code-tag">&lt;/filter&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;filter-mapping&gt;</SPAN>
+  <SPAN class="code-tag">&lt;filter-name&gt;</SPAN>struts2<SPAN class="code-tag">&lt;/filter-name&gt;</SPAN>
+   <SPAN class="code-tag">&lt;url-pattern&gt;</SPAN>/*<SPAN class="code-tag">&lt;/url-pattern&gt;</SPAN>
+<SPAN class="code-tag">&lt;/filter-mapping&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+<P>For more information about configuring the deployment descriptor for Struts 2 see <A href="webxml.html" title="web.xml">web.xml</A>.  Note the url-pattern node value is /* meaning the Struts 2 filter will be applied to all URLs for this web application.</P>
+
+<H3><A name="CreateStruts2WebApplicationUsingMavenToManageArtifactsandToBuildTheApplication-Step6Createstruts.xml"></A>Step 6 - Create struts.xml</H3>
+<P>Struts 2 can use either an XML configuration file or annotations (or both) to specify the relationship between a URL, a Java class, and a view page (such as index.jsp). For our basic Struts 2 application, we'll use a minimal xml configuration.  Note the file name is struts.xml and it should be in the src/main/resources folder (struts.xml must be on the web application's root class path).</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>struts.xml</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;?xml version=<SPAN class="code-quote">&quot;1.0&quot;</SPAN> encoding=<SPAN class="code-quote">&quot;UTF-8&quot;</SPAN>?&gt;</SPAN>
+&lt;!DOCTYPE struts PUBLIC
+    <SPAN class="code-quote">&quot;-//Apache Software Foundation//DTD Struts Configuration 2.0//EN&quot;</SPAN>
+    <SPAN class="code-quote">&quot;http://struts.apache.org/dtds/struts-2.0.dtd&quot;</SPAN>&gt;
+
+<SPAN class="code-tag">&lt;struts&gt;</SPAN>
+
+	<SPAN class="code-tag">&lt;constant name=<SPAN class="code-quote">&quot;struts.devMode&quot;</SPAN> value=<SPAN class="code-quote">&quot;true&quot;</SPAN> /&gt;</SPAN>
+
+	<SPAN class="code-tag">&lt;package name=<SPAN class="code-quote">&quot;basicstruts2&quot;</SPAN> extends=<SPAN class="code-quote">&quot;struts-default&quot;</SPAN>&gt;</SPAN>
+
+		<SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;index&quot;</SPAN>&gt;</SPAN>
+			<SPAN class="code-tag">&lt;result&gt;</SPAN>/index.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+		<SPAN class="code-tag">&lt;/action&gt;</SPAN>
+
+	<SPAN class="code-tag">&lt;/package&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;/struts&gt;</SPAN>
+</PRE>
+</DIV></DIV> 
+<P>This minimal Struts 2 configuration file tells the framework that if the URL ends in index.action to redirect the browser to index.jsp.</P>
+
+<P>For more information about the struts.xml configuration file see <A href="strutsxml.html" title="struts.xml">struts.xml</A>.</P>
+
+<H3><A name="CreateStruts2WebApplicationUsingMavenToManageArtifactsandToBuildTheApplication-Step7BuildandRuntheApplication"></A>Step 7 - Build and Run the Application</H3>
+<P>With all of the above in place run mvn clean package to create the war file.  Remove the previously created war file and exploded web application folder from your Servlet container's webapps folder.  Copy to your Servlet container's webapps folder the new war you just created.  </P>
+
+<P>Start up the Servlet container.  View the console where you should see numerous debug messages that tell you the Struts 2 framework is being included in the Basic_Struts2_Mvn web application.</P>
+
+<P>Open a web browser and go to <A href="http://localhost:8080/Basic_Struts2_Mvn/index.action" class="external-link" rel="nofollow">http://localhost:8080/Basic_Struts2_Mvn/index.action</A> (note that's index.action not index.jsp at the end of the URL).  You should see the same web page as when going to <A href="http://localhost:8080/Basic_Struts2_Mvn/index.jsp" class="external-link" rel="nofollow">http://localhost:8080/Basic_Struts2_Mvn/index.jsp</A>.  View the log messages written to the console and you should find several that discuss index.action and index.jsp:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Struts 2 Log Messages</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+com.opensymphony.xwork2.DefaultActionProxy.debug:57 - Creating an DefaultActionProxy <SPAN class="code-keyword">for</SPAN> namespace / and action name index
+...
+org.apache.struts2.dispatcher.ServletDispatcherResult.debug:57 - Forwarding to location /index.jsp
+</PRE>
+</DIV></DIV>
+<P>Note that the xwork2 artifact is one of the Jar files that is a transitive dependency for the struts2-core Jar file. The xwork2 library is used heavily by the Struts 2 framework.</P>
+
+<H3><A name="CreateStruts2WebApplicationUsingMavenToManageArtifactsandToBuildTheApplication-GettingHelp"></A>Getting Help</H3>
+<P>The <A href="http://struts.apache.org/mail.html" class="external-link" rel="nofollow">Struts 2 user mailing list</A> is an excellent place to get help.  If you are having a problem getting this Basic Struts 2 application to work search the Struts 2 mailing list.  If you don't find an answer to your problem, post a question on the mailing list.  </P>
+
+<DIV class="table-wrap">
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TH class="confluenceTh"> Next </TH>
+<TD class="confluenceTd"> Onward to <A href="hello-world-using-struts-2.html" title="Hello World Using Struts 2">Hello World Using Struts 2</A> </TD>
+</TR>
+<TR>
+<TH class="confluenceTh"> Prev </TH>
+<TD class="confluenceTd"> Return to <A href="tutorials.html" title="Tutorials">Tutorials</A> </TD>
+</TR>
+</TBODY></TABLE>
+</DIV>
+
+
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

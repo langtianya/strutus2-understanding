@@ -1,0 +1,455 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Struts 2 Blank Archetype</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="guides.html" title="Guides">Guides</A>&nbsp;&gt;&nbsp;<A href="core-developers-guide.html" title="Core Developers Guide">Core Developers Guide</A>&nbsp;&gt;&nbsp;<A href="struts-2-maven-archetypes.html" title="Struts 2 Maven Archetypes">Struts 2 Maven Archetypes</A>&nbsp;&gt;&nbsp;<A href="" title="Struts 2 Blank Archetype">Struts 2 Blank Archetype</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Struts 2 Blank Archetype</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=108834">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=108834">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=108834">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=108834">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=108834">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=108834">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          
+<P>The Struts 2 Blank Archetype (&quot;blank-archetype&quot;) provides a minimal, but complete, Struts 2 application. It demonstrates some of the most basic Struts 2 concepts.</P>
+
+<H4><A name="Struts2BlankArchetype-Features"></A>Features</H4>
+
+<UL>
+	<LI>XML-based configuration, demonstrates including additional config file</LI>
+	<LI>Example actions</LI>
+	<LI>Package-level resource bundle</LI>
+	<LI>XML-based validation</LI>
+	<LI>Unit-testing</LI>
+</UL>
+
+
+
+<P><B>Contents</B></P>
+
+<STYLE type="text/css">/*<![CDATA[*/
+div.rbtoc1269264018968 {margin-left: 0px;padding: 0px;}
+div.rbtoc1269264018968 ul {list-style: none;margin-left: 0px;padding-left: 1em;}
+div.rbtoc1269264018968 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</STYLE><DIV class="rbtoc1269264018968">
+<UL>
+    <LI><SPAN class="TOCOutline">1</SPAN> <A href="#Struts2BlankArchetype-CreatingOurblankarchetypeProject">Creating Our blank-archetype Project</A></LI>
+<UL>
+    <LI><SPAN class="TOCOutline">1.1</SPAN> <A href="#Struts2BlankArchetype-Stagingrepository">Staging repository</A></LI>
+</UL>
+    <LI><SPAN class="TOCOutline">2</SPAN> <A href="#Struts2BlankArchetype-ProjectStructure">Project Structure</A></LI>
+<UL>
+    <LI><SPAN class="TOCOutline">2.1</SPAN> <A href="#Struts2BlankArchetype-StructureDifferenceFromNonMavenProjects">Structure Difference From Non-Maven Projects</A></LI>
+</UL>
+    <LI><SPAN class="TOCOutline">3</SPAN> <A href="#Struts2BlankArchetype-BuildingTheProject">Building The Project</A></LI>
+<UL>
+    <LI><SPAN class="TOCOutline">3.1</SPAN> <A href="#Struts2BlankArchetype-Compilation">Compilation</A></LI>
+    <LI><SPAN class="TOCOutline">3.2</SPAN> <A href="#Struts2BlankArchetype-Testing">Testing</A></LI>
+    <LI><SPAN class="TOCOutline">3.3</SPAN> <A href="#Struts2BlankArchetype-Assembling%2528CreatingaWAR%2529">Assembling (Creating a WAR)</A></LI>
+    <LI><SPAN class="TOCOutline">3.4</SPAN> <A href="#Struts2BlankArchetype-Running">Running</A></LI>
+</UL>
+    <LI><SPAN class="TOCOutline">4</SPAN> <A href="#Struts2BlankArchetype-ApplicationDocumentation">Application Documentation</A></LI>
+<UL>
+    <LI><SPAN class="TOCOutline">4.1</SPAN> <A href="#Struts2BlankArchetype-ApplicationConfiguration">Application Configuration</A></LI>
+    <LI><SPAN class="TOCOutline">4.2</SPAN> <A href="#Struts2BlankArchetype-%257B%257BWelcome.action%257D%257D"> <TT>Welcome.action</TT></A></LI>
+    <LI><SPAN class="TOCOutline">4.3</SPAN> <A href="#Struts2BlankArchetype-%257B%257BHelloWorld.action%257D%257D"> <TT>HelloWorld.action</TT></A></LI>
+    <LI><SPAN class="TOCOutline">4.4</SPAN> <A href="#Struts2BlankArchetype-%257B%257BLogin.action%257D%257D"> <TT>Login.action</TT></A></LI>
+</UL>
+</UL></DIV>
+
+<H2><A name="Struts2BlankArchetype-CreatingOurblankarchetypeProject"></A>Creating Our blank-archetype Project</H2>
+
+<P>We'll run the following command from our project's parent directory (this is shown using Unix-style commands).</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+$ mvn archetype:generate -B \
+                         -DgroupId=tutorial \
+                         -DartifactId=tutorial \
+                         -DarchetypeGroupId=org.apache.struts \
+                         -DarchetypeArtifactId=struts2-archetype-blank \
+                         -DarchetypeVersion=&lt;version&gt;
+$ ls
+tutorial/
+$ cd tutorial
+$ ls
+pom.xml         src/
+</PRE>
+</DIV></DIV>
+
+<P>Depending on the state of your local system you may see Maven downloading various libraries (known as &quot;downloading the internet&quot;, which is what it seems Maven does sometimes). Be patient--Maven is basically setting up your required libraries automatically.<BR>
+<B>&lt;version&gt;</B> - is the version of Struts 2 you want to use and archetype was released for, eg. 2.1.8.1 .</P>
+
+<H3><A name="Struts2BlankArchetype-Stagingrepository"></A>Staging repository</H3>
+
+<P>If the above command will fail because of missing archetypes in central repository, you can try to use staging repository like below</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+mvn archetype:generate -B \
+                       -DgroupId=tutorial \
+                       -DartifactId=tutorial \
+                       -DarchetypeGroupId=org.apache.struts \
+                       -DarchetypeArtifactId=struts2-archetype-blank \
+                       -DarchetypeVersion=&lt;version&gt;
+                       -DarchetypeCatalog=http:<SPAN class="code-comment">//people.apache.org/builds/struts/&lt;version&gt;/m2-staging-repository/ </SPAN>
+</PRE>
+</DIV></DIV>
+
+<H2><A name="Struts2BlankArchetype-ProjectStructure"></A>Project Structure</H2>
+
+<P>The source code structure follows the normal <A href="http://maven.apache.org/guides/introduction/introduction-to-the-standard-directory-layout.html" class="external-link" rel="nofollow">Maven directory structure</A>. The blank-archetype does not include all of the directories listed in the Maven structure reference page.</P>
+
+<P>Our project's structure looks like this:</P>
+
+<DIV class="table-wrap">
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TH class="confluenceTh"> Directory </TH>
+<TH class="confluenceTh"> Description</TH>
+</TR>
+<TR>
+<TD class="confluenceTd"> <TT>src</TT> </TD>
+<TD class="confluenceTd"> All project source</TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> <TT>&brvbar;- main</TT> </TD>
+<TD class="confluenceTd"> Primary source directory</TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> <TT>&brvbar;&nbsp;&nbsp;&brvbar;- java</TT> </TD>
+<TD class="confluenceTd"> Java source code</TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> <TT>&brvbar;&nbsp;&nbsp;&brvbar;&nbsp;&nbsp;`- tutorial</TT> </TD>
+<TD class="confluenceTd"> Package defined by <TT>groupId</TT> parameter</TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> <TT>&brvbar;&nbsp;&nbsp;&brvbar;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`- example</TT> </TD>
+<TD class="confluenceTd"> The example actions from the archetype</TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> <TT>&brvbar;&nbsp;&nbsp;&brvbar;- resources</TT> </TD>
+<TD class="confluenceTd"> Resources (config, property, and validation files, and so on</TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> <TT>&brvbar;&nbsp;&nbsp;&brvbar;&nbsp;&nbsp;`-tutorial</TT> </TD>
+<TD class="confluenceTd"> Package defined by <TT>groupId</TT> parameter</TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> <TT>&brvbar;&nbsp;&nbsp;&brvbar;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`- example</TT> </TD>
+<TD class="confluenceTd"> Example property and validation files from archetype</TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> <TT>&brvbar;&nbsp;&nbsp;`- webapp</TT> </TD>
+<TD class="confluenceTd"> Web application files (HTML, JSP, etc.)</TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> <TT>&brvbar;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`- WEB-INF</TT> </TD>
+<TD class="confluenceTd"> Typical WEB-INF folder</TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> <TT>&brvbar;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`- example</TT> </TD>
+<TD class="confluenceTd"> Files from archetype</TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> <TT>`- test</TT> </TD>
+<TD class="confluenceTd"> Test code (unit tests etc.)</TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> <TT>&nbsp;&nbsp;&nbsp;`- java</TT> </TD>
+<TD class="confluenceTd"> Java-based test code</TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> <TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`- tutorial</TT> </TD>
+<TD class="confluenceTd"> Package defined by <TT>groupId</TT> parameter</TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> <TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`- example</TT> </TD>
+<TD class="confluenceTd"> Test code from archetype</TD>
+</TR>
+</TBODY></TABLE>
+</DIV>
+
+
+<H3><A name="Struts2BlankArchetype-StructureDifferenceFromNonMavenProjects"></A>Structure Difference From Non-Maven Projects</H3>
+
+<P>One big change for folks not used to the Maven structure is the separation of Java source code and resource files. For example, in a non-Maven project our directory structure might look like this:</P>
+
+<DIV class="table-wrap">
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TD class="confluenceTd"> <TT>src</TT> </TD>
+<TD class="confluenceTd"> All project source</TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> <TT>&brvbar;- tutorial</TT> </TD>
+<TD class="confluenceTd"> Tutorial package</TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> <TT>&brvbar;&nbsp;&nbsp;`- example</TT> </TD>
+<TD class="confluenceTd"> Example package</TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> <TT>&brvbar;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&brvbar;- Login.java</TT> </TD>
+<TD class="confluenceTd"> Login action source</TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> <TT>&brvbar;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&brvbar;- package.properties</TT> </TD>
+<TD class="confluenceTd"> Resource file</TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> <TT>&brvbar;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`- Login-validation.xml</TT> </TD>
+<TD class="confluenceTd"> Validation file</TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> <TT>`- struts.xml</TT> </TD>
+<TD class="confluenceTd"> Struts 2 config file</TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> <TT>web</TT> </TD>
+<TD class="confluenceTd"> Web app files</TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> <TT>&brvbar;- WEB-INF</TT> </TD>
+<TD class="confluenceTd"> Typical WEB-INF folder</TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> <TT>`- index.html</TT> </TD>
+<TD class="confluenceTd"> An HTML file</TD>
+</TR>
+</TBODY></TABLE>
+</DIV>
+
+
+<P>It can take a little while to get used to, but ultimately it provides good separation of &quot;types&quot; of things, and becomes second-nature pretty quickly. Note that it's possible to use a non-Maven directory layout with Maven projects, but this can be challenging at some points.</P>
+
+<H2><A name="Struts2BlankArchetype-BuildingTheProject"></A>Building The Project</H2>
+
+<P>There are several different ways we can go about building our project, from simple compilation up to actually running the web application--all from within Maven.</P>
+
+<H3><A name="Struts2BlankArchetype-Compilation"></A>Compilation</H3>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">$ mvn compile</PRE>
+</DIV></DIV>
+
+<P>will create a <TT>target</TT> directory containing the compiled classes. By itself this isn't terribly useful.</P>
+
+
+<H3><A name="Struts2BlankArchetype-Testing"></A>Testing</H3>
+
+<P>Running</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">$ mvn test</PRE>
+</DIV></DIV>
+
+<P>will compile the application and run the included unit tests. Blank-archetype's unit tests are <EM>not</EM> extensive, but provide a simple starting point for writing more complex, application-specific tests.</P>
+
+<P>One we've run the Maven test command we'll notice there's a <TT>target/surefire-reports</TT> directory. The <A href="http://maven.apache.org/plugins/maven-surefire-plugin/" class="external-link" rel="nofollow">Maven Surefire Plugin</A> is how Maven runs our unit tests. By default it will create test results in XML and text formats in the <TT>target/surefire-reports</TT> directory. These files can be examined to get further information regarding the failed tests.</P>
+
+<H3><A name="Struts2BlankArchetype-Assembling%28CreatingaWAR%29"></A>Assembling (Creating a WAR)</H3>
+
+<H3><A name="Struts2BlankArchetype-Running"></A>Running</H3>
+
+<P>We can run blank-archetype using the <A href="http://www.mortbay.org/jetty/" class="external-link" rel="nofollow">Jetty</A> server via the <A href="http://docs.codehaus.org/display/JETTY/Maven%20Jetty%20Plugin" class="external-link" rel="nofollow">Maven Jetty Plugin</A> by executing the Jetty plugin's <TT>run</TT> command:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">$ mvn jetty:run</PRE>
+</DIV></DIV>
+
+<P>Once we've run the application we can see that it works by visiting <TT>localhost:8080/tutorial/example/Welcome.action</TT> as a sanity check.</P>
+
+<H2><A name="Struts2BlankArchetype-ApplicationDocumentation"></A>Application Documentation</H2>
+
+<P>The application consists of a few test actions demonstrating simple validation and package-level property (resource) files. The most interesting URLs are as follows (assuming we used <TT>groupId=tutorial</TT>):</P>
+
+<DIV class="table-wrap">
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TH class="confluenceTh"> URL </TH>
+<TH class="confluenceTh"> Description</TH>
+</TR>
+<TR>
+<TD class="confluenceTd"> <TT>/tutorial/example/Welcome.action</TT> </TD>
+<TD class="confluenceTd"> Handled by wildcard mapping</TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> <TT>/tutorial/example/HelloWorld.action</TT> </TD>
+<TD class="confluenceTd"> Handled by explicit mapping, demonstrates package-level properties</TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> <TT>/tutorial/example/Login.action</TT> </TD>
+<TD class="confluenceTd"> Handled by explicit mapping with method wilcard (see the <TT>Login.action</TT> documentation for information regarding how to access this URL)</TD>
+</TR>
+</TBODY></TABLE>
+</DIV>
+
+
+<H3><A name="Struts2BlankArchetype-ApplicationConfiguration"></A>Application Configuration</H3>
+
+<P>The default Struts 2 configuration file is contained in <TT>src/main/resources/struts.xml</TT>. It includes an additional configuration file, <TT>src/main/resources/example.xml</TT>. The application's mappings are contained in the <TT>example.xml</TT> file. The <TT>struts.xml</TT> file sets some constants.</P>
+
+<P>See the <A href="strutsxml.html" title="struts.xml">struts.xml</A> page for more information about the <TT>struts.xml</TT> file. For more information regarding what's contained in typical <TT>struts.xml</TT> files start at the <A href="configuration-elements.html" title="Configuration Elements">Configuration Elements</A> page, which contains links to a bunch of information. See the <A href="configuration-files.html" title="Configuration Files">Configuration Files</A> page for more information regarding additional Struts 2 configuration files, including links to the files that set all the Struts 2 default configurations.</P>
+
+<H3><A name="Struts2BlankArchetype-%7B%7BWelcome.action%7D%7D"></A><TT>Welcome.action</TT></H3>
+
+<P>The mapping for this action is handled by a &quot;catch-all&quot; mapping in <TT>example.xml</TT>:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+&lt;action name=<SPAN class="code-quote">&quot;*&quot;</SPAN> class=<SPAN class="code-quote">&quot;tutorial2.example.ExampleSupport&quot;</SPAN>&gt;
+  &lt;result&gt;/example/{1}.jsp&lt;/result&gt;
+&lt;/action&gt;
+</PRE>
+</DIV></DIV>
+
+<P>This mapping is the last mapping contained in <TT>example.xml</TT>--anything not handled by mappings appearing before it in <TT>example.xml</TT> will be caught by this mapping. This mapping will look for JSP files in <TT>src/main/webapp/example/*.jsp</TT>. Since there's a <TT>Welcome.jsp</TT> in that directory, we're all set. See the <A href="wildcard-mappings.html" title="Wildcard Mappings">Wildcard Mappings</A> page for more information on how Struts 2 can use wildcard mappings.</P>
+
+<H3><A name="Struts2BlankArchetype-%7B%7BHelloWorld.action%7D%7D"></A><TT>HelloWorld.action</TT></H3>
+
+<P>The mapping executes the HelloWorld action, contained in <TT>src/main/java/tutorial/example/HelloWorld.action</TT>. This action retrieves a message from a package-level properties file, contained in <TT>src/main/resources/tutorial/package.properties</TT>. See the <A href="localization.html" title="Localization">Localization</A> page for more information about how Struts 2 handles message resources (it's pretty cool).</P>
+
+<H3><A name="Struts2BlankArchetype-%7B%7BLogin.action%7D%7D"></A><TT>Login.action</TT></H3>
+
+<P>This is another wildcard mapping:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+&lt;action name=<SPAN class="code-quote">&quot;Login_*&quot;</SPAN> method=<SPAN class="code-quote">&quot;{1}&quot;</SPAN> class=<SPAN class="code-quote">&quot;tutorial2.example.Login&quot;</SPAN>&gt;
+  &lt;result name=<SPAN class="code-quote">&quot;input&quot;</SPAN>&gt;/example/Login.jsp&lt;/result&gt;
+  &lt;result type=<SPAN class="code-quote">&quot;redirectAction&quot;</SPAN>&gt;Menu&lt;/result&gt;
+&lt;/action&gt;
+</PRE>
+</DIV></DIV>
+
+<P>In the application the Login action is reached via a link, but not directly to <TT>/tutorial/example/Login.action</TT>. The link is actually <TT>/tutorial/example/Login_input.action</TT>. Reaching the Login action this way bypasses validation: if we hit the Login action directly we'll get a validation error.</P>
+
+<P>The validation configuration is contained in <TT>/src/main/resources/tutorial/example/Login-validation.xml</TT>. It checks for the presence of the <TT>username</TT> and <TT>password</TT> properties (form values). It uses messages stored in the <TT>package.properties</TT> file (in the same directory). See the <A href="validation.html" title="Validation">Validation</A> page for more information regarding Struts 2 validation.</P>
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

@@ -1,0 +1,405 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Spring Plugin</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="guides.html" title="Guides">Guides</A>&nbsp;&gt;&nbsp;<A href="plugin-developers-guide.html" title="Plugin Developers Guide">Plugin Developers Guide</A>&nbsp;&gt;&nbsp;<A href="" title="Spring Plugin">Spring Plugin</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Spring Plugin</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=14281">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=14281">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14281">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14281">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14281">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14281">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <DIV class="panelMacro"><TABLE class="infoMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD><A href="http://www.springframework.org/" class="external-link" rel="nofollow">Spring</A> is a lightweight container, providing centralized, automated configuration and wiring of your application objects, using a technique called &quot;Dependency Injection&quot;</TD></TR></TABLE></DIV>
+
+<P>The Spring Plugin works by overriding the Struts <A href="objectfactory.html" title="ObjectFactory">ObjectFactory</A> to enhance the creation of core framework objects.  When an object is to be created, it uses the <TT>class</TT> attribute in the Struts configuration to correspond to the <TT>id</TT> attribute in the Spring configuration.  If not found, the class will try to be created as usual, then be autowired by Spring.  In the case of Actions, Spring 2's <A href="http://www.springframework.org/docs/reference/beans.html#beans-factory-scopes" class="external-link" rel="nofollow">bean scope feature</A> can be used to scope an Action instance to the session, application, or a custom scope, providing advanced customization above the default per-request scoping.</P>
+
+<DIV class="panelMacro"><TABLE class="noteMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD><B>Spring Actions are Optional!</B><BR>Remember: <B>registering Actions with Spring is not required</B>. The Spring alternative is there if you need it, but the framework will automatically create Actions objects from the action mappings. But, if you want to use Spring to inject your Actions, the option is there.</TD></TR></TABLE></DIV>
+
+<H4><A name="SpringPlugin-Features"></A>Features</H4>
+
+<UL>
+	<LI>Allow Actions, Interceptors, and Results to be created by Spring</LI>
+	<LI>Struts-created objects can be autowired by Spring after creation</LI>
+	<LI>Provides two interceptors that autowire actions, if not using the Spring ObjectFactory</LI>
+</UL>
+
+
+<H2><A name="SpringPlugin-Usage"></A>Usage</H2>
+
+<P>To enable Spring integration, simply include struts2-spring-plugin-x-x-x.jar in your application.</P>
+
+<P>If you are using more than one object factory, (for example, by including both the Spring and Plexus plugins in your application,) you will need to set the struts.objectFactory property in <A href="strutsproperties.html" title="struts.properties">struts.properties</A> or in one of several XML files via <A href="constant-configuration.html" title="Constant Configuration">Constant Configuration</A>:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>struts.properties</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">struts.objectFactory = spring</PRE>
+</DIV></DIV>
+
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>struts.xml</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+&lt;struts&gt;
+  &lt;constant name=<SPAN class="code-quote">&quot;struts.objectFactory&quot;</SPAN> value=<SPAN class="code-quote">&quot;spring&quot;</SPAN> /&gt;
+  ... 
+&lt;/struts&gt;
+</PRE>
+</DIV></DIV>
+
+<H4><A name="SpringPlugin-Autowiring"></A>Autowiring</H4>
+
+<P>The framework enables &quot;autowiring&quot; by default. (Autowiring means to look for objects defined in Spring with the same name as your object property). To change the wiring mode, modify the <TT>spring.autowire</TT> property.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Wiring Mode</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">struts.objectFactory.spring.autoWire = type</PRE>
+</DIV></DIV>
+
+<P>The <TT>autowire</TT> property can be set to several options. </P>
+
+<DIV class="table-wrap">
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TH class="confluenceTh"> name </TH>
+<TD class="confluenceTd"> Auto-wire by matching the name of the bean in Spring with the name of the property in your action. <B>This is the default</B> </TD>
+</TR>
+<TR>
+<TH class="confluenceTh"> type </TH>
+<TD class="confluenceTd"> Auto-wire by looking for a bean registered with Spring of the same type as the property in your action. This requires you to have only one bean of this type registered with Spring </TD>
+</TR>
+<TR>
+<TH class="confluenceTh"> auto </TH>
+<TD class="confluenceTd"> Spring will attempt to auto-detect the best method for auto-wiring your action </TD>
+</TR>
+<TR>
+<TH class="confluenceTh"> constructor </TH>
+<TD class="confluenceTd"> Spring will auto-wire the parameters of the bean's constructor </TD>
+</TR>
+</TBODY></TABLE>
+</DIV>
+
+
+<P>By default, the framework will at least try to use Spring to create all its objects. If the object cannot be created by Spring, then the framework will create the object itself. </P>
+
+<P>Enabling Spring integration for other application objects is a two-step process. </P>
+
+<UL>
+	<LI>Configure the Spring listener</LI>
+</UL>
+
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>web.xml</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;listener&gt;</SPAN>
+    <SPAN class="code-tag">&lt;listener-class&gt;</SPAN>org.springframework.web.context.ContextLoaderListener<SPAN class="code-tag">&lt;/listener-class&gt;</SPAN>
+<SPAN class="code-tag">&lt;/listener&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+
+<UL>
+	<LI>Register your objects via the Spring configuration</LI>
+</UL>
+
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>applicationContext.xml</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;?xml version=<SPAN class="code-quote">&quot;1.0&quot;</SPAN> encoding=<SPAN class="code-quote">&quot;UTF-8&quot;</SPAN>?&gt;</SPAN>
+<SPAN class="code-tag">&lt;!DOCTYPE beans PUBLIC <SPAN class="code-quote">&quot;-//SPRING//DTD BEAN//EN&quot;</SPAN> <SPAN class="code-quote">&quot;http://www.springframework.org/dtd/spring-beans.dtd&quot;</SPAN>&gt;</SPAN>
+<SPAN class="code-tag">&lt;beans default-autowire=<SPAN class="code-quote">&quot;autodetect&quot;</SPAN>&gt;</SPAN>
+    <SPAN class="code-tag">&lt;bean id=<SPAN class="code-quote">&quot;personManager&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.acme.PersonManager&quot;</SPAN> scope=<SPAN class="code-quote">&quot;prototype&quot;</SPAN>/&gt;</SPAN>
+    ...
+<SPAN class="code-tag">&lt;/beans&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<DIV class="panelMacro"><TABLE class="tipMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD><B>More applicationContext configuration files needed?</B><BR>Since the Spring integration uses a standard Listener, it can be configured to support configuration files other than <TT>applicationContext.xml</TT>. Adding the following to your web.xml will cause Spring's ApplicationContext to be inititalized from all files matching the given pattern:
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- Context Configuration locations for Spring XML files --&gt;</SPAN></SPAN>
+<SPAN class="code-tag">&lt;context-param&gt;</SPAN>
+    <SPAN class="code-tag">&lt;param-name&gt;</SPAN>contextConfigLocation<SPAN class="code-tag">&lt;/param-name&gt;</SPAN>
+    <SPAN class="code-tag">&lt;param-value&gt;</SPAN>/WEB-INF/applicationContext-*.xml,classpath*:applicationContext-*.xml<SPAN class="code-tag">&lt;/param-value&gt;</SPAN>
+<SPAN class="code-tag">&lt;/context-param&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+<P>See the Spring documentation for a full description of this parameter.</P></TD></TR></TABLE></DIV>
+
+<H4><A name="SpringPlugin-InitializingActionsfromSpring"></A>Initializing Actions from Spring</H4>
+
+<P>Normally, in <TT>struts.xml</TT> you specify the class for each Action. When using the default SpringObjectFactory, the framework will ask Spring to create the Action and wire up dependencies as specified by the default auto-wire behavior. </P>
+
+<DIV class="panelMacro"><TABLE class="tipMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>We <B>strongly</B> recommend that you find declarative ways of letting Spring know what to provide for your actions. This includes making your beans able to be autowired by either naming your dependent properties on your action the same as the bean defined in Spring which should be provided (to allow for name-based autowiring), or using autowire-by-type and only having one of the required type registered with Spring. It also can include using JDK5 annotations to declare transactional and security requirements rather than having to explicitly set up proxies in your Spring configuration. If you can find ways to let Spring know what it needs to do for your action without needing any explicit configuration in the Spring <TT>applicationContext.xml</TT>, then you won't have to maintain this configuration in both places.</TD></TR></TABLE></DIV>
+
+<P>However, sometimes you might want the bean to be completely managed by Spring. This is useful, for example, if you wish to apply more complex AOP or Spring-enabled technologies, such as Acegi, to your beans. To do this, all you have to do is configure the bean in your Spring <TT>applicationContext.xml</TT> and then <EM>change</EM> the class attribute from your Action in the <TT>struts.xml</TT> to use the bean name defined in Spring instead of the class name.</P>
+
+<P>Your <TT>struts.xml</TT> file would then have the Action class attributes changed.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>struts.xml</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+&lt;!DOCTYPE struts PUBLIC
+    <SPAN class="code-quote">&quot;-//Apache Software Foundation//DTD Struts Configuration 2.0//EN&quot;</SPAN>
+    <SPAN class="code-quote">&quot;http://struts.apache.org/dtds/struts-2.0.dtd&quot;</SPAN>&gt;
+<SPAN class="code-tag">&lt;struts&gt;</SPAN>
+    <SPAN class="code-tag">&lt;include file=<SPAN class="code-quote">&quot;struts-default.xml&quot;</SPAN>/&gt;</SPAN>
+
+    <SPAN class="code-tag">&lt;package name=<SPAN class="code-quote">&quot;default&quot;</SPAN> extends=<SPAN class="code-quote">&quot;struts-default&quot;</SPAN>&gt;</SPAN>
+        <SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;foo&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.acme.Foo&quot;</SPAN>&gt;</SPAN>
+            <SPAN class="code-tag">&lt;result&gt;</SPAN>foo.ftl<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+        <SPAN class="code-tag">&lt;/action&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/package&gt;</SPAN>
+
+    <SPAN class="code-tag">&lt;package name=<SPAN class="code-quote">&quot;secure&quot;</SPAN> namespace=<SPAN class="code-quote">&quot;/secure&quot;</SPAN> extends=<SPAN class="code-quote">&quot;default&quot;</SPAN>&gt;</SPAN>
+        <SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;bar&quot;</SPAN> class=<SPAN class="code-quote">&quot;bar&quot;</SPAN>&gt;</SPAN>
+            <SPAN class="code-tag">&lt;result&gt;</SPAN>bar.ftl<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+        <SPAN class="code-tag">&lt;/action&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/package&gt;</SPAN>
+<SPAN class="code-tag">&lt;/struts&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>Where you have a Spring bean defined in your <TT>applicationContext.xml</TT> named &quot;bar&quot;. Note that the <TT>com.acme.Foo</TT> Action did not need to be changed, because it can be autowired.</P>
+
+<P>A typical spring configuration for bar could look as following.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>applicationConext.xml</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;?xml version=<SPAN class="code-quote">&quot;1.0&quot;</SPAN> encoding=<SPAN class="code-quote">&quot;UTF-8&quot;</SPAN>?&gt;</SPAN>
+<SPAN class="code-tag">&lt;!DOCTYPE beans PUBLIC <SPAN class="code-quote">&quot;-//SPRING//DTD BEAN//EN&quot;</SPAN> <SPAN class="code-quote">&quot;http://www.springframework.org/dtd/spring-beans.dtd&quot;</SPAN>&gt;</SPAN>
+<SPAN class="code-tag">&lt;beans default-autowire=<SPAN class="code-quote">&quot;autodetect&quot;</SPAN>&gt;</SPAN>
+    <SPAN class="code-tag">&lt;bean id=<SPAN class="code-quote">&quot;bar&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.my.BarClass&quot;</SPAN> singleton=<SPAN class="code-quote">&quot;false&quot;</SPAN>/&gt;</SPAN>
+    ...
+<SPAN class="code-tag">&lt;/beans&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>To use session-scoped components with Spring and Struts, see the <A href="spring-session-components-workarounds.html" title="Spring Session Components Workarounds">Spring Session Components Workarounds</A> analysis.</P>
+
+<H4><A name="SpringPlugin-ClassReloading"></A>Class Reloading</H4>
+<P>The Spring plugin can be configured to automatically reload classes that change in the file system. This feature will enable code changes to be &quot;hot deployed&quot; without having to restart the web container. To enable this feature follow these steps:</P>
+<OL>
+	<LI>Set &quot;struts.devMode&quot; to &quot;true&quot;</LI>
+	<LI>Set &quot;struts.class.reloading.watchList&quot; to a comma separated list of directories, or jar files (absolute or relative paths)</LI>
+	<LI>Add this to web.xml:
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+   &lt;context-param&gt;
+       &lt;param-name&gt;contextClass&lt;/param-name&gt;
+       &lt;param-value&gt;org.apache.struts2.spring.ClassReloadingXMLWebApplicationContext&lt;/param-value&gt;
+   &lt;/context-param&gt; 
+</PRE>
+</DIV></DIV></LI>
+	<LI>Add Apache Commons JCI FAM to the classpath. If you are using maven, add this to pom.xml
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+   &lt;dependency&gt;
+       &lt;groupId&gt;org.apache.commons&lt;/groupId&gt;
+       &lt;artifactId&gt;commons-jci-fam&lt;/artifactId&gt;
+       &lt;version&gt;1.0&lt;/version&gt;
+   &lt;/dependency&gt; 
+</PRE>
+</DIV></DIV></LI>
+</OL>
+
+
+<P>Letting the reloading class loader handle all the classes can lead to ClassCastException(s) because instances of the same classes loaded by different class loaders can not be assigned to each other. To prevent this problem we suggest that <TT>struts.class.reloading.acceptClasses</TT> is used to limit the classes loaded by the reloading class loader, so only actions are handled by it. This constant supports a comma separated list of regular expressions:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+&lt;constant name=<SPAN class="code-quote">&quot;struts.class.reloading.acceptClasses&quot;</SPAN> value=<SPAN class="code-quote">&quot;com\.myproject\.example\.actions\..*&quot;</SPAN> /&gt;
+</PRE>
+</DIV></DIV>
+
+<DIV class="panelMacro"><TABLE class="warningMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/forbidden.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>This feature is experimental, and <B>should never</B> be used in production systems.</TD></TR></TABLE></DIV>
+
+<H4><A name="SpringPlugin-Settings"></A>Settings</H4>
+
+<P>The following settings can be customized.  See the <A href="http://cwiki.apache.org/confluence/display/WW/Configuration%20Files" class="external-link" rel="nofollow">developer guide</A>.</P>
+
+<DIV class="table-wrap">
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TH class="confluenceTh">Setting</TH>
+<TH class="confluenceTh">Description</TH>
+<TH class="confluenceTh">Default</TH>
+<TH class="confluenceTh">Possible Values</TH>
+</TR>
+<TR>
+<TD class="confluenceTd"><TT>struts.objectFactory.spring.autoWire</TT></TD>
+<TD class="confluenceTd">The autowire strategy</TD>
+<TD class="confluenceTd"><TT>name</TT></TD>
+<TD class="confluenceTd"><TT>name</TT>,<TT>type</TT>,<TT>auto</TT>, or <TT>constructor</TT></TD>
+</TR>
+<TR>
+<TD class="confluenceTd"><TT>struts.objectFactory.spring.autoWire.alwaysRespect</TT></TD>
+<TD class="confluenceTd">Whether the autowire strategy should always be used, or if the framework should try to guess the best strategy based on the situation</TD>
+<TD class="confluenceTd"><TT>false</TT> for backwards-compatibility </TD>
+<TD class="confluenceTd"><TT>true</TT> or <TT>false</TT></TD>
+</TR>
+<TR>
+<TD class="confluenceTd"><TT>struts.objectFactory.spring.useClassCache</TT></TD>
+<TD class="confluenceTd">Whether to have Spring use its class cache or not</TD>
+<TD class="confluenceTd"><TT>true</TT></TD>
+<TD class="confluenceTd"><TT>true</TT> or <TT>false</TT></TD>
+</TR>
+<TR>
+<TD class="confluenceTd"><TT>struts.class.reloading.watchList</TT></TD>
+<TD class="confluenceTd">List of jar files or directories to watch for changes</TD>
+<TD class="confluenceTd"><TT>null</TT></TD>
+<TD class="confluenceTd">Comma separated list of absolute or relative paths to jars or directories</TD>
+</TR>
+<TR>
+<TD class="confluenceTd"><TT>struts.class.reloading.acceptClasses</TT></TD>
+<TD class="confluenceTd">List of regular expressions of accepted class names</TD>
+<TD class="confluenceTd"><TT>null</TT></TD>
+<TD class="confluenceTd">Comma separated list of regular expressions of classes that will be loaded by the reloading class loader(we suggest to add regular expressions so only action classes are handled by the reloading class loader)</TD>
+</TR>
+<TR>
+<TD class="confluenceTd"><TT>struts.class.reloading.reloadConfig</TT></TD>
+<TD class="confluenceTd">Reload the runtime configuration (action mappings, results etc) when a change is detected in one of the watched directories</TD>
+<TD class="confluenceTd"><TT>false</TT></TD>
+<TD class="confluenceTd"><TT>true</TT> or <TT>false</TT></TD>
+</TR>
+</TBODY></TABLE>
+</DIV>
+
+
+<H4><A name="SpringPlugin-Installation"></A>Installation</H4>
+
+<P>This plugin can be installed by copying the plugin jar into your application's <TT>/WEB-INF/lib</TT> directory.  No other files need to be copied or created.</P>
+        </DIV>
+
+                  <DIV class="tabletitle">
+            Children
+            <SPAN class="smalltext" id="show" style="display: inline;">
+              <A href="javascript:showChildren()">Show Children</A></SPAN>
+            <SPAN class="smalltext" id="hide" style="display: none;">
+              <A href="javascript:hideChildren()">Hide Children</A></SPAN>
+          </DIV>
+          <DIV class="greybox" id="children" style="display: none;">
+                                      <A href="spring-session-components-workarounds.html" title="Spring Session Components Workarounds">Spring Session Components Workarounds</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                      </DIV>
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

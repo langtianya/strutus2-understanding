@@ -1,0 +1,376 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>GroovyResult</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="faqs.html" title="FAQs">FAQs</A>&nbsp;&gt;&nbsp;<A href="cookbook.html" title="Cookbook">Cookbook</A>&nbsp;&gt;&nbsp;<A href="" title="GroovyResult">GroovyResult</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">GroovyResult</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=13865">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=13865">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=13865">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=13865">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=13865">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=13865">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <DIV class="panelMacro"><TABLE class="infoMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD><B>Groovy Plugin Available</B><BR>There is now a Struts 2 Groovy plugin that largely superceded this page: <A href="http://cwiki.apache.org/S2PLUGINS/groovy-plugin.html" class="external-link" rel="nofollow">http://cwiki.apache.org/S2PLUGINS/groovy-plugin.html</A></TD></TR></TABLE></DIV>
+<H2><A name="GroovyResult-GroovyResultGroovyscriptsasaview"></A>GroovyResult - Groovy scripts as a view</H2>
+
+<P>This is an attempt to create a Result type that uses Groovy (<A href="http://groovy.codehaus.org/" class="external-link" rel="nofollow">http://groovy.codehaus.org</A>) files as a view. It exposes the current ActionContext to a groovy script. This doesn't really have much practical use, but it's fun nonetheless and shows how easy it is to create a Result. There is another Result (JFreeChartResult) in the <A href="../test/cookbook.html" title="Cookbook">Cookbook</A></P>
+
+<H2><A name="GroovyResult-Installation"></A>Installation</H2>
+
+<P>Not much - just make sure you have Groovy in your classpath, and the antlr, asm-&#42; and groovy jars available to your webapp.</P>
+
+<H2><A name="GroovyResult-Configuration"></A>Configuration</H2>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>acdtion.xml</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;result-types&gt;</SPAN>
+   <SPAN class="code-tag">&lt;result-type name=<SPAN class="code-quote">&quot;groovy&quot;</SPAN> class=<SPAN class="code-quote">&quot;myapp.action2.extensions.GroovyResult&quot;</SPAN>/&gt;</SPAN>
+<SPAN class="code-tag">&lt;/result-types&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+<P>xwork.xml - action definitions</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+&lt;action name=<SPAN class="code-quote">&quot;MyAction&quot;</SPAN> class=<SPAN class="code-quote">&quot;myapp.action2.actions.MyAction&quot;</SPAN>&gt;
+  &lt;result name=<SPAN class="code-quote">&quot;success&quot;</SPAN> type=<SPAN class="code-quote">&quot;groovy&quot;</SPAN>&gt;
+    &lt;param name=<SPAN class="code-quote">&quot;file&quot;</SPAN>&gt;test.groovy&lt;/param&gt;
+  &lt;/result&gt;
+&lt;/action&gt;
+</PRE>
+</DIV></DIV>
+<P>The result type takes one parameter (for now), namely 'file', which contains the name of the groovy script in our script directory.</P>
+
+<H2><A name="GroovyResult-Showmethecode%5C%21"></A>Show me the code &#33;</H2>
+
+<P>Here's the code of the actual GroovyResult. This is a verbose version, with a lot of error checking.</P>
+<UL class="alternate" type="square">
+	<LI>source code
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>GroovyResult.java</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+<SPAN class="code-keyword">public</SPAN> class GroovyResult <SPAN class="code-keyword">implements</SPAN> Result {
+
+	<SPAN class="code-keyword">public</SPAN> <SPAN class="code-keyword">final</SPAN> <SPAN class="code-keyword">static</SPAN> <SPAN class="code-object">String</SPAN> GROOVY_DIR_NAME = <SPAN class="code-quote">&quot;groovy&quot;</SPAN>;
+
+	<SPAN class="code-keyword">private</SPAN> <SPAN class="code-keyword">final</SPAN> <SPAN class="code-keyword">static</SPAN> Logger logger = Logger.getLogger(GroovyResult.class);
+	<SPAN class="code-comment">//our groovy source file name
+</SPAN>	<SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">String</SPAN> file;
+	<SPAN class="code-comment">//a groovy shell
+</SPAN>	<SPAN class="code-keyword">private</SPAN> GroovyShell shell;
+	<SPAN class="code-comment">//our parsed script
+</SPAN>	<SPAN class="code-keyword">private</SPAN> Script script;
+	<SPAN class="code-comment">//the outputstream that will replace the 'out' in our groovy stream
+</SPAN>	<SPAN class="code-keyword">private</SPAN> OutputStream out;
+	<SPAN class="code-comment">//directory containing groovy scripts
+</SPAN>	<SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">String</SPAN> scriptDirectory;
+	/*
+	 * (non-Javadoc)
+	 *
+	 * @see com.opensymphony.xwork.Result#execute(com.opensymphony.xwork.ActionInvocation)
+	 */
+	<SPAN class="code-keyword">public</SPAN> void execute(ActionInvocation inv) {
+
+		<SPAN class="code-comment">//check the scriptDirectory - <SPAN class="code-keyword">if</SPAN> it doesn't exists, use the <SPAN class="code-keyword">default</SPAN> one
+</SPAN>		<SPAN class="code-comment">//WEBAPP + Groovy files directory
+</SPAN>		<SPAN class="code-keyword">if</SPAN> (scriptDirectory == <SPAN class="code-keyword">null</SPAN>) {
+			<SPAN class="code-comment">//not pretty, but <SPAN class="code-keyword">this</SPAN> allows us to get the app root directory
+</SPAN>			<SPAN class="code-object">String</SPAN> base = ServletActionContext.getServletContext().getRealPath(
+					<SPAN class="code-quote">&quot;/&quot;</SPAN>);
+			<SPAN class="code-comment">//<SPAN class="code-keyword">if</SPAN> <SPAN class="code-keyword">for</SPAN> some reason (.war, apache connector, ..) we can't get the
+</SPAN>			<SPAN class="code-comment">// base path
+</SPAN>			<SPAN class="code-keyword">if</SPAN> (base == <SPAN class="code-keyword">null</SPAN>) {
+				logger
+						.warn(<SPAN class="code-quote">&quot;Could not translate the virtual path \&quot;</SPAN>/\<SPAN class="code-quote">&quot; to set the <SPAN class="code-keyword">default</SPAN> groovy script directory&quot;</SPAN>);
+				<SPAN class="code-keyword">return</SPAN>;
+			}
+			scriptDirectory = base + GROOVY_DIR_NAME;
+			<SPAN class="code-comment">//issue a warning that <SPAN class="code-keyword">this</SPAN> directory should NOT be world readable
+</SPAN>			<SPAN class="code-comment">// !!
+</SPAN>			logger
+					.warn(<SPAN class="code-quote">&quot;Please make sure your script directory is NOT world readable !&quot;</SPAN>);
+		}
+
+		<SPAN class="code-comment">// first of all, make sure our groovy file exists, is readable, and is
+</SPAN>		<SPAN class="code-comment">// an actual file
+</SPAN>
+		File groovyFile = <SPAN class="code-keyword">new</SPAN> File(scriptDirectory, file);
+		<SPAN class="code-keyword">if</SPAN> (!groovyFile.exists()) {
+			<SPAN class="code-comment">//log an error and <SPAN class="code-keyword">return</SPAN>
+</SPAN>			logger.warn(<SPAN class="code-quote">&quot;Could not find destination groovy file: &quot;</SPAN>
+					+ groovyFile.getAbsolutePath());
+			<SPAN class="code-keyword">return</SPAN>;
+		}
+		<SPAN class="code-keyword">if</SPAN> (!groovyFile.isFile()) {
+			<SPAN class="code-comment">//log an error and <SPAN class="code-keyword">return</SPAN>
+</SPAN>			logger.warn(<SPAN class="code-quote">&quot;Destination is not a file: &quot;</SPAN>
+					+ groovyFile.getAbsolutePath());
+			<SPAN class="code-keyword">return</SPAN>;
+		}
+		<SPAN class="code-keyword">if</SPAN> (!groovyFile.canRead()) {
+			<SPAN class="code-comment">//log an error and <SPAN class="code-keyword">return</SPAN>
+</SPAN>			logger.warn(<SPAN class="code-quote">&quot;Can not read file: &quot;</SPAN> + groovyFile.getAbsolutePath());
+			<SPAN class="code-keyword">return</SPAN>;
+		}
+
+		<SPAN class="code-keyword">if</SPAN> (logger.isDebugEnabled())
+			logger.debug(<SPAN class="code-quote">&quot;File &quot;</SPAN> + groovyFile.getPath()
+					+ <SPAN class="code-quote">&quot; found, going to parse it ..&quot;</SPAN>);
+
+		/*
+		 * Here we create a Binding object which we populate with the webwork
+		 * stack
+		 */
+		Binding binding = <SPAN class="code-keyword">new</SPAN> Binding();
+
+		binding.setVariable(<SPAN class="code-quote">&quot;context&quot;</SPAN>, ActionContext.getContext());
+
+		/*
+		 * We replace the standard OutputStream with our own, in <SPAN class="code-keyword">this</SPAN> <SPAN class="code-keyword">case</SPAN> the
+		 * OutputStream from our httpResponse
+		 */
+		<SPAN class="code-keyword">try</SPAN> {
+			<SPAN class="code-comment">//the out will be stored in an OutputStream
+</SPAN>			out = ServletActionContext.getResponse().getOutputStream();
+		} <SPAN class="code-keyword">catch</SPAN> (IOException e1) {
+			logger.error(<SPAN class="code-quote">&quot;Could not open outputstream&quot;</SPAN>, e1);
+		}
+		<SPAN class="code-keyword">if</SPAN> (out != <SPAN class="code-keyword">null</SPAN>){
+			binding.setVariable(<SPAN class="code-quote">&quot;out&quot;</SPAN>, out);
+		}
+		<SPAN class="code-keyword">else</SPAN> {
+			logger
+					.warn(<SPAN class="code-quote">&quot;OutputStream not available, using <SPAN class="code-keyword">default</SPAN> <SPAN class="code-object">System</SPAN>.out instead&quot;</SPAN>);
+			binding.setVariable(<SPAN class="code-quote">&quot;out&quot;</SPAN>, <SPAN class="code-object">System</SPAN>.out);
+		}
+
+		<SPAN class="code-comment">//create a <SPAN class="code-keyword">new</SPAN> shell to parse and run our groovy file
+</SPAN>		shell = <SPAN class="code-keyword">new</SPAN> GroovyShell(binding);
+		<SPAN class="code-keyword">try</SPAN> {
+			<SPAN class="code-comment">//<SPAN class="code-keyword">try</SPAN> to parse the script - the returned script could be cached <SPAN class="code-keyword">for</SPAN>
+</SPAN>			<SPAN class="code-comment">//performance improvent
+</SPAN>			script = shell.parse(groovyFile);
+		} <SPAN class="code-keyword">catch</SPAN> (CompilationFailedException e) {
+			logger.error(<SPAN class="code-quote">&quot;Could not parse groovy script&quot;</SPAN>, e);
+			<SPAN class="code-keyword">return</SPAN>;
+		} <SPAN class="code-keyword">catch</SPAN> (IOException e) {
+			logger.error(<SPAN class="code-quote">&quot;Error reading groovy script&quot;</SPAN>, e);
+			<SPAN class="code-keyword">return</SPAN>;
+		}
+		<SPAN class="code-comment">//the binding is set, now run the script
+</SPAN>		<SPAN class="code-object">Object</SPAN> result = script.run();
+
+		<SPAN class="code-keyword">if</SPAN> (logger.isDebugEnabled()) {
+			logger.debug(<SPAN class="code-quote">&quot;Script &quot;</SPAN> + groovyFile.getName()
+					+ <SPAN class="code-quote">&quot; executed, and returned: &quot;</SPAN> + result);
+		}
+		<SPAN class="code-keyword">try</SPAN> {
+			out.flush();
+		} <SPAN class="code-keyword">catch</SPAN> (IOException e2) {
+			logger.error(<SPAN class="code-quote">&quot;Could not flush the outputstream&quot;</SPAN>, e2);
+		}
+	}
+
+	/**
+	 * @<SPAN class="code-keyword">return</SPAN> Returns the script.
+	 */
+	<SPAN class="code-keyword">public</SPAN> Script getScript() {
+		<SPAN class="code-keyword">return</SPAN> script;
+	}
+	/**
+	 * @param file
+	 *            The file to set.
+	 */
+	<SPAN class="code-keyword">public</SPAN> void setFile(<SPAN class="code-object">String</SPAN> file) {
+		<SPAN class="code-keyword">this</SPAN>.file = file;
+	}
+	/**
+	 * @param out
+	 *            The out to set.
+	 */
+	<SPAN class="code-keyword">public</SPAN> void setOut(OutputStream out) {
+		<SPAN class="code-keyword">this</SPAN>.out = out;
+	}
+</PRE>
+</DIV></DIV></LI>
+</UL>
+
+
+<H2><A name="GroovyResult-Explanation"></A>Explanation</H2>
+
+<P>The first part of the result is little more than:</P>
+<UL class="alternate" type="square">
+	<LI>determining the script directory - defaults to <TT>MYWEBAPP/groovy/</TT></LI>
+	<LI>checking the file - make sure it exists, is readable, ..
+<DIV class="panelMacro"><TABLE class="noteMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>Make sure the groovy scripts directory is not world readable &#33;</TD></TR></TABLE></DIV></LI>
+</UL>
+
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>The groovy part</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+Binding binding = <SPAN class="code-keyword">new</SPAN> Binding();
+binding.setVariable(<SPAN class="code-quote">&quot;context&quot;</SPAN>, ActionContext.getContext());
+</PRE>
+</DIV></DIV>
+<P>A Binding object allows us to 'bind' objects to a groovy script, so they can be used as variables. In this case, I took the ActionContext and exposed it as 'context'.</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+out = ServletActionContext.getResponse().getOutputStream();
+...
+binding.setVariable(<SPAN class="code-quote">&quot;out&quot;</SPAN>, out);
+</PRE>
+</DIV></DIV>
+<P>We also bind an OutputStream to the groovy script (as 'out') - it simply serves as a replacement for the standard System.out, so any printing goes directly to the http response outputstream.</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+shell = <SPAN class="code-keyword">new</SPAN> GroovyShell(binding);
+</PRE>
+</DIV></DIV>
+<P>Next step; we create a GroovyShell, and pass our populated Binding to the constructor. Any script ran by this shell will have access to the passed variables (ActionContext and OutputStream).</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+script = shell.parse(groovyFile);
+</PRE>
+</DIV></DIV>
+<P>Before you can run a groovyFile, you need to parse it. Any syntax errors will be reported here - I also suggest adding a better error reporting in this case if you actually want to use this Result.<BR>
+Upon successful parsing, a Script is returned (which could be cached if you want to increase performance) which will be run by our Shell.</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+<SPAN class="code-object">Object</SPAN> result = script.run();
+</PRE>
+</DIV></DIV>
+<P>As a test, you might want to create a little 'groovy' script to test our Result.<BR>
+test.groovy - a simple groovy script</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+<SPAN class="code-keyword">for</SPAN> (item in context.contextMap){
+	println <SPAN class="code-quote">&quot;item: ${item}&quot;</SPAN>
+}
+</PRE>
+</DIV></DIV>
+<P>Place the test.groovy file in your groovy scripts directory. You should now see the result when you invoke MyAction.action in your browser.</P>
+
+<P>Possible improvements are binding all objects on the stack so they become available to the groovy script, refactoring to an InputStream instead of a File, etc .. Comments welcome &#33;</P>
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

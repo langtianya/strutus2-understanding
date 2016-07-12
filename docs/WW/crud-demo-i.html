@@ -1,0 +1,643 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>CRUD Demo I</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="tutorials.html" title="Tutorials">Tutorials</A>&nbsp;&gt;&nbsp;<A href="" title="CRUD Demo I">CRUD Demo I</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">CRUD Demo I</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=14178">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=14178">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14178">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14178">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14178">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14178">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <H1><A name="CRUDDemoI-Struts2CRUDExample"></A>Struts 2 CRUD Example</H1>
+
+<DIV class="panelMacro"><TABLE class="noteMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>Due to the export of the wiki to static pages, attachements are not visible. You can find the .war with the source <A href="http://cwiki.apache.org/confluence/download/attachments/14178/struts-crud.war" class="external-link" rel="nofollow">here</A></TD></TR></TABLE></DIV>
+
+<H2><A name="CRUDDemoI-Introduction"></A>Introduction</H2>
+
+<P>Welcome to the Struts 2 (S2) CRUD Example. This example was created to be as simple as possible and as such, it does not use all of the advanced (integration) features such as Spring IoC, Hibernate Open-session-in-view, OS Sitemesh, annotations, etc .. For these and other examples, please refer to the <A href="guides.html" title="Guides">Struts 2 Guides</A>.</P>
+
+<H2><A name="CRUDDemoI-Struts2"></A>Struts 2</H2>
+
+<P>Struts 2 is a traditional MVC2 action-based framework (such as Struts 1, Stripes, Simple, ..) as opposed to the newer event-based frameworks (such as JSF, Wicket, Rife, ..). Struts 2 uses XWork under the hood, a command-pattern based framework that handles conversion, validation, interception, and a lot more. Struts 2 is based on WebWork, which was originally started as an effort to overcome some problems with Apache Struts 1.</P>
+
+<H3><A name="CRUDDemoI-.warlayout"></A>.war layout</H3>
+
+<P>The .zip file you can download on this site can be dropped in your servlet container (rename it to .war then) and contains the source code under the WEB-INF directory. The layout is also kept as simple as possible:</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+- struts-crud
+-- [css] (contains the stylesheets)
+-- [WEB-INF]
+---- [classes] (contains the compiled src files)
+---- [lib] (contains the dependencies)
+---- [jsp] (contains the view pages)
+---- [src] (contains the source files)
+---- web.xml (our webapplication descriptor)
+-- index.html (simple redirect page)
+</PRE>
+</DIV></DIV>
+
+<H3><A name="CRUDDemoI-Configurationfiles"></A>Configuration files</H3>
+
+
+<H4><A name="CRUDDemoI-WEBINF%2Fweb.xml"></A>WEB-INF/web.xml</H4>
+
+<P>The webapplication's descriptor file contains one filter and its mapping. By default, the filter is mapped to /*, meaning all requests will be intercepted, but only those ending with a specific suffix (.action, by default) and certain special paths (for static files) will be processed and handled by Struts 2.</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;web-app&gt;</SPAN>
+    <SPAN class="code-tag">&lt;display-name&gt;</SPAN>Struts 2 CRUD Demo<SPAN class="code-tag">&lt;/display-name&gt;</SPAN>
+    <SPAN class="code-tag">&lt;filter&gt;</SPAN>
+        <SPAN class="code-tag">&lt;filter-name&gt;</SPAN>struts<SPAN class="code-tag">&lt;/filter-name&gt;</SPAN>
+        <SPAN class="code-tag">&lt;filter-class&gt;</SPAN>org.apache.struts2.dispatcher.FilterDispatcher<SPAN class="code-tag">&lt;/filter-class&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/filter&gt;</SPAN>
+
+    <SPAN class="code-tag">&lt;filter-mapping&gt;</SPAN>
+        <SPAN class="code-tag">&lt;filter-name&gt;</SPAN>struts<SPAN class="code-tag">&lt;/filter-name&gt;</SPAN>
+        <SPAN class="code-tag">&lt;url-pattern&gt;</SPAN>/*<SPAN class="code-tag">&lt;/url-pattern&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/filter-mapping&gt;</SPAN>
+<SPAN class="code-tag">&lt;/web-app&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>See <A href="webxml.html" title="web.xml">web.xml</A> for further details.</P>
+
+<H4><A name="CRUDDemoI-WEBINF%2Fclasses%2Fstruts.xml"></A>WEB-INF/classes/struts.xml</H4>
+
+<P>struts.xml contains the configuration for XWork: actions, validation, interceptors and results are defined in there.<BR>
+To understand these terms, we'll need to take a look at Struts 2's (and XWork's) architecture. A basic request goes a bit like this:<BR>
+A request is submitted, and our ActionMapper will try to determine the correct Action to execute. To find it, it will look up the registered names in your struts.xml. If one is found, before executing the Action, it will loop through a defined stack of interceptors.</P>
+
+<DIV class="navmenu" style="float:right; width:200px; background:white; margin:3px; padding:3px">  <DIV class="panelMacro"><TABLE class="tipMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD><B>Developer Info</B><BR><A href="interceptors.html" title="Interceptors">Learn More About Interceptors</A>
+
+<P>    <A href="parameters-interceptor.html" title="Parameters Interceptor">Learn About the Parameters Interceptor</A></P></TD></TR></TABLE></DIV></DIV>
+
+<P>Interceptors are a very important part of S2 - they will be invoked before and after your action is executed and the view is rendered, and as such, they are perfect for validation, authentication, open-session-in-view patterns, catching exceptions, setting or altering parameters, hiding complex operations, and more. S2 provides a number of prebuilt stacks with a ranging number of features, but nothing keeps you from defining your own interceptor stack with custom interceptors.</P>
+
+<P>One of the most practical interceptors is the 'params' interceptor. It will translate your request parameters to set them on your action. Thus, if your action had a setName(String), and one of your request parameters is called 'name', then WW will set the name for you. Not so special, you say ? Ok, how about setId(Long id) ? This will work just fine as long as your id parameter value can be converted to a Long. Still not special enough ? How about submitting a parameter named empolyee.id ? As you might have guessed, this will invoke a getEmployee().setId(Long id). S2 handles all common objects (Integer, String, Date, .. and Arrays, Lists, Maps, ..) And for those who just can't get enough, you can always add your own convertors for those (or your own) very complex objects (think social security number).</P>
+
+<P>An important aspect of a framework is validation. Adding validation can be a slow and complex process - not to mention the user feedback when something goes wrong. As we think you shouldn't reinvent the wheel, so S2 has a loosely coupled validation framework which you'll see this in action when you try to insert or update an Employee.</P>
+
+<P>Now, when an Action is executed, the result will be used to control the flow - these simple Strings (&quot;success&quot;, &quot;error&quot;, &quot;input&quot;, ..) will be used to invoke a certain Result - this Result can be a dispatcher to a JSP file, render a Freemarker template, generate a chart, output xml, you name it. And, it's totally independend from your Action. Note when validation fails, the result will be by default &quot;input&quot;.</P>
+
+<P>Now, as soon as the result is rendered/dispatched/executed/.. WW will loop through the interceptors again in reverse order - which is perfect for cleaning up resources, logging, timing, .. etc.</P>
+
+<P>Let us take a more detailed look at our <A href="strutsxml.html" title="struts.xml">struts.xml</A>:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;struts&gt;</SPAN>
+    <SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- Configuration for the default package. --&gt;</SPAN></SPAN>
+    <SPAN class="code-tag">&lt;package name=<SPAN class="code-quote">&quot;default&quot;</SPAN> extends=<SPAN class="code-quote">&quot;struts-default&quot;</SPAN>&gt;</SPAN>
+
+        <SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- Default interceptor stack. --&gt;</SPAN></SPAN>
+        <SPAN class="code-tag">&lt;default-interceptor-ref name=<SPAN class="code-quote">&quot;paramsPrepareParamsStack&quot;</SPAN>/&gt;</SPAN>
+        
+        <SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;index&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.aurifa.struts2.tutorial.action.EmployeeAction&quot;</SPAN> method=<SPAN class="code-quote">&quot;list&quot;</SPAN>&gt;</SPAN>
+            <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;success&quot;</SPAN>&gt;</SPAN>/WEB-INF/jsp/employees.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+            <SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- we don't need the full stack here --&gt;</SPAN></SPAN>
+            <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;basicStack&quot;</SPAN>/&gt;</SPAN>
+        <SPAN class="code-tag">&lt;/action&gt;</SPAN>
+
+        <SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;crud&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.aurifa.struts2.tutorial.action.EmployeeAction&quot;</SPAN> method=<SPAN class="code-quote">&quot;input&quot;</SPAN>&gt;</SPAN>
+            <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;success&quot;</SPAN> type=<SPAN class="code-quote">&quot;redirect-action&quot;</SPAN>&gt;</SPAN>index<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+            <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;input&quot;</SPAN>&gt;</SPAN>/WEB-INF/jsp/employeeForm.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+            <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;error&quot;</SPAN>&gt;</SPAN>/WEB-INF/jsp/error.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+        <SPAN class="code-tag">&lt;/action&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/package&gt;</SPAN>
+<SPAN class="code-tag">&lt;/struts&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>There are four major elements covered in this example: package, interceptor, action, and result.</P>
+
+<P>Packages are a way to group actions, results, result types, interceptors, and interceptor-stacks into a logical configuration unit. Conceptually, packages are similiar to objects in that they can be extended and have individual parts that can be overridden by &quot;sub&quot; packages. See <A href="package-configuration.html" title="Package Configuration">Package Configuration</A> for further details.</P>
+
+<P>Interceptors allow you to define code to be executed before and/or after the execution of an Action method. For now, we will configure our example to use the {{paramsPrepareParamsStack }} interceptor stack; you can ignore this for now. See <A href="interceptor-configuration.html" title="Interceptor Configuration">Interceptor Configuration</A> for further details.</P>
+
+<P>The action mappings are the basic &quot;unit-of-work&quot; in the framework. Essentially, the action maps an identifier to a handler class. When a request matches the action's name, the framework uses the mapping to determine how to process the request.</P>
+
+<P>We define two actions in our example using the same Action class, EmployeeAction. One is registered with the name 'index', and will be used for the index page, while the other one, 'crud' will be used to execute the various create/read/update/delete actions. You also note they list different method attributes: one will execute, by default, the list method while our crud action goes with the input method. See <A href="action-configuration.html" title="Action Configuration">Action Configuration</A> for further details.</P>
+
+<P>Results define what happens after an action executes. Each Action execution returns a String result which is used to select from the list of configured result elements.</P>
+
+<P>For our index action, we don't require any input, we will assume nothing goes wrong, so we only list the success result (Note: you can register global results as well). This result uses, under the hood, the default DispatcherResult result-type to dispatch the request to an employees.jsp file. Also note the fact that since we didn't need the full stack (no validation, fileupload, preparing, or other funky things), we prefer to use the basic interceptor stack for this request. </P>
+
+<P>It gets more interesting for our crud Action: besides the success result, we also specify the input result (which dispatches to our input form) and the error result (which is returned when an exception is thrown during the Action execution - for example a database exception). You can also see we specified a different result-type for our success result, in case the 'redirect-action'. This is nothing more than a fancy redirect which will append the chosen S2 suffix, so we could have also used the redirect result-type, with index.action as its text. But this approach is slightly better since it is suffix agnostic (you can switch suffixes very easily in S2, so that is why we always advise to program suffix agnostic and let the framework handle it for you).</P>
+
+<P>See <A href="result-configuration.html" title="Result Configuration">Result Configuration</A> for further details.</P>
+
+<H4><A name="CRUDDemoI-WEBINF%2Fclasses%2Fstruts.properties"></A>WEB-INF/classes/struts.properties</H4>
+
+<P>This file only contains two lines, and is used to set Struts 2 specific settings (such as which IoC container to use, which fileuploader, what templates, etc ..). You don't really need it, but for i18n reasons, we use it to register our resource bundle 'guest.properties'. Note that you can register properties file on different levels in Struts 2.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+struts.custom.i18n.resources=guest
+</PRE>
+</DIV></DIV>
+
+<P>More information on <A href="strutsproperties.html" title="struts.properties">struts.properties</A></P>
+
+<DIV class="panelMacro"><TABLE class="infoMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>It is recommended that configuration be handled with your <A href="strutsxml.html" title="struts.xml">struts.xml</A> file: see <A href="constant-configuration.html" title="Constant Configuration">Constant Configuration</A> for details.</TD></TR></TABLE></DIV>
+
+<H4><A name="CRUDDemoI-WEBINF%2Fclasses%2Fguest.properties"></A>WEB-INF/classes/guest.properties</H4>
+
+<P>This guest.properties file will contain the keys and values to internationalize your webapplication in a straightforward way. Rather than hardcoding Welcome &#33; in your page, you should use specify a key (eg. 'welcome_msg') with a certain value ('Welcome &#33;'). By adding new resource bundles, you can override the key and specify a different value (eg. 'Bienvenue &#33;' for a french Locale).</P>
+
+<H3><A name="CRUDDemoI-Thecode"></A>The code</H3>
+
+<P>Since 90% of the code is identical to the other CRUD examples displayed on <A href="http://www.learntechnology.net/" class="external-link" rel="nofollow">this site</A>, we'll only analyze the Action class, EmployeeAction.<BR>
+As always, first things first - the class definition:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+...
+<SPAN class="code-keyword">import</SPAN> com.opensymphony.xwork2.ActionSupport;
+<SPAN class="code-keyword">import</SPAN> com.opensymphony.xwork2.Preparable;
+...
+
+<SPAN class="code-keyword">public</SPAN> class EmployeeAction <SPAN class="code-keyword">extends</SPAN> ActionSupport <SPAN class="code-keyword">implements</SPAN> Preparable {
+	...
+</PRE>
+</DIV></DIV>
+
+<P>Now, first there is the extending of the ActionSupport class - although you don't have to extend it, it provides a lot of useful extras, so you are encouraged to extend and override parts of it, but you don't have to. The interface we are implementing is a bit more interesting. The Preparable interface only defines one method, public void prepare(). By implementing this interface in your Action, you tell the prepare interceptor to call this method on your Action - so that makes it perfect to, for example, retrieve objects from a database, which is what we're 'faking' here by requesting an Employee object from the EmployeeService.</P>
+
+<P>There are quite some different interfaces that you can implement that will be used by interceptors (SessionAware, ServletRequestAware, ..), but you need to be sure the interceptors are listed in your interceptor stack, or the interceptor won't be executed on your action.</P>
+
+<P>Besides the prepare() method we just explained, our Action also contains the doInput(), doSave(), doList() and doDelete() methods. Remember how we specified the method attribute in the struts.xml file ? Well, these are the methods that are going to be executed. Technically, you could have defined input(), save(), list() and delete() as well, but S2 will automagically find the correct method. Originally, this was because often a default() method is declared - but since default is a reserved keyword, you have to make that doDefault(). You don't have to care about that, but just so you know.</P>
+
+<P>Let's explore the doList method, which is the default method we specified in our struts.xml for our index action.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+<SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> doList() {
+	employees = empService.getAllEmployees();
+	<SPAN class="code-keyword">return</SPAN> SUCCESS;
+}
+</PRE>
+</DIV></DIV>
+
+<P>Surprisingly simple, no? Simply fill in the employees object, and return &quot;success&quot; (defined as a final static variable SUCCESS). That's it? That's it. The only thing you need now to show the list in your view layer is a simple getter for employees in your Action. The reason for this is another Struts 2 feature: the ValueStack.</P>
+
+<H4><A name="CRUDDemoI-TheValueStack%3Ait%27smagic%2Cbaby%5C%21"></A>The ValueStack: it's magic, baby&#33;</H4>
+
+<P>The ValueStack is like a normal stack. You can put objects on it, remove them from it, and query it. And even more, you can query it with expressions&#33; It's the heart of Struts 2, and allows easy access to a wide range of objects from nearly any place in the framework: interceptors, results, tags, ... you name it.</P>
+
+<P>Your action is placed on top of the stack when it is executed.</P>
+
+<P>Once it's on the valueStack, you could query for it 'employees' - a special glue language called OGNL will then transform that request to 'top.getEmployees()' - and since top is the top of your stack, and your Action is located just there, it will invoke the getEmployees() method on your Action, and return the result.</P>
+
+<P>More information on <A href="big-picture.html" title="Big Picture">the Struts 2 architecture</A>, <A href="interceptors.html" title="Interceptors">Interceptors</A>, <A href="ognl.html" title="OGNL">OGNL</A></P>
+
+<H3><A name="CRUDDemoI-Firstview%3Atheemployeelisting"></A>First view: the employee listing</H3>
+
+<P>S2 defines a lot of tags that will dramatically speed up your development. They can alter or query the value stack, render input forms, javascript widgets, iterate over collection, and so on. On top of that, they have different themes, which add even more functionality/layout by the switch of a parameter. Themes are out of the scope of this example, but you should definitely check them out; see <A href="themes-and-templates.html" title="Themes and Templates">Themes and Templates</A>.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;%@taglib prefix=<SPAN class="code-quote">&quot;s&quot;</SPAN> uri=<SPAN class="code-quote">&quot;/struts-tags&quot;</SPAN> %&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;head&gt;</SPAN>
+    <SPAN class="code-tag">&lt;link href=<SPAN class="code-quote">&quot;&lt;s:url value='/css/main.css'/&gt;</SPAN>&quot;</SPAN> rel=<SPAN class="code-quote">&quot;stylesheet&quot;</SPAN> type=<SPAN class="code-quote">&quot;text/css&quot;</SPAN>/&gt;
+    <SPAN class="code-tag">&lt;title&gt;</SPAN><SPAN class="code-tag">&lt;s:text name=<SPAN class="code-quote">&quot;label.employees&quot;</SPAN>/&gt;</SPAN><SPAN class="code-tag">&lt;/title&gt;</SPAN>
+<SPAN class="code-tag">&lt;/head&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>The <TT>s:url</TT> tag allows you to build urls for actions, possibly with parameters. This saves you from having to type them out manually, remember (or change) what action suffix you're using, or include the web-app context. See <A href="url.html" title="url">url</A> for further details.</P>
+
+<P>The <TT>s:text</TT> tag will look up keys in resource bundles in the valueStack (depending on the locale). So adding a new language would be a breeze. In these cases we build an url '/css/main' and we display the value of a key 'label.employees' from our guest.properties resource bundle. See <A href="text.html" title="text">text</A> for further details.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;s:url id=<SPAN class="code-quote">&quot;url&quot;</SPAN> action=<SPAN class="code-quote">&quot;crud!input&quot;</SPAN> /&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;a href=<SPAN class="code-quote">&quot;&lt;s:property value=&quot;</SPAN>#url<SPAN class="code-quote">&quot;/&gt;</SPAN>&quot;</SPAN>&gt;Add New Employee<SPAN class="code-tag">&lt;/a&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>Here we use <TT>s:url</TT> to generate a URL and assign it to an ID so we can refer to it later.</P>
+
+<P>The <TT>s:property</TT> tag provides access to objects on the OGNL value stack. Our object, <TT>url</TT>, may be accessed using the <TT>#</TT> character: non-root objects on the value stack need the <TT>#</TT> character. See <A href="ognl.html" title="OGNL">OGNL</A> for further details.</P>
+
+<H4><A name="CRUDDemoI-TheActionMapper"></A>The ActionMapper</H4>
+
+<P>The S2 ActionMapper doesn't just map names to Actions - it can also change the method, or even action, by using special requests. The weird value we encountered above, crud&#33;input, tells the ActionMapper to invoke the input()/doInput() method of the Action known as crud. So for example, you could have several slighly different methods, and rather than having to register each of them in the struts.xml file, you can use the &#33; notation to specify which method to execute.</P>
+
+<DIV class="panelMacro"><TABLE class="infoMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>You may also use <A href="wildcard-mappings.html" title="Wildcard Mappings">Wildcard Mappings</A> to run specific methods rather than use the &#33; character.</TD></TR></TABLE></DIV>
+
+<P>Another thing is the fact that you can override which action/method to invoke based on a special name:action parameter, which we'll use later on in our employeeForm.jsp to make a nice cancel button.</P>
+
+<P>More information on the <A href="actionmapper.html" title="ActionMapper">ActionMapper</A></P>
+
+<H4><A name="CRUDDemoI-Moretags%3As%3Aiterator%2Cs%3Aif%2Felse%2Cands%3Aproperty"></A>More tags: s:iterator, s:if/else, and s:property</H4>
+
+<P>Take a look at the following lines from our employees.jsp:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;s:iterator value=<SPAN class="code-quote">&quot;employees&quot;</SPAN> status=<SPAN class="code-quote">&quot;status&quot;</SPAN>&gt;</SPAN>
+    <SPAN class="code-tag">&lt;tr class=<SPAN class="code-quote">&quot;&lt;s:if test=&quot;</SPAN>#status.even<SPAN class="code-quote">&quot;&gt;</SPAN>even<SPAN class="code-tag">&lt;/s:if&gt;</SPAN><SPAN class="code-tag">&lt;s:else&gt;</SPAN>odd<SPAN class="code-tag">&lt;/s:else&gt;</SPAN>&quot;</SPAN>&gt;
+</PRE>
+</DIV></DIV>
+
+<P>The <TT>s:iterator</TT> tag does pretty much what you expect from it: it loops through an array/list/collection, and pushes each object it encounters on the stack on each iteration. It also has a helper attribute called <TT>status</TT>, which generates a status object that keep track of the index, tells you if you're in an even or odd row, and so on, while you're inside the <TT>s:iterator</TT> tag. See <A href="iterator.html" title="iterator">iterator</A> for further details.</P>
+
+<P>As you can see, we use that same status object in our next tag, the <TT>s:if</TT> and its companion, the <TT>s:else</TT> tag. The test attribute of <TT>s:if</TT> allows you to query the valueStack with an OGNL expression, which is exactly what we do here: see if the status object from our <TT>s:iterator</TT> tag we put on the valueStack, returns true when the method isEven() is invoked. The corresponding <TT>s:else</TT> method is then executed if the test method return false.</P>
+
+<DIV class="panelMacro"><TABLE class="noteMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>Unlike JSTL's <TT>c:choose</TT>/<TT>c:when</TT>/<TT>c:otherwise</TT> tags you do not nest <TT>s:if</TT>/<TT>s:else</TT> inside a &quot;parent&quot; tag.</TD></TR></TABLE></DIV>
+
+<P>Finally, there's the <TT>s:property</TT> tag, which is used for displaying objects/expressions from the ValueStack. Examine this:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;s:property value=<SPAN class="code-quote">&quot;age&quot;</SPAN> /&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>This might be a little confusing at first, but it's very simple. This actually translates to top.getAge(), meaning we'll execute a getAge() on the top object on our ValueStack. Which happens to be .. the Action? Nope. The employees List? Closer. The current Employee object in the employee list? Bingo.</P>
+
+<P>Why? Because we told you what the <TT>s:iterator</TT> tag did: it places each object on the top of the stack. Since the employees List contains Employee objects, an Employee object gets 'on top' of the stack. That's why you can simply use &quot;age&quot; for <TT>s:property</TT>'s value attribute and have the employee's age printed out.</P>
+
+<H2><A name="CRUDDemoI-Adding%26Editinganemployee"></A>Adding &amp; Editing an employee</H2>
+
+<P>Easy enough: return &quot;input&quot; from your Action, and register the result in your struts.xml with a dispatcher to employeeForm.jsp.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+<SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> doInput() {
+    <SPAN class="code-keyword">return</SPAN> INPUT;
+}
+</PRE>
+</DIV></DIV>
+
+<P>Nothing to it. So let's take a look at how we are going to edit an Employee.</P>
+
+<P>Editting, or better, preparing for editing, comes in many flavours. Fact is, you often need 'extra' objects, like a list of possible departments in our case, to be set up before rendering the insert or edit page. In S2, there are quite some ways to accomplish this, but two approaches are recommended:</P>
+
+<P>&#45; Using a <TT>prepare()</TT> method and interceptor to setup any additional objects you need<BR>
+&#45; Using an <TT>s:action</TT> tag to use another action to create the objects for you - for example, a DepartmentAction could return a list of Department objects.<BR>
+Here we'll show you both, but in the example application you'll only find the first one (might change, that's why we're adding it here).</P>
+
+<H4><A name="CRUDDemoI-Theprepareapproach"></A>The prepare approach</H4>
+
+<P>A little rehearsal: the prepare interceptor, when listed in your interceptor stack, will call the prepare method on our Action. We use this prepare method to set up our deparments, so the list will be available whenever our crud action is called.</P>
+
+<P>We also use this to retrieve an employee bean whenever an id is set - which is precisely how we make the difference between inserting and editing (and we use a similar method in the doSave() method in our EmployeeAction). So, visiting the crud&#33;input action without an employee.id parameter to retrieve the employee, will result in an empty form, while passing the parameter will result in an Employee object to be retrieved for editing.</P>
+
+<P>See <A href="prepare-interceptor.html" title="Prepare Interceptor">Prepare Interceptor</A> for further details.</P>
+
+<H4><A name="CRUDDemoI-Thes%3Aactionapproach"></A>The s:action approach</H4>
+
+<P>The other commonly used approach is to use the s:action tag. The s:action tag allows you to execute (additional) S2 actions, which makes them perfect to generate objects for input forms, such as select boxes. You could create for example, a Department action, which does nothing more than listing an doList() method to set up a list of departments, and getter for it, called getDepartments().</P>
+
+<P>Register the DepartmentAction in your struts.xml as 'department', and you can simply call it in your page, and use the id approach we used in the s:url tag to store the result on the stack under a custom name called allDepartments:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;s:action name=<SPAN class="code-quote">&quot;department!list&quot;</SPAN> id=<SPAN class="code-quote">&quot;allDepartments&quot;</SPAN>/&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>Now, this, by itself, does not do much. We'll show you later when we talk about the employeeForm page how to use it as an alternative approach.</P>
+
+<P>More information on the <A href="action.html" title="action">s:action</A> tag</P>
+
+<H3><A name="CRUDDemoI-Formsmadeeasy"></A>Forms made easy</H3>
+
+<P>The employeeForm.jsp page is really concise. We told you about the themes that S2 uses under the cover, right? Well, those are going to be responsable for rendering our form, complete with labels for names and errors, input fields, and so on.</P>
+
+<P>But first, we find another useful tag: <TT>s:set</TT>.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;s:if test=<SPAN class="code-quote">&quot;employee==null || employee.employeeId == null&quot;</SPAN>&gt;</SPAN>
+    <SPAN class="code-tag">&lt;s:set name=<SPAN class="code-quote">&quot;title&quot;</SPAN> value=<SPAN class="code-quote">&quot;%{'Add new employee'}&quot;</SPAN>/&gt;</SPAN>
+<SPAN class="code-tag">&lt;/s:if&gt;</SPAN>
+<SPAN class="code-tag">&lt;s:else&gt;</SPAN>
+    <SPAN class="code-tag">&lt;s:set name=<SPAN class="code-quote">&quot;title&quot;</SPAN> value=<SPAN class="code-quote">&quot;%{'Update employee'}&quot;</SPAN>/&gt;</SPAN>
+<SPAN class="code-tag">&lt;/s:else&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>The set tag allows you to store certain objects on the stack (as well as their scope - request/session/page/...), which is what we're going to do here because out of sheer laziness (and performance reasons) we refuse to do the same if/else more than once. As you can guess, it relies on the same principle as the id attribute of the <TT>s:url</TT> tag we saw earlier, meaning I can access it with <TT>#title</TT> on the ValueStack.</P>
+
+<P>More information on the <A href="if.html" title="if">s:if</A> tag, <A href="else.html" title="else">s:else</A> tag</P>
+
+<H4><A name="CRUDDemoI-Theactualform"></A>The actual form</H4>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;s:form action=<SPAN class="code-quote">&quot;crud!save&quot;</SPAN> method=<SPAN class="code-quote">&quot;post&quot;</SPAN>&gt;</SPAN>
+    <SPAN class="code-tag">&lt;s:textfield name=<SPAN class="code-quote">&quot;employee.firstName&quot;</SPAN> value=<SPAN class="code-quote">&quot;%{employee.firstName}&quot;</SPAN> label=<SPAN class="code-quote">&quot;%{getText('label.firstName')}&quot;</SPAN> size=<SPAN class="code-quote">&quot;40&quot;</SPAN>/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;s:textfield name=<SPAN class="code-quote">&quot;employee.lastName&quot;</SPAN> value=<SPAN class="code-quote">&quot;%{employee.lastName}&quot;</SPAN> label=<SPAN class="code-quote">&quot;%{getText('label.lastName')}&quot;</SPAN> size=<SPAN class="code-quote">&quot;40&quot;</SPAN>/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;s:textfield name=<SPAN class="code-quote">&quot;employee.age&quot;</SPAN> value=<SPAN class="code-quote">&quot;%{employee.age}&quot;</SPAN> label=<SPAN class="code-quote">&quot;%{getText('label.age')}&quot;</SPAN> size=<SPAN class="code-quote">&quot;20&quot;</SPAN>/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;s:select name=<SPAN class="code-quote">&quot;employee.department.departmentId&quot;</SPAN> value=<SPAN class="code-quote">&quot;%{employee.department.departmentId}&quot;</SPAN> list=<SPAN class="code-quote">&quot;departments&quot;</SPAN> listKey=<SPAN class="code-quote">&quot;departmentId&quot;</SPAN> listValue=<SPAN class="code-quote">&quot;name&quot;</SPAN>/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;s:hidden name=<SPAN class="code-quote">&quot;employee.employeeId&quot;</SPAN> value=<SPAN class="code-quote">&quot;%{employee.employeeId}&quot;</SPAN>/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;s:submit value=<SPAN class="code-quote">&quot;%{getText('button.label.submit')}&quot;</SPAN>/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;s:submit value=<SPAN class="code-quote">&quot;%{getText('button.label.cancel')}&quot;</SPAN> name=<SPAN class="code-quote">&quot;redirect-action:index&quot;</SPAN>/&gt;</SPAN>
+<SPAN class="code-tag">&lt;/s:form&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>Wow - a lot of code at once. Let's dissect it tag by tag. It may seem complicated, but as you'll see, it's actually really easy.</P>
+
+<P>The <TT>s:form</TT> tag generates a standard html form, while the first <TT>s:textfield</TT> will generate an &lt;input type=&quot;text&quot; .. /&gt; - but wait, it does more. It transforms your first tag from this:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;s:textfield name=<SPAN class="code-quote">&quot;employee.firstName&quot;</SPAN> value=<SPAN class="code-quote">&quot;%{employee.firstName}&quot;</SPAN> label=<SPAN class="code-quote">&quot;%{getText('label.firstName')}&quot;</SPAN> size=<SPAN class="code-quote">&quot;40&quot;</SPAN>/&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>Into this:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;tr&gt;</SPAN>
+    <SPAN class="code-tag">&lt;td class=<SPAN class="code-quote">&quot;tdLabel&quot;</SPAN>&gt;</SPAN>
+        <SPAN class="code-tag">&lt;label for=<SPAN class="code-quote">&quot;crud!save_employee_firstName&quot;</SPAN> class=<SPAN class="code-quote">&quot;label&quot;</SPAN>&gt;</SPAN>First Name:<SPAN class="code-tag">&lt;/label&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/td&gt;</SPAN>
+    <SPAN class="code-tag">&lt;td&gt;</SPAN>
+        <SPAN class="code-tag">&lt;input type=<SPAN class="code-quote">&quot;text&quot;</SPAN> name=<SPAN class="code-quote">&quot;employee.firstName&quot;</SPAN> size=<SPAN class="code-quote">&quot;40&quot;</SPAN> value=<SPAN class="code-quote">&quot;&quot; id=&quot;</SPAN>crud!save_employee_firstName&quot;/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/td&gt;</SPAN>
+<SPAN class="code-tag">&lt;/tr&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>Let's analyze that <TT>s:textfield</TT> tag in greater detail. First thing we encounter is the name attribute, which is similar to the HTML input tag's name attribute. So it is by itself, not very special. However, as we've seen above, this allows S2 to call the getEmployee().setFirstName() method - and even, if necessary, create the Employee object for you. </P>
+
+<P>No more tens of property setters in your action - just one setter for a good ol' POJO (Plain Old Java Object), and you can call its setters right away (Note: for those who are concerned about mailicious injections, you can limit what can be set on your POJO)&#33;</P>
+
+<P>The value attribute uses a special %{..} notation, to indicate the value is not just a string 'employee.firstName', but in fact an expression that should be looked up on the ValueStack. This will make OGNL analyze the content, and look up on the ValueStack to see if it can find a method named getEmployee(), which returns a POJO which has a getFirstName() method on it.</P>
+
+<P>Now, when such an expression returns null (since our Employee pojo is NOT initialised - we are doing an insert here, remember ?), S2 creates the Employee object for you, and its getFirstName() returns, of course, null. So, we're actually cheating here, because it will allow us to reuse that same form when we are going to edit an Employee. In that case, our getEmployee() would return an initialised object, so its getFirstName() would return a value, and thus display it in our input field &#33; Great - reusal of forms is always nice (of course, you can always use two seperate forms, but you don't need to).</P>
+
+<P>Ok, so %{..} indicates an expression on the ValueStack, and returns a blank if a null is returned, or the toString() value otherwise. The OGNL analyzer is pretty powerful, so you can do things like value=&quot;my_special_valentine_is_%{girlfriend.name}&quot;, %{100 * loan.tax}, or even %{new int[100]} and %{new java.util.Date()}.</P>
+
+<P>Now, we saw earlier that we could use the <TT>s:text</TT> tag to retrieve values from resource bundles for i18n reasons. Now that begs the question, how do we use those same values in our tags? Let's say we want to i18n'ize our textfield label. Something like this:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;s:textfield name=<SPAN class="code-quote">&quot;employee.firstName&quot;</SPAN> value=<SPAN class="code-quote">&quot;%{employee.firstName}&quot;</SPAN> label=<SPAN class="code-quote">&quot;&lt;s:text name=&quot;</SPAN>label.firstName<SPAN class="code-quote">&quot;/&gt;</SPAN>&quot;</SPAN> size=<SPAN class="code-quote">&quot;40&quot;</SPAN>/&gt;
+</PRE>
+</DIV></DIV>
+
+<P>Ugh. No, that's ugly, and it wouldn't work either. The solution is much cleaner and simpler: use another expression&#33; If you were to check the extra methods provided by making our EmployeeAction extends ActionSupport, you would see a method called getText(String key). This method will look up a value in the resource bundle by its key, which is exactly what we need. So, the label would become something like this: %{getText('our_key')}. Makes sense? Thought so.</P>
+
+<P>Meet the next tag, s:select, which renders a select box using an iteratable collection:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;s:select name=<SPAN class="code-quote">&quot;employee.department.departmentId&quot;</SPAN> value=<SPAN class="code-quote">&quot;%{employee.department.departmentId}&quot;</SPAN> list=<SPAN class="code-quote">&quot;departments&quot;</SPAN> listKey=<SPAN class="code-quote">&quot;departmentId&quot;</SPAN> listValue=<SPAN class="code-quote">&quot;name&quot;</SPAN>/&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<DIV class="panelMacro"><TABLE class="noteMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>There currently is a small bug in Struts 2.0.5 that does not select the correct value by default. You can solve this by using value=&quot;%{employee.department.departmentId.toString()}&quot;.</TD></TR></TABLE></DIV>
+
+<P>We already covered the name attribute, so let's look at the list attribute: departments. Hmm, this might seems strange at first. Where does it come from? Well, perhaps it makes much more sense to see this: list=&quot;%{departments}&quot;. Yes, it is in fact an expression on the ValueStack that will query our action for the departments we've setup before &#33; Then, why are we missing the %{..} ? The answer is twofold: you can still write %{departments}, and it would work as you expected. But you have to realize, that whatever you are going to iterate is going to be an expression&#33; So, being pretty lazy and with all this Ruby-on-rails 'minimalistic' code, we decided we might as well save you a couple of RSI-related finger moves and let you discard the %{..}.</P>
+
+<P>Another quick intermezzo: you can use expressions to make your own list in an expression - which is perfect for small yes/no and male/female/eunuch selections - like this:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;s:select name=<SPAN class="code-quote">&quot;gender&quot;</SPAN> list=<SPAN class="code-quote">&quot;%{#{'male':'Male', 'female':'Female'}}&quot;</SPAN> /&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>By the way, did you remember the <TT>s:action</TT> tag we used as an alternative to the prepare method to fill up the select box? We can now use the action we executed and stored on the ValueStack by referencing it by its id:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;s:select name=<SPAN class="code-quote">&quot;gender&quot;</SPAN> list=<SPAN class="code-quote">&quot;%{#allDepartments.departments}&quot;</SPAN> /&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>So, instead of getting the departments from the current action, we used <TT>s:action</TT> to execute a different action that retrieves the department List. This allows you to split up, and reuse Actions (Note: you can go even further and program your own components with built-in actions, but that's out of scope).</P>
+
+<P>Let's get back to the original plan.</P>
+
+<P>Now, the listKey and listValue attributes tell <TT>s:select</TT> what it should use as keys and values in our select box - and what do you know, those (hidden) expressions are going to be invoked on each object it encounters in your list - in this case, getDepartmentId() and getName().</P>
+
+<P>Finally, the value attribute will tell S2 where to place the typical 'selected' attribute in our generated options, and it will print it as soon as the value expression equals the key expression. Thus, in our case, as soon as your employee.getDepartment().getDepartmentId() equals the getDepartmentId() expression on one of the Department objects in our departments List. Since we don't have an employee we're editing, the expression would return null, so no selected attribute would be printed.</P>
+
+<P>Finally, the last two tags, the submission tags. Submission tags, yes. One for submitting the form, and another one to cancel it. The first submit button, submits the form to the form's action attribute, in case crud&#33;save.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;s:submit value=<SPAN class="code-quote">&quot;%{getText('button.label.submit')}&quot;</SPAN>/&gt;</SPAN>
+<SPAN class="code-tag">&lt;s:submit value=<SPAN class="code-quote">&quot;%{getText('button.label.cancel')}&quot;</SPAN> name=<SPAN class="code-quote">&quot;redirect-action:index&quot;</SPAN>/&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>The second one is more interesting though. It also submits the form to the same crud&#33;save action as the first one, but lists a special name attribute. This name attribute will cause the ActionMapper to intercept the call, and in this case, redirect it to another action. No more fiddling with javascript to have forms with multiple submit buttons - it's all done for you, without any javascript or the troubles that come with it.</P>
+
+<P>More information about <A href="themes-and-templates.html" title="Themes and Templates">Themes and Templates</A>, <A href="form-tags.html" title="Form Tags">Form Tags</A>, and <A href="actionmapper.html" title="ActionMapper">ActionMapper</A>.</P>
+
+<H3><A name="CRUDDemoI-Validation"></A>Validation</H3>
+
+<P>Alright, so you've set up the form for adding and updating employees. This is the point where you normally start sweating, you hands start shaking and you feel slightly dizzy. Have no fear, S2 is here&#33;</P>
+
+<P>S2 uses XWork's validation framework internally. It allows you to validate Models and Actions using a set of specialised (field)validators, grouped together in an xml file named YourModel-validation.xml or ActionName-validation (and, in the case of the alias, ActionName-alias-validation.xml). </P>
+
+<P>Since we only want to validate the crud action, we create a file EmployeeAction-crud-validation.xml and place it in our classpath (mostly next to our compiled Action class).</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;validators&gt;</SPAN>
+  <SPAN class="code-tag">&lt;field name=<SPAN class="code-quote">&quot;employee.firstName&quot;</SPAN>&gt;</SPAN>
+     <SPAN class="code-tag">&lt;field-validator type=<SPAN class="code-quote">&quot;requiredstring&quot;</SPAN>&gt;</SPAN>
+        <SPAN class="code-tag">&lt;message key=<SPAN class="code-quote">&quot;errors.required.firstname&quot;</SPAN>/&gt;</SPAN>
+      <SPAN class="code-tag">&lt;/field-validator&gt;</SPAN>
+  <SPAN class="code-tag">&lt;/field&gt;</SPAN>
+  <SPAN class="code-tag">&lt;field name=<SPAN class="code-quote">&quot;employee.lastName&quot;</SPAN>&gt;</SPAN>
+     <SPAN class="code-tag">&lt;field-validator type=<SPAN class="code-quote">&quot;requiredstring&quot;</SPAN>&gt;</SPAN>
+        <SPAN class="code-tag">&lt;message key=<SPAN class="code-quote">&quot;errors.required.lastname&quot;</SPAN>/&gt;</SPAN>
+      <SPAN class="code-tag">&lt;/field-validator&gt;</SPAN>
+  <SPAN class="code-tag">&lt;/field&gt;</SPAN>
+  <SPAN class="code-tag">&lt;field name=<SPAN class="code-quote">&quot;employee.age&quot;</SPAN>&gt;</SPAN>
+     <SPAN class="code-tag">&lt;field-validator type=<SPAN class="code-quote">&quot;required&quot;</SPAN> short-circuit=<SPAN class="code-quote">&quot;true&quot;</SPAN>&gt;</SPAN>
+        <SPAN class="code-tag">&lt;message key=<SPAN class="code-quote">&quot;errors.required.age&quot;</SPAN>/&gt;</SPAN>
+      <SPAN class="code-tag">&lt;/field-validator&gt;</SPAN>
+      <SPAN class="code-tag">&lt;field-validator type=<SPAN class="code-quote">&quot;int&quot;</SPAN>&gt;</SPAN>
+      	<SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;min&quot;</SPAN>&gt;</SPAN>18<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+      	<SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;max&quot;</SPAN>&gt;</SPAN>65<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+        <SPAN class="code-tag">&lt;message key=<SPAN class="code-quote">&quot;errors.required.age.limit&quot;</SPAN>/&gt;</SPAN>
+      <SPAN class="code-tag">&lt;/field-validator&gt;</SPAN>
+  <SPAN class="code-tag">&lt;/field&gt;</SPAN>
+<SPAN class="code-tag">&lt;/validators&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>A very important reminder: validation is once again done by an interceptor, so it should be in your stack. Even more important, validators 'query your Action/Model' and NOT your request&#33; Keep this in mind at all times.</P>
+
+<P>With that out of the way, let's analyze this snippet: there are two types of validators: field validators and general validators. We start by analyzing the field employee.firstName - so this means: we will analyze the result from the invocation of getEmployee().getFirstName() on our Action, not the request parameter named employee.firstName&#33;</P>
+
+<P>Field validators will not validate input fields - they are named field validators because they will automatically mark the input field in your form with the validation error, whereas normal validators would create actionErrors.</P>
+
+<P>First we apply a <TT>requiredstring</TT> validator to the getEmployee().getFirstName() return value. There are quite a few validators, ranging from requiredstring, required, intrange, emailaddress, url, .. etc. Writing your own validator is not hard, and it can be reused easily. Here we use the requiredstring, which does 2 checks:</P>
+
+<UL class="alternate" type="square">
+	<LI>check the availabilty of the string (&#33;= null)</LI>
+	<LI>check the length of the string to be &gt; 0</LI>
+</UL>
+
+
+<P>Why the stringlength greater than 0? HTML forms will submit an empty string (<B>not</B> a null!) for an empty text input, so simply testing for null would fail if we required at least one character to be submitted.</P>
+
+<P>The employee.lastName validation is exactly the same as the firstName. The only difference is in the validation of the age property.</P>
+
+<P>We use in fact 2 validators: a 'required' one, which will make sure that our age is in fact set, and not null, and another one that will check the range to make sure our employee is between 18 and 65 years old. If course, if the first validator fails, we shouldn't continue processing, so that's why we can specify the short-circuit attribute. If a validator short-cicuits the validation, validation is failed and skips the current (field) validator.</P>
+
+<P>The &quot;int&quot; validator takes 2 optional parameters: min and max, who can be set by providing two simple param tags (most items in S2 can be configured that way). This way, we ensure validation to be loosely coupled with our code and do not require re-compilation.</P>
+
+<P>Of course, you should also be able to i18n'ize your error messages, so that's why we providing a &lt;message key=&quot;my_key&quot;/&gt; - if you prefer otherwise, you can always add a hardcoded text as a child element of the message tags.</P>
+
+<P>It does not stop there. The text you pass, be it hardcoded or a looked-up value, can in fact contain OGNL expressions as well &#33;</P>
+
+<P>Take a look at the value we get back from the 'errors.required.age.limit'-key:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+errors.required.age.limit=Please provide an age between ${min} and ${max}.
+</PRE>
+</DIV></DIV>
+
+<P>And guess what: min and max are indeed the two parameters we just set before &#33; Using OGNL expressions you can retrieve whatever you want from your validator/action/context, giving you really nice error messages (we like nice error messages). In fact, you can not only use these expressions in your error messages, but you can even set the min and max parameters dynamically. Different types of employees could have different age requirements - OGNL and polymorphy to the rescue &#33;</P>
+
+<P>More information about <A href="validation.html" title="Validation">Validation</A></P>
+
+<H2><A name="CRUDDemoI-Conclusion"></A>Conclusion</H2>
+
+<P>This 'quick intro' turned out a bit longer than I anticipated. We haven't even barely touched the possibilities with Struts 2 - different templates, IoC (Pico, Spring), annotations, REST-ful action mappings, components, Hibernate integration, ajax support, pdf/xml/rss/.. generation, groovy, ... More info on <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&title=3rd%20party%20integration&linkCreation=true&fromPageId=14178" class="createlink">3rd party integration</A>.</P>
+
+<P>When you look at the various frameworks out there, they all let you create a certain type of (web) application really, really quickly. It's only when you want to add new/different/complex things, that you discover the limitations of the framework, often meaning serious hacking to get it working. Struts 2 is different. It is no out-of-the-box framework, where you just click a few buttons to generate a blog/cms/product catalog, but it's a framework in the true spirit of the word. Its architecture and design is so flexible that we yet have to discover where we cannot use it for, and as such it's a great overall framework that should belong in the backpack of any serious Java (web)application programmer.</P>
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

@@ -1,0 +1,219 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Release Notes 2.0.4</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="guides.html" title="Guides">Guides</A>&nbsp;&gt;&nbsp;<A href="migration-guide.html" title="Migration Guide">Migration Guide</A>&nbsp;&gt;&nbsp;<A href="" title="Release Notes 2.0.4">Release Notes 2.0.4</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Release Notes 2.0.4</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=34836">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=34836">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=34836">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=34836">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=34836">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=34836">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <P><IMG class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/check.gif" height="16" width="16" align="absmiddle" alt="" border="0"> These are the notes for the Struts 2.0.4 distribution.</P>
+
+<P><IMG class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/check.gif" height="16" width="16" align="absmiddle" alt="" border="0"> For prior notes in this release series, see <A href="release-notes-203.html" title="Release Notes 2.0.3">Release Notes 2.0.3</A></P>
+
+<UL>
+	<LI>If you are a Maven user, you might want to get started using the <A href="struts-maven-archetypes.html" title="Struts Maven Archetypes">Maven Archetype</A>.</LI>
+	<LI>Another quick-start entry point is the <B>blank</B> application. Rename and deploy the WAR as a starting point for your own development.</LI>
+</UL>
+
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Maven Dependency</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">&lt;dependency&gt;
+  &lt;groupId&gt;org.apache.struts&lt;/groupId&gt;
+    &lt;artifactId&gt;struts2-core&lt;/artifactId&gt;
+      &lt;version&gt;2.0.4&lt;/version&gt;
+&lt;/dependency&gt;</PRE>
+</DIV></DIV>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Snapshot Repository</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">&lt;repositories&gt;
+  &lt;repository&gt;
+    &lt;id&gt;apache.snapshots&lt;/id&gt;
+    &lt;name&gt;ASF Maven 2 Snapshot&lt;/name&gt;
+    &lt;url&gt;http:<SPAN class="code-comment">//people.apache.org/repo/m2-snapshot-repository&lt;/url&gt;
+</SPAN>  &lt;/repository&gt;
+&lt;/repositories&gt;</PRE>
+</DIV></DIV>
+
+<H2><A name="ReleaseNotes2.0.4-InternalChanges"></A>Internal Changes</H2>
+
+<UL>
+	<LI>Added dependency on Struts Annotations 1.0.1</LI>
+</UL>
+
+
+<H2><A name="ReleaseNotes2.0.4-ExperimentalFeaturesandPlugins"></A>Experimental Features and Plugins </H2>
+
+<P><IMG class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/check.gif" height="16" width="16" align="absmiddle" alt="" border="0"> Please help us test these brave new features. Feedback appreciated!</P>
+
+<UL>
+	<LI><A href="portlet-tutorial-webwork-22.html" title="Portlet Tutorial (WebWork 2.2)">Portlets</A>: Automatic portlet support allows portal and servlet deployments with no code changes (<SPAN class="error">&#91;WW-1645@S2jira&#93;</SPAN>).</LI>
+	<LI><A href="ajax-theme.html" title="ajax theme">AJAX Theme</A>:  AJAX tags look and feel just like standard Struts tags but provide greater interactivity and flexibility. The AJAX theme is backed by the popular Dojo Toolkit (<SPAN class="error">&#91;WW-1609&#93;</SPAN>).</LI>
+	<LI><A href="zero-configuration.html" title="Zero Configuration">Zero Configuration</A>: Optionally, eliminate or reduce XML configuration with convention and annotation (<SPAN class="error">&#91;WW-1491&#93;</SPAN>).</LI>
+	<LI><A href="restfulactionmapper.html" title="RestfulActionMapper">REST-ful URLs</A>: Use search-engine friendly URLs, like category/action/movie/Thrillers (<SPAN class="error">&#91;WW-1475&#93;</SPAN>).</LI>
+	<LI>Experimental Plugins
+	<UL>
+		<LI><A href="http://cwiki.apache.org/S2PLUGINS/codebehind-plugin.html" class="external-link" rel="nofollow">Codebehind Plugin</A>: Reduce mundane configuration by using &quot;page controller&quot; conventions (<SPAN class="error">&#91;WW-1515&#93;</SPAN>).</LI>
+		<LI><A href="http://cwiki.apache.org/S2PLUGINS/plexus-plugin.html" class="external-link" rel="nofollow">Plexus Plugin</A> - A new plugin that enables Struts Actions, Interceptors, and Results to be created and injected by Plexus.</LI>
+		<LI><A href="http://cwiki.apache.org/S2PLUGINS/scope-plugin.html" class="external-link" rel="nofollow">Scope Plugin</A> - Initial version of scope plugin that mimics JBoss Seam-style of scoped bijection (presently in the Sandbox).</LI>
+		<LI><A href="http://cwiki.apache.org/S2PLUGINS/struts-1-plugin.html" class="external-link" rel="nofollow">Struts1 Plugin</A> - A new plugin that allows you to use existing Struts 1 Actions and ActionForms in Struts 2 applications..</LI>
+		<LI><A href="http://cwiki.apache.org/S2PLUGINS/tiles-plugin.html" class="external-link" rel="nofollow">Tiles Plugin</A> -  A new plugin allows your Struts actions to return Tiles pages. The Tiles plugin is dependant on Tiles 2, which is still in beta.</LI>
+	</UL>
+	</LI>
+</UL>
+
+
+<H3><A name="ReleaseNotes2.0.4-IssueDetail"></A>Issue Detail </H3>
+
+<UL>
+	<LI><A href="https://issues.apache.org/struts/secure/ReleaseNote.jspa?projectId=10030&styleName=Html&version=%3D21783" class="external-link" rel="nofollow">JIRA Release Notes 2.0.4</A></LI>
+	<LI><A href="https://issues.apache.org/struts/secure/ReleaseNote.jspa?projectId=10030&styleName=Html&version=21772" class="external-link" rel="nofollow">JIRA Release Notes 2.0.3</A></LI>
+	<LI><A href="https://issues.apache.org/struts/secure/ReleaseNote.jspa?projectId=10030&styleName=Html&version=21760" class="external-link" rel="nofollow">JIRA Release Notes 2.0.2 </A></LI>
+	<LI><A href="https://issues.apache.org/struts/secure/ReleaseNote.jspa?version=21741&styleName=Html&projectId=10030&Create=Create" class="external-link" rel="nofollow">JIRA Release Notes 2.0.1</A></LI>
+	<LI><A href="https://issues.apache.org/struts/secure/ReleaseNote.jspa?version=21510&styleName=Text&projectId=10030&Create=Create" class="external-link" rel="nofollow">JIRA Release Notes 2.0.0 </A></LI>
+</UL>
+
+
+<H3><A name="ReleaseNotes2.0.4-IssueList"></A>Issue List</H3>
+
+<UL>
+	<LI><A href="https://issues.apache.org/struts/secure/IssueNavigator.jspa?mode=hide&requestId=10755" class="external-link" rel="nofollow">Struts 2.0.4 DONE </A></LI>
+	<LI><A href="https://issues.apache.org/struts/secure/IssueNavigator.jspa?mode=hide&requestId=10754" class="external-link" rel="nofollow">Struts 2.0.4 TODO </A></LI>
+</UL>
+
+
+<H3><A name="ReleaseNotes2.0.4-Otherresources"></A>Other resources </H3>
+
+<UL>
+	<LI><A href="http://www.mail-archive.com/commits@struts.apache.org/" class="external-link" rel="nofollow">Commit Logs (Struts 1 and Struts 2)</A></LI>
+	<LI><A href="http://svn.apache.org/viewvc/struts/struts2/trunk/" class="external-link" rel="nofollow">Source Code Repository (includes change browsing)</A></LI>
+</UL>
+
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

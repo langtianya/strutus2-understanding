@@ -1,0 +1,196 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Performance Tuning</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="guides.html" title="Guides">Guides</A>&nbsp;&gt;&nbsp;<A href="core-developers-guide.html" title="Core Developers Guide">Core Developers Guide</A>&nbsp;&gt;&nbsp;<A href="" title="Performance Tuning">Performance Tuning</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Performance Tuning</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=46982">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=46982">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=46982">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=46982">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=46982">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=46982">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <H2><A name="PerformanceTuning-Performancetuning"></A>Performance tuning</H2>
+
+<P>The following are some tips and tricks to squeeze the most performance out of Struts 2.</P>
+
+<DIV class="panelMacro"><TABLE class="tipMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD><B>Important OGNL update</B><BR>For Struts 2 versions before 2.3: the OGNL version 3.0.3 library is a drop-in replacement for older OGNL jars, and provides <B>much</B> better performance. See the following Jira issue for more information: <A href="https://issues.apache.org/jira/browse/WW-3580" class="external-link" rel="nofollow">https://issues.apache.org/jira/browse/WW-3580</A></TD></TR></TABLE></DIV>
+
+<H3><A name="PerformanceTuning-TurnofflogginganddevMode."></A>Turn off logging and devMode.</H3>
+
+<P><A href="devmode.html" title="devMode">devMode</A> allows reloading of configuration and validation related files, but because they happen on each request, this setting will totally kill your performance.<BR>
+When using logging, make sure to turn off logging (esp. Freemarker generates a LOT of logging), and check if a level is enabled before printing it, or you will get the cost of the String parsing/concatination anyways.</P>
+
+<H3><A name="PerformanceTuning-UsetheJavaTemplates"></A>Use the Java Templates</H3>
+
+<P>If you use the simple theme, and do not overwrite any of the FreeMarker templates, consider using the <A href="javatemplates-plugin.html" title="Javatemplates Plugin">java templates</A>, which provide a drop in replacement for most tags, and are a lot faster than the regular tags.</P>
+
+<H3><A name="PerformanceTuning-Donotuseinterceptorsyoudonotneed."></A>Do not use interceptors you do not need.</H3>
+
+<P>If you do not require a full stack of interceptors for an Action, then try using a different one (basicStack), or remove interceptors you do not need. Remove the I18nInterceptor interceptor if you don't need it, as it can cause a session to be created.</P>
+
+<H3><A name="PerformanceTuning-UsethecorrectHTTPheaders%28CacheControl%26Expires%29."></A>Use the correct HTTP headers (Cache-Control &amp; Expires).</H3>
+
+<P>When returning HTML views, make sure to add the correct headers so browsers know how to cache them.</P>
+
+<H3><A name="PerformanceTuning-CopythestaticcontentfromtheStruts2jarwhenusingtheAjaxtheme%28Dojo%29ortheCalendartag."></A>Copy the static content from the Struts 2 jar when using the Ajax theme (Dojo) or the Calendar tag.</H3>
+
+<P>Struts 2 uses some external javascript libraries and cascading stylesheets for certain themes and tags. These by default are located inside the Struts 2 jar, and a special filter returns them when requesting a special path (/struts). Although Struts 2 can handle these requests, an application/servlet container is not optimized for these kind of requests. Consider moving these .js and .css files to a seperated server (Lighttpd, Apache HTTPD, ..).</P>
+
+<H3><A name="PerformanceTuning-Createafreemarker.propertiesfileinyourWEBINF%2Fclassesdirectory."></A>Create a freemarker.properties file in your WEB-INF/classes directory.</H3>
+
+<P>Create the freemarker.properties file and add the following setting (or whatever value you deem fitting):</P>
+<DIV class="preformatted panel" style="border-width: 1px;"><DIV class="preformattedContent panelContent">
+<PRE>template_update_delay=60000
+</PRE>
+</DIV></DIV>
+<P>This value determines how often Freemarker checks if it needs to reloads the templates from disk. The default value is 500 ms.  Since there is no reason to check if a template needs reloading, it is best to set this to a very large value.  Note that this value is in seconds and freemarker will convert this value to milliseconds.</P>
+
+<P>See also: <A href="http://freemarker.sourceforge.net/docs/api/freemarker/template/Configuration.html#setSetting(java.lang.String,%2520java.lang.String)" class="external-link" rel="nofollow">Freemarker configuration properties</A></P>
+
+<H3><A name="PerformanceTuning-EnableFreemarkertemplatecaching"></A>Enable Freemarker template caching</H3>
+
+<P>As of Struts 2.0.10, setting the property <EM>struts.freemarker.templatesCache</EM> to true will enable the Struts internal caching of Freemarker templates. This property is set to false by default.</P>
+
+<P>In Struts versions prior to 2.0.10, you had to copy the /template directory from the Struts 2 jar in your WEB_APP root to utilize Freemarker's built in chaching mechanism in order to achieve similar results.</P>
+
+<P>The built in Freemarker caching mechanism fails to properly cache templates when they are retrieved from the classpath. Copying them to the WEB_APP root allows Freemarker to cache them correctly.  Freemarker looks at the last modified time of the template to determine if it needs to reload the templates.  Resources retrieved from the classpath have no last modified time, so Freemarker will reload them on every request.</P>
+
+<H3><A name="PerformanceTuning-Whenoverridingatheme%2Ccopyallnecessarytemplatestothethemedirectory."></A>When overriding a theme, copy all necessary templates to the theme directory.</H3>
+
+<P>There's a performance cost when a template cannot be found in the current directory.  The reason for this is that Struts 2 must check for a template in the current theme first before falling back to the parent theme.  In the future, this penalty could be eliminated by implementing a missing template cache in Struts 2.</P>
+
+<H3><A name="PerformanceTuning-Donotcreatesessionsunlessyouneedthem."></A>Do not create sessions unless you need them.</H3>
+
+<P>Struts 2 does not create sessions unless asked to (for example, by having the createSession interceptor in your interceptor stack). Note that when you use SiteMesh however, a session will <B>always</B> be created (See <A href="http://forums.opensymphony.com/thread.jspa?messageID=5688" class="external-link" rel="nofollow">http://forums.opensymphony.com/thread.jspa?messageID=5688</A> for details). The I18nInterceptor interceptor can create sessions, so make sure you remove it, if you don't need it.</P>
+
+<H3><A name="PerformanceTuning-WhenusingFreemarker%2CtrytousetheFreemarkerequivalentratherthanusingtheJSPtags."></A>When using Freemarker, try to use the Freemarker equivalent rather than using the JSP tags.</H3>
+
+<P>Freemarker has support for iterating lists, displaying properties, including other templates, macro's, and so on. There is a small performance cost when using the S2 tags instead of the Freemarker equivalent (eg. &lt;s:property value=&quot;foo&quot;/&gt; should be replaced by ${foo}).</P>
+
+<H2><A name="PerformanceTuning-Next%3AInterceptors"></A>Next: <A href="interceptors.html" title="Interceptors">Interceptors</A></H2>
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

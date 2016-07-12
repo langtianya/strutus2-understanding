@@ -1,0 +1,204 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Embedded JSP Plugin</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="guides.html" title="Guides">Guides</A>&nbsp;&gt;&nbsp;<A href="plugin-developers-guide.html" title="Plugin Developers Guide">Plugin Developers Guide</A>&nbsp;&gt;&nbsp;<A href="" title="Embedded JSP Plugin">Embedded JSP Plugin</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Embedded JSP Plugin</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=2852037">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=2852037">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=2852037">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=2852037">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=2852037">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=2852037">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <P>The Embedded JSP plugin allows you to use JSPs from the classpath (from jar files).</P>
+
+<H1><A name="EmbeddedJSPPlugin-Introduction"></A>Introduction</H1>
+<P>JSPs are usually served from the file system. Using this plugin you can deploy JSPs inside jar files, which is sometimes desired, like when writing a plugin. </P>
+
+<H2><A name="EmbeddedJSPPlugin-Wait...what%3F"></A>Wait...what?</H2>
+<P>The plugin containes a modified version of Jasper 6, which reads JSPs from the classpath, and generates the java code in memory (no .java file is written). The Java Compiler API is then used to compile the java source code into bytecode (in memory, no .class file is generated), and it is turned into a Servlet, which is cached for future use.</P>
+
+<H2><A name="EmbeddedJSPPlugin-Aboutincludes"></A>About includes</H2>
+<P>Because the JSP files are read from the classpath, &quot;includes&quot; work differently than they do from the file system. Assume you want to include &quot;Hello.jsp&quot;, when searching for that file in the classpath, multiple files might be found on different jars, like <TT>somejar.jar!/Hello.jsp</TT> and <TT>otherjar.jar!/Hello.jsp</TT>. That's why relative paths do not work in this plugin. Instead, create directory structures for the JSPs. For example, given 2 jsps under <TT>org/myexample/jsps</TT> in a jar file:</P>
+
+<P>Who.jsp:</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+Hello there, I am the Doctor.
+</PRE>
+</DIV></DIV>
+<P>Hello.jsp:</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+&lt;jsp:include page=<SPAN class="code-quote">&quot;org/myexample/jsps/Who.jsp&quot;</SPAN> /&gt;
+</PRE>
+</DIV></DIV>
+<P>Mapping:</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+ <SPAN class="code-tag">&lt;package name=<SPAN class="code-quote">&quot;example&quot;</SPAN> namespace=<SPAN class="code-quote">&quot;/example&quot;</SPAN> extends=<SPAN class="code-quote">&quot;embeddedjsp-default&quot;</SPAN>&gt;</SPAN>
+     <SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;HelloWorld&quot;</SPAN> class=<SPAN class="code-quote">&quot;example.HelloWorld&quot;</SPAN>&gt;</SPAN>
+         <SPAN class="code-tag">&lt;result type=<SPAN class="code-quote">&quot;embeddedJsp&quot;</SPAN>&gt;</SPAN>org/myexample/jsps/Hello.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+     <SPAN class="code-tag">&lt;/action&gt;</SPAN>
+ <SPAN class="code-tag">&lt;/package&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H2><A name="EmbeddedJSPPlugin-Requirements"></A>Requirements</H2>
+<OL>
+	<LI>Java 6 or later</LI>
+</OL>
+
+
+<H3><A name="EmbeddedJSPPlugin-Tomcat"></A>Tomcat</H3>
+<P>Tested with Tomcat 6.0.20.</P>
+
+<H3><A name="EmbeddedJSPPlugin-Jetty"></A>Jetty</H3>
+<P>This plugin requires Jetty 7 to work. And the Tomcat libraries must be deployed with the application, adding this to your <TT>pom.xml</TT> should take care of that: </P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;dependency&gt;</SPAN>
+     <SPAN class="code-tag">&lt;groupId&gt;</SPAN>org.apache.tomcat<SPAN class="code-tag">&lt;/groupId&gt;</SPAN>
+     <SPAN class="code-tag">&lt;artifactId&gt;</SPAN>jasper<SPAN class="code-tag">&lt;/artifactId&gt;</SPAN>
+     <SPAN class="code-tag">&lt;version&gt;</SPAN>6.0.18<SPAN class="code-tag">&lt;/version&gt;</SPAN>
+<SPAN class="code-tag">&lt;/dependency&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+<P>To use Jetty 7 with the maven plugin add this to your <TT>pom.xml</TT>:</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;build&gt;</SPAN>
+    <SPAN class="code-tag">&lt;plugins&gt;</SPAN>
+        <SPAN class="code-tag">&lt;plugin&gt;</SPAN>
+             <SPAN class="code-tag">&lt;groupId&gt;</SPAN>org.mortbay.jetty<SPAN class="code-tag">&lt;/groupId&gt;</SPAN>
+             <SPAN class="code-tag">&lt;artifactId&gt;</SPAN>jetty-maven-plugin<SPAN class="code-tag">&lt;/artifactId&gt;</SPAN>
+        <SPAN class="code-tag">&lt;/plugin&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/plugins&gt;</SPAN>
+<SPAN class="code-tag">&lt;/build&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

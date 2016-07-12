@@ -1,0 +1,388 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Using Struts 2 Tags</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="tutorials.html" title="Tutorials">Tutorials</A>&nbsp;&gt;&nbsp;<A href="getting-started.html" title="Getting Started">Getting Started</A>&nbsp;&gt;&nbsp;<A href="how-to-create-a-struts-2-web-application.html" title="How To Create A Struts 2 Web Application">How To Create A Struts 2 Web Application</A>&nbsp;&gt;&nbsp;<A href="create-struts-2-web-application-with-artifacts-in-web-inf-lib-and-use-ant-to-build-the-application.html" title="Create Struts 2 Web Application With Artifacts In WEB-INF lib and Use Ant To Build The Application">Create Struts 2 Web Application With Artifacts In WEB-INF lib and Use Ant To Build The Application</A>&nbsp;&gt;&nbsp;<A href="hello-world-using-struts-2.html" title="Hello World Using Struts 2">Hello World Using Struts 2</A>&nbsp;&gt;&nbsp;<A href="" title="Using Struts 2 Tags">Using Struts 2 Tags</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Using Struts 2 Tags</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=14811875">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=14811875">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14811875">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14811875">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14811875">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14811875">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <DIV class="panelMacro"><TABLE class="infoMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>This tutorial assumes you've completed the <A href="hello-world-using-struts-2.html" title="Hello World Using Struts 2">Hello World</A> tutorial and have a working Hello_World_Struts2_Ant (or Hello_World_Struts2_Mvn) project.  The example code for this tutorial, Using_Tags_Struts2_Ant or Using_Tags_Struts2_Mvn, is available on Google Code - <A href="http://code.google.com/p/struts2-examples/downloads/list" class="external-link" rel="nofollow">http://code.google.com/p/struts2-examples/downloads/list</A>.  After downloading and unzipping the file, you'll have a folder named Using_Tags_Struts2_Ant (or Using_Tags_Struts2_Mvn).  In that folder will be a README.txt file with instructions on how to build and run the example application.</TD></TR></TABLE></DIV>
+
+<P>In the <A href="hello-world-using-struts-2.html" title="Hello World Using Struts 2">Hello World</A> lesson, we added to the index.jsp a Struts 2 url tag to create a hyperlink to the hello.action.  This tutorial will explore the url and other Struts 2 tags further.</P>
+
+<P>Web applications differ from conventional websites in that web applications can create a dynamic response. To make it easier to reference dynamic data from a page, the Struts 2 framework offers a set of tags. Some of the tags mimic standard HTML tag while providing added value. Other tags create non-standard, but useful controls. </P>
+
+<DIV class="panelMacro"><TABLE class="infoMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>To use the Struts 2 tags on the view page, you must include a tag library directive.  Typically, the taglib directive is <TT>&lt;%@ taglib prefix=&quot;s&quot; uri=&quot;/struts-tags&quot; %&gt;</TT>.  So the prefix for all the Struts 2 tags will be &quot;s&quot;.  <BR>
+If you want to actually read the Struts 2 tag TLD file, you'll find it in the META-INF folder of the Struts 2 core jar.</TD></TR></TABLE></DIV>
+
+<H3><A name="UsingStruts2Tags-Struts2urlTag"></A>Struts 2 url Tag</H3>
+
+<P>One use of the Struts 2 Tags is to create links to other web resources, especially to other resources in the local application. </P>
+
+<DIV class="panelMacro"><TABLE class="tipMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>While HTML provides a simple <TT>a</TT> tag for creating hyperlinks, the HTML tag often requires us to include redundant information. Also the HTML tag cannot easily access dynamic data provided by the framework.</TD></TR></TABLE></DIV>
+
+
+<P>A very common use case in web applications is linking to other pages.  In the <A href="hello-world.html" title="Hello World">Hello World</A> tutorial we added to index.jsp a link to the hello.action using the Struts 2 url tag. Please refer to the <A href="url.html" title="url">url documentation</A> for more information about the url tag.</P>
+
+<DIV class="code panel" style="border-style: solid;border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;border-bottom-style: solid;"><B>index.jsp</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-html">
+&lt;%@ page language=<SPAN class="code-quote">&quot;java&quot;</SPAN> contentType=<SPAN class="code-quote">&quot;text/html; charset=ISO-8859-1&quot;</SPAN>
+    pageEncoding=<SPAN class="code-quote">&quot;ISO-8859-1&quot;</SPAN>%&gt;
+<SPAN class="code-tag">&lt;%@ taglib prefix=<SPAN class="code-quote">&quot;s&quot;</SPAN> uri=<SPAN class="code-quote">&quot;/struts-tags&quot;</SPAN> %&gt;</SPAN>
+<SPAN class="code-tag">&lt;!DOCTYPE html PUBLIC <SPAN class="code-quote">&quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot;</SPAN> <SPAN class="code-quote">&quot;http://www.w3.org/TR/html4/loose.dtd&quot;</SPAN>&gt;</SPAN>
+<SPAN class="code-tag">&lt;html&gt;</SPAN>
+<SPAN class="code-tag">&lt;head&gt;</SPAN>
+<SPAN class="code-tag">&lt;meta http-equiv=<SPAN class="code-quote">&quot;Content-Type&quot;</SPAN> content=<SPAN class="code-quote">&quot;text/html; charset=ISO-8859-1&quot;</SPAN>&gt;</SPAN>
+<SPAN class="code-tag">&lt;title&gt;</SPAN>Basic Struts 2 Application - Welcome<SPAN class="code-tag">&lt;/title&gt;</SPAN>
+<SPAN class="code-tag">&lt;/head&gt;</SPAN>
+<SPAN class="code-tag">&lt;body&gt;</SPAN>
+<SPAN class="code-tag">&lt;h1&gt;</SPAN>Welcome To Struts 2!<SPAN class="code-tag">&lt;/h1&gt;</SPAN>
+<SPAN class="code-tag">&lt;p&gt;</SPAN><SPAN class="code-tag">&lt;a href=<SPAN class="code-quote">&quot;&lt;s:url action='hello'/&gt;</SPAN>&quot;</SPAN>&gt;Hello World<SPAN class="code-tag">&lt;/a&gt;</SPAN><SPAN class="code-tag">&lt;/p&gt;</SPAN>
+<SPAN class="code-tag">&lt;/body&gt;</SPAN>
+<SPAN class="code-tag">&lt;/html&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>When you run the Hello World tutorial in your Servlet container and then mouse over the Hello World hyperlink created by the Struts 2 url tag you'll see that the URL created is hello.action (relative to the web context's root folder).</P>
+
+<P>Examine the struts.xml configuration in the Hello World tutorial and you will find this:</P>
+
+<DIV class="code panel" style="border-style: solid;border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;border-bottom-style: solid;"><B>struts.xml</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-html">
+...
+<SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;hello&quot;</SPAN> class=<SPAN class="code-quote">&quot;org.apache.struts.helloworld.action.HelloWorldAction&quot;</SPAN> method=<SPAN class="code-quote">&quot;execute&quot;</SPAN>&gt;</SPAN>
+  <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;success&quot;</SPAN>&gt;</SPAN>/HelloWorld.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+<SPAN class="code-tag">&lt;/action&gt;</SPAN>
+...
+</PRE>
+</DIV></DIV>
+
+<P>The action node above maps the hello.action to the execute method of class HelloWorldAction.  If the execute method returns success, the view page HelloWorld.jsp (in web context root folder) will be returned to the user.</P>
+
+<P>A common use case is that the URL also needs to include a value for a query string parameter such as userName.  To add a query string parameter and its value use the Struts 2 param tag, nested inside the url tag.</P>
+
+<P>For the Using Tags tutorial add the following to index.jsp just after the link for Hello World.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>url tag with param</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-html">
+
+<SPAN class="code-tag">&lt;s:url action=<SPAN class="code-quote">&quot;hello&quot;</SPAN> var=<SPAN class="code-quote">&quot;helloLink&quot;</SPAN>&gt;</SPAN>
+  <SPAN class="code-tag">&lt;s:param name=<SPAN class="code-quote">&quot;userName&quot;</SPAN>&gt;</SPAN>Bruce Phillips<SPAN class="code-tag">&lt;/s:param&gt;</SPAN>
+<SPAN class="code-tag">&lt;/s:url&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;p&gt;</SPAN><SPAN class="code-tag">&lt;a href=<SPAN class="code-quote">&quot;${helloLink}&quot;</SPAN>&gt;</SPAN>Hello Bruce Phillips<SPAN class="code-tag">&lt;/a&gt;</SPAN><SPAN class="code-tag">&lt;/p&gt;</SPAN>
+
+</PRE>
+</DIV></DIV>
+
+<P>Rather then put the url tag as the value for the anchor tag's href attribute, we've separated out the s:url tag into its own code block. Nested inside the url tag is the Struts 2 param tag.  This tag lets you specify a parameter name (e.g. userName) and a value for that paramter (e.g. Bruce Phillips).</P>
+
+<P>Notice the use of the var attribute.  The value of the var attribute is a reference we can use later in our code to refer to the url created.  </P>
+
+<P>Examine the anchor tag above.  Notice the value of the href attribute is ${helloLink}.  The view page will substitute the hyperlink we created using the url tag for the ${helloLink} reference.  Note that the query string parameter will be properly URL-encoded (Bruce+Phillips).</P>
+
+<DIV class="panelMacro"><TABLE class="infoMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>In the next tutorial we'll cover how Struts can access the query string parameter value.</TD></TR></TABLE></DIV>
+
+<H3><A name="UsingStruts2Tags-Struts2FormTags"></A>Struts 2 Form Tags</H3>
+
+<P>Most applications will use several data entry forms. The Struts 2 tags make creating input forms easy. Consult the <A href="ui-tag-reference.html" title="UI Tag Reference">Form Tags Reference</A> for all the details about the Struts 2 form tags.</P>
+
+<P>Each of the Struts 2 form tags has numerous attributes to mimic the normal HTML form tag attributes.  </P>
+
+<P>To create the outer shell of the form, use the Struts 2 form tag.  The action attribute sets the action name to submit to.  </P>
+
+<P>Add the following markup to index.jsp after the Hello Bruce Phillips link.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Struts 2 Form</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-html">
+
+<SPAN class="code-tag">&lt;p&gt;</SPAN>Get your own personal hello by filling out and submitting this form.<SPAN class="code-tag">&lt;/p&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;s:form action=<SPAN class="code-quote">&quot;hello&quot;</SPAN>&gt;</SPAN>
+
+  <SPAN class="code-tag">&lt;s:textfield name=<SPAN class="code-quote">&quot;userName&quot;</SPAN> label=<SPAN class="code-quote">&quot;Your name&quot;</SPAN> /&gt;</SPAN>
+	
+   <SPAN class="code-tag">&lt;s:submit value=<SPAN class="code-quote">&quot;Submit&quot;</SPAN> /&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;/s:form&gt;</SPAN>
+
+
+</PRE>
+</DIV></DIV>
+
+<P>The Struts 2 <A href="textfield.html" title="textfield">textfield</A> tag provides a input html tag of tag text and the submit tag creates a submit button.  When the index page is return by the server to the browser you should see:</P>
+
+<P><SPAN class="image-wrap" style=""><IMG src="using-struts-2-tags.data/Struts%20Form.png" style="border: 0px solid black"></SPAN></P>
+
+<P>The Struts form, textfield, and submit tags were converted to this HTML.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Struts Form Tags Converted To HTML</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;form id=<SPAN class="code-quote">&quot;hello&quot;</SPAN> name=<SPAN class="code-quote">&quot;hello&quot;</SPAN> action=<SPAN class="code-quote">&quot;/Using_Tags_Struts2_Mvn/hello.action;jsessionid=3471d76027b5342cab44f297b567&quot;</SPAN> method=<SPAN class="code-quote">&quot;post&quot;</SPAN>&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;table class=<SPAN class="code-quote">&quot;wwFormTable&quot;</SPAN>&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;tr&gt;</SPAN>
+    <SPAN class="code-tag">&lt;td class=<SPAN class="code-quote">&quot;tdLabel&quot;</SPAN>&gt;</SPAN><SPAN class="code-tag">&lt;label for=<SPAN class="code-quote">&quot;hello_userName&quot;</SPAN> class=<SPAN class="code-quote">&quot;label&quot;</SPAN>&gt;</SPAN>Your name:<SPAN class="code-tag">&lt;/label&gt;</SPAN><SPAN class="code-tag">&lt;/td&gt;</SPAN>
+    <SPAN class="code-tag">&lt;td&gt;</SPAN><SPAN class="code-tag">&lt;input type=<SPAN class="code-quote">&quot;text&quot;</SPAN> name=<SPAN class="code-quote">&quot;userName&quot;</SPAN> value=<SPAN class="code-quote">&quot;&quot; id=&quot;</SPAN>hello_userName&quot;/&gt;</SPAN><SPAN class="code-tag">&lt;/td&gt;</SPAN>
+<SPAN class="code-tag">&lt;/tr&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;tr&gt;</SPAN>
+    <SPAN class="code-tag">&lt;td colspan=<SPAN class="code-quote">&quot;2&quot;</SPAN>&gt;</SPAN><SPAN class="code-tag">&lt;div align=<SPAN class="code-quote">&quot;right&quot;</SPAN>&gt;</SPAN><SPAN class="code-tag">&lt;input type=<SPAN class="code-quote">&quot;submit&quot;</SPAN> id=<SPAN class="code-quote">&quot;hello_0&quot;</SPAN> value=<SPAN class="code-quote">&quot;Submit&quot;</SPAN>/&gt;</SPAN>
+<SPAN class="code-tag">&lt;/div&gt;</SPAN><SPAN class="code-tag">&lt;/td&gt;</SPAN>
+<SPAN class="code-tag">&lt;/tr&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;/table&gt;</SPAN>
+<SPAN class="code-tag">&lt;/form&gt;</SPAN>
+
+
+</PRE>
+</DIV></DIV>
+
+<P>Note how Struts 2 created a table inside the form to position the form elements.  In later tutorials you'll learn how to specify the layout (table, CSS). The Struts 2 textfield tag created an HTML input tag of type text with a name value that matches the name value of the textfield tag. Struts 2 also created a label HTML tag based on the label value of the textfield tag.</P>
+
+<DIV class="panelMacro"><TABLE class="infoMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>In the next tutorial we'll cover how to use Struts 2 to process this form submission.</TD></TR></TABLE></DIV>
+
+<H3><A name="UsingStruts2Tags-Struts2propertytag"></A>Struts 2 property tag</H3>
+
+<P>In the <A href="hello-world-using-struts-2.html" title="Hello World Using Struts 2">Hello World</A> tutorial's example application on JSP HelloWorld.jsp was this code:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Struts Property Tag</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-html">
+
+<SPAN class="code-tag">&lt;s:property value=<SPAN class="code-quote">&quot;messageStore.message&quot;</SPAN> /&gt;</SPAN>
+
+</PRE>
+</DIV></DIV>
+
+<P>The most common use of the <A href="property.html" title="property">property</A> tag is used to &quot;get&quot; the value returned by calling a public get method (of the Action class) and then to include that value in the HTML returned to the browser.</P>
+
+<P>As discussed in the <A href="hello-world-using-struts-2.html" title="Hello World Using Struts 2">Hello World</A> tutorial, the value of &quot;messageStore.message&quot; instructs Struts 2 to first call method getMessageStore of the Action class.  That method call returns a MessageStore object.  The &quot;.message&quot; part instructs Struts 2 to call the getMessage method of the MessageStore object.  The getMessage method returns a String which will be included in the HTML returned to the browser.</P>
+
+<P>On very useful feature of the Struts 2 property tag is that it will automatically convert the most common data types (int, double, boolean) to their String equivalents.  To demonstrate this feature let's add a static int variable to class HelloWorldAction.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Add Static Field</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+<SPAN class="code-keyword">private</SPAN> <SPAN class="code-keyword">static</SPAN> <SPAN class="code-object">int</SPAN> helloCount = 0;
+	
+<SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">int</SPAN> getHelloCount() {
+	<SPAN class="code-keyword">return</SPAN> helloCount;
+}
+
+<SPAN class="code-keyword">public</SPAN> void setHelloCount(<SPAN class="code-object">int</SPAN> helloCount) {
+	HelloWorldAction.helloCount = helloCount;
+}
+</PRE>
+</DIV></DIV>
+
+<P>Each time the execute method is called we'll increase helloCount by 1.  So add this code to the execute method of class HelloWorldAction.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Increase helloCount</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+
+helloCount++;
+
+</PRE>
+</DIV></DIV>
+
+<P>Whenever a user clicks one of the links on page index.jsp (or submits the form), method execute of class HelloWorldAction will be run and the static field helloCount will be increased by one.</P>
+
+<P>To include the value of the helloCount attribute in the HelloWorld.jsp we can use the Struts 2 property tag.  Add the following to HelloWorld.jsp after the h2 tag.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Use Property Tag To Display helloCount Value</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-html">
+
+<SPAN class="code-tag">&lt;p&gt;</SPAN>I've said hello <SPAN class="code-tag">&lt;s:property value=<SPAN class="code-quote">&quot;helloCount&quot;</SPAN> /&gt;</SPAN> times!<SPAN class="code-tag">&lt;/p&gt;</SPAN>
+
+</PRE>
+</DIV></DIV>
+
+<P>So even though the getHelloCount method returns an integer type, Struts 2 converted it to type String and placed it into the body of the p tag.</P>
+
+<DIV class="panelMacro"><TABLE class="tipMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>Note that even though helloCount is a static field, the get and set methods for helloCount are not static.  For Struts 2 to call the getHelloCount method to get the value of helloCount, the getHelloCount method cannot be static.</TD></TR></TABLE></DIV>
+
+<P>If the value returned by the get method is an object, then the property tag will cause Struts 2 to call the object's toString method.  Of course, you should always override Class Object's toString method in your model classes.  Add the following toString method to the MessageStore class:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Add toString Method To Class MessageStore</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+
+<SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> toString() {
+		
+	<SPAN class="code-keyword">return</SPAN> message + <SPAN class="code-quote">&quot; (from toString)&quot;</SPAN>;
+		
+}	
+
+</PRE>
+</DIV></DIV>
+
+<P>Add the following to HelloWorld.jsp</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Using Property Tag to Call toString</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-html">
+
+<SPAN class="code-tag">&lt;p&gt;</SPAN><SPAN class="code-tag">&lt;s:property value=<SPAN class="code-quote">&quot;messageStore&quot;</SPAN> /&gt;</SPAN><SPAN class="code-tag">&lt;/p&gt;</SPAN>
+
+</PRE>
+</DIV></DIV>
+
+<P>Since getMessageStore of HelloWorldAction class returns a MessageStore object, Struts 2 will call the toString method of class MessageStore.  The string returned by that toString method will be displayed in the browser.</P>
+
+<P><SPAN class="image-wrap" style=""><IMG src="using-struts-2-tags.data/displaymessagestore.png" style="border: 0px solid black"></SPAN></P>
+
+<P>We covered a lot in this tutorial, but we've really only scratched the surface of how to use the Struts 2 tags.  Consult the <A href="generic-tag-reference.html" title="Generic Tag Reference">Struts 2 Tag Reference</A> for much more information about all the Struts 2 tags.</P>
+
+
+<DIV class="table-wrap">
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TH class="confluenceTh"> Next </TH>
+<TD class="confluenceTd"> Onward to <A href="coding-struts-2-actions.html" title="Coding Struts 2 Actions">Coding Struts 2 Actions</A> </TD>
+</TR>
+<TR>
+<TH class="confluenceTh"> Prev </TH>
+<TD class="confluenceTd"> Return to <A href="hello-world-using-struts-2.html" title="Hello World Using Struts 2">Hello World Using Struts 2</A> </TD>
+</TR>
+</TBODY></TABLE>
+</DIV>
+
+        </DIV>
+
+                  <DIV class="tabletitle">
+            Children
+            <SPAN class="smalltext" id="show" style="display: inline;">
+              <A href="javascript:showChildren()">Show Children</A></SPAN>
+            <SPAN class="smalltext" id="hide" style="display: none;">
+              <A href="javascript:hideChildren()">Hide Children</A></SPAN>
+          </DIV>
+          <DIV class="greybox" id="children" style="display: none;">
+                                      <A href="coding-struts-2-actions.html" title="Coding Struts 2 Actions">Coding Struts 2 Actions</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                      </DIV>
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

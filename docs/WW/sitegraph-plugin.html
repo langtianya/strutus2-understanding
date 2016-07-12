@@ -1,0 +1,257 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>SiteGraph Plugin</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="guides.html" title="Guides">Guides</A>&nbsp;&gt;&nbsp;<A href="plugin-developers-guide.html" title="Plugin Developers Guide">Plugin Developers Guide</A>&nbsp;&gt;&nbsp;<A href="" title="SiteGraph Plugin">SiteGraph Plugin</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">SiteGraph Plugin</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=14137">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=14137">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14137">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14137">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14137">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14137">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <P>The SiteGraph plugin generates graphical diagrams representing the flow of your web application.</P>
+
+<P>SiteGraph works by parsing your configuration files, Action classes, and view files (JSP, Velocity, and FreeMarker), and displaying a visual map.</P>
+
+<DIV class="panelMacro"><TABLE class="infoMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD><B>Javadoc: (org.apache.struts2.sitegraph.SiteGraph)</B><BR></TD></TR></TABLE></DIV>
+<P>Additional information can be found in the JavaDocs:</P>
+<P>SiteGraph is a tool that renders out GraphViz-generated images depicting your
+Struts-powered web application's flow. SiteGraph requires GraphViz be installed
+and that the &quot;dot&quot; executable be in your command path. You can find GraphViz
+at http://www.graphviz.org.</P>
+
+<H4><A name="SiteGraphPlugin-UnderstandingtheOutput"></A>Understanding the Output</H4>
+
+<P>There are several key things to notice when looking at the output from SiteGraph:</P>
+<UL>
+	<LI>Boxes: those shaded red indicate an action; those shaded green indicate a view file (JSP, etc).</LI>
+	<LI>Links: arrows colored green imply that no new HTTP request is being made; black arrows indicate a new HTTP request.</LI>
+	<LI>Link labels: labels may sometimes contain additional useful information. For example, a label of <B>href</B> means that the link behavior is that of a hyper-text reference. The complete label behaviors are provided:
+	<UL>
+		<LI><B>href</B> &#45; a view file references an action by name (typically ending with the extension &quot;.action&quot;)</LI>
+		<LI><B>action</B> &#45; a view file makes a call to the <A href="action.html" title="action">action</A> tag</LI>
+		<LI><B>form</B> &#45; a view file is linked to an action using the <A href="form.html" title="form">form</A> tag</LI>
+		<LI><B>redirect</B> &#45; an action is redirecting to another view or action</LI>
+		<LI><B>&#33; notation</B> &#45; a link to an action overrides the method to invoke</LI>
+	</UL>
+	</LI>
+</UL>
+
+
+<H4><A name="SiteGraphPlugin-Requirements"></A>Requirements</H4>
+
+<P>SiteGraph requires that your view files be structured in a very specific way. Because it has to read these files, only certain styles are supported. The requirements are:</P>
+<UL>
+	<LI>The JSP tags must use the &quot;s&quot; namespace.
+	<UL>
+		<LI>In JSP: &lt;s:xxx/&gt;</LI>
+		<LI>In FreeMarker: &lt;@s.xxx/&gt;</LI>
+		<LI>In Velocity: N/A</LI>
+	</UL>
+	</LI>
+	<LI>Use of the <A href="form.html" title="form">form</A> tag and <A href="action.html" title="action">action</A> tag must be linking directly to the action name (and optional namespace). This means that &lt;s:form action=&quot;foo&quot;/&gt; is OK, but &lt;s:form action=&quot;foo.action&quot;/&gt; is not.<BR>
+Here is also a short overview of what it does and why a developer would want to use it.</LI>
+</UL>
+
+
+<H4><A name="SiteGraphPlugin-Features"></A>Features</H4>
+
+<UL>
+	<LI>Generates a graphical view of your web application</LI>
+</UL>
+
+
+<H2><A name="SiteGraphPlugin-Usage"></A>Usage</H2>
+
+<P>You can use SiteGraph with the following command:</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+java -cp ... -jar struts2-sitegraph-plugin-x.x.x.jar
+     -config CONFIG_DIR
+     -views VIEWS_DIRS
+     -output OUTPUT
+     [-ns NAMESPACE]
+</PRE>
+</DIV></DIV>
+<P>Where:</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-none">Usage: -config CONFIG_DIR -views VIEWS_DIRS -output OUTPUT [-ns NAMESPACE]
+       CONFIG_DIR =&gt; a directory containing struts.xml
+       VIEWS_DIRS =&gt; comma seperated list of dirs containing JSPs, VMs, etc
+       OUPUT      =&gt; the directory where the output should go
+       NAMESPACE  =&gt; the namespace path restriction (/, /foo, etc)
+</PRE>
+</DIV></DIV>
+<DIV class="panelMacro"><TABLE class="warningMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/forbidden.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>You must either supply the correct classpath when invoking the SiteGraph tool or place the Sitegraph plugin in the same directory as the dependent jars. Specifically, the XWork jar, Struts jar, and their dependencies must be included in the classpath. Futhermore, <B>you must also include your Action class files referenced in</B> <TT><B>struts.xml</B></TT>. Without the proper class path entries, SiteGraph will not function properly.</TD></TR></TABLE></DIV>
+<P>Once you have run SiteGraph, check the directory specified in the &quot;output&quot; argument (OUTPUT). In there you will find two files: <B>out.dot</B> and <B>out.gif</B>. You may immediately open up <B>out.gif</B> and view the web application flow. However, you may also wish to either run the <B>out.dot</B> file through a different GraphVis layout engine (neato, twopi, etc), so the original dot file is provided as well. You may also wish to edit the dot file before rendering the final flow diagram.</P>
+
+<H4><A name="SiteGraphPlugin-AutomaticExecution"></A>Automatic Execution</H4>
+
+<P>Some advanced users may wish to execute SiteGraph from within their application - this could be required if you are developing an application that supports plugin capabilities. This can easily be done. See the JavaDocs for more info:</P>
+<P>If you wish to use SiteGraph through its API rather than through the command line,
+you can do that as well. All you need to do is create a new SiteGraph instance,
+optionally specify a Writer to output the dot content to, and then call
+#prepare().</P>
+<P>The command line version of SiteGraph does exactly this (except for overriding the Writer):</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">SiteGraph siteGraph = <SPAN class="code-keyword">new</SPAN> SiteGraph(configDir, views, output, namespace);
+siteGraph.prepare();
+siteGraph.render();
+</PRE>
+</DIV></DIV>
+
+<H4><A name="SiteGraphPlugin-Example"></A>Example</H4>
+
+<P><SPAN class="error">Error trying to draw image gallery org.apache.velocity.exception.ParseErrorException: Encountered &quot;=&quot; at /templates/gallery-dynamic-slideshow.vm[line 64, column 37]
+Was expecting one of:
+    <RPAREN> ...
+    &quot;-&quot; ...
+    &quot;+&quot; ...
+    &quot;*&quot; ...
+    &quot;/&quot; ...
+    &quot;%&quot; ...
+    <LOGICAL_AND> ...
+    <LOGICAL_OR> ...
+    <LOGICAL_LT> ...
+    <LOGICAL_LE> ...
+    <LOGICAL_GT> ...
+    <LOGICAL_GE> ...
+    <LOGICAL_EQUALS> ...
+    <LOGICAL_NOT_EQUALS> ...
+    </SPAN></P>
+
+<H4><A name="SiteGraphPlugin-Settings"></A>Settings</H4>
+
+<P>This plugin doesn't allow for any global settings.</P>
+
+<H4><A name="SiteGraphPlugin-Installation"></A>Installation</H4>
+
+<P>The SiteGraph plugin jar is distributed with Struts, so if you're up and running, you don't need to do download any additional Java packages. However, SiteGraph does require the &quot;dot&quot; package by <A href="http://www.graphviz.org/" class="external-link" rel="nofollow">GraphViz</A>.</P>
+
+<P>You'll need to download the latest version of GraphViz and make sure that the dot executable (dot.exe in Windows) is in your command path. In Windows the GraphViz installer typically automatically adds <TT>dot.exe</TT> to your path. However, you may need to do this by hand depending on your system configuration.</P>
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

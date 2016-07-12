@@ -1,0 +1,281 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>ajax div template</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="guides.html" title="Guides">Guides</A>&nbsp;&gt;&nbsp;<A href="tag-developers-guide.html" title="Tag Developers Guide">Tag Developers Guide</A>&nbsp;&gt;&nbsp;<A href="struts-tags.html" title="Struts Tags">Struts Tags</A>&nbsp;&gt;&nbsp;<A href="ui-tags.html" title="UI Tags">UI Tags</A>&nbsp;&gt;&nbsp;<A href="themes-and-templates.html" title="Themes and Templates">Themes and Templates</A>&nbsp;&gt;&nbsp;<A href="ajax-theme.html" title="ajax theme">ajax theme</A>&nbsp;&gt;&nbsp;<A href="" title="ajax div template">ajax div template</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">ajax div template</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=14295">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=14295">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14295">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14295">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14295">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14295">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <DIV class="panelMacro"><TABLE class="noteMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>The Ajax theme is experimental. Feedback is appreciated.</TD></TR></TABLE></DIV>
+
+<P>The ajax <A href="../test/div.html" title="div">div</A> template provides a much more interesting div rendering option that the other themes do. Rather than simply rendering a <TT>&lt;div&gt;</TT> tag, this template relies on advanced AJAX features provided by the <A href="http://dojotoolkit.org/" class="external-link" rel="nofollow">Dojo Toolkit</A>. While the <A href="../test/div.html" title="div">div</A> tag could be used outside of the <A href="ajax-theme.html" title="ajax theme">ajax theme</A>, it is usually not very useful. See the <A href="../test/div.html" title="div">div</A> tag for more information on what features are provided.</P>
+
+<H2><A name="ajaxdivtemplate-Features"></A>Features</H2>
+
+<P>The remote div has a few features, some of which can be combined with the <A href="a.html" title="a">a</A> tag and the <A href="ajax-a-template.html" title="ajax a template">ajax a template</A>. These uses are:</P>
+<UL>
+	<LI>Retrieve remote data</LI>
+	<LI>Initialize the div with content before the remote data is retrieved</LI>
+	<LI>Display appropriate error and loading messages</LI>
+	<LI>Refresh data on a timed cycle</LI>
+	<LI>Listen for events and refresh data</LI>
+	<LI>JavaScript control support</LI>
+</UL>
+
+
+<H2><A name="ajaxdivtemplate-RetrieveRemoteData"></A>Retrieve Remote Data</H2>
+
+<P>The simplest way to use the div tag is to provide an <EM>href</EM> attribute. For example:</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;saf:div theme=<SPAN class="code-quote">&quot;ajax&quot;</SPAN> id=<SPAN class="code-quote">&quot;weather&quot;</SPAN> href=<SPAN class="code-quote">&quot;http://www.weather.com/weather?zip=97239&quot;</SPAN>/&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+<P>What this does after the HTML page is completely loaded, the specified URL will be retrieved asynchronously in the browser. The entire contents returned by that URL will be injected in to the div.</P>
+
+<H3><A name="ajaxdivtemplate-InitializingtheDiv"></A>Initializing the Div</H3>
+
+<P>Because the remote data isn't loaded immediately, it is sometimes useful to have some placeholder content that exists before the remote data is retrieved. The content is essentially just the body of the div element. For example:</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;saf:div theme=<SPAN class="code-quote">&quot;ajax&quot;</SPAN> id=<SPAN class="code-quote">&quot;weather&quot;</SPAN> href=<SPAN class="code-quote">&quot;http://www.weather.com/weather?zip=97239&quot;</SPAN>&gt;</SPAN>
+    Placeholder...
+<SPAN class="code-tag">&lt;/saf:div&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+<P>If you wish to load more complex initial data, you can use the <A href="../test/action.html" title="action">action</A> tag and the <EM>executeResult</EM> attribute:</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;saf:div theme=<SPAN class="code-quote">&quot;ajax&quot;</SPAN> id=<SPAN class="code-quote">&quot;weather&quot;</SPAN> href=<SPAN class="code-quote">&quot;http://www.weather.com/weather?zip=97239&quot;</SPAN>&gt;</SPAN>
+    <SPAN class="code-tag">&lt;ww:action id=<SPAN class="code-quote">&quot;weather&quot;</SPAN> name=<SPAN class="code-quote">&quot;weatherBean&quot;</SPAN> executeResult=<SPAN class="code-quote">&quot;true&quot;</SPAN>&gt;</SPAN>
+        <SPAN class="code-tag">&lt;ww:param name=<SPAN class="code-quote">&quot;zip&quot;</SPAN> value=<SPAN class="code-quote">&quot;97239&quot;</SPAN>/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/ww:action&gt;</SPAN>
+<SPAN class="code-tag">&lt;/saf:div&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H3><A name="ajaxdivtemplate-LoadingandErrorMessages"></A>Loading and Error Messages</H3>
+
+<P>If you'd like to display special messages when the data is being retrieved or when the data cannot be retrieved, you can use the <EM>errorText</EM> and <EM>loadingText</EM> attributes:</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+&lt;saf:div theme=<SPAN class="code-quote">&quot;ajax&quot;</SPAN> id=<SPAN class="code-quote">&quot;weather&quot;</SPAN> href=<SPAN class="code-quote">&quot;http://www.weather.com/weather?zip=97239&quot;</SPAN>
+        loadingText=<SPAN class="code-quote">&quot;Loading weather information...&quot;</SPAN>
+        errorText=<SPAN class="code-quote">&quot;Unable to contact weather server&quot;</SPAN>&gt;
+    Placeholder...
+<SPAN class="code-tag">&lt;/saf:div&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H3><A name="ajaxdivtemplate-RefreshTimers"></A>Refresh Timers</H3>
+
+<P>Another feature this div template provides is the ability to refresh data on a timed basis. Using the <EM>updateFreq</EM> and the <EM>delay</EM>attributes, you can specify how often the timer goes off and when the timer starts (times in milliseconds). For example, the following will update every minute after a two second delay:</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+&lt;saf:div theme=<SPAN class="code-quote">&quot;ajax&quot;</SPAN> id=<SPAN class="code-quote">&quot;weather&quot;</SPAN> href=<SPAN class="code-quote">&quot;http://www.weather.com/weather?zip=97239&quot;</SPAN>
+        loadingText=<SPAN class="code-quote">&quot;Loading weather information...&quot;</SPAN>
+        errorText=<SPAN class="code-quote">&quot;Unable to contact weather server&quot;</SPAN>&gt;
+        delay=<SPAN class="code-quote">&quot;2000&quot;</SPAN>
+        updateFreq=<SPAN class="code-quote">&quot;60000&quot;</SPAN>
+    Placeholder...
+<SPAN class="code-tag">&lt;/saf:div&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H3><A name="ajaxdivtemplate-ListeningforEvents"></A>Listening for Events</H3>
+
+<P>The <A href="a.html" title="a">a</A> tag (specifically the <A href="ajax-a-template.html" title="ajax a template">ajax a template</A>) and the div tag support an <A href="ajax-event-system.html" title="ajax event system">ajax event system</A>, providing the ability to broadcast events to topics. You can specify the <B>topics</B> to listen to using a comma separated list in the <EM>listenTopics</EM> attribute. What this means is that when a topic is published, usually through the <A href="ajax-a-template.html" title="ajax a template">ajax a template</A>, the URL specified in the <EM>href</EM> attribute will be re-requested.</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+&lt;saf:div theme=<SPAN class="code-quote">&quot;ajax&quot;</SPAN> id=<SPAN class="code-quote">&quot;weather&quot;</SPAN> href=<SPAN class="code-quote">&quot;http://www.weather.com/weather?zip=97239&quot;</SPAN>
+        loadingText=<SPAN class="code-quote">&quot;Loading weather information...&quot;</SPAN>
+        errorText=<SPAN class="code-quote">&quot;Unable to contact weather server&quot;</SPAN>
+        listenTopics=<SPAN class="code-quote">&quot;weather_topic,some_topic&quot;</SPAN>&gt;
+    Placeholder...
+<SPAN class="code-tag">&lt;/saf:div&gt;</SPAN>
+&lt;saf:a id=<SPAN class="code-quote">&quot;link1&quot;</SPAN>
+      theme=<SPAN class="code-quote">&quot;ajax&quot;</SPAN>
+      href=<SPAN class="code-quote">&quot;refreshWeather.action&quot;</SPAN>
+      notifyTopics=<SPAN class="code-quote">&quot;weather_topic,other_topic&quot;</SPAN>
+      errorText=<SPAN class="code-quote">&quot;An Error ocurred&quot;</SPAN>&gt;Refresh<SPAN class="code-tag">&lt;/saf:a&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H3><A name="ajaxdivtemplate-JavaScriptSupport"></A>JavaScript Support</H3>
+
+<P>There are also javascript functions to refresh the content and stop/start the refreshing of the component. For the remote div with the component id &quot;remotediv1&quot;:</P>
+
+<P>To start refreshing use the javascript:</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+remotediv1.startTimer();
+</PRE>
+</DIV></DIV>
+<P>To stop refreshing use the javascript:</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+remotediv1.stopTimer();
+</PRE>
+</DIV></DIV>
+<P>To refresh the content use the javascript:</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+remotediv1.refresh();
+</PRE>
+</DIV></DIV>
+
+<H4><A name="ajaxdivtemplate-JavaScriptExamples%3A"></A>JavaScript Examples:</H4>
+
+<P>To further illustrate these concepts here is an example. Say you want to change the url of a div at runtime via javascript. Here is what you need to do:<BR>
+What you will need to do is add a JS function that listens to a JS event that publishes the id from the select box that was selected.  It will modify the URL for the div (adding the id so the correct data is obtained) and then bind() the AJAX div so it refreshes.</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+&lt;saf:head theme=<SPAN class="code-quote">&quot;ajax&quot;</SPAN> /&gt;
+
+&lt;script type=<SPAN class="code-quote">&quot;text/javascript&quot;</SPAN>&gt;
+    function updateReports(id) {
+       <SPAN class="code-keyword">var</SPAN> reportDiv= window['reportDivId'];
+       reportDiv.href = '/../reportListRemote.action?selectedId='+id;
+       reportDiv.refresh();
+    }
+    dojo.event.topic.getTopic(<SPAN class="code-quote">&quot;updateReportsListTopic&quot;</SPAN>).subscribe(<SPAN class="code-keyword">null</SPAN>, <SPAN class="code-quote">&quot;updateReports&quot;</SPAN>);
+&lt;/script&gt;
+
+&lt;form ... &gt;
+&lt;saf:select .... onchange=<SPAN class="code-quote">&quot;javascript: dojo.event.topic.publish(&quot;</SPAN>updateReportsListTopic<SPAN class="code-quote">&quot;, <SPAN class="code-keyword">this</SPAN>.value); &quot;</SPAN> /&gt;
+
+&lt;saf:div id=<SPAN class="code-quote">&quot;reportDivId&quot;</SPAN> theme=<SPAN class="code-quote">&quot;ajax&quot;</SPAN> href=<SPAN class="code-quote">&quot;/.../reportListRemote.action&quot;</SPAN> &gt;
+  Loading reports...
+&lt;/saf:div&gt;
+&lt;/form&gt;
+</PRE>
+</DIV></DIV>
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

@@ -1,0 +1,217 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Writing Interceptors</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="guides.html" title="Guides">Guides</A>&nbsp;&gt;&nbsp;<A href="core-developers-guide.html" title="Core Developers Guide">Core Developers Guide</A>&nbsp;&gt;&nbsp;<A href="interceptors.html" title="Interceptors">Interceptors</A>&nbsp;&gt;&nbsp;<A href="" title="Writing Interceptors">Writing Interceptors</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Writing Interceptors</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=45615">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=45615">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=45615">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=45615">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=45615">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=45615">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <P>See the <A href="interceptors.html" title="Interceptors">Interceptors</A> page for an overview of how interceptors work.</P>
+
+<H3><A name="WritingInterceptors-Interceptorinterface"></A>Interceptor interface</H3>
+
+<P>Interceptors must implement the com.opensymphony.xwork2.interceptor.Interceptor interface.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Interceptor.java</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+<SPAN class="code-keyword">public</SPAN> <SPAN class="code-keyword">interface</SPAN> Interceptor <SPAN class="code-keyword">extends</SPAN> Serializable {
+
+    void destroy();
+
+    void init();
+
+    <SPAN class="code-object">String</SPAN> intercept(ActionInvocation invocation) <SPAN class="code-keyword">throws</SPAN> Exception;
+}
+</PRE>
+</DIV></DIV>
+
+<P>The <EM>init</EM> method is called the after interceptor is instantiated and before calling <EM>intercept</EM>. This is the place to allocate any resources used by the interceptor.</P>
+
+<P>The <EM>intercept</EM> method is where the interceptor code is written. Just like an action method, <EM>intercept</EM> returns a result used by Struts to forward the request to another web resource. Calling <EM>invoke</EM> on the parameter of type ActionInvocation will execute the action (if this is the last interceptor on the stack) or another interceptor.</P>
+
+<DIV class="panelMacro"><TABLE class="noteMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>Keep in mind that <EM>invoke</EM> will return <B>after</B> the result has been called (eg. after you JSP has been rendered), making it perfect for things like open-session-in-view patterns. If you want to do something before the result gets called, you should implement a PreResultListener.</TD></TR></TABLE></DIV>
+
+<P>Overwrite <EM>destroy</EM> to release resources on application shutdown.</P>
+
+<H3><A name="WritingInterceptors-ThreadSafety"></A>Thread Safety</H3>
+
+<DIV class="panelMacro"><TABLE class="warningMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/forbidden.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD><B>Interceptors must be thread-safe!</B>
+
+<P>A Struts 2 Action instance is created for every request and do not need to be thread-safe. Conversely, Interceptors are shared between requests and must be <A href="http://en.wikipedia.org/wiki/Thread-safety" class="external-link" rel="nofollow">thread-safe</A>.</P></TD></TR></TABLE></DIV>
+
+<H3><A name="WritingInterceptors-AbstractInterceptor"></A>AbstractInterceptor</H3>
+
+<P>The AbstractInterceptor class provides an empty implementation of <EM>init</EM> and <EM>destroy</EM>, and can be used if these methods are not going to be implemented.</P>
+
+<H3><A name="WritingInterceptors-Mapping"></A>Mapping</H3>
+
+<P>Interceptors are declared using the <EM>interceptor</EM> element, nested inside the <EM>interceptors</EM> element. Example from struts-default.xml:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;struts&gt;</SPAN>
+   ...
+
+   <SPAN class="code-tag">&lt;package name=<SPAN class="code-quote">&quot;struts-default&quot;</SPAN>&gt;</SPAN>
+      <SPAN class="code-tag">&lt;interceptors&gt;</SPAN>
+         <SPAN class="code-tag">&lt;interceptor name=<SPAN class="code-quote">&quot;alias&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.interceptor.AliasInterceptor&quot;</SPAN>/&gt;</SPAN>
+         <SPAN class="code-tag">&lt;interceptor name=<SPAN class="code-quote">&quot;autowiring&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.spring.interceptor.ActionAutowiringInterceptor&quot;</SPAN>/&gt;</SPAN>
+         ...
+      <SPAN class="code-tag">&lt;/interceptors&gt;</SPAN>
+   <SPAN class="code-tag">&lt;/package&gt;</SPAN>
+
+   ...
+<SPAN class="code-tag">&lt;/struts&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H3><A name="WritingInterceptors-Example"></A>Example</H3>
+
+<P>Assuming there is an action of type &quot;MyAction&quot;, with a setDate(Date) method, this simple interceptor will set the date of the action to the current date:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Interceptor Example</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+<SPAN class="code-keyword">import</SPAN> com.opensymphony.xwork2.ActionInvocation;
+<SPAN class="code-keyword">import</SPAN> com.opensymphony.xwork2.interceptor.AbstractInterceptor;
+
+<SPAN class="code-keyword">public</SPAN> class SimpleInterceptor <SPAN class="code-keyword">extends</SPAN> AbstractInterceptor {
+
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> intercept(ActionInvocation invocation) <SPAN class="code-keyword">throws</SPAN> Exception {
+       MyAction action = (MyAction)invocation.getAction();
+       action.setDate(<SPAN class="code-keyword">new</SPAN> Date());
+       <SPAN class="code-keyword">return</SPAN> invocation.invoke();
+    }
+}
+</PRE>
+</DIV></DIV>
+
+<H2><A name="WritingInterceptors-Next%3AActionChaining"></A>Next: <A href="action-chaining.html" title="Action Chaining">Action Chaining</A></H2>
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

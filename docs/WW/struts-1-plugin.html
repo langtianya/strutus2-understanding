@@ -1,0 +1,255 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Struts 1 Plugin</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="guides.html" title="Guides">Guides</A>&nbsp;&gt;&nbsp;<A href="plugin-developers-guide.html" title="Plugin Developers Guide">Plugin Developers Guide</A>&nbsp;&gt;&nbsp;<A href="" title="Struts 1 Plugin">Struts 1 Plugin</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Struts 1 Plugin</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=44227">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=44227">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=44227">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=44227">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=44227">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=44227">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <P>The Struts 1 plugin allows you to use existing Struts 1 Actions and ActionForms in Struts 2 applications.</P>
+
+<P>This plugin provides a generic Struts 2 Action class to wrap an existing Struts 1 Action, <TT>org.apache.struts2.s1.Struts1Action</TT>.  The wrapper class provides the expected calls to the legacy Struts 1 Action and ActionForm, converting incoming and outgoing objects into the expected forms.  It works by using the <A href="scoped-model-driven-interceptor.html" title="Scoped Model Driven Interceptor">scoped model driven</A> technique that uses a single Object as the model for every page, very similar to how the Struts 1 ActionForm works.  The plugin also provides several interceptors to emulate Struts 1 logic:</P>
+<UL>
+	<LI><TT>org.apache.struts2.s1.ActionFormValidatorInterceptor</TT> - Integrates the validation of ActionForms into the workflow of Struts 2</LI>
+	<LI><TT>org.apache.struts2.s1.ActionFormResetInterceptor</TT> - Calls the <TT>reset()</TT> method on any discovered ActionForms</LI>
+</UL>
+
+
+<DIV class="panelMacro"><TABLE class="warningMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/forbidden.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD><B>Warning</B><BR>The Struts 1 plugin is currently only intended to allow you to run Strust 1 actions inside a Struts 2 application. It DOES NOT allow you to continue to use the Struts 1 tag libraries in your JSPs. Your JSPs must be converted to use the Struts 2 tag library.
+
+<P>There is a <A href="https://issues.apache.org/struts/browse/WW-2157" class="external-link" rel="nofollow">JIRA ticket</A> open for enhancing this plugin to allow a more seamless transition from Struts 1 to Struts 2 by supporting continued use of the Struts 1 tag libraries in JSPs, however, there is not a scheduled time frame for that functionality to be made available. (Patches are welcomed!)</P></TD></TR></TABLE></DIV>
+
+<H2><A name="Struts1Plugin-Features"></A>Features</H2>
+
+<UL>
+	<LI>Can use Struts 1 Actions and ActionForms with no code changes</LI>
+	<LI>Supports Commons Validator-enabled ActionForms</LI>
+</UL>
+
+
+<H2><A name="Struts1Plugin-Usage"></A>Usage</H2>
+
+<P>To use existing Struts 1 Actions and ActionForms in a Struts 2 application, create a normal Struts 2 configuration package in <TT>struts.xml</TT>, but have it extend <TT>struts1-default</TT>.  The <TT>struts1-default</TT> package contains several interceptors and a default interceptor stack that work the plugin into the Struts 2 request process.</P>
+
+<P>In the most simple case, where you have a Struts 1 Action that you want to use in Struts 2, configure a Struts 2 action using the wrapper:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Simple Struts 1 configuration</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;myAction&quot;</SPAN> class=<SPAN class="code-quote">&quot;org.apache.struts2.s1.Struts1Action&quot;</SPAN>&gt;</SPAN>
+  <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;className&quot;</SPAN>&gt;</SPAN>com.mycompany.myapp.MyAction<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+  <SPAN class="code-tag">&lt;result&gt;</SPAN>myAction.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+<SPAN class="code-tag">&lt;/action&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>Most likely, you will have an ActionForm that your Struts 1 Action expects.  To use an ActionForm, the setup is a little more complicated because you'll need an interceptor that manages the creation and scope (to support request and session scoping like Struts 1) of the ActionForm. </P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Struts 1 Action with a session-scoped ActionForm</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+
+<SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;myFormAction&quot;</SPAN> class=<SPAN class="code-quote">&quot;org.apache.struts2.s1.Struts1Action&quot;</SPAN>&gt;</SPAN>
+  <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;className&quot;</SPAN>&gt;</SPAN>com.mycompany.myapp.MyAction<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+
+  <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;scopedModelDriven&quot;</SPAN>&gt;</SPAN>
+    <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;className&quot;</SPAN>&gt;</SPAN>com.mycompany.myapp.MyForm<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+    <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;name&quot;</SPAN>&gt;</SPAN>gangsterForm<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+    <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;scope&quot;</SPAN>&gt;</SPAN>session<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+  <SPAN class="code-tag">&lt;/interceptor-ref&gt;</SPAN>
+  <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;struts1-default&quot;</SPAN>/&gt;</SPAN>
+
+  <SPAN class="code-tag">&lt;result&gt;</SPAN>myAction.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+<SPAN class="code-tag">&lt;/action&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H2><A name="Struts1Plugin-Example"></A>Example</H2>
+
+<P>This example shows a few Struts 1 Actions, a session-scoped ActionForm, and validation that uses Commons Validator:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;?xml version=<SPAN class="code-quote">&quot;1.0&quot;</SPAN> encoding=<SPAN class="code-quote">&quot;UTF-8&quot;</SPAN> ?&gt;</SPAN>
+&lt;!DOCTYPE struts PUBLIC
+	<SPAN class="code-quote">&quot;-//Apache Software Foundation//DTD Struts Configuration 2.3//EN&quot;</SPAN>
+	<SPAN class="code-quote">&quot;http://struts.apache.org/dtds/struts-2.3.dtd&quot;</SPAN>&gt;
+
+<SPAN class="code-tag">&lt;struts&gt;</SPAN>
+  <SPAN class="code-tag">&lt;package name=<SPAN class="code-quote">&quot;integration&quot;</SPAN> extends=<SPAN class="code-quote">&quot;struts1-default&quot;</SPAN> namespace=<SPAN class="code-quote">&quot;/integration&quot;</SPAN>&gt;</SPAN>
+
+    <SPAN class="code-tag">&lt;interceptors&gt;</SPAN>
+      <SPAN class="code-tag">&lt;interceptor name=<SPAN class="code-quote">&quot;gangsterForm&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.interceptor.ScopedModelDrivenInterceptor&quot;</SPAN>&gt;</SPAN>
+        <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;className&quot;</SPAN>&gt;</SPAN>org.apache.struts2.showcase.integration.GangsterForm<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+        <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;name&quot;</SPAN>&gt;</SPAN>gangsterForm<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+      <SPAN class="code-tag">&lt;/interceptor&gt;</SPAN>
+      <SPAN class="code-tag">&lt;interceptor name=<SPAN class="code-quote">&quot;gangsterValidation&quot;</SPAN> class=<SPAN class="code-quote">&quot;org.apache.struts2.s1.ActionFormValidationInterceptor&quot;</SPAN>&gt;</SPAN>
+        <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;pathnames&quot;</SPAN>&gt;</SPAN>/org/apache/struts/validator/validator-rules.xml,/WEB-INF/validation.xml<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+      <SPAN class="code-tag">&lt;/interceptor&gt;</SPAN>
+
+      <SPAN class="code-tag">&lt;interceptor-stack name=<SPAN class="code-quote">&quot;integration&quot;</SPAN>&gt;</SPAN>
+        <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;staticParams&quot;</SPAN>/&gt;</SPAN>
+        <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;gangsterForm&quot;</SPAN>/&gt;</SPAN>
+        <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;modelDriven&quot;</SPAN>/&gt;</SPAN>
+        <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;actionForm-reset&quot;</SPAN>/&gt;</SPAN>
+        <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;basicStack&quot;</SPAN>/&gt;</SPAN>
+        <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;gangsterValidation&quot;</SPAN>/&gt;</SPAN>
+        <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;workflow&quot;</SPAN>/&gt;</SPAN>
+      <SPAN class="code-tag">&lt;/interceptor-stack&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/interceptors&gt;</SPAN>
+
+    <SPAN class="code-tag">&lt;default-interceptor-ref name=<SPAN class="code-quote">&quot;integration&quot;</SPAN>/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;default-action-ref name=<SPAN class="code-quote">&quot;editGangster&quot;</SPAN>/&gt;</SPAN>
+
+    <SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- Display entry page that uses Model-Driven technique --&gt;</SPAN></SPAN>
+    <SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;editGangster&quot;</SPAN> class=<SPAN class="code-quote">&quot;org.apache.struts2.s1.Struts1Action&quot;</SPAN>&gt;</SPAN>
+      <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;className&quot;</SPAN>&gt;</SPAN>org.apache.struts2.showcase.integration.EditGangsterAction<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+      <SPAN class="code-tag">&lt;result&gt;</SPAN>modelDriven.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/action&gt;</SPAN>
+
+    <SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- Display the result page whose content is populated using the Model-Driven technique --&gt;</SPAN></SPAN>
+    <SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;saveGangster&quot;</SPAN> class=<SPAN class="code-quote">&quot;org.apache.struts2.s1.Struts1Action&quot;</SPAN>&gt;</SPAN>
+      <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;className&quot;</SPAN>&gt;</SPAN>org.apache.struts2.showcase.integration.SaveGangsterAction<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+      <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;validate&quot;</SPAN>&gt;</SPAN>true<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+      <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;input&quot;</SPAN>&gt;</SPAN>modelDriven.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+      <SPAN class="code-tag">&lt;result&gt;</SPAN>modelDrivenResult.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/action&gt;</SPAN>
+
+  <SPAN class="code-tag">&lt;/package&gt;</SPAN>
+<SPAN class="code-tag">&lt;/struts&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H2><A name="Struts1Plugin-Settings"></A>Settings</H2>
+
+<P>This plugin doesn't support any global settings.</P>
+
+<H2><A name="Struts1Plugin-Installation"></A>Installation</H2>
+
+<P>This plugin can be installed by copying the plugin jar into your application's <TT>/WEB-INF/lib</TT> directory.  It will need the Struts 1 jar in order to function correctly.</P>
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

@@ -1,0 +1,199 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Using Checkboxes</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="faqs.html" title="FAQs">FAQs</A>&nbsp;&gt;&nbsp;<A href="cookbook.html" title="Cookbook">Cookbook</A>&nbsp;&gt;&nbsp;<A href="" title="Using Checkboxes">Using Checkboxes</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Using Checkboxes</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=14069">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=14069">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14069">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14069">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14069">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14069">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <P>The W3C specification does not provide a way to submit a &quot;cleared&quot; or &quot;false&quot; checkbox. If the control is clear, the browser will not submit any value for that control. The application is expected to notice that the checkbox was not submitted, and proceed accordingly. </P>
+
+<P>The framework automatically tracks the checkboxes used by a form (so you don't have to). If a checkbox is missing, a default value for the checkbox (usually false) is injected. The checkbox control can then turn on-and-off values as needed,</P>
+
+<H2><A name="UsingCheckboxes-UsingCheckboxestoSetaCollection"></A>Using Checkboxes to Set a Collection</H2>
+
+<P>Our user has a number of priviliges that are stored as a Set of strings.  To use checkboxes for these, we have HTML that looks like:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+&lt;input type=<SPAN class="code-quote">&quot;checkbox&quot;</SPAN> name=<SPAN class="code-quote">&quot;user.priv&quot;</SPAN> value=<SPAN class="code-quote">&quot;boss&quot;</SPAN>/&gt;
+&lt;input type=<SPAN class="code-quote">&quot;checkbox&quot;</SPAN> name=<SPAN class="code-quote">&quot;user.priv&quot;</SPAN> value=<SPAN class="code-quote">&quot;admin&quot;</SPAN>/&gt;
+&lt;input type=<SPAN class="code-quote">&quot;checkbox&quot;</SPAN> name=<SPAN class="code-quote">&quot;user.priv&quot;</SPAN> value=<SPAN class="code-quote">&quot;manager&quot;</SPAN>/&gt;
+</PRE>
+</DIV></DIV>
+
+<P>Say a user checks the first 2; the browser will send the query string: user.priv=boss&amp;user.priv=admin.</P>
+
+<P>OGNL will end up calling </P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">action.getUser().setPriv(<SPAN class="code-object">String</SPAN>[] {<SPAN class="code-quote">&quot;boss&quot;</SPAN>, <SPAN class="code-quote">&quot;admin&quot;</SPAN>})</PRE>
+</DIV></DIV>
+
+<P>You can write this method like:</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+    Set m_privileges = <SPAN class="code-keyword">new</SPAN> HashSet();
+
+    <SPAN class="code-keyword">public</SPAN> void setPriv(<SPAN class="code-object">String</SPAN>[] privs) {
+        <SPAN class="code-keyword">for</SPAN> (<SPAN class="code-object">int</SPAN> i = 0; i &lt; privs.length; i++) {
+            m_privileges.add(privs[i]);
+        }
+    }
+</PRE>
+</DIV></DIV>
+<H2><A name="UsingCheckboxes-FullDetailedexample%3A"></A>Full Detailed example:</H2>
+<P>This example uses a kind-of model-driven action (see <A href="model-driven-interceptor.html" title="Model Driven Interceptor">Model Driven Interceptor</A>). The action returns a single getter for the User object whose values are populated.</P>
+
+<UL>
+	<LI><A href="using-checkboxes-editactionjava.html" title="Using Checkboxes - EditAction.java">Using Checkboxes &#45; EditAction.java</A></LI>
+	<LI><A href="using-checkboxes-velocity-and-html.html" title="Using Checkboxes - Velocity and HTML">Using Checkboxes &#45; Velocity and HTML</A></LI>
+	<LI><A href="using-checkboxes-userjava.html" title="Using Checkboxes - User.java">Using Checkboxes &#45; User.java</A></LI>
+</UL>
+
+        </DIV>
+
+                  <DIV class="tabletitle">
+            Children
+            <SPAN class="smalltext" id="show" style="display: inline;">
+              <A href="javascript:showChildren()">Show Children</A></SPAN>
+            <SPAN class="smalltext" id="hide" style="display: none;">
+              <A href="javascript:hideChildren()">Hide Children</A></SPAN>
+          </DIV>
+          <DIV class="greybox" id="children" style="display: none;">
+                                      <A href="using-checkboxes-userjava.html" title="Using Checkboxes - User.java">Using Checkboxes - User.java</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="using-checkboxes-velocity-and-html.html" title="Using Checkboxes - Velocity and HTML">Using Checkboxes - Velocity and HTML</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="using-checkboxes-editactionjava.html" title="Using Checkboxes - EditAction.java">Using Checkboxes - EditAction.java</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                      </DIV>
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

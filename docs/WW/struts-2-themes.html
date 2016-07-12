@@ -1,0 +1,303 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Struts 2 Themes</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="tutorials.html" title="Tutorials">Tutorials</A>&nbsp;&gt;&nbsp;<A href="getting-started.html" title="Getting Started">Getting Started</A>&nbsp;&gt;&nbsp;<A href="" title="Struts 2 Themes">Struts 2 Themes</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Struts 2 Themes</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=23337450">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=23337450">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=23337450">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=23337450">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=23337450">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=23337450">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <DIV class="panelMacro"><TABLE class="infoMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>The example code for this tutorial, Themes_Struts2_Ant or Themes_Struts2_Mvn, is available on Google Code - <A href="http://code.google.com/p/struts2-examples/downloads/list" class="external-link" rel="nofollow">http://code.google.com/p/struts2-examples/downloads/list</A>. After downloading and unzipping the file, you'll have a folder named Themes_Struts2_Ant (or Themes_Struts2_Mvn). In that folder will be a README.txt file with instructions on now to build and run the example application.</TD></TR></TABLE></DIV>
+
+<H3><A name="Struts2Themes-Introduction"></A>Introduction</H3>
+
+<P>When you use a Struts 2 tag such as s:select in your web page, the Struts 2 framework generates HTML that styles the appearance and controls the layout of the select control.  The style and layout is determined by which Struts 2 theme is set for the tag.  Struts 2 comes with three built-in themes:  simple, xhtml, and css_xhtml.  If you don&rsquo;t specify a theme, then Struts 2 will use the xhtml theme by default.</P>
+
+<DIV class="panelMacro"><TABLE class="tipMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>The <A href="http://struts.apache.org/mail.html" class="external-link" rel="nofollow">Struts 2 user mailing list</A> is an excellent place to get help. If you are having a problem getting the tutorial example applications to work search the Struts 2 mailing list. If you don't find an answer to your problem, post a question on the mailing list.</TD></TR></TABLE></DIV>
+
+<P>For example, this Struts 2 select tag:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Struts 2 Select Tag</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-html">
+
+<SPAN class="code-tag">&lt;s:select key=<SPAN class="code-quote">&quot;personBean.sport&quot;</SPAN> list=<SPAN class="code-quote">&quot;sports&quot;</SPAN> /&gt;</SPAN>
+
+</PRE>
+</DIV></DIV>
+
+<P>generates this HTML markup:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>HTML Created By Struts 2 Select Tag</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-html">
+
+<SPAN class="code-tag">&lt;tr&gt;</SPAN>
+<SPAN class="code-tag">&lt;td class=<SPAN class="code-quote">&quot;tdLabel&quot;</SPAN>&gt;</SPAN>
+<SPAN class="code-tag">&lt;label for=<SPAN class="code-quote">&quot;save_personBean_sport&quot;</SPAN> class=<SPAN class="code-quote">&quot;label&quot;</SPAN>&gt;</SPAN>Favorite sport:<SPAN class="code-tag">&lt;/label&gt;</SPAN>
+<SPAN class="code-tag">&lt;/td&gt;</SPAN>
+<SPAN class="code-tag">&lt;td&gt;</SPAN>
+<SPAN class="code-tag">&lt;select name=<SPAN class="code-quote">&quot;personBean.sport&quot;</SPAN> id=<SPAN class="code-quote">&quot;save_personBean_sport&quot;</SPAN>&gt;</SPAN>
+    <SPAN class="code-tag">&lt;option value=<SPAN class="code-quote">&quot;football&quot;</SPAN>&gt;</SPAN>football<SPAN class="code-tag">&lt;/option&gt;</SPAN>
+    <SPAN class="code-tag">&lt;option value=<SPAN class="code-quote">&quot;baseball&quot;</SPAN>&gt;</SPAN>baseball<SPAN class="code-tag">&lt;/option&gt;</SPAN>
+    <SPAN class="code-tag">&lt;option value=<SPAN class="code-quote">&quot;basketball&quot;</SPAN> selected=<SPAN class="code-quote">&quot;selected&quot;</SPAN>&gt;</SPAN>basketball<SPAN class="code-tag">&lt;/option&gt;</SPAN>
+<SPAN class="code-tag">&lt;/select&gt;</SPAN>
+<SPAN class="code-tag">&lt;/td&gt;</SPAN>
+<SPAN class="code-tag">&lt;/tr&gt;</SPAN>
+
+</PRE>
+</DIV></DIV>
+
+<P>Notice how the HTML generated uses table tags to control the layout of the label and select HTML.  There is also a class, tdLabel, applied to the table column where the label tag is rendered.  Since no theme was specified for the Struts 2 select tag the default xhmtl theme was used.</P>
+
+
+<H3><A name="Struts2Themes-SpecifyingTheThemeStruts2ShouldUse"></A>Specifying The Theme Struts 2 Should Use</H3>
+
+<P>The Struts 2 tags have a theme attribute you can use to specify which Struts 2 theme should be used when creating the HTML for that tag.  The values for the theme attribute are simple, xhtml, css_xhtml, and ajax.  To learn more about these themes visit <A href="themes-and-templates.html" title="Themes and Templates">Themes and Templates Documentation</A>.  This tutorial will review the xhtml, css_xhtml, and the simple themes.  The ajax theme is a special theme used for ajax operations (see <A href="ajax-theme.html" title="ajax theme">Ajax Theme in the documentation</A>).</P>
+
+<P>You can specify the theme on a per Struts 2 tag basis or you can use one of the following methods to specify what theme Struts 2 should use:</P>
+
+<OL>
+	<LI>The theme attribute on the specific tag</LI>
+	<LI>The theme attribute on a tag's surrounding form tag</LI>
+	<LI>The page-scoped attribute named &quot;theme&quot;</LI>
+	<LI>The request-scoped attribute named &quot;theme&quot;</LI>
+	<LI>The session-scoped attribute named &quot;theme&quot;</LI>
+	<LI>The application-scoped attribute named &quot;theme&quot;</LI>
+	<LI>The struts.ui.theme property in struts.properties (defaults to xhtml)</LI>
+</OL>
+
+
+<P>Consult <A href="selecting-themes.html" title="Selecting Themes">Selecting Themes</A> for how to set the theme using the above approaches.</P>
+
+<P>In the example application, examine edit.jsp.  The theme attribute of the form tag is set to xhtml.  Run the application (see the readme.txt file) and view the source for edit.jsp after it is rendered in your browser.  You should see the form HTML tags layout controlled by table tags.  </P>
+
+<P>Change the theme to simple for the form&rsquo;s theme attribute and redeploy the application.  Examine the source for edit.jsp after it is rendered in the browser.  You should see that there are no table tags controlling the layout and also there are no label tags for the text fields.</P>
+
+<P>Change the theme to css_xhtml for the form&rsquo;s theme attribute and redeploy the application. Examine the source for edit.jsp after it is rendered in the browser.  The layout of the form tags is now controlled by div tags and the label tags are back.</P>
+
+
+<H3><A name="Struts2Themes-SpecifyingTheCSSUsedByTheStruts2Tag"></A>Specifying The CSS Used By The Struts 2 Tag</H3>
+
+<P>Change the theme attribute for the form tag back to xhtml.  Notice when you view the source of edit.jsp after it is rendered in the browser that there is a class named tdLabel applied to the table column that contains the label.  This CSS class controls the position of the label in the table column.  The tdLabel style is defined in /Themes_Struts2_Mvn/struts/xhtml/styles.css.  The link to this style sheet was included in edit.jsp&rsquo;s head section when you add the s:head tag to edit.jsp.  </P>
+
+<P>Load this style sheet in your browser (in the example application the link is <A href="http://localhost:8080/Themes_Struts2_Mvn/struts/xhtml/styles.css" class="external-link" rel="nofollow">http://localhost:8080/Themes_Struts2_Mvn/struts/xhtml/styles.css</A> if your Servlet container is running on localhost, port 8080).  You&rsquo;ll see the following:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>styles.css</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-html">
+
+.label {font-style:italic; }
+.errorLabel {font-style:italic; color:red; }
+.errorMessage {font-weight:bold; color:red; }
+.checkboxLabel {}
+.checkboxErrorLabel {color:red; }
+.required {color:red;}
+.tdLabel {text-align:right; vertical-align:top; }
+
+</PRE>
+</DIV></DIV>
+
+<P>So the .label selector renders the label tag&rsquo;s text in italic.  The .tdLabel tag specifies that the text should align to the right and top of the table column.</P>
+
+<P>You can override the above selectors by including the same selectors in your page&rsquo;s head section.  For example add the following to the head section of edit.jsp.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Override Label Style</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-html">
+
+<SPAN class="code-tag">&lt;style type=<SPAN class="code-quote">&quot;text/css&quot;</SPAN>&gt;</SPAN>
+  .label {color:blue; font-style:normal; font-weight:bold}
+<SPAN class="code-tag">&lt;/style&gt;</SPAN>
+
+
+</PRE>
+</DIV></DIV>
+
+<P>Now the label tag will render the text in blue, bold, normal (not italics) style.</P>
+
+<H3><A name="Struts2Themes-CreatingAndApplyingYourOwnThemesForStruts2Tags"></A>Creating And Applying Your Own Themes For Struts 2 Tags</H3>
+
+<P>The theme templates (simple, xhtml, css_xhtml) can be found in the Struts 2 core jar file. If you expand (extract the files) the Struts 2 core jar file you'll find folders named template.css_xhtml, template.simple, and template.xhtml. Those folders contain the templates for the three default Struts 2 themes.  In each folder is a file for each Struts 2 tag.  For example if you expand the template.xhtml folder you&rsquo;ll see the select.ftl file.  </P>
+
+<P>The Struts 2 framework uses the FreeMarker template engine to generate the HTML for the Struts 2 tags. That's why the file extension is &quot;.ftl&quot;.  You can learn more about FreeMarker by visiting <A href="http://freemarker.sourceforge.net/" class="external-link" rel="nofollow">http://freemarker.sourceforge.net/</A>. </P>
+
+<P>Also in the template.xhmtl folder is the styles.css file.  This is the styles.css file that your application will use if it uses the xhtml theme.</P>
+
+<P>Let&rsquo;s say we wanted to create our own theme that will change how the Struts 2 checkboxlist tag displays the checkboxes and their labels.  </P>
+
+<P>In the example application I've specified that the form tag should use the xhtml theme (see edit.jsp). The xhtml theme templates for the tags are in the template.xhtml folder (in the Struts 2 core jar file). The template for the Struts 2 checkboxlist tag is appropriately named checkboxlist.ftl. Opening that file you'll see that includes the checkboxlist template that is in the template.simple folder (the xhtml templates extend the templates defined in the template.simple folder). </P>
+
+<P>Opening the checkboxlist.ftl file in the template.simple folder, you'll see that there is only a space between each label and the next checkbox. That is why all the checkboxes are displayed across the width of the browser window. For my custom checkboxlist theme I want to have a break tag after each label tag so that each checkbox and its label will be on their own line.</P>
+
+<P>In the example application there is a folder named src/main/webapp/template/KUTheme (for the Maven version, for the Ant version the path is WebContent/template/KUTheme). In that folder is a checkboxlist.ftl, the contents of which I originally copied from the checkboxlist.ftl that is in the templates.xhtml folder from the struts 2 core jar. </P>
+
+<P>I then modified the checkboxlist.ftl in the KUTheme folder to be:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Modified checkboxlist.ftl</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-html">
+
+<SPAN class="code-tag">&lt;#include <SPAN class="code-quote">&quot;/${parameters.templateDir}/xhtml/controlheader.ftl&quot;</SPAN> /&gt;</SPAN>
+<SPAN class="code-tag">&lt;#include <SPAN class="code-quote">&quot;/${parameters.templateDir}/KUTheme_simple/checkboxlist.ftl&quot;</SPAN> /&gt;</SPAN>
+<SPAN class="code-tag">&lt;#include <SPAN class="code-quote">&quot;/${parameters.templateDir}/xhtml/controlfooter.ftl&quot;</SPAN> /&gt;</SPAN><SPAN class="code-tag">&lt;#nt/&gt;</SPAN>
+
+</PRE>
+</DIV></DIV>
+
+<P>Be sure to note the change to the first line&mdash;using xhtml in the path and the change to the second line&mdash;using KUTheme_simple in the path.</P>
+
+<P>Then in the example application I created a KUTheme_simple folder under webapp/template.  In that folder I created checkboxlist.ftl and copied the contents from template.simple checkboxlist.ftl (again found in the Struts 2 core jar).  After copying the contents to checkboxlist.ftl that is in KUTheme_simple folder, I modified checkboxlist.ftl so that the label tag has a style of red bold text and I added a break tag after each label so that each check box and label will be on its own line.</P>
+
+<P>In edit.jsp change the value of the theme attribute to be theme=&quot;KUTheme&quot; for the Struts 2 checkboxlist tag. </P>
+
+<P>In the deployed web application, Struts 2 will first look for a tag's template in <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&title=web%20root&linkCreation=true&fromPageId=23337450" class="createlink">web root</A>/template/<A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&title=theme%20name&linkCreation=true&fromPageId=23337450" class="createlink">theme name</A> and if it doesn't find the template there it will use the default template that is part of the Struts 2 core jar.  Since we've added a template folder to the application's web root, now when Struts 2 creates the HTML to display the checkboxlist tag it will use the template that is in the KUTheme folder (which tells it to use the checkboxlist.ftl file that is in the KUTheme_simple folder instead of the one in the template.simple folder that is part of the Struts 2 core Jar).</P>
+
+<P>After redeploying the application the check boxes for the Car Models Owned should appear like:</P>
+
+
+<P><SPAN class="image-wrap" style=""><IMG src="struts-2-themes.data/Screen%20shot%202010-09-11%20at%2012.37.12%20PM.png" style="border: 1px solid black"></SPAN></P>
+
+
+<H3><A name="Struts2Themes-Summary"></A>Summary</H3>
+
+<P>You can easily override the default theme used by Struts 2 to control the appearance and layout of a Struts 2 tag.  Each Struts 2 tag has an associated template file (e.g. select.ftl) that is in a folder named after the theme (e.g. xhtml).  By default the Struts framework will look in the Struts 2 core Jar file for the theme folder and templates.  However, if you include your own theme folder (e.g. KUTheme) under webapp/template (or WebContent/template in the Ant version) and specify that folder name (e.g. KUTheme) as the value for the theme attribute, then the Struts 2 framework will look in that theme folder for the tag's template.</P>
+
+<P>To learn more about how to use the Struts 2 themes and how you can override them, visit <A href="themes-and-templates.html" title="Themes and Templates">Themes and Templates Documentation</A>.</P>
+
+<H3><A name="Struts2Themes-UpNext"></A>Up Next</H3>
+
+<P>In our next tutorial we'll cover how to use the Spring and Struts 2 frameworks together.</P>
+
+<DIV class="table-wrap">
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TH class="confluenceTh"> Next </TH>
+<TD class="confluenceTd"> Onward to <A href="spring-and-struts-2.html" title="Spring and Struts 2">Spring and Struts 2</A> </TD>
+</TR>
+</TBODY></TABLE>
+</DIV>
+
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

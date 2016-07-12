@@ -1,0 +1,704 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Creating and Signing a Struts 2.1.x Distribution</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="guides.html" title="Guides">Guides</A>&nbsp;&gt;&nbsp;<A href="contributors-guide.html" title="Contributors Guide">Contributors Guide</A>&nbsp;&gt;&nbsp;<A href="creating-and-signing-a-distribution.html" title="Creating and Signing a Distribution">Creating and Signing a Distribution</A>&nbsp;&gt;&nbsp;<A href="" title="Creating and Signing a Struts 2.1.x Distribution">Creating and Signing a Struts 2.1.x Distribution</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Creating and Signing a Struts 2.1.x Distribution</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=65165">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=65165">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=65165">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=65165">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=65165">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=65165">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <H1><A name="CreatingandSigningaStruts2.1.xDistribution-Content"></A>Content</H1>
+<STYLE type="text/css">/*<![CDATA[*/
+div.rbtoc1277800190162 {margin-left: 0px;padding: 0px;}
+div.rbtoc1277800190162 ul {list-style: none;margin-left: 0px;}
+div.rbtoc1277800190162 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</STYLE><DIV class="rbtoc1277800190162">
+<UL>
+    <LI><SPAN class="TOCOutline">1</SPAN> <A href="#CreatingandSigningaStruts2.1.xDistribution-Content">Content</A></LI>
+    <LI><SPAN class="TOCOutline">2</SPAN> <A href="#CreatingandSigningaStruts2.1.xDistribution-BuildingSteps%2528StrutsAnnotations%2529">Building Steps (Struts Annotations)</A></LI>
+<UL>
+<UL>
+    <LI><SPAN class="TOCOutline">2.1.1</SPAN> <A href="#CreatingandSigningaStruts2.1.xDistribution-Obtainafreshcheckoutofstrutsannotations">Obtain a fresh check out of struts annotations</A></LI>
+    <LI><SPAN class="TOCOutline">2.1.2</SPAN> <A href="#CreatingandSigningaStruts2.1.xDistribution-Preparerelease">Prepare release</A></LI>
+    <LI><SPAN class="TOCOutline">2.1.3</SPAN> <A href="#CreatingandSigningaStruts2.1.xDistribution-Performrelease">Perform release</A></LI>
+    <LI><SPAN class="TOCOutline">2.1.4</SPAN> <A href="#CreatingandSigningaStruts2.1.xDistribution-SendaVOTEemail">Send a VOTE email</A></LI>
+    <LI><SPAN class="TOCOutline">2.1.5</SPAN> <A href="#CreatingandSigningaStruts2.1.xDistribution-Copyfiles%2528Ifvotepassed%2529">Copy files (If vote passed)</A></LI>
+</UL>
+</UL>
+    <LI><SPAN class="TOCOutline">3</SPAN> <A href="#CreatingandSigningaStruts2.1.xDistribution-BuildingSteps%2528Struts%2529">Building Steps (Struts)</A></LI>
+<UL>
+<UL>
+    <LI><SPAN class="TOCOutline">3.1.1</SPAN> <A href="#CreatingandSigningaStruts2.1.xDistribution-Gettingready">Getting ready</A></LI>
+    <LI><SPAN class="TOCOutline">3.1.2</SPAN> <A href="#CreatingandSigningaStruts2.1.xDistribution-Obtainafreshcheckout.">Obtain a fresh checkout.</A></LI>
+    <LI><SPAN class="TOCOutline">3.1.3</SPAN> <A href="#CreatingandSigningaStruts2.1.xDistribution-Preparerelease">Prepare release</A></LI>
+    <LI><SPAN class="TOCOutline">3.1.4</SPAN> <A href="#CreatingandSigningaStruts2.1.xDistribution-Performtherelease">Perform the release</A></LI>
+    <LI><SPAN class="TOCOutline">3.1.5</SPAN> <A href="#CreatingandSigningaStruts2.1.xDistribution-Movetheartifactstothe%252Fwww%252Fpeople.apache.org%252Fbuilds%252Fstruts%252F%2524VERSIONdir">Move the artifacts to the /www/people.apache.org/builds/struts/$VERSION dir</A></LI>
+    <LI><SPAN class="TOCOutline">3.1.6</SPAN> <A href="#CreatingandSigningaStruts2.1.xDistribution-Jirastuff">Jira stuff</A></LI>
+    <LI><SPAN class="TOCOutline">3.1.7</SPAN> <A href="#CreatingandSigningaStruts2.1.xDistribution-Voteonit">Vote on it</A></LI>
+    <LI><SPAN class="TOCOutline">3.1.8</SPAN> <A href="#CreatingandSigningaStruts2.1.xDistribution-Copyfiles">Copy files</A></LI>
+    <LI><SPAN class="TOCOutline">3.1.9</SPAN> <A href="#CreatingandSigningaStruts2.1.xDistribution-Waitforrsync">Wait for rsync</A></LI>
+    <LI><SPAN class="TOCOutline">3.1.10</SPAN> <A href="#CreatingandSigningaStruts2.1.xDistribution-Updatesite%2528Struts2site%2529">Update site (Struts 2 site)</A></LI>
+    <LI><SPAN class="TOCOutline">3.1.11</SPAN> <A href="#CreatingandSigningaStruts2.1.xDistribution-Updatesite%2528Strutstoplevelsite%2529">Update site (Struts top level site)</A></LI>
+    <LI><SPAN class="TOCOutline">3.1.12</SPAN> <A href="#CreatingandSigningaStruts2.1.xDistribution-Permissions">Permissions</A></LI>
+    <LI><SPAN class="TOCOutline">3.1.13</SPAN> <A href="#CreatingandSigningaStruts2.1.xDistribution-Postannouncements">Post announcements</A></LI>
+</UL>
+    <LI><SPAN class="TOCOutline">3.2</SPAN> <A href="#CreatingandSigningaStruts2.1.xDistribution-Onetime">One time</A></LI>
+<UL>
+    <LI><SPAN class="TOCOutline">3.2.1</SPAN> <A href="#CreatingandSigningaStruts2.1.xDistribution-CreateandinstallaSSHkey">Create and install a SSH key</A></LI>
+    <LI><SPAN class="TOCOutline">3.2.2</SPAN> <A href="#CreatingandSigningaStruts2.1.xDistribution-CreateaPGPkey">Create a PGP key</A></LI>
+    <LI><SPAN class="TOCOutline">3.2.3</SPAN> <A href="#CreatingandSigningaStruts2.1.xDistribution-UpdateMavensettingsforourservers">Update Maven settings for our servers</A></LI>
+    <LI><SPAN class="TOCOutline">3.2.4</SPAN> <A href="#CreatingandSigningaStruts2.1.xDistribution-IncreaseMemorySettingsforMaven">Increase Memory Settings for Maven</A></LI>
+</UL>
+    <LI><SPAN class="TOCOutline">3.3</SPAN> <A href="#CreatingandSigningaStruts2.1.xDistribution-Resources">Resources</A></LI>
+    <LI><SPAN class="TOCOutline">3.4</SPAN> <A href="#CreatingandSigningaStruts2.1.xDistribution-Retagging">Retagging</A></LI>
+    <LI><SPAN class="TOCOutline">3.5</SPAN> <A href="#CreatingandSigningaStruts2.1.xDistribution-Amendingalogentry">Amending a log entry</A></LI>
+    <LI><SPAN class="TOCOutline">3.6</SPAN> <A href="#CreatingandSigningaStruts2.1.xDistribution-SampleStrutsAnnotationsRelease%252FQualityVote">Sample Struts Annotations Release/Quality Vote</A></LI>
+    <LI><SPAN class="TOCOutline">3.7</SPAN> <A href="#CreatingandSigningaStruts2.1.xDistribution-SampleTestBuildAnnouncement">Sample Test Build Announcement</A></LI>
+    <LI><SPAN class="TOCOutline">3.8</SPAN> <A href="#CreatingandSigningaStruts2.1.xDistribution-SampleRelease%252FQualityVote">Sample Release/Quality Vote</A></LI>
+    <LI><SPAN class="TOCOutline">3.9</SPAN> <A href="#CreatingandSigningaStruts2.1.xDistribution-SampleReleaseAnnouncement">Sample Release Announcement</A></LI>
+    <LI><SPAN class="TOCOutline">3.10</SPAN> <A href="#CreatingandSigningaStruts2.1.xDistribution-FastTrackinganImportantSecurityRelease">Fast-Tracking an Important Security Release</A></LI>
+</UL>
+</UL></DIV>
+
+<P><IMG class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/check.gif" height="16" width="16" align="absmiddle" alt="" border="0"> To keep this list current, it is <B>strongly recommended</B> that release managers refer to and follow this list each time a distribution is created. If any of the steps need to be amended, then please update the list.</P>
+
+<H1><A name="CreatingandSigningaStruts2.1.xDistribution-BuildingSteps%28StrutsAnnotations%29"></A>Building Steps (Struts Annotations)</H1>
+<H3><A name="CreatingandSigningaStruts2.1.xDistribution-Obtainafreshcheckoutofstrutsannotations"></A>Obtain a fresh check out of struts annotations</H3>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+svn co https:<SPAN class="code-comment">//svn.apache.org/repos/asf/struts/maven/trunk/struts-annotations struts-annotations</SPAN>
+</PRE>
+</DIV></DIV>
+<H3><A name="CreatingandSigningaStruts2.1.xDistribution-Preparerelease"></A>Prepare release</H3>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+mvn -Prelease release:prepare -Dusername=yourSvnUsername -Dpassword=yourSvnPassword
+</PRE>
+</DIV></DIV>
+<P>Accept the suggested tag name</P>
+
+<DIV class="panelMacro"><TABLE class="noteMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>For some reason, when using svn client 1.5, the release plugin might fail to tag the release, if it fails, run:<BR>
+svn up -r head<BR>
+mvn -Prelease release:prepare -Dresume</TD></TR></TABLE></DIV>
+
+<H3><A name="CreatingandSigningaStruts2.1.xDistribution-Performrelease"></A>Perform release</H3>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+mvn -Prelease release:perform -Dusername=yourSvnUsername
+</PRE>
+</DIV></DIV>
+<H3><A name="CreatingandSigningaStruts2.1.xDistribution-SendaVOTEemail"></A>Send a VOTE email</H3>
+<P>A sample template is at the bottom of the page (and DO wait for the 72 hours period)</P>
+<H3><A name="CreatingandSigningaStruts2.1.xDistribution-Copyfiles%28Ifvotepassed%29"></A>Copy files (If vote passed)</H3>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+ssh people.apache.org
+cp -R  /www/people.apache.org/builds/struts/struts-annotations-$VERSION/m2-staging-repository/org/apache/struts/struts-annotations/ /www/people.apache.org/repo/m2-ibiblio-rsync-repository/org/apache/struts/struts-annotations/
+</PRE>
+</DIV></DIV>
+
+<H1><A name="CreatingandSigningaStruts2.1.xDistribution-BuildingSteps%28Struts%29"></A>Building Steps (Struts)</H1>
+<H3><A name="CreatingandSigningaStruts2.1.xDistribution-Gettingready"></A>Getting ready</H3>
+<OL>
+	<LI>Create an &quot;Struts 2.x.y omnibus ticket&quot; ticket in JIRA to refer to in upcoming release related commit comments and for general documentation purposes. Mark it with priority &quot;Blocker&quot;.</LI>
+	<LI>Ensure that the master POM and Struts Annotations have current releases</LI>
+	<LI>Review JIRA for any issues without a fix version set, and for any issues that should be resolved for the pending release.</LI>
+	<LI>Ensure that there are no repositories or pluginRepositories listed in the poms.</LI>
+	<LI>If you have committed all changes regarding the release process, close the omnibus ticket as it is the last open ticket for the upcoming release</LI>
+	<LI>Release the upcoming version in JIRA (under Administration/Manage Releases) and tag the release date</LI>
+	<LI>Add next milestone version to the JIRA roadmap</LI>
+	<LI>Create DONE and TODO filters for the new version, share with all, and remove obsolete TODO filter</LI>
+	<LI>Create new release page in Confluence, link from Migration Guide, and link to prior release page and JIRA DONE filters of the version to release</LI>
+</OL>
+
+
+<H3><A name="CreatingandSigningaStruts2.1.xDistribution-Obtainafreshcheckout."></A>Obtain a fresh checkout.</H3>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+svn co https:<SPAN class="code-comment">//svn.apache.org/repos/asf/struts/struts2/trunk STRUTS_#_#_#</SPAN>
+</PRE>
+</DIV></DIV> 
+
+<H3><A name="CreatingandSigningaStruts2.1.xDistribution-Preparerelease"></A>Prepare release</H3>
+<P>Tag the release by using the &quot;release:prepare&quot; goal of Maven: </P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+mvn -Prelease release:prepare -Dusername=yourSvnUsername -Dpassword=yourSvnPassword -DautoVersionSubmodules=<SPAN class="code-keyword">true</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>For a <A href="http://maven.apache.org/plugins/maven-release-plugin/usage.html" class="external-link" rel="nofollow">dry run</A>, add '-DdryRun=true'. If you do a dry run, use 'mvn release:clean' to clean up after you have looked at the output. </P>
+
+<P>When prompted for the SCM tag name, follow this pattern: <TT>STRUTS_2_1_[PATCH_VERSION]</TT></P>
+
+<DIV class="panelMacro"><TABLE class="noteMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>For some reason, when using svn client 1.5, the release plugin might fail to tag the release, if it fails, run:<BR>
+svn up -r head<BR>
+mvn -Prelease release:prepare -Dresume</TD></TR></TABLE></DIV>
+
+<P>This step will (<A href="http://maven.apache.org/plugins/maven-release-plugin/examples/prepare-release.html" class="external-link" rel="nofollow">more information</A>):</P>
+<UL>
+	<LI>Check that there are no uncommitted changes in the sources</LI>
+	<LI>Check that there are no SNAPSHOT dependencies</LI>
+	<LI>Change the version in the poms from x-SNAPSHOT to a new version (you will be prompted for the versions to use)</LI>
+	<LI>Transform the SCM information in the POM to include the final destination of the tag</LI>
+	<LI>Run the project tests against the modified POMs to confirm everything is in working order</LI>
+	<LI>Commit the modified POMs</LI>
+	<LI>Tag the code in the SCM with a version name (this will be prompted for)</LI>
+	<LI>Bump the version in the POMs to a new value y-SNAPSHOT (these values will also be prompted for)</LI>
+	<LI>Commit the modified POMs</LI>
+</UL>
+
+
+<H3><A name="CreatingandSigningaStruts2.1.xDistribution-Performtherelease"></A>Perform the release </H3>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+mvn -Prelease release:perform -Dusername=yourSvnUsername
+</PRE>
+</DIV></DIV> 
+
+<P>This step will (<A href="http://maven.apache.org/plugins/maven-release-plugin/examples/perform-release.html" class="external-link" rel="nofollow">more information</A>):</P>
+<UL>
+	<LI>Checkout from an SCM URL with optional tag</LI>
+	<LI>Run the predefined Maven goals to release the project (by default, deploy site-deploy)</LI>
+</UL>
+
+
+<P>After this step the artifacts will be under people.apache.org:/www/people.apache.org/builds/struts/$VERSION/m2-staging-repository/</P>
+
+<P>If you need to run perform again, (or in a different box), do:</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+svn co http:<SPAN class="code-comment">//svn.apache.org/repos/asf/struts/struts2/tags/$VERSION
+</SPAN>cd $VERSION
+mvn deploy site-deploy -Prelease --no-plugin-updates -DperformRelease=<SPAN class="code-keyword">true</SPAN> 
+</PRE>
+</DIV></DIV>
+
+<H3><A name="CreatingandSigningaStruts2.1.xDistribution-Movetheartifactstothe%2Fwww%2Fpeople.apache.org%2Fbuilds%2Fstruts%2F%24VERSIONdir"></A>Move the artifacts to the /www/people.apache.org/builds/struts/$VERSION dir</H3>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+ssh people.apache.org
+cd /www/people.apache.org/builds/struts/$VERSION
+
+find m2-staging-repository -name <SPAN class="code-quote">&quot;*.zip*&quot;</SPAN>    -exec cp {} . \;
+
+#remove 'struts-assembly' from the file names
+<SPAN class="code-keyword">for</SPAN> src in $('ls');<SPAN class="code-keyword">do</SPAN> trg=$(echo $src | sed -e <SPAN class="code-quote">&quot;s/struts2-assembly/struts/&quot;</SPAN>);mv -v $src $trg; done
+
+#remove assembly dir
+rm -rdf m2-staging-repository/org/apache/struts/struts2-assembly/
+
+#remove signature checksums
+rm *.asc.md5 *.asc.sha1
+</PRE>
+</DIV></DIV>
+
+<H3><A name="CreatingandSigningaStruts2.1.xDistribution-Jirastuff"></A>Jira stuff </H3>
+<UL>
+	<LI>Update JIRA roadmap with tag/release date</LI>
+	<LI>Add next milestone to the JIRA roadmap</LI>
+	<LI>Create DONE and TODO filters, share with all, and remove obsolete TODO filter;</LI>
+	<LI>Create new release page, link from Migration Guide, and link to prior release page and JIRA filters.</LI>
+</UL>
+
+
+<H3><A name="CreatingandSigningaStruts2.1.xDistribution-Voteonit"></A>Vote on it</H3>
+<P>Post a release/quality vote to the dev list (and <B>only</B> the dev list). </P>
+
+<H3><A name="CreatingandSigningaStruts2.1.xDistribution-Copyfiles"></A>Copy files</H3>
+<P>After the vote, if the distribution is being mirrored (there was a favorable release vote) copy the Sources and Binaries:</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+ssh people.apache.org
+cd /www/people.apache.org/builds/struts/$VERSION
+cp struts-$VERSION-src.*  /www/www.apache.org/dist/struts/source
+cp struts-$VERSION-docs.*  /www/www.apache.org/dist/struts/documentation
+cp struts-$VERSION-lib.* /www/www.apache.org/dist/struts/library
+cp struts-$VERSION-apps.* /www/www.apache.org/dist/struts/examples
+cp struts-$VERSION-all.* /www/www.apache.org/dist/struts/binaries   
+</PRE>
+</DIV></DIV>
+
+<P>Copy the Maven artifacts</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+ssh people.apache.org
+cp -R /www/people.apache.org/builds/struts/$VERSION/m2-staging-repository/org/apache/struts/  /www/people.apache.org/repo/m2-ibiblio-rsync-repository/org/apache/struts/ 
+find /www/people.apache.org/repo/m2-ibiblio-rsync-repository/org/apache/struts/ -user ${USER} -type f -exec chmod 664 {} \;
+find /www/people.apache.org/repo/m2-ibiblio-rsync-repository/org/apache/struts/ -user ${USER} -type d -exec chmod 775 {} \;
+</PRE>
+</DIV></DIV>
+
+<DIV class="panelMacro"><TABLE class="noteMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>The default setup on people.apache.org will leave the files and directories only changeable by the user who creates them. The last two steps will allow future releases to go smoothly.</TD></TR></TABLE></DIV>
+
+<H3><A name="CreatingandSigningaStruts2.1.xDistribution-Waitforrsync"></A>Wait for rsync</H3>
+<P>Wait 24 hours before proceeding. </P>
+
+<H3><A name="CreatingandSigningaStruts2.1.xDistribution-Updatesite%28Struts2site%29"></A>Update site (Struts 2 site)</H3>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+ssh people.apache.org
+export VERSION=2.1.x
+
+unzip /www/people.apache.org/builds/struts/$VERSION/struts-$VERSION-docs.zip -d ~/docs
+#now the docs are under ~/docs/struts-$VERSION/docs
+mkdir -p /www/struts.apache.org/$VERSION
+mv ~/docs/struts-$VERSION/docs /www/struts.apache.org/$VERSION
+chmod -R g+w /www/struts.apache.org/$VERSION
+</PRE>
+</DIV></DIV>
+
+<H3><A name="CreatingandSigningaStruts2.1.xDistribution-Updatesite%28Strutstoplevelsite%29"></A>Update site (Struts top level site)</H3>
+<UL>
+	<LI>Check out site src code
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+svn co https:<SPAN class="code-comment">//svn.apache.org/repos/asf/struts/site/ struts-site</SPAN>
+</PRE>
+</DIV></DIV></LI>
+	<LI>Update xml files
+	<UL>
+		<LI>struts-site/src/site/xdoc/announce.xml</LI>
+		<LI>struts-site/src/site/xdoc/downloads.xml (remove previous version)</LI>
+		<LI>struts-site/src/site/xdoc/download.xml (remove previous version)</LI>
+		<LI>struts-site/src/site/xdoc/index.xml</LI>
+		<LI>struts-site/src/site/site.xml</LI>
+	</UL>
+	</LI>
+	<LI>Commit the changes</LI>
+	<LI>Generate the site
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+mvn site:site
+</PRE>
+</DIV></DIV></LI>
+	<LI>Open <TT>struts-site/target/site/index.html</TT> and verify the urls and versions are right</LI>
+	<LI>Deploy site
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+mvn site-deploy
+</PRE>
+</DIV></DIV>
+<P>It takes a few hours for the site changes to go live</P></LI>
+</UL>
+
+
+<H3><A name="CreatingandSigningaStruts2.1.xDistribution-Permissions"></A>Permissions </H3>
+<P>After updating the site, be sure that the permissions are set to group writeable (<TT>$ chmod &#45;R g+w .</TT>) </P>
+
+<H3><A name="CreatingandSigningaStruts2.1.xDistribution-Postannouncements"></A>Post announcements </H3>
+<P>We leave this as the last step, once the artifacts have had time to sync up on the mirrors. </P>
+
+<H2><A name="CreatingandSigningaStruts2.1.xDistribution-Onetime"></A>One time</H2>
+
+<H3><A name="CreatingandSigningaStruts2.1.xDistribution-CreateandinstallaSSHkey"></A>Create and install a SSH key </H3>
+
+<UL>
+	<LI>See <A href="http://sial.org/howto/openssh/publickey-auth/" class="external-link" rel="nofollow">OpenSSH Public Key Authentication</A></LI>
+</UL>
+
+
+<DIV class="panelMacro"><TABLE class="noteMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>If you get hung up during release:perform because Maven can't verify the authenticity of a host, then there could be one of two <BR>
+different problems. The first problem, which is an easy fix, is to go to the command line and use SSH to log in to that host. You <BR>
+should receive a prompt to add the host to your known_hosts file. If you add the host to your known_hosts file from the command line <BR>
+SSH, then you should be able to try release:perform again and have more success. There is a chance though that this won't fix maven.
+
+<P>Maven doesn't appear to understand hashed known_hosts files. There is some information here - <A href="http://itso.iu.edu/Hashing_the_OpenSSH_known__hosts_File" class="external-link" rel="nofollow">known_hosts file Hashing</A>. <BR>
+If your known_hosts file is hashed, you can solve this one of a few different ways. If you perform a deploy:deploy instead of <BR>
+release:perform, then maven will leave a prompt open for you to type 'yes' and have maven add the host (in a way that Jsch, the library <BR>
+which provides Maven Wagon with the SSH/SCP functionality, understands) to your known_hosts file. Another option is to remove your <BR>
+known_hosts file, update your SSH configuration so that it does not hash the hostname in known_hosts and try to log in from the command <BR>
+line.</P></TD></TR></TABLE></DIV>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+mkdir ~/.ssh
+chmod 700 ~/.ssh
+ssh-keygen -q -f ~/.ssh/id_rsa -t rsa
+#Enter a passphrase
+chmod go-rwx ~/.ssh/*
+
+#copy the <SPAN class="code-keyword">public</SPAN> key to people.apache.org
+scp ~/.ssh/id_rsa.pub people.apache.org:/home/$USERNAME
+
+# next, setup the <SPAN class="code-keyword">public</SPAN> key on server
+ssh people.apache.org
+mkdir ~/.ssh
+chmod 700 ~/.ssh
+cat ~/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys
+chmod 600 ~/.ssh/authorized_keys
+rm ~/id_rsa.pub
+</PRE>
+</DIV></DIV>
+
+<H3><A name="CreatingandSigningaStruts2.1.xDistribution-CreateaPGPkey"></A>Create a PGP key</H3>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+svn co https:<SPAN class="code-comment">//svn.apache.org/repos/asf/struts/maven/trunk/build struts-maven-build
+</SPAN>cd struts-maven-build
+(gpg --fingerprint --list-sigs &lt;your name&gt; &amp;&amp; gpg --armor --export &lt;your name&gt;) &gt;&gt; KEYS
+scp KEYS people.apache.org:/www/www.apache.org/dist/struts
+svn commit KEYS -m <SPAN class="code-quote">&quot;Add <SPAN class="code-keyword">public</SPAN> key&quot;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H3><A name="CreatingandSigningaStruts2.1.xDistribution-UpdateMavensettingsforourservers"></A>Update Maven settings for our servers</H3>
+<P>Create a settings.xml under ~/.m2 </P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+&lt;settings xmlns=<SPAN class="code-quote">&quot;http:<SPAN class="code-comment">//maven.apache.org/POM/4.0.0&quot;</SPAN>
+</SPAN>          xmlns:xsi=<SPAN class="code-quote">&quot;http:<SPAN class="code-comment">//www.w3.org/2001/XMLSchema-instance&quot;</SPAN>
+</SPAN>          xsi:schemaLocation=<SPAN class="code-quote">&quot;http:<SPAN class="code-comment">//maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd&quot;</SPAN>&gt;
+</SPAN>    &lt;servers&gt;
+       &lt;server&gt;
+          &lt;id&gt;apache.snapshots&lt;/id&gt;
+          &lt;username&gt;$USERID&lt;/username&gt;
+          &lt;privateKey&gt;$PATH_TO_PRIVATE_KEY&lt;/privateKey&gt;
+          &lt;passphrase&gt;$PASSPHRASE&lt;/passphrase&gt;
+          &lt;directoryPermissions&gt;775&lt;/directoryPermissions&gt;
+          &lt;filePermissions&gt;644&lt;/filePermissions&gt;
+       &lt;/server&gt;
+       &lt;server&gt;
+          &lt;id&gt;struts-staging&lt;/id&gt;
+          &lt;username&gt;$USERID&lt;/username&gt;
+          &lt;privateKey&gt;$PATH_TO_PRIVATE_KEY&lt;/privateKey&gt;
+          &lt;passphrase&gt;$PASSPHRASE&lt;/passphrase&gt;
+       &lt;/server&gt;
+       &lt;server&gt;
+          &lt;id&gt;apache-site&lt;/id&gt;
+          &lt;username&gt;$USERID&lt;/username&gt;
+          &lt;privateKey&gt;$PATH_TO_PRIVATE_KEY&lt;/privateKey&gt;
+          &lt;passphrase&gt;$PASSPHRASE&lt;/passphrase&gt;
+          &lt;directoryPermissions&gt;775&lt;/directoryPermissions&gt;
+          &lt;filePermissions&gt;664&lt;/filePermissions&gt;
+       &lt;/server&gt;
+    &lt;/servers&gt;
+   &lt;profiles&gt;
+       &lt;profile&gt;
+        &lt;id&gt;cargo-config&lt;/id&gt;
+         &lt;properties&gt;
+            &lt;cargo.tomcat5x.home&gt;$CATALINA_HOME&lt;/cargo.tomcat5x.home&gt;
+         &lt;/properties&gt;
+       &lt;/profile&gt;
+       &lt;profile&gt;
+        &lt;id&gt;release&lt;/id&gt;
+        &lt;properties&gt;
+          &lt;gpg.passphrase&gt;$PASSPHRASE&lt;/gpg.passphrase&gt;
+        &lt;/properties&gt;
+       &lt;/profile&gt;
+   &lt;/profiles&gt;
+   &lt;activeProfiles&gt;
+      &lt;activeProfile&gt;cargo-config&lt;/activeProfile&gt;
+   &lt;/activeProfiles&gt;
+&lt;/settings&gt;
+</PRE>
+</DIV></DIV> 
+
+<H3><A name="CreatingandSigningaStruts2.1.xDistribution-IncreaseMemorySettingsforMaven"></A>Increase Memory Settings for Maven</H3>
+
+<P>To complete a full build and all the tests, it may be neccesary to increase the amount of memory available to Maven. The simplest thing is to set an environment variable.</P>
+<UL>
+	<LI><TT>MAVEN_OPTS=-Xmx512m</TT> or even <TT>MAVEN_OPTS=-Xmx1024m</TT></LI>
+</UL>
+
+
+<H2><A name="CreatingandSigningaStruts2.1.xDistribution-Resources"></A>Resources</H2>
+
+<UL>
+	<LI>Apache Struts <A href="http://struts.apache.org/releases.html#Releases" class="external-link" rel="nofollow">Release Guidelines</A></LI>
+	<LI><A href="http://wiki.apache.org/struts/StrutsMaintenanceMaven" class="external-link" rel="nofollow">Struts Maintenance Guide for Maven </A></LI>
+	<LI><A href="http://apache.org/dev/release-signing.html" class="external-link" rel="nofollow">Signing Releases</A></LI>
+	<LI><A href="http://wiki.wsmoak.net/cgi-bin/wiki.pl?ReleaseSigning" class="external-link" rel="nofollow">Wendy's notes on Release Signing</A></LI>
+	<LI>Apache <A href="http://apache.org/dev/mirrors.html" class="external-link" rel="nofollow">Mirroring Guidelines</A></LI>
+</UL>
+
+
+<H2><A name="CreatingandSigningaStruts2.1.xDistribution-Retagging"></A>Retagging</H2>
+
+<P>If a tagged build needs to be retagged, be sure to delete the old tag first.</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+svn delete https:<SPAN class="code-comment">//svn.apache.org/repos/asf/struts/struts2/tags/STRUTS_#_#_# -m <SPAN class="code-quote">&quot;WW-### Removing first <SPAN class="code-keyword">try</SPAN> at 2.#.#.&quot;</SPAN></SPAN>
+</PRE>
+</DIV></DIV>
+
+<H2><A name="CreatingandSigningaStruts2.1.xDistribution-Amendingalogentry"></A>Amending a log entry</H2>
+
+<P>If the commit was fine, but the log was wrong, updating the log entry is easy. For example,</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+&gt; svn propset --revprop -r 504523 svn:log <SPAN class="code-quote">&quot;WW-1715 Branch <SPAN class="code-keyword">for</SPAN> 2.0.x at Struts 2.0.6-SNAPSHOT r504196&quot;</SPAN>
+&gt; property 'svn:log' set on repository revision 504523
+</PRE>
+</DIV></DIV>
+<P>See <TT>svn help propset</TT> for more.</P>
+
+<H2><A name="CreatingandSigningaStruts2.1.xDistribution-SampleStrutsAnnotationsRelease%2FQualityVote"></A>Sample Struts Annotations Release/Quality Vote</H2>
+<DIV class="preformatted panel" style="border-width: 1px;"><DIV class="preformattedContent panelContent">
+<PRE>Subject: [VOTE] Struts Annotations 1.0.x Vote
+The Struts Annotations 1.0.x test build is now available as a Maven
+artifact. It is a dependency of Struts 2.x.y.
+
+If you have had a chance to review the test build, please respond with
+a vote on its quality:
+
+[ ] Leave at test build
+[ ] Alpha
+[ ] Beta
+[ ] General Availability (GA)
+
+
+Everyone who has tested the build is invited to vote. Votes by PMC
+members are considered binding. A vote passes if there are at least
+three binding +1s and more +1s than -1s.
+
+The vote will remain open for at least 72 hours, longer upon request.
+</PRE>
+</DIV></DIV>
+<H2><A name="CreatingandSigningaStruts2.1.xDistribution-SampleTestBuildAnnouncement"></A>Sample Test Build Announcement</H2>
+
+<P><IMG class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/check.gif" height="16" width="16" align="absmiddle" alt="" border="0"> Test builds are only announced to the dev list. Announcements to the user list can only be made pursuant to a release vote with the consent of the PMC.</P>
+<DIV class="preformatted panel" style="border-width: 1px;"><DIV class="preformattedContent panelContent">
+<PRE>The test build of Struts 2.0.3 is available.
+
+
+No determination as to the quality ('alpha,' 'beta,' or 'GA') of Struts 2.0.3 has been made, and at this time it is simply a &quot;test build&quot;.  We welcome any comments you may have, and will take all feedback into account if a quality vote is called for this build.
+
+Release notes:
+* [LINK]
+
+Distribution:
+* [http://people.apache.org/builds/struts/#.#.#/]
+
+Maven 2 staging repository:
+* [http://people.apache.org/builds/struts/#.#.#/m2-staging-repository/]
+
+
+We appreciate the time and effort everyone has put toward contributing code and documentation, posting to the mailing lists, and logging issues.
+</PRE>
+</DIV></DIV>
+
+<H2><A name="CreatingandSigningaStruts2.1.xDistribution-SampleRelease%2FQualityVote"></A>Sample Release/Quality Vote</H2>
+
+<DIV class="preformatted panel" style="border-width: 1px;"><DIV class="preformattedContent panelContent">
+<PRE>Subject: [VOTE] Struts #.#.# Vote
+The Struts #.#.# test build is now available.
+
+Release notes:
+* [http://struts.apache.org/2.x/docs/version-notes-###.html]
+
+Distribution:
+* [http://people.apache.org/builds/struts/#.#.#/]
+
+Maven 2 staging repository:
+* [http://people.apache.org/builds/struts/#.#.#/m2-staging-repository/]
+
+Once you have had a chance to review the test build, please respond with a vote on its quality:
+
+[ ] Leave at test build
+[ ] Alpha
+[ ] Beta
+[ ] General Availability (GA)
+
+Everyone who has tested the build is invited to vote. Votes by PMC members are considered binding. A vote passes if there are at least three binding +1s and more +1s than -1s.
+
+The vote will remain open for at least 72 hours, longer upon request. A vote can be amended at any time to upgrade or downgrade the quality of the release based on future experience. If an initial vote designates the build as &quot;Beta&quot;, the release will be submitted for mirroring and announced to the user list. Once released as a public beta, subsequent quality votes on a build may be held on the user list.
+
+As always, the act of voting carries certain obligations. A binding vote not only states an opinion, but means that the voter is agreeing to help do the work
+</PRE>
+</DIV></DIV>
+
+<H2><A name="CreatingandSigningaStruts2.1.xDistribution-SampleReleaseAnnouncement"></A>Sample Release Announcement</H2>
+
+<DIV class="preformatted panel" style="border-width: 1px;"><DIV class="preformattedContent panelContent">
+<PRE>The Apache Struts group is pleased to announce that Struts 2.0.6 is available as a &quot;#####&quot; release. \[\[The Beta designation indicates that we believe the distribution needs wider testing before being upgraded to a &quot;General Availability&quot; release. Your input is essential.\] The GA designation is our highest quality grade. \]
+
+[http://struts.apache.org/download.cgi#struts###]
+
+The release is also available from the central Maven repository under Group ID &quot;org.apache.struts&quot;.
+
+The #.#.x series of the Apache Struts framework has a minimum requirement of the following specification versions:
+* Java Servlet #.# and JavaServer Pages (JSP) #.#
+* Java 2 Standard Platform Edition (J2SE) #.#
+
+The release notes are available online at:
+* [http://struts.apache.org/2.x/docs/release-notes-###.html]
+
+Should any issues arise with your use of any version of the Struts framework, please post your comments to the user list, and, if appropriate, file a ticket with JIRA.
+
+- The Apache Struts group.
+</PRE>
+</DIV></DIV>
+
+<H2><A name="CreatingandSigningaStruts2.1.xDistribution-FastTrackinganImportantSecurityRelease"></A>Fast-Tracking an Important Security Release</H2>
+
+<UL>
+	<LI>When a serious security issue  arises, we should try to create a <TT>&#35;.#.#.1</TT> branch from the last GA release, and apply to that branch only<BR>
+the security  patch.</LI>
+	<LI>If the patch first applies to XWork, or some other dependency, implore the other group to do the same, to avoid side-effects from other changes.</LI>
+	<LI>If the release manager would like to &quot;fast track&quot; a vote, so as to make a security fix available quickly, the preferred procedure is to
+	<UL>
+		<LI>Include the term &quot;fast-track&quot; in the subject, as in <TT>[VOTE] Struts 2.0.9.1 quality (fast track)</TT></LI>
+		<LI>In the vote message, specify voting terms like:</LI>
+	</UL>
+	</LI>
+</UL>
+
+
+<DIV class="preformatted panel" style="border-width: 1px;"><DIV class="preformattedContent panelContent">
+<PRE>The Struts #.#.#.1 test build is now available.
+
+Release notes:
+* [http://struts.apache.org/2.x/docs/release-notes-####.html]
+
+Distribution:
+* [http://people.apache.org/builds/struts/#.#.#.1/]
+
+Maven 2 staging repository:
+* [http://people.apache.org/builds/struts/#.#.#.1/m2-staging-repository/]
+
+Once you have had a chance to review the test build, please respond with a vote on its quality:
+
+[ ] Leave at test build
+[ ] Alpha
+[ ] Beta
+[ ] General Availability (GA)
+
+Everyone who has tested the build is invited to vote. Votes by PMC members are considered binding. A vote passes if there are at least three binding +1s and more +1s than -1s.
+
+This is a &quot;fast-track&quot; release vote. If we have a positive vote after 24 hours (at least three binding +1s and more +1s than -1s),  the release may be submitted for mirroring and announced to the usual channels.
+
+The website download link will include the mirroring timestamp parameter [1], which limits the selection of mirrors to those that have been refreshed since the indicated time and date. (After 24 hours, we \*must\* remove the timestamp parameter from the website link, to avoid unnecessary server load.) In the case of a fast-track release, the email announcement will not link directly to &lt;download.cgi&gt;, but to &lt;downloads.html&gt;, so that we can control use of the timestamp parameter.
+
+[1] &lt;[http://apache.org/dev/mirrors.html#use|http://apache.org/dev/mirrors.html#use]&gt;
+</PRE>
+</DIV></DIV>
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

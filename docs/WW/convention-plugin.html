@@ -1,0 +1,1024 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Convention Plugin</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="guides.html" title="Guides">Guides</A>&nbsp;&gt;&nbsp;<A href="plugin-developers-guide.html" title="Plugin Developers Guide">Plugin Developers Guide</A>&nbsp;&gt;&nbsp;<A href="" title="Convention Plugin">Convention Plugin</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Convention Plugin</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=105613">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=105613">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=105613">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=105613">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=105613">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=105613">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <STYLE type="text/css">/*<![CDATA[*/
+div.rbtoc1361789113443 {margin-left: 0px;padding: 0px;}
+div.rbtoc1361789113443 ul {list-style: none;margin-left: 0px;}
+div.rbtoc1361789113443 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</STYLE><DIV class="rbtoc1361789113443">
+<UL>
+    <LI><SPAN class="TOCOutline">1</SPAN> <A href="#ConventionPlugin-Introduction">Introduction</A></LI>
+    <LI><SPAN class="TOCOutline">2</SPAN> <A href="#ConventionPlugin-Setup">Setup</A></LI>
+    <LI><SPAN class="TOCOutline">3</SPAN> <A href="#ConventionPlugin-ConvertingaCodebehindbasedapplicationtoConvention">Converting a Codebehind based application to Convention</A></LI>
+    <LI><SPAN class="TOCOutline">4</SPAN> <A href="#ConventionPlugin-Helloworld">Hello world</A></LI>
+    <LI><SPAN class="TOCOutline">5</SPAN> <A href="#ConventionPlugin-Codebehindhelloworld">Code behind hello world</A></LI>
+    <LI><SPAN class="TOCOutline">6</SPAN> <A href="#ConventionPlugin-Resultsandresultcodes">Results and result codes</A></LI>
+    <LI><SPAN class="TOCOutline">7</SPAN> <A href="#ConventionPlugin-Chaining">Chaining</A></LI>
+    <LI><SPAN class="TOCOutline">8</SPAN> <A href="#ConventionPlugin-XWorkpackages">XWork packages</A></LI>
+    <LI><SPAN class="TOCOutline">9</SPAN> <A href="#ConventionPlugin-Annotationreference">Annotation reference</A></LI>
+<UL>
+    <LI><SPAN class="TOCOutline">9.1</SPAN> <A href="#ConventionPlugin-Actionannotation">Action annotation</A></LI>
+<UL>
+    <LI><SPAN class="TOCOutline">9.1.1</SPAN> <A href="#ConventionPlugin-Applying@Actionand@Actionsattheclasslevel">Applying @Action and @Actions at the class level</A></LI>
+</UL>
+    <LI><SPAN class="TOCOutline">9.2</SPAN> <A href="#ConventionPlugin-InterceptorRefannotation">InterceptorRef annotation</A></LI>
+    <LI><SPAN class="TOCOutline">9.3</SPAN> <A href="#ConventionPlugin-Resultannotation">Result annotation</A></LI>
+    <LI><SPAN class="TOCOutline">9.4</SPAN> <A href="#ConventionPlugin-Namespaceannotation">Namespace annotation</A></LI>
+    <LI><SPAN class="TOCOutline">9.5</SPAN> <A href="#ConventionPlugin-ResultPathannotation">ResultPath annotation</A></LI>
+    <LI><SPAN class="TOCOutline">9.6</SPAN> <A href="#ConventionPlugin-ParentPackageannotation">ParentPackage annotation</A></LI>
+    <LI><SPAN class="TOCOutline">9.7</SPAN> <A href="#ConventionPlugin-ExceptionMappingAnnotation">ExceptionMapping Annotation</A></LI>
+</UL>
+    <LI><SPAN class="TOCOutline">10</SPAN> <A href="#ConventionPlugin-Actionsinjarfiles">Actions in jar files</A></LI>
+    <LI><SPAN class="TOCOutline">11</SPAN> <A href="#ConventionPlugin-Automaticconfigurationreloading">Automatic configuration reloading</A></LI>
+    <LI><SPAN class="TOCOutline">12</SPAN> <A href="#ConventionPlugin-JBoss">JBoss</A></LI>
+    <LI><SPAN class="TOCOutline">13</SPAN> <A href="#ConventionPlugin-Jetty%2528embedded%2529">Jetty (embedded)</A></LI>
+    <LI><SPAN class="TOCOutline">14</SPAN> <A href="#ConventionPlugin-Troubleshooting">Troubleshooting</A></LI>
+<UL>
+    <LI><SPAN class="TOCOutline">14.1</SPAN> <A href="#ConventionPlugin-Tips">Tips</A></LI>
+    <LI><SPAN class="TOCOutline">14.2</SPAN> <A href="#ConventionPlugin-CommonErrors">Common Errors</A></LI>
+</UL>
+    <LI><SPAN class="TOCOutline">15</SPAN> <A href="#ConventionPlugin-Overwritingpluginclasses">Overwriting plugin classes</A></LI>
+    <LI><SPAN class="TOCOutline">16</SPAN> <A href="#ConventionPlugin-Configurationreference">Configuration reference</A></LI>
+</UL></DIV>
+
+<H1><A name="ConventionPlugin-Introduction"></A>Introduction</H1>
+
+<P>The Convention Plugin is bundled with Struts since 2.1 and replaces the <A href="codebehind-plugin.html" title="Codebehind Plugin">Codebehind Plugin</A> and Zero Config plugins. It provides the following features:</P>
+
+<UL>
+	<LI>Action location by package naming conventions</LI>
+	<LI>Result (JSP, FreeMarker, etc) location by naming conventions</LI>
+	<LI>Class name to URL naming convention</LI>
+	<LI>Package name to namespace convention</LI>
+	<LI>SEO compliant URLs (i.e. my-action rather than MyAction)</LI>
+	<LI>Action name overrides using annotations</LI>
+	<LI>Interceptor overrides using annotations</LI>
+	<LI>Namespace overrides using annotations</LI>
+	<LI>XWork package overrides using annotations</LI>
+	<LI>Default action and result handling (i.e. /products will try com.example.actions.Products as well as com.example.actions.products.Index)</LI>
+</UL>
+
+
+<P>The Convention Plugin should require no configuration to use. Many of the conventions can be controlled using configuration properties and many of the classes can be extended or overridden.</P>
+
+<H1><A name="ConventionPlugin-Setup"></A>Setup</H1>
+
+<P>In order to use the Convention plugin, you first need to add the JAR file to the <TT>WEB-INF/lib</TT> directory of your application or include the dependency in your project's Maven POM file.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;dependency&gt;</SPAN>
+    <SPAN class="code-tag">&lt;groupId&gt;</SPAN>org.apache.struts<SPAN class="code-tag">&lt;/groupId&gt;</SPAN>
+    <SPAN class="code-tag">&lt;artifactId&gt;</SPAN>struts2-convention-plugin<SPAN class="code-tag">&lt;/artifactId&gt;</SPAN>
+    <SPAN class="code-tag">&lt;version&gt;</SPAN>X.X.X<SPAN class="code-tag">&lt;/version&gt;</SPAN>
+<SPAN class="code-tag">&lt;/dependency&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>Where X.X.X is the current version of Struts 2. Please remember that the Convention Plugin is available from version 2.1.6.</P>
+
+<H1><A name="ConventionPlugin-ConvertingaCodebehindbasedapplicationtoConvention"></A>Converting a Codebehind based application to Convention</H1>
+
+<P>See <A href="converting-application-from-codebehind-to-convention-plugin.html" title="Converting application from Codebehind to Convention Plugin">this page</A> for the required changes and tips.</P>
+
+<P>If you are using REST with the Convention plugin, make sure you set these constants in struts.xml:</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;constant name=<SPAN class="code-quote">&quot;struts.convention.action.suffix&quot;</SPAN> value=<SPAN class="code-quote">&quot;Controller&quot;</SPAN>/&gt;</SPAN>
+<SPAN class="code-tag">&lt;constant name=<SPAN class="code-quote">&quot;struts.convention.action.mapAllMatches&quot;</SPAN> value=<SPAN class="code-quote">&quot;true&quot;</SPAN>/&gt;</SPAN>
+<SPAN class="code-tag">&lt;constant name=<SPAN class="code-quote">&quot;struts.convention.default.parent.package&quot;</SPAN> value=<SPAN class="code-quote">&quot;rest-default&quot;</SPAN>/&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H1><A name="ConventionPlugin-Helloworld"></A>Hello world</H1>
+
+<P>Now that the Convention plugin has been added to your application, let's start with a very simple example. This example will use an actionless result that is identified by the URL. By default, the Convention plugin assumes that all of the results are stored in <B>WEB-INF/content</B>. This can be changed by setting the property <TT>struts.convention.result.path</TT> in the Struts properties file to the new location. Don't worry about trailing slashes, the Convention plugin handles this for you. Here is our hello world JSP:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-html"><SPAN class="code-tag">&lt;html&gt;</SPAN>
+<SPAN class="code-tag">&lt;body&gt;</SPAN>
+Hello world!
+<SPAN class="code-tag">&lt;/body&gt;</SPAN>
+<SPAN class="code-tag">&lt;/html&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>If you start Tomcat (or whichever J2EE container you are using) and type in <A href="http://localhost:8080/hello-world" class="external-link" rel="nofollow">http://localhost:8080/hello-world</A> into your browser you should get this result:</P>
+
+<DIV class="code panel" style="border-style: solid;border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;border-bottom-style: solid;"><B>WEB-INF/content/hello-world.jsp</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">Hello world!
+</PRE>
+</DIV></DIV>
+
+<P>This illustrates that the Convention plugin will find results even when no action exists and it is all based on the URL passed to Struts.</P>
+
+<H1><A name="ConventionPlugin-Codebehindhelloworld"></A>Code behind hello world</H1>
+
+<P>Let's expand on this example and add a code behind class. In order to do this we need to ensure that the Convention plugin is able to find our action classes. By default, the Convention plugin will find all action classes that implement <TT>com.opensymphony.xwork2.Action</TT> or whose name ends with the word <B>Action</B> in specific packages.</P>
+
+<P>These packages are located by the Convention plugin using a search methodology. First the Convention plugin finds packages named <TT>struts</TT>, <TT>struts2</TT>, <TT>action</TT> or <TT>actions</TT>. Any packages that match those names are considered the root packages for the Convention plugin. Next, the plugin looks at all of the classes in those packages as well as sub-packages and determines if the classes implement <TT>com.opensymphony.xwork2.Action</TT> or if their name ends with <B>Action</B> (i.e. FooAction). Here's an example of a few classes that the Convention plugin will find:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Classes</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">com.example.actions.MainAction
+com.example.actions.products.Display (<SPAN class="code-keyword">implements</SPAN> com.opensymphony.xwork2.Action)
+com.example.struts.company.details.ShowCompanyDetailsAction
+</PRE>
+</DIV></DIV>
+
+<P>Each of the action classes that the plugin finds will be configured to respond to specific URLs. The URL is based on the package name that the class is defined in and the class name itself. First the plugin determines the namespace of the URL using the package names between the root package and the package the class is defined in. For our examples above, the namespaces would be:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Namespaces</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">com.example.actions.MainAction -&gt; /
+com.example.actions.products.Display -&gt; /products
+com.example.struts.company.details.ShowCompanyDetailsAction -&gt; /company/details
+</PRE>
+</DIV></DIV>
+
+<P>Next, the plugin determines the URL of the resource using the class name. It first removes the word <B>Action</B> from the end of the class name and then converts camel case names to dashes. In our example the full URLs would be:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Full URLs</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">com.example.actions.MainAction -&gt; /main
+com.example.actions.products.Display -&gt; /products/display
+com.example.struts.company.details.ShowCompanyDetailsAction -&gt; /company/details/show-company-details
+</PRE>
+</DIV></DIV>
+
+<P>You can tell the Convention plugin to ignore certain packages using the property <TT>struts.convention.exclude.packages</TT>. You can also tell the plugin to use different strings to locate root packages using the property <TT>struts.convention.package.locators</TT>. Finally, you can tell the plugin to search specific root packages using the property <TT>struts.convention.action.packages</TT>.</P>
+
+<P>Here is our code behind action class:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>com.example.actions.HelloWorld</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java"><SPAN class="code-keyword">package</SPAN> com.example.actions;
+
+<SPAN class="code-keyword">import</SPAN> com.opensymphony.xwork2.ActionSupport;
+
+<SPAN class="code-keyword">public</SPAN> class HelloWorld <SPAN class="code-keyword">extends</SPAN> ActionSupport {
+  <SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">String</SPAN> message;
+
+  <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> getMessage() {
+    <SPAN class="code-keyword">return</SPAN> message;
+  }
+
+  <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> execute() {
+    message = <SPAN class="code-quote">&quot;Hello World!&quot;</SPAN>;
+    <SPAN class="code-keyword">return</SPAN> SUCCESS;
+  }
+}
+</PRE>
+</DIV></DIV>
+
+<P>If you compile this class and place it into your application in the WEB-INF/classes, the Convention plugin will find the class and map the URL <B>/hello-world</B> to it. Next, we need to update our JSP to print out the message we setup in the action class. Here is the new JSP:</P>
+
+<DIV class="code panel" style="border-style: solid;border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;border-bottom-style: solid;"><B>WEB-INF/content/hello-world.jsp</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">&lt;html&gt;
+&lt;body&gt;
+The message is ${message}
+&lt;/body&gt;
+&lt;/html&gt;
+</PRE>
+</DIV></DIV>
+
+<P>If start up the application server and open up <A href="http://localhost:8080/hello-world" class="external-link" rel="nofollow">http://localhost:8080/hello-world</A> in our browser, we should get this result:</P>
+
+<DIV class="code panel" style="border-style: solid;border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;border-bottom-style: solid;"><B>Result</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">The message is Hello World!
+</PRE>
+</DIV></DIV>
+
+<H1><A name="ConventionPlugin-Resultsandresultcodes"></A>Results and result codes</H1>
+
+<P>The Convention Plugin will pre-configure all of you action classes when Struts is started. By default, this configuration will also contain results for any JSPs that it can find within the application. The JSPs have an additional feature that allows different JSPs to be used based on the result code of the action. Since action methods return Strings and these Strings are traditionally used to locate results for the action, the Convention plugin allows you to define different results based on the result code.</P>
+
+<P>Building on our example from above, let's say we want to provide a different result if the result code from our action is the String <TT>zero</TT> rather than <TT>success</TT>. First, we update the action class to return different result codes:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>com.example.actions.HelloWorld</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java"><SPAN class="code-keyword">package</SPAN> com.example.actions;
+
+<SPAN class="code-keyword">import</SPAN> com.opensymphony.xwork2.ActionSupport;
+
+<SPAN class="code-keyword">public</SPAN> class HelloWorld <SPAN class="code-keyword">extends</SPAN> ActionSupport {
+  <SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">String</SPAN> message;
+
+  <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> getMessage() {
+    <SPAN class="code-keyword">return</SPAN> message;
+  }
+
+  <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> execute() {
+    <SPAN class="code-keyword">if</SPAN> (<SPAN class="code-object">System</SPAN>.currentTimeMillis() % 2 == 0) {
+      message = <SPAN class="code-quote">&quot;It's 0&quot;</SPAN>;
+      <SPAN class="code-keyword">return</SPAN> <SPAN class="code-quote">&quot;zero&quot;</SPAN>;
+    }
+
+    message = <SPAN class="code-quote">&quot;It's 1&quot;</SPAN>;
+    <SPAN class="code-keyword">return</SPAN> SUCCESS;
+  }
+}
+</PRE>
+</DIV></DIV>
+
+<P>Next, we add a new JSP to the application named <TT>WEB-INF/content/hello-world-zero.jsp</TT>. Notice that the first part of the file name is the same as the URL of the action and the last part of the name is the result code. This is the convention that the plugin uses to determine which results to render. Here is our new JSP:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>WEB-INF/content/hello-world.jsp</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">&lt;html&gt;
+&lt;body&gt;
+The error message is ${message}
+&lt;/body&gt;
+&lt;/html&gt;
+</PRE>
+</DIV></DIV>
+
+<P>Now, if you compile the action and restart the application, based on the current time, you'll either see the result from <TT>WEB-INF/content/hello-world.jsp</TT> or <TT>WEB-INF/content/hello-world-zero.jsp</TT>.</P>
+
+
+
+<P>The result type is based on the extension of the file. The supported extensions are: jsp,ftl,vm,html,html. Examples of Action and Result to Template mapping:</P>
+
+<DIV class="table-wrap">
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TH class="confluenceTh"> URL </TH>
+<TH class="confluenceTh"> Result </TH>
+<TH class="confluenceTh"> File that could match </TH>
+<TH class="confluenceTh"> Result Type </TH>
+</TR>
+<TR>
+<TD class="confluenceTd"> /hello </TD>
+<TD class="confluenceTd"> success </TD>
+<TD class="confluenceTd"> /WEB-INF/content/hello.jsp </TD>
+<TD class="confluenceTd"> Dispatcher </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> /hello </TD>
+<TD class="confluenceTd"> success </TD>
+<TD class="confluenceTd"> /WEB-INF/content/hello-success.htm </TD>
+<TD class="confluenceTd"> Dispatcher </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> /hello </TD>
+<TD class="confluenceTd"> success </TD>
+<TD class="confluenceTd"> /WEB-INF/content/hello.ftl </TD>
+<TD class="confluenceTd"> FreeMarker </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> /hello-world </TD>
+<TD class="confluenceTd"> input </TD>
+<TD class="confluenceTd"> /WEB-INF/content/hello-world-input.vm </TD>
+<TD class="confluenceTd"> Velocity </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> /test1/test2/hello </TD>
+<TD class="confluenceTd"> error </TD>
+<TD class="confluenceTd"> /WEB-INF/content/test/test2/hello-error.html </TD>
+<TD class="confluenceTd"> Dispatcher </TD>
+</TR>
+</TBODY></TABLE>
+</DIV>
+
+
+<H1><A name="ConventionPlugin-Chaining"></A>Chaining</H1>
+
+<P>If one action returns the name of another action in the same package, they will be chained together, if the first action doesn't have any result defined for that code. In the following example:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>com.example.actions.HelloWorld</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java"><SPAN class="code-keyword">package</SPAN> com.example.actions;
+
+<SPAN class="code-keyword">import</SPAN> com.opensymphony.xwork2.Action;
+<SPAN class="code-keyword">import</SPAN> com.opensymphony.xwork2.ActionSupport;
+
+<SPAN class="code-keyword">public</SPAN> class HelloAction <SPAN class="code-keyword">extends</SPAN> ActionSupport {
+    @Action(<SPAN class="code-quote">&quot;foo&quot;</SPAN>)
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> foo() {
+        <SPAN class="code-keyword">return</SPAN> <SPAN class="code-quote">&quot;bar&quot;</SPAN>;
+    }
+
+    @Action(<SPAN class="code-quote">&quot;foo-bar&quot;</SPAN>)
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> bar() {
+        <SPAN class="code-keyword">return</SPAN> SUCCESS;
+    }
+}
+</PRE>
+</DIV></DIV>
+
+<P>The &quot;foo&quot; action will be executed, because no result is found, the Convention plugin tries to find an action named &quot;foo-bar&quot; on the same package where &quot;foo&quot; is defined. If such an action is found, it will be invoked using the &quot;chain&quot; result.</P>
+
+<H1><A name="ConventionPlugin-XWorkpackages"></A>XWork packages</H1>
+
+<P>Actions are placed on a custom XWork package which prevents conflicts. The name of this package is based on the Java package the action is defined in, the namespace part of the URL for the action and the parent XWork package for the action. The parent XWork package is determined based on the property named <TT>struts.convention.default.parent.package</TT>(defaults to <TT>convention-default</TT>), which is a custom XWork package that extends <TT>struts-default</TT>.</P>
+
+<P>Therefore the naming for XWork packages used by the Convention plugin are in the form:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>XWork package naming</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">&lt;java-<SPAN class="code-keyword">package</SPAN>&gt;#&lt;namespace&gt;#&lt;parent-<SPAN class="code-keyword">package</SPAN>&gt;
+</PRE>
+</DIV></DIV>
+
+<P>Using our example from above, the XWork package for our action would be:</P>
+
+<DIV class="code panel" style="border-style: solid;border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;border-bottom-style: solid;"><B>XWork package naming</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">com.example.actions#/#conventionDefault
+</PRE>
+</DIV></DIV>
+
+<H1><A name="ConventionPlugin-Annotationreference"></A>Annotation reference</H1>
+
+<P>The Convention plugin uses a number of different annotations to override the default conventions that are used to map actions to URLs and locate results. In addition, you can modify the parent XWork package that actions are configured with.</P>
+
+<H2><A name="ConventionPlugin-Actionannotation"></A>Action annotation</H2>
+
+<P>The Convention plugin allows action classes to change the URL that they are mapped to using the <B>Action</B> annotation. This annotation can also be used inside the <B>Actions</B> annotation to allow multiple URLs to map to a single action class. This annotation must be defined on action methods like this:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>com.example.actions.HelloWorld</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java"><SPAN class="code-keyword">package</SPAN> com.example.actions;
+
+<SPAN class="code-keyword">import</SPAN> com.opensymphony.xwork2.ActionSupport;
+<SPAN class="code-keyword">import</SPAN> org.apache.struts2.convention.annotation.Action;
+
+<SPAN class="code-keyword">public</SPAN> class HelloWorld <SPAN class="code-keyword">extends</SPAN> ActionSupport {
+  @Action(<SPAN class="code-quote">&quot;/different/url&quot;</SPAN>)
+  <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> execute() {
+    <SPAN class="code-keyword">return</SPAN> SUCCESS;
+  }
+}
+</PRE>
+</DIV></DIV>
+
+<P>Our action class will now map to the URL <TT>/different/url</TT> rather than <TT>/hello-world</TT>. If no <TT>@Result</TT> (see next section) is specified, then the namespace of the action will be used as the path to the result, on our last example it would be <TT>/WEB-INF/content/different/url.jsp</TT>.</P>
+
+<P>A single method within an action class can also map to multiple URLs using the <B>Actions</B> annotation like this:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>com.example.actions.HelloWorld</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java"><SPAN class="code-keyword">package</SPAN> com.example.actions;
+
+<SPAN class="code-keyword">import</SPAN> com.opensymphony.xwork2.ActionSupport;
+<SPAN class="code-keyword">import</SPAN> org.apache.struts2.convention.annotation.Action;
+<SPAN class="code-keyword">import</SPAN> org.apache.struts2.convention.annotation.Actions;
+
+<SPAN class="code-keyword">public</SPAN> class HelloWorld <SPAN class="code-keyword">extends</SPAN> ActionSupport {
+  @Actions({
+    @Action(<SPAN class="code-quote">&quot;/different/url&quot;</SPAN>),
+    @Action(<SPAN class="code-quote">&quot;/another/url&quot;</SPAN>)
+  })
+  <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> execute() {
+    <SPAN class="code-keyword">return</SPAN> SUCCESS;
+  }
+}
+</PRE>
+</DIV></DIV>
+
+<P>Another usage of the <B>Action</B> or <B>Actions</B> annotation is to define multiple action methods within a single action class, each of which respond to a different URL. Here is an example of multiple action methods:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>com.example.actions.HelloWorld</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java"><SPAN class="code-keyword">package</SPAN> com.example.actions;
+
+<SPAN class="code-keyword">import</SPAN> com.opensymphony.xwork2.ActionSupport;
+<SPAN class="code-keyword">import</SPAN> org.apache.struts2.convention.annotation.Action;
+<SPAN class="code-keyword">import</SPAN> org.apache.struts2.convention.annotation.Actions;
+
+<SPAN class="code-keyword">public</SPAN> class HelloWorld <SPAN class="code-keyword">extends</SPAN> ActionSupport {
+  @Action(<SPAN class="code-quote">&quot;/different/url&quot;</SPAN>)
+  <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> execute() {
+    <SPAN class="code-keyword">return</SPAN> SUCCESS;
+
+
+  }
+
+  @Action(<SPAN class="code-quote">&quot;url&quot;</SPAN>)
+  <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> doSomething() {
+    <SPAN class="code-keyword">return</SPAN> SUCCESS;
+  }
+}
+</PRE>
+</DIV></DIV>
+
+<P>The previous example defines a second URL that is not fully qualified. This means that the namespace for the URL is determined using the Java package name rather than the Action annotation.</P>
+
+<P>Interceptor and interceptor stacks can be specified using the <TT>interceptorRefs</TT> attribute. The following example applies the <TT>validation</TT> interceptor and the <TT>defaultStack</TT> interceptor stack to the action:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>com.example.actions.HelloWorld</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java"><SPAN class="code-keyword">package</SPAN> com.example.actions;
+
+<SPAN class="code-keyword">import</SPAN> com.opensymphony.xwork2.ActionSupport;
+<SPAN class="code-keyword">import</SPAN> org.apache.struts2.convention.annotation.Action;
+<SPAN class="code-keyword">import</SPAN> org.apache.struts2.convention.annotation.Actions;
+
+<SPAN class="code-keyword">public</SPAN> class HelloWorld <SPAN class="code-keyword">extends</SPAN> ActionSupport {
+  @Action(interceptorRefs={@InterceptorRef(<SPAN class="code-quote">&quot;validation&quot;</SPAN>), @InterceptorRef(<SPAN class="code-quote">&quot;defaultStack&quot;</SPAN>)})
+  <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> execute() {
+    <SPAN class="code-keyword">return</SPAN> SUCCESS;
+  }
+
+  @Action(<SPAN class="code-quote">&quot;url&quot;</SPAN>)
+  <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> doSomething() {
+    <SPAN class="code-keyword">return</SPAN> SUCCESS;
+  }
+}
+</PRE>
+</DIV></DIV>
+
+<P>Parameters can be passed to results using the <B>params</B> attribute. The value of this attribute is a string array with an even number of elements in the form {&quot;key0&quot;, &quot;value0, &quot;key1&quot;, &quot;value1&quot; ... &quot;keyN&quot;, &quot;valueN&quot;}. For example:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>com.example.actions.HelloWorld</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java"><SPAN class="code-keyword">package</SPAN> com.example.actions;
+
+<SPAN class="code-keyword">import</SPAN> com.opensymphony.xwork2.ActionSupport;
+<SPAN class="code-keyword">import</SPAN> org.apache.struts2.convention.annotation.Action;
+<SPAN class="code-keyword">import</SPAN> org.apache.struts2.convention.annotation.Actions;
+
+<SPAN class="code-keyword">public</SPAN> class HelloWorld <SPAN class="code-keyword">extends</SPAN> ActionSupport {
+  @Action(interceptorRefs=@InterceptorRef(value=<SPAN class="code-quote">&quot;validation&quot;</SPAN>,params={<SPAN class="code-quote">&quot;programmatic&quot;</SPAN>, <SPAN class="code-quote">&quot;<SPAN class="code-keyword">false</SPAN>&quot;</SPAN>, <SPAN class="code-quote">&quot;declarative&quot;</SPAN>, &quot;<SPAN class="code-keyword">true</SPAN>}))
+  <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> execute() {
+    <SPAN class="code-keyword">return</SPAN> SUCCESS;
+  }
+
+  @Action(<SPAN class="code-quote">&quot;url&quot;</SPAN>)
+  <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> doSomething() {
+    <SPAN class="code-keyword">return</SPAN> SUCCESS;
+  }
+}
+</PRE>
+</DIV></DIV>
+
+<P>If interceptors are not specified, the default stack is applied.</P>
+<DIV class="panelMacro"><TABLE class="infoMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>You can specify className parameter which can be especially useful when Spring Framework is used to instantiate actions.</TD></TR></TABLE></DIV>
+
+
+
+<H3><A name="ConventionPlugin-Applying@Actionand@Actionsattheclasslevel"></A>Applying @Action and @Actions at the class level</H3>
+
+<P>There are circumstances when this is desired, like when using <A href="action-configuration.html#ActionConfiguration-DynamicMethodInvocation">Dynamic Method Invocation</A>. If an <TT>execute</TT> method is defined in the class, then it will be used for the action mapping, otherwise the method to be used will be determined when a request is made (by Dynamic Method Invocation for example)</P>
+
+
+<H2><A name="ConventionPlugin-InterceptorRefannotation"></A>InterceptorRef annotation</H2>
+
+<P>Interceptors can be specified at the method level, using the <B>Action</B> annotation or at the class level using the <TT>InterceptorRefs</TT> annotation. Interceptors specified at the class level will be applied to all actions defined on that class. In the following example:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>com.example.actions.HelloWorld</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java"><SPAN class="code-keyword">package</SPAN> com.example.actions;
+
+<SPAN class="code-keyword">import</SPAN> com.opensymphony.xwork2.ActionSupport;
+<SPAN class="code-keyword">import</SPAN> org.apache.struts2.convention.annotation.Action;
+<SPAN class="code-keyword">import</SPAN> org.apache.struts2.convention.annotation.Actions;
+
+@InterceptorRefs({
+    @InterceptorRef(<SPAN class="code-quote">&quot;interceptor-1&quot;</SPAN>),
+    @InterceptorRef(<SPAN class="code-quote">&quot;defaultStack&quot;</SPAN>)
+})
+<SPAN class="code-keyword">public</SPAN> class HelloWorld <SPAN class="code-keyword">extends</SPAN> ActionSupport {
+  @Action(value=<SPAN class="code-quote">&quot;action1&quot;</SPAN>, interceptorRefs=@InterceptorRef(<SPAN class="code-quote">&quot;validation&quot;</SPAN>))
+  <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> execute() {
+    <SPAN class="code-keyword">return</SPAN> SUCCESS;
+  }
+
+  @Action(value=<SPAN class="code-quote">&quot;action2&quot;</SPAN>)
+  <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> doSomething() {
+    <SPAN class="code-keyword">return</SPAN> SUCCESS;
+  }
+}
+</PRE>
+</DIV></DIV>
+
+<P>The following interceptors will be applied to &quot;action1&quot;: <TT>interceptor-1</TT>, all interceptors from <TT>defaultStack</TT>, <TT>validation</TT>.<BR>
+All interceptors from <TT>defaultStack</TT> will be applied to &quot;action2&quot;.</P>
+
+<DIV class="panelMacro"><TABLE class="noteMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>If you get errors like &quot;Unable to find interceptor class referenced by ref-name XYZ&quot;. This means that the package where Convention is placing your actions, does not extend the package where the interceptor is defined. To fix this problem either 1)Use @ParentPackage annotation(or <TT>struts.convention.default.parent.package</TT>) passing the name of the package that defines the interceptor, or 2) Create a package in XML that extends the package that defines the interceptor, and use @ParentPackage(or <TT>struts.convention.default.parent.package</TT>) to point to it.</TD></TR></TABLE></DIV>
+
+<H2><A name="ConventionPlugin-Resultannotation"></A>Result annotation</H2>
+
+<P>The Convention plugin allows action classes to define different results for an action. Results fall into two categories, global and local. Global results are shared across all actions defined within the action class. These results are defined as annotations on the action class. Local results apply only to the action method they are defined on. Here is an example of the different types of result annotations:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>com.example.actions.HelloWorld</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java"><SPAN class="code-keyword">package</SPAN> com.example.actions;
+
+<SPAN class="code-keyword">import</SPAN> com.opensymphony.xwork2.ActionSupport;
+<SPAN class="code-keyword">import</SPAN> org.apache.struts2.convention.annotation.Action;
+<SPAN class="code-keyword">import</SPAN> org.apache.struts2.convention.annotation.Actions;
+<SPAN class="code-keyword">import</SPAN> org.apache.struts2.convention.annotation.Result;
+<SPAN class="code-keyword">import</SPAN> org.apache.struts2.convention.annotation.Results;
+
+@Results({
+  @Result(name=<SPAN class="code-quote">&quot;failure&quot;</SPAN>, location=<SPAN class="code-quote">&quot;fail.jsp&quot;</SPAN>)
+})
+<SPAN class="code-keyword">public</SPAN> class HelloWorld <SPAN class="code-keyword">extends</SPAN> ActionSupport {
+  @Action(value=<SPAN class="code-quote">&quot;/different/url&quot;</SPAN>,
+    results={@Result(name=<SPAN class="code-quote">&quot;success&quot;</SPAN>, location=<SPAN class="code-quote">&quot;http:<SPAN class="code-comment">//struts.apache.org&quot;</SPAN>, type=<SPAN class="code-quote">&quot;redirect&quot;</SPAN>)}
+</SPAN>  )
+  <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> execute() {
+    <SPAN class="code-keyword">return</SPAN> SUCCESS;
+  }
+
+  @Action(<SPAN class="code-quote">&quot;/another/url&quot;</SPAN>)
+
+  <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> doSomething() {
+    <SPAN class="code-keyword">return</SPAN> SUCCESS;
+  }
+}
+</PRE>
+</DIV></DIV>
+
+<P>Parameters can be passed to results using the <B>params</B> attribute. The value of this attribute is a string array with an even number of elements in the form {&quot;key0&quot;, &quot;value0, &quot;key1&quot;, &quot;value1&quot; ... &quot;keyN&quot;, &quot;valueN&quot;}. For example:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>com.example.actions.HelloWorld</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java"><SPAN class="code-keyword">package</SPAN> com.example.actions;
+
+<SPAN class="code-keyword">import</SPAN> com.opensymphony.xwork2.ActionSupport;
+<SPAN class="code-keyword">import</SPAN> org.apache.struts2.convention.annotation.Action;
+<SPAN class="code-keyword">import</SPAN> org.apache.struts2.convention.annotation.Actions;
+<SPAN class="code-keyword">import</SPAN> org.apache.struts2.convention.annotation.Result;
+<SPAN class="code-keyword">import</SPAN> org.apache.struts2.convention.annotation.Results;
+
+<SPAN class="code-keyword">public</SPAN> class HelloWorld <SPAN class="code-keyword">extends</SPAN> ActionSupport {
+  @Action(value=<SPAN class="code-quote">&quot;/different/url&quot;</SPAN>,
+    results={@Result(name=<SPAN class="code-quote">&quot;success&quot;</SPAN>, type=<SPAN class="code-quote">&quot;httpheader&quot;</SPAN>, params={<SPAN class="code-quote">&quot;status&quot;</SPAN>, <SPAN class="code-quote">&quot;500&quot;</SPAN>, <SPAN class="code-quote">&quot;errorMessage&quot;</SPAN>, <SPAN class="code-quote">&quot;Internal Error&quot;</SPAN>})}
+  )
+  <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> execute() {
+    <SPAN class="code-keyword">return</SPAN> SUCCESS;
+  }
+
+  @Action(<SPAN class="code-quote">&quot;/another/url&quot;</SPAN>)
+  <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> doSomething() {
+    <SPAN class="code-keyword">return</SPAN> SUCCESS;
+  }
+}
+</PRE>
+</DIV></DIV>
+
+<P>From 2.1.7 on, global results (defined on the class level) defined using annotations will be inherited. Child classes can override the inherited result(s) by redefining it. Also, results defined at the method level take precedence (overwrite), over results with the same name at the action level.</P>
+
+<H2><A name="ConventionPlugin-Namespaceannotation"></A>Namespace annotation</H2>
+
+<P>The namespace annotation allows the namespace for action classes to be changed instead of using the convention of the Java package name. This annotation can be placed on an action class or within the package-info.java class that allows annotations to be placed on Java packages. When this annotation is put on an action class, it applies to all actions defined in the class, that are not fully qualified action URLs. When this annotation is place in the package-info.java file, it changes the default namespace for all actions defined in the Java package. Here is an example of the annotation on an action class:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>com.example.actions.HelloWorl</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java"><SPAN class="code-keyword">package</SPAN> com.example.actions;
+
+<SPAN class="code-keyword">import</SPAN> com.opensymphony.xwork2.ActionSupport;
+<SPAN class="code-keyword">import</SPAN> org.apache.struts2.convention.annotation.Action;
+<SPAN class="code-keyword">import</SPAN> org.apache.struts2.convention.annotation.Namespace;
+
+@Namespace(<SPAN class="code-quote">&quot;/custom&quot;</SPAN>)
+<SPAN class="code-keyword">public</SPAN> class HelloWorld <SPAN class="code-keyword">extends</SPAN> ActionSupport {
+  @Action(<SPAN class="code-quote">&quot;/different/url&quot;</SPAN>)
+  <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> execute() {
+    <SPAN class="code-keyword">return</SPAN> SUCCESS;
+  }
+
+  @Action(<SPAN class="code-quote">&quot;url&quot;</SPAN>)
+  <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> doSomething() {
+    <SPAN class="code-keyword">return</SPAN> SUCCESS;
+  }
+}
+</PRE>
+</DIV></DIV>
+
+<P>In this example, the action will respond to two different URLs <TT>/different/url</TT> and <TT>/custom/url</TT>.</P>
+
+<P>Here is an example of using this annotation in the package-info.java file:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>com/example/actions/package-info.java</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">@org.apache.struts2.convention.annotation.Namespace(<SPAN class="code-quote">&quot;/custom&quot;</SPAN>)
+<SPAN class="code-keyword">package</SPAN> com.example.actions;
+</PRE>
+</DIV></DIV>
+
+<P>This changes the default namespace for all actions defined in the package <TT>com.example.actions</TT>. This annotation however doesn't apply to sub-packages.</P>
+
+<H2><A name="ConventionPlugin-ResultPathannotation"></A>ResultPath annotation</H2>
+
+<P>The ResultPath annotation allows applications to change the location where results are stored. This annotation can be placed on an action class and also in the package-info.java file. Here is an example of using this annotation:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>com.example.actions.HelloWorl</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java"><SPAN class="code-keyword">package</SPAN> com.example.actions;
+
+<SPAN class="code-keyword">import</SPAN> com.opensymphony.xwork2.ActionSupport;
+<SPAN class="code-keyword">import</SPAN> org.apache.struts2.convention.annotation.Action;
+<SPAN class="code-keyword">import</SPAN> org.apache.struts2.convention.annotation.ResultPath;
+
+@ResultPath(<SPAN class="code-quote">&quot;/WEB-INF/jsps&quot;</SPAN>)
+<SPAN class="code-keyword">public</SPAN> class HelloWorld <SPAN class="code-keyword">extends</SPAN> ActionSupport {
+  <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> execute() {
+    <SPAN class="code-keyword">return</SPAN> SUCCESS;
+  }
+}
+</PRE>
+</DIV></DIV>
+
+<P>The result for this class will be located in <TT>WEB-INF/jsps</TT> rather than the default of <TT>WEB-INF/content</TT>.</P>
+
+<H2><A name="ConventionPlugin-ParentPackageannotation"></A>ParentPackage annotation</H2>
+
+<P>The ParentPackage annotation allows applications to define different parent Struts package for specific action classes or Java packages. Here is an example of using the annotation on an action class:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>com.example.actions.HelloWorld</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java"><SPAN class="code-keyword">package</SPAN> com.example.actions;
+
+<SPAN class="code-keyword">import</SPAN> com.opensymphony.xwork2.ActionSupport;
+<SPAN class="code-keyword">import</SPAN> org.apache.struts2.convention.annotation.Action;
+<SPAN class="code-keyword">import</SPAN> org.apache.struts2.convention.annotation.ParentPackage;
+
+@ParentPackage(<SPAN class="code-quote">&quot;customXWorkPackage&quot;</SPAN>)
+<SPAN class="code-keyword">public</SPAN> class HelloWorld <SPAN class="code-keyword">extends</SPAN> ActionSupport {
+  <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> execute() {
+    <SPAN class="code-keyword">return</SPAN> SUCCESS;
+  }
+}
+</PRE>
+</DIV></DIV>
+
+<P>To apply this annotation to all actions in a package (and subpackages), add it to package-info.java. An alternative to this annotation is to set <TT>struts.convention.default.parent.package</TT> in XML.</P>
+
+<H2><A name="ConventionPlugin-ExceptionMappingAnnotation"></A>ExceptionMapping Annotation</H2>
+
+<P>This annotation can be used to define exception mappings to actions. See the <A href="exception-configuration.html" title="Exception Configuration">exception mapping documentation</A> for more details. These mappings can be applied to the class level, in which case they will be applied to all actions defined on that class:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>ExceptionsActionLevelAction.java</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">@ExceptionMappings({
+    @ExceptionMapping(exception = <SPAN class="code-quote">&quot;java.lang.NullPointerException&quot;</SPAN>, result = <SPAN class="code-quote">&quot;success&quot;</SPAN>, params = {<SPAN class="code-quote">&quot;param1&quot;</SPAN>, <SPAN class="code-quote">&quot;val1&quot;</SPAN>})
+})
+<SPAN class="code-keyword">public</SPAN> class ExceptionsActionLevelAction {
+
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> execute() <SPAN class="code-keyword">throws</SPAN> Exception {
+        <SPAN class="code-keyword">return</SPAN> <SPAN class="code-keyword">null</SPAN>;
+    }
+}
+</PRE>
+</DIV></DIV>
+
+<P>The parameters defined by <TT>params</TT> are passed to the result. Exception mappings can also be applied to the action level:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java"><SPAN class="code-keyword">public</SPAN> class ExceptionsMethodLevelAction {
+    @Action(value = <SPAN class="code-quote">&quot;exception1&quot;</SPAN>, exceptionMappings = {
+            @ExceptionMapping(exception = <SPAN class="code-quote">&quot;java.lang.NullPointerException&quot;</SPAN>, result = <SPAN class="code-quote">&quot;success&quot;</SPAN>, params = {<SPAN class="code-quote">&quot;param1&quot;</SPAN>, <SPAN class="code-quote">&quot;val1&quot;</SPAN>})
+    })
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> run1() <SPAN class="code-keyword">throws</SPAN> Exception {
+        <SPAN class="code-keyword">return</SPAN> <SPAN class="code-keyword">null</SPAN>;
+    }
+}
+</PRE>
+</DIV></DIV>
+
+<H1><A name="ConventionPlugin-Actionsinjarfiles"></A>Actions in jar files</H1>
+
+<P>By default the Convention plugin will <B>not</B> scan jar files for actions. For a jar to be scanned, its URL needs to match at least one of the regular expressions in <TT>struts.convention.action.includeJars</TT>. In this example <TT>myjar1.jar</TT> and <TT>myjar2.jar</TT> will be scanned:</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">&lt;constant name=<SPAN class="code-quote">&quot;struts.convention.action.includeJars&quot;</SPAN> value=<SPAN class="code-quote">&quot;.*?/myjar1.*?jar(!/)?,.*?/myjar2*?jar(!/)?&quot;</SPAN>
+</PRE>
+</DIV></DIV>
+<P>Note that <B>the regular expression will be evaluated against the URL of the jar, and not the file name</B>, the jar URL can contain a path to the jar file and a trailing &quot;&#33;/&quot;.</P>
+
+<H1><A name="ConventionPlugin-Automaticconfigurationreloading"></A>Automatic configuration reloading</H1>
+
+<P>The Convention plugin can automatically reload configuration changes, made in classes the contain actions, without restarting the container. This is a similar behavior to the automatic xml configuration reloading. To enable this feature, add this to your <TT>struts.xml</TT> file:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;constant name=<SPAN class="code-quote">&quot;struts.devMode&quot;</SPAN> value=<SPAN class="code-quote">&quot;true&quot;</SPAN>/&gt;</SPAN>
+<SPAN class="code-tag">&lt;constant name=<SPAN class="code-quote">&quot;struts.convention.classes.reload&quot;</SPAN> value=<SPAN class="code-quote">&quot;true&quot;</SPAN> /&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>This feature is experimental and has not been tested on all container, and it is <B>strongly</B> advised not to use it in production environments.</P>
+
+<H1><A name="ConventionPlugin-JBoss"></A>JBoss</H1>
+
+<P>When using this plugin with JBoss, you need to set the following constants:</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;constant name=<SPAN class="code-quote">&quot;struts.convention.exclude.parentClassLoader&quot;</SPAN> value=<SPAN class="code-quote">&quot;true&quot;</SPAN> /&gt;</SPAN>
+<SPAN class="code-tag">&lt;constant name=<SPAN class="code-quote">&quot;struts.convention.action.fileProtocols&quot;</SPAN> value=<SPAN class="code-quote">&quot;jar,vfsfile,vfszip&quot;</SPAN> /&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>You can also check the ﻿<A href="jboss-5.html" title="JBoss 5">JBoss 5</A>&nbsp;page for more details.</P>
+
+<H1><A name="ConventionPlugin-Jetty%28embedded%29"></A>Jetty (embedded)</H1>
+
+<P>When using this plugin with Jetty in embedded mode, you need to set the following constants:</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;constant name=<SPAN class="code-quote">&quot;struts.convention.exclude.parentClassLoader&quot;</SPAN> value=<SPAN class="code-quote">&quot;false&quot;</SPAN> /&gt;</SPAN>
+<SPAN class="code-tag">&lt;constant name=<SPAN class="code-quote">&quot;struts.convention.action.fileProtocols&quot;</SPAN> value=<SPAN class="code-quote">&quot;jar,code-source&quot;</SPAN> /&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H1><A name="ConventionPlugin-Troubleshooting"></A>Troubleshooting</H1>
+
+
+<H2><A name="ConventionPlugin-Tips"></A>Tips</H2>
+<DIV class="panelMacro"><TABLE class="tipMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD><B>Namespaces and Results</B><BR>Make sure the namespace of the action is matched by one of the locators. The rest of the namespace after the locator, will be the namespace of the action, and will be used to find the results. For example, a class called &quot;ViewAction&quot; in the package &quot;my.example.actions.orders&quot; will be mapped to the URL <TT>/orders/view.action</TT>, and the results must be under <TT>/WEB-INF/content/orders</TT>, like <TT>/WEB-INF/content/orders/view-success.jsp</TT>.</TD></TR></TABLE></DIV>
+
+<DIV class="panelMacro"><TABLE class="tipMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD><B>Use the Configuration Browser Plugin</B><BR>Add the <A href="config-browser-plugin.html" title="Config Browser Plugin">Config Browser Plugin</A> plugin to the lib folder or maven dependencies, and then visit: <A href="http://localhost:8080/CONTEXT/config-browser/index.action" class="external-link" rel="nofollow">http://localhost:8080/CONTEXT/config-browser/index.action</A>, to see the current action mappings.</TD></TR></TABLE></DIV>
+
+<DIV class="panelMacro"><TABLE class="tipMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD><B>Enable trace or debug mode</B><BR>The Convention plugin can generate a rather verbose output when set to debug mode for logging. Use &quot;Trace&quot; logging level if you are using the JDK logger. If you are using Log4J, you can do something like:
+
+<P>log4j.logger.org.apache.struts2.convention=DEBUG</P></TD></TR></TABLE></DIV>
+
+<H2><A name="ConventionPlugin-CommonErrors"></A>Common Errors</H2>
+
+<OL>
+	<LI>I get an error like &quot;There is no Action mapped for namespace /orders and action name view.&quot;. This means that the URL <TT>/orders/view.action</TT> is not mapping to any action class. Check the namespace and the name of the action.</LI>
+	<LI>I get an error like &quot;No result defined for action my.example.actions.orders.ViewAction and result success&quot;. This means that the action was mapped to the right URL, but the Convention plugin was unable to find a <TT>success</TT> result for it. Check that the result file exists, like <TT>/WEB-INF/content/orders/view-success.jsp</TT>.</LI>
+	<LI>I get lots of errors like &quot;java.lang.Exception: Could not load org/apache/velocity/runtime/resource/loader/ClasspathResourceLoader.class&quot;. This happens when <TT>struts.convention.action.includeJars</TT> is matching jar URLs from external jars.</LI>
+	<LI>I am using a custom interceptor stack and I get an error like &quot;Unable to find interceptor class referenced by ref-name XYZ&quot;. This means that the package where Convention is placing your actions, does not extend the package where the interceptor is defined. To fix this problem either 1)Use @ParentPackage annotation(or <TT>struts.convention.default.parent.package</TT>) passing the name of the package that defines the interceptor, or 2) Create a package in XML that extends the package that defines the interceptor, and use @ParentPackage(or <TT>struts.convention.default.parent.package</TT>) to point to it.</LI>
+</OL>
+
+
+<H1><A name="ConventionPlugin-Overwritingpluginclasses"></A>Overwriting plugin classes</H1>
+
+<P>The Convention plugin can be extended in the same fashion that Struts does. The following beans are defined by default:</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;bean type=<SPAN class="code-quote">&quot;org.apache.struts2.convention.ActionConfigBuilder&quot;</SPAN> name=<SPAN class="code-quote">&quot;convention&quot;</SPAN> class=<SPAN class="code-quote">&quot;org.apache.struts2.convention.PackageBasedActionConfigBuilder&quot;</SPAN>/&gt;</SPAN>
+This interface defines how the action configurations for the current web application can be constructed. This must find all actions that are not specifically defined in the struts XML files or any plugins. Furthermore, it must make every effort to locate all action results as well.
+
+<SPAN class="code-tag">&lt;bean type=<SPAN class="code-quote">&quot;org.apache.struts2.convention.ActionNameBuilder&quot;</SPAN> name=<SPAN class="code-quote">&quot;convention&quot;</SPAN> class=<SPAN class="code-quote">&quot;org.apache.struts2.convention.SEOActionNameBuilder&quot;</SPAN>/&gt;</SPAN>
+This interface defines the method that is used to create action names based on the name of a class.
+
+<SPAN class="code-tag">&lt;bean type=<SPAN class="code-quote">&quot;org.apache.struts2.convention.ResultMapBuilder&quot;</SPAN> name=<SPAN class="code-quote">&quot;convention&quot;</SPAN> class=<SPAN class="code-quote">&quot;org.apache.struts2.convention.DefaultResultMapBuilder&quot;</SPAN>/&gt;</SPAN>
+This interface defines how results are constructed for an Action. The action information is supplied and the result is a mapping of ResultConfig instances to the result name.
+
+<SPAN class="code-tag">&lt;bean type=<SPAN class="code-quote">&quot;org.apache.struts2.convention.InterceptorMapBuilder&quot;</SPAN> name=<SPAN class="code-quote">&quot;convention&quot;</SPAN> class=<SPAN class="code-quote">&quot;org.apache.struts2.convention.DefaultInterceptorMapBuilder&quot;</SPAN>/&gt;</SPAN>
+This interface defines how interceptors are built from annotations.
+
+<SPAN class="code-tag">&lt;bean type=<SPAN class="code-quote">&quot;org.apache.struts2.convention.ConventionsService&quot;</SPAN> name=<SPAN class="code-quote">&quot;convention&quot;</SPAN> class=<SPAN class="code-quote">&quot;org.apache.struts2.convention.ConventionsServiceImpl&quot;</SPAN>/&gt;</SPAN>
+This interface defines the conventions that are used by the convention plugin. In most cases the methods on this class will provide the best default for any values and also handle locating overrides of the default via the annotations that are part of the plugin.
+
+<SPAN class="code-tag">&lt;constant name=<SPAN class="code-quote">&quot;struts.convention.actionConfigBuilder&quot;</SPAN> value=<SPAN class="code-quote">&quot;convention&quot;</SPAN>/&gt;</SPAN>
+<SPAN class="code-tag">&lt;constant name=<SPAN class="code-quote">&quot;struts.convention.actionNameBuilder&quot;</SPAN> value=<SPAN class="code-quote">&quot;convention&quot;</SPAN>/&gt;</SPAN>
+<SPAN class="code-tag">&lt;constant name=<SPAN class="code-quote">&quot;struts.convention.resultMapBuilder&quot;</SPAN> value=<SPAN class="code-quote">&quot;convention&quot;</SPAN>/&gt;</SPAN>
+<SPAN class="code-tag">&lt;constant name=<SPAN class="code-quote">&quot;struts.convention.interceptorMapBuilder&quot;</SPAN> value=<SPAN class="code-quote">&quot;convention&quot;</SPAN>/&gt;</SPAN>
+<SPAN class="code-tag">&lt;constant name=<SPAN class="code-quote">&quot;struts.convention.conventionsService&quot;</SPAN> value=<SPAN class="code-quote">&quot;convention&quot;</SPAN>/&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>To plugin a different implementation for one of these classes, implement the interface, define a bean for it, and set the appropriate constant's value with the name of the new bean, for example:</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;bean type=<SPAN class="code-quote">&quot;org.apache.struts2.convention.ActionNameBuilder&quot;</SPAN> name=<SPAN class="code-quote">&quot;MyActionNameBuilder&quot;</SPAN> class=<SPAN class="code-quote">&quot;example.SultansOfSwingNameBuilder&quot;</SPAN>/&gt;</SPAN>
+<SPAN class="code-tag">&lt;constant name=<SPAN class="code-quote">&quot;struts.convention.actionNameBuilder&quot;</SPAN> value=<SPAN class="code-quote">&quot;MyActionNameBuilder&quot;</SPAN>/&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H1><A name="ConventionPlugin-Configurationreference"></A>Configuration reference</H1>
+
+<P>Add a <B>constant</B> element to your struts config file to change the value of a configuration setting, like:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;constant name=<SPAN class="code-quote">&quot;struts.convention.result.path&quot;</SPAN> value=<SPAN class="code-quote">&quot;/WEB-INF/mytemplates/&quot;</SPAN>/&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<DIV class="table-wrap">
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TH class="confluenceTh"> Name </TH>
+<TH class="confluenceTh"> Default Value </TH>
+<TH class="confluenceTh"> Description </TH>
+</TR>
+<TR>
+<TD class="confluenceTd"> struts.convention.action.alwaysMapExecute </TD>
+<TD class="confluenceTd"> true </TD>
+<TD class="confluenceTd"> Set to false, to prevent Convention from creating a default mapping to &quot;execute&quot; when there are other methods annotated as actions in the class </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> struts.convention.action.includeJars </TD>
+<TD class="confluenceTd">&nbsp;</TD>
+<TD class="confluenceTd"> Comma separated list of regular expressions of jar URLs to be scanned. eg. &quot;.<B>myJar-0\.2.</B>,.<B>thirdparty-0\.1.</B>&quot; </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> struts.convention.action.packages </TD>
+<TD class="confluenceTd">&nbsp;</TD>
+<TD class="confluenceTd"> An optional list of action packages that this should create configuration for (they don't need to match a locator pattern) </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> struts.convention.result.path </TD>
+<TD class="confluenceTd"> /WEB-INF/content/ </TD>
+<TD class="confluenceTd"> Directory where templates are located </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> struts.convention.result.flatLayout </TD>
+<TD class="confluenceTd"> true </TD>
+<TD class="confluenceTd"> If set to false, the result can be put in its own directory: resultsRoot/namespace/actionName/result.extension </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> struts.convention.action.suffix </TD>
+<TD class="confluenceTd"> Action </TD>
+<TD class="confluenceTd"> Suffix used to find actions based on class names </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> struts.convention.action.disableScanning </TD>
+<TD class="confluenceTd"> false </TD>
+<TD class="confluenceTd"> Scan packages for actions </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> struts.convention.action.mapAllMatches </TD>
+<TD class="confluenceTd"> false </TD>
+<TD class="confluenceTd"> Create action mappings, even if no @Action is found </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> struts.convention.action.checkImplementsAction </TD>
+<TD class="confluenceTd"> true </TD>
+<TD class="confluenceTd"> Check if an action implements com.opensymphony.xwork2.Action to create an action mapping </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> struts.convention.default.parent.package </TD>
+<TD class="confluenceTd"> convention-default </TD>
+<TD class="confluenceTd"> Default parent package for action mappins </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> struts.convention.action.name.lowercase </TD>
+<TD class="confluenceTd"> true </TD>
+<TD class="confluenceTd"> Convert action name to lowercase </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> struts.convention.action.name.separator </TD>
+<TD class="confluenceTd"> &#45; </TD>
+<TD class="confluenceTd"> Separator used to build the action name, MyAction &#45;&gt; my-action. This character is also used as the separator between the action name and the result in templates, like action-result.jsp </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> struts.convention.package.locators </TD>
+<TD class="confluenceTd"> action,actions,struts,struts2 </TD>
+<TD class="confluenceTd"> Packages whose name end with one of these strings will be scanned for actions </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> struts.convention.package.locators.disable </TD>
+<TD class="confluenceTd"> false </TD>
+<TD class="confluenceTd"> Disable the scanning of packages based on package locators </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> struts.convention.exclude.packages </TD>
+<TD class="confluenceTd"> org.apache.struts.*, <BR class="atl-forced-newline">
+org.apache.struts2.*, <BR class="atl-forced-newline">
+org.springframework.web.struts.*, <BR class="atl-forced-newline">
+org.springframework.web.struts2.*, <BR class="atl-forced-newline">
+org.hibernate.&#42; </TD>
+<TD class="confluenceTd"> Packages excluded from the action scanning, packages already excluded cannot be included in other way, eg. org.demo.actions.exclude is specified as a part of the struts.convention.exclude.packages so all packages below are also excluded, eg. org.demo.actions.exclude.include even if <B>include</B> is specified as a struts.convention.package.locators or struts.convention.action.packages </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> struts.convention.package.locators.basePackage </TD>
+<TD class="confluenceTd">&nbsp;</TD>
+<TD class="confluenceTd"> If set, only packages that start with its value will be scanned for actions </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> struts.convention.relative.result.types </TD>
+<TD class="confluenceTd"> dispatcher,velocity,freemarker </TD>
+<TD class="confluenceTd"> The list of result types that can have locations that are relative and the result location (which is the resultPath plus the namespace) prepended to them </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> struts.convention.redirect.to.slash </TD>
+<TD class="confluenceTd"> true </TD>
+<TD class="confluenceTd"> A boolean parameter that controls whether or not this will handle unknown actions in the same manner as Apache, Tomcat and other web servers. This handling will send back a redirect for URLs such as /foo to /foo/ if there doesn't exist an action that responds to /foo </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> struts.convention.classLoader.excludeParent </TD>
+<TD class="confluenceTd"> true </TD>
+<TD class="confluenceTd"> Exclude URLs found by the parent class loader from the list of URLs scanned to find actions (needs to be set to <TT>false</TT> for JBoss 5) </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> struts.convention.action.eagerLoading </TD>
+<TD class="confluenceTd"> false </TD>
+<TD class="confluenceTd"> If set, found action classes will be instantiated by the ObjectFactory to accelerate future use, setting it up can clash with Spring managed beans </TD>
+</TR>
+</TBODY></TABLE>
+</DIV>
+
+        </DIV>
+
+                  <DIV class="tabletitle">
+            Children
+            <SPAN class="smalltext" id="show" style="display: inline;">
+              <A href="javascript:showChildren()">Show Children</A></SPAN>
+            <SPAN class="smalltext" id="hide" style="display: none;">
+              <A href="javascript:hideChildren()">Hide Children</A></SPAN>
+          </DIV>
+          <DIV class="greybox" id="children" style="display: none;">
+                                      <A href="converting-application-from-codebehind-to-convention-plugin.html" title="Converting application from Codebehind to Convention Plugin">Converting application from Codebehind to Convention Plugin</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                      </DIV>
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

@@ -1,0 +1,435 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Building with Maven</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="guides.html" title="Guides">Guides</A>&nbsp;&gt;&nbsp;<A href="contributors-guide.html" title="Contributors Guide">Contributors Guide</A>&nbsp;&gt;&nbsp;<A href="building-the-framework-from-source.html" title="Building the Framework from Source">Building the Framework from Source</A>&nbsp;&gt;&nbsp;<A href="" title="Building with Maven">Building with Maven</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Building with Maven</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=14147">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=14147">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14147">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14147">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14147">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14147">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <DIV class="panelMacro"><TABLE class="infoMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD><A href="http://maven.apache.org/" class="external-link" rel="nofollow">Maven 3.0.0 or later</A> is required to build Struts 2</TD></TR></TABLE></DIV>
+<P>First, let's review some Maven basics. Maven uses the notion of a build <EM>life-cycle</EM> to which plugins can attach. Plugins are similar to Ant tasks. When a Maven build is invoked, we specify a point in the life-cycle up to which the build <EM>should</EM> proceed. The <EM>compile</EM> phase comes before <EM>test</EM>, and <EM>test</EM> comes before <EM>package</EM>, and <EM>package</EM> comes before <EM>install</EM>. Once we have Maven setup, we can invoke the Struts build, and specify which phase the build should use.</P>
+
+<H2><A name="BuildingwithMaven-Installing"></A>Installing</H2>
+
+<P>The <EM>install</EM> phase builds up the project (&quot;package&quot;), and installs any JARs it needs into your local repository (e.g. <TT>&#126;/.m2/repository</TT>). Once installed, the JARs can be used by any other Maven project you build.&nbsp; The <EM>install</EM> phase is the <B>default</B> phase if none is specified.</P>
+
+<P>To run a basic install, change to the root of the source distribution, and enter</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Go!</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+&gt; mvn
+</PRE>
+</DIV></DIV>
+<P>That's it&#33; Maven will download any dependencies the build needs; run all unit tests; package up the JARs; then install the new JARs locally. For your convenience, copies of the JARs can be found in the <EM>target</EM> directories of each module. For example, after the build, the main JAR can found at <TT>core/target/struts2-core-2.0-SNAPSHOT.jar</TT>.</P>
+<DIV class="panelMacro"><TABLE class="warningMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/forbidden.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD><B>It's supposed to be automatic, but you might still have to press the button</B><BR>Sometimes, licensing restrictions prevent Maven from downloading all the JARs that a build might need. For example, JavaMail and Activation, can only be downloaded from Sun. When this happens, Maven will display a helpful message that explains how to install these JARs manually. After downloading the required JAR, follow the instructions to install it to the your local repository. Once installed, the JAR is available to all your Maven builds, not just Struts.</TD></TR></TABLE></DIV>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Initial Build Successful</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] ------------------------------------------------------------------------
+[INFO] Struts 2 .............................................. SUCCESS [0.870s]
+[INFO] Struts 2 - Core ....................................... SUCCESS [1:17.272s]
+[INFO] Struts 2 API .......................................... SUCCESS [3.252s]
+[INFO] ------------------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESSFUL
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 1 minute 22 seconds
+[INFO] Finished at: Wed Jul 19 10:46:01 PDT 2006
+[INFO] Final Memory: 10M/42M
+[INFO] ------------------------------------------------------------------------
+</PRE>
+</DIV></DIV>
+
+<H3><A name="BuildingwithMaven-Otherphases"></A>Other phases</H3>
+
+<P>There are other phases that can be useful when working with Maven. The <EM>package</EM> phase will just JAR (or WAR) the modules. The <EM>test</EM> phase will only execute unit-tests. The <EM>compile</EM> phase will only build the source-code (but not the test sources). And the <EM>clean</EM> phase will remove all artifacts, typically the entire <EM>target</EM> directory.</P>
+
+<H2><A name="BuildingwithMaven-Buildprofiles"></A>Build profiles</H2>
+
+<P>The next step in building the framework with Maven is to understand <EM>build profiles</EM>. Profiles provide  different configurations for a build. There are several profiles, including <EM>default</EM>, <EM>xwork</EM>, and &#95;thirdparty&quot;.</P>
+<DIV class="table-wrap">
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TH class="confluenceTh"> Profile </TH>
+<TH class="confluenceTh"> Description </TH>
+</TR>
+<TR>
+<TD class="confluenceTd"> default </TD>
+<TD class="confluenceTd"> Builds site, api, and core </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> apps </TD>
+<TD class="confluenceTd"> Builds the example applications </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> plugins </TD>
+<TD class="confluenceTd"> Builds all plugins </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> extras </TD>
+<TD class="confluenceTd"> Includes the extras module that cannot be part of the default build due to licensing incompatibilities </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> xwork </TD>
+<TD class="confluenceTd"> Includes the xwork build </TD>
+</TR>
+</TBODY></TABLE>
+</DIV>
+
+<P>The default profile will work for most developers; however some developers will want to use additional profiles because they work on both XWork and other modules, such as the JasperReports integration.</P>
+
+<P>Specifying a profile is easy:</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Profile, please</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+&gt; mvn -Pprofile ...
+</PRE>
+</DIV></DIV>
+
+<H2><A name="BuildingwithMaven-ExtrasProfile"></A>Extras Profile</H2>
+
+<P>If you want to build all the <EM>Extras</EM> module (not included in the default build) use the &#95;extras*_profile.</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Extras Module</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+&gt; mvn -Pextras
+</PRE>
+</DIV></DIV>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Build with Third Party Modules</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] ------------------------------------------------------------------------
+[INFO] Struts 2 .............................................. SUCCESS [1.047s]
+[INFO] Struts 2 - Core ....................................... SUCCESS [33.615s]
+[INFO] Struts 2 API .......................................... SUCCESS [0.520s]
+[INFO] Struts Extras ......................................... SUCCESS [20.944s]
+[INFO] ------------------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESSFUL
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 57 seconds
+[INFO] Finished at: Wed Jul 19 10:51:05 PDT 2006
+[INFO] Final Memory: 9M/40M
+[INFO] ------------------------------------------------------------------------
+</PRE>
+</DIV></DIV>
+<P>In the second run, the Extras module is built. If you decide to make use of this module, be sure to review the licenses of its dependencies, since they may fall under a license that is incompatible with the Apache License.</P>
+
+<H2><A name="BuildingwithMaven-XWorkprofile"></A>XWork profile</H2>
+
+<P>Struts 2 is an extension of the XWork framework. While Struts2 adds a lot of value for web developers, much of the core functionality is derived from XWork. The <EM>xwork</EM> plugins add the capability to build against a current XWork check-out, rather than a pre-compiled JAR.</P>
+
+<P>The plugin assumes that the latest XWork code is checked out and is located at <TT>../xwork</TT>, relative to the struts2 folder. You can check out XWork using the Subversion command:</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Checking out XWork</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+svn co https:<SPAN class="code-comment">//svn.opensymphony.com/svn/xwork/trunk xwork</SPAN>
+</PRE>
+</DIV></DIV>
+<DIV class="panelMacro"><TABLE class="tipMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD><B>Subversion</B><BR>If you don't have the command line version of Subversion installed, you can <A href="http://subversion.tigris.org/project_packages.html" class="external-link" rel="nofollow">download it from the Subversion site</A>, and add the <TT>bin</TT> folder to your command path.</TD></TR></TABLE></DIV>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Working XWork</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+&gt; mvn -Pxwork <SPAN class="code-keyword">package</SPAN>
+</PRE>
+</DIV></DIV>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] ------------------------------------------------------------------------
+[INFO] XWork ................................................. SUCCESS [39.527s]
+[INFO] Struts 2 .............................................. SUCCESS [0.216s]
+[INFO] Struts 2 - Core ....................................... SUCCESS [29.736s]
+[INFO] Struts 2 API .......................................... SUCCESS [0.318s]
+[INFO] ------------------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESSFUL
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 1 minute 11 seconds
+[INFO] Finished at: Wed Jul 19 10:57:27 PDT 2006
+[INFO] Final Memory: 12M/53M
+[INFO] ------------------------------------------------------------------------
+</PRE>
+</DIV></DIV>
+<P>Now, Maven will build XWork from source and use that as the XWork snapshot for the Struts build.</P>
+
+<H2><A name="BuildingwithMaven-Multipleprofiles"></A>Multiple profiles</H2>
+
+<P>Maven can build against multiple profiles. If you are developing against both the XWork and Struts 2 frameworks at once, you can install both profiles with one call to Maven.</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Getting it All</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+&gt; mvn -Pextras,plugins,xwork
+</PRE>
+</DIV></DIV>
+<P>Using both profiles is especially important when using Maven to build your IDE project files (recommended).</P>
+
+<H2><A name="BuildingwithMaven-BuildingIDEprojectfiles"></A>Building IDE project files</H2>
+
+<P>Maven has a great feature that will allow you to build up your IDEA or Eclipse project files based on the project build structure. Using the Maven project files helps keep developers in-sync and efficient. The IDEA project files are pre-configured to define in the Run/Debug menu many common tasks, such as &quot;execute all tests&quot;, &quot;launch the showcase sample app&quot;, and so fort.</P>
+
+<H3><A name="BuildingwithMaven-IDEAbyJetBrains"></A>IDEA by JetBrains</H3>
+
+<P>The Maven IDEA plugin creates IDEA project and modules files, based on the Maven build configuraton (pom.xml).</P>
+
+<P>First, be sure you have the latest IDEA plugin for Maven.</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Get the latest plugin!</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+mvn -DconnectionUrl=scm:svn:http:<SPAN class="code-comment">//svn.apache.org/repos/asf/maven/plugins/trunk/maven-idea-plugin \
+</SPAN>    -Dgoals=install \
+    scm:bootstrap
+</PRE>
+</DIV></DIV>
+<P>Most often, we use Maven to build projects, but it can also run plugins directly. To build an IDEA project file for Struts 2, including all the modules, run</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Generate the project files</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+&gt; mvn idea:idea -Papps,extras,thirdparty,xwork
+</PRE>
+</DIV></DIV>
+<P>Maven will generate <EM>struts-parent.ipr</EM>, <EM>struts-parent.iws</EM>, and an <EM>iml</EM> file for each module listed Open up <EM>struts-parent.ipr</EM> in IDEA, and you should be good to go.</P>
+
+<P>If you ever need to rebuild your projects, running the <TT>idea:idea</TT> command again will update your files without overriding any information that doesn't conflict. If you do want to overwrite the project files, specify the overwrite parameter as true.</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Starting over</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+&gt; mvn idea:idea -Doverwrite=<SPAN class="code-keyword">true</SPAN> -Papps,extras,thirdparty,plugins,xwork
+
+If you only need to rebuild some of the modules, adjust the list of <SPAN class="code-quote">&quot;profiles&quot;</SPAN>.
+</PRE>
+</DIV></DIV>
+<DIV class="panelMacro"><TABLE class="tipMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD><B>Clearing the cache</B><BR>If you find the xwork module causing you problems, such as displaying as &quot;XWork&quot; when it should be named &quot;xwork&quot;, the problem is likely to be within IDEA. Try clearing out your IDEA system cache and then run it again</TD></TR></TABLE></DIV>
+
+<H2><A name="BuildingwithMaven-Eclipse"></A>Eclipse</H2>
+
+<P>For Eclipse, try</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Generating Eclipse</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+&gt; mvn -Pthirdparty,plugins,xwork eclipse:eclipse
+</PRE>
+</DIV></DIV>
+<DIV class="panelMacro"><TABLE class="infoMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD><B>Feedback Wanted</B><BR>Many Struts 2 developers use IDEA, and the Eclipse project files are not as well-tested or featureful as the IDEA versions. But as far as we know, they work&#33;</TD></TR></TABLE></DIV>
+
+<H2><A name="BuildingwithMaven-IMPORTANT%3ARunningtheSampleApplicationsfromEclipseornonIDEAIDEs"></A>IMPORTANT: Running the Sample Applications from Eclipse or non-IDEA IDEs</H2>
+
+<P>Currently the sample applications can be deployed using the <A href="http://www.mortbay.org/maven-plugin/index.html" class="external-link" rel="nofollow">Maven 2 Jetty plugin</A>.  For example, you can run the showcase example application from the command line:</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Runnning Showcase in Linux</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+cd apps/showcase
+mvn jetty:run
+</PRE>
+</DIV></DIV>
+<P>You could also use one of the Maven IDE plugins to run the plugin or simply execute the <TT>mvn</TT> or <TT>mvn.bat</TT> file as an external application within your IDE.<BR>
+A good tutorial on how to use the Maven 2 jetty plugin along with your IDE, including JPDA debugging support, can be found at the <A href="http://cwiki.apache.org/WICKET/maven-jetty-plugin.html" class="external-link" rel="nofollow">Apache Wicket documentation</A>.</P>
+
+<H2><A name="BuildingwithMaven-MavenTips"></A>Maven Tips</H2>
+
+<P>A few helpful tips for using Maven are provided:</P>
+
+<H3><A name="BuildingwithMaven-Offlinemode"></A>Offline mode</H3>
+
+<P>If you are disconnected from the Internet or simply wish to make your build faster, pass in the <B>&#45;o</B> argument and Maven won't check for new modules to download.</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Offline Mode</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+mvn -o -Pextras,plugins,xwork
+</PRE>
+</DIV></DIV>
+
+<H3><A name="BuildingwithMaven-OutOfMemoryError"></A>OutOfMemoryError</H3>
+
+<P>If you get an OutOfMemoryError while running the tests:</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Memory Settings</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+<SPAN class="code-comment">// Bash
+</SPAN>export MAVEN_OPTS=-Xmx512m
+
+<SPAN class="code-comment">// Windows
+</SPAN>set MAVEN_OPTS=-Xmx512m
+</PRE>
+</DIV></DIV>
+
+<H3><A name="BuildingwithMaven-Skippingtestexecution"></A>Skipping test execution</H3>
+
+<P>Although this shouldn't ever happen, sometimes tests do fail and you need to build the framework anyway. If there's a problem, you can pass in the skip tests parameter.</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Skip Tests</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+mvn -Dmaven.test.skip=<SPAN class="code-keyword">true</SPAN> -Pextras,plugins,xwork
+</PRE>
+</DIV></DIV>
+<P>Of course, if you find tests are failing, please submit a patch to fix them&#33;</P>
+
+<H3><A name="BuildingwithMaven-Debuggingbuildfailures"></A>Debugging build failures</H3>
+
+<P>Struts 2 depends on the current snapshot artifact of XWork 2.  Unfortunately, if XWork 2 is modified in a significant way, the Struts build doesn't check for and retrieve a new version of the XWork snapshot jar, resulting in compilation or unit test failures.</P>
+
+<P>The solution is to clear out any stale XWork 2 jars in your local Maven repository, usually by removing the directory <TT>&#126;/.m2/repository/opensymphony</TT>.  This will force the Struts Maven build to pull down a fresh copy of XWork and hopefully resolve your problem.</P>
+
+<H2><A name="BuildingwithMaven-Creatingarelease"></A>Creating a release</H2>
+
+<P>Maven terms a release build an &quot;assembly&quot;. An assembly aggregates the builds of all the modules installed locally on your machine into one or more release files. The default profile for building Struts 2 includes an assembly that attempts to download a mirror of the wiki. This can be time-consuming, to disable the assembly module just add &#45;DskipAssembly to your maven command line.</P>
+
+<P>To create a release, you must first build and install locally every artifact.  From the root <TT>struts2</TT> directory, run:</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Building all modules</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+mvn -Pextras,apps,plugins install
+</PRE>
+</DIV></DIV>
+<P>Next, you need to run the assembly build to create the release files.  From the <TT>struts2/assembly</TT> directory, run:</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Building the assembly</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+mvn assembly:assembly
+</PRE>
+</DIV></DIV>
+<P>If the assembly built correctly, you should see the release files in the <TT>target/assembly/out</TT> directory.</P>
+
+<H2><A name="BuildingwithMaven-Mirrors"></A>Mirrors</H2>
+
+<P>The default mirror for Maven builds (&quot;ibiblio&quot;) can be slow and unreliable. Maven lets you specify <A href="http://maven.apache.org/guides/mini/guide-mirror-settings.html" class="external-link" rel="nofollow">alternative mirrors</A> so that you don't have to depend on ibiblio for everything.</P>
+
+<P>You can add new mirrors through the Settings file (~/.m2/settings.xml).</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Mirror, Mirror</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;settings&gt;</SPAN>
+
+  <SPAN class="code-tag">&lt;mirrors&gt;</SPAN>
+    <SPAN class="code-tag">&lt;mirror&gt;</SPAN>
+      <SPAN class="code-tag">&lt;id&gt;</SPAN>dotsrc<SPAN class="code-tag">&lt;/id&gt;</SPAN>
+      <SPAN class="code-tag">&lt;url&gt;</SPAN>http://mirrors.dotsrc.org/maven2<SPAN class="code-tag">&lt;/url&gt;</SPAN>
+      <SPAN class="code-tag">&lt;mirrorOf&gt;</SPAN>central<SPAN class="code-tag">&lt;/mirrorOf&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/mirror&gt;</SPAN>
+  <SPAN class="code-tag">&lt;/mirrors&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;/settings&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+<DIV class="panelMacro"><TABLE class="tipMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>Sometimes the alternative mirrors have problems too or aren't updated at the same frequency as the main mirror. If you have trouble building, try commenting out the aternative mirror.</TD></TR></TABLE></DIV>
+
+<H2><A name="BuildingwithMaven-Firsttimebuilding"></A>First time building</H2>
+
+<P>In some cases it has been seen that Maven will complain if a module doesn't exist, even though it is part of the current build. Often, the missing module turns up when executing <TT>mvn package</TT>. A simple fix for this is to run <TT>mvn install</TT> instead. If you have to do this, it will probably only be a one time thing.</P>
+
+<H3><A name="BuildingwithMaven-Next%3ACreatingandSigningaDistribution"></A>Next: <A href="creating-and-signing-a-distribution.html" title="Creating and Signing a Distribution">Creating and Signing a Distribution</A></H3>
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

@@ -1,0 +1,276 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Result Configuration</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="guides.html" title="Guides">Guides</A>&nbsp;&gt;&nbsp;<A href="core-developers-guide.html" title="Core Developers Guide">Core Developers Guide</A>&nbsp;&gt;&nbsp;<A href="configuration-elements.html" title="Configuration Elements">Configuration Elements</A>&nbsp;&gt;&nbsp;<A href="" title="Result Configuration">Result Configuration</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Result Configuration</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=14118">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=14118">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14118">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14118">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14118">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14118">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <P>When an <A href="action.html" title="action">action</A> class method completes, it returns a String. The value of the String is used to select a result element. An action mapping will often have a set of results representing different possible outcomes. A standard set of result tokens are defined by the <TT>ActionSupport</TT> base class.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Predefined result names</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+<SPAN class="code-object">String</SPAN> SUCCESS = <SPAN class="code-quote">&quot;success&quot;</SPAN>;
+<SPAN class="code-object">String</SPAN> NONE    = <SPAN class="code-quote">&quot;none&quot;</SPAN>;
+<SPAN class="code-object">String</SPAN> ERROR   = <SPAN class="code-quote">&quot;error&quot;</SPAN>;
+<SPAN class="code-object">String</SPAN> INPUT   = <SPAN class="code-quote">&quot;input&quot;</SPAN>;
+<SPAN class="code-object">String</SPAN> LOGIN   = <SPAN class="code-quote">&quot;login&quot;</SPAN>;
+</PRE>
+</DIV></DIV>
+
+<P>Of course, applications can define other result tokens to match specific cases.</P>
+
+<P><IMG class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/information.gif" height="16" width="16" align="absmiddle" alt="" border="0"> Returning <TT><A href="http://struts.apache.org/2.x/struts2-core/apidocs/com/opensymphony/xwork2/Action.html#NONE" class="external-link" rel="nofollow">ActionSupport.NONE</A></TT> (or <TT>null</TT>) from an <A href="action.html" title="action">action</A> class method causes the results processing to be skipped. This is useful if the action fully handles the result processing such as writing directly to the HttpServletResponse OutputStream.</P>
+
+<H2><A name="ResultConfiguration-ResultElements"></A>Result Elements</H2>
+
+<P>The result element has two jobs. First, it provides a logical name. An <TT>Action</TT> can pass back a token like &quot;success&quot; or &quot;error&quot; without knowing any other implementation details. Second, the result element provides a result type. Most results simply forward to a server page or template, but other <A href="result-types.html" title="Result Types">Result Types</A> can be used to do more interesting things.</P>
+
+<H3><A name="ResultConfiguration-IntelligentDefaults"></A>Intelligent Defaults</H3>
+
+<P>Each package may set a default result type to be used if none is specified in a result element. If one package extends another, the &quot;child&quot; package can set its own default result, or inherit one from the parent.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Setting a default Result Type</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+&lt;result-types&gt;
+   &lt;result-type name=<SPAN class="code-quote">&quot;dispatcher&quot;</SPAN> <SPAN class="code-keyword">default</SPAN>=<SPAN class="code-quote">&quot;<SPAN class="code-keyword">true</SPAN>&quot;</SPAN>
+                class=<SPAN class="code-quote">&quot;org.apache.struts2.dispatcher.ServletDispatcherResult&quot;</SPAN> /&gt;
+&lt;/result-types&gt;
+</PRE>
+</DIV></DIV>
+
+<P>If a <TT>type</TT> attribute is not specified, the framework will use the default <TT>dispatcher</TT> type, which forwards to another web resource. If the resource is a JavaServer Page, then the container will render it, using its JSP engine.</P>
+
+<P>Likewise if the <TT>name</TT> attribute is not specified, the framework will give it the name &quot;success&quot;.</P>
+
+<P>Using these intelligent defaults, the most often used result types also become the simplest.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Result element without defaults</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;success&quot;</SPAN> type=<SPAN class="code-quote">&quot;dispatcher&quot;</SPAN>&gt;</SPAN>
+    <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;location&quot;</SPAN>&gt;</SPAN>/ThankYou.jsp<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>A Result element using some defaults</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;result&gt;</SPAN>
+    <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;location&quot;</SPAN>&gt;</SPAN>/ThankYou.jsp<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>The <TT>param</TT> tag sets a property on the Result object. The most commonly-set property is <TT>location</TT>, which usually specifies the path to a web resources. The <TT>param</TT> attribute is another intelligent default.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Result element using more defaults</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;result&gt;</SPAN>/ThankYou.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>Mixing results with intelligent defaults with other results makes it easier to see the &quot;critical path&quot;.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Multiple Results</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;Hello&quot;</SPAN>&gt;</SPAN>
+    <SPAN class="code-tag">&lt;result&gt;</SPAN>/hello/Result.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+    <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;error&quot;</SPAN>&gt;</SPAN>/hello/Error.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+    <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;input&quot;</SPAN>&gt;</SPAN>/hello/Input.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+<SPAN class="code-tag">&lt;/action&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>A special 'other' result can be configured by adding a result with name=&quot;&#42;&quot;.  This result will only be selected if no result is found with a matching name.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>'*' Other Result</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;Hello&quot;</SPAN>&gt;</SPAN>
+    <SPAN class="code-tag">&lt;result&gt;</SPAN>/hello/Result.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+    <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;error&quot;</SPAN>&gt;</SPAN>/hello/Error.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+    <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;input&quot;</SPAN>&gt;</SPAN>/hello/Input.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+    <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;*&quot;</SPAN>&gt;</SPAN>/hello/Other.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+<SPAN class="code-tag">&lt;/action&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P><IMG class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/information.gif" height="16" width="16" align="absmiddle" alt="" border="0"> The name=&quot;&#42;&quot; is <B>not</B> a wildcard pattern, it is a special name that is only selected if an exact match is not found.</P>
+
+<P><IMG class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" height="16" width="16" align="absmiddle" alt="" border="0"> In most cases if an action returns an unrecognized result name this would be a programming error and should be fixed.</P>
+
+<H2><A name="ResultConfiguration-GlobalResults"></A>Global Results</H2>
+
+<P>Most often, results are nested with the action element. But some results apply to multiple actions. In a secure application, a client might try to access a page without being authorized, and many actions may need access to a &quot;logon&quot; result.</P>
+
+<P>If actions need to share results, a set of global results can be defined for each package. The framework will first look for a local result nested in the action. If a local match is not found, then the global results are checked.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Defining global results</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;global-results&gt;</SPAN>
+    <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;error&quot;</SPAN>&gt;</SPAN>/Error.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+    <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;invalid.token&quot;</SPAN>&gt;</SPAN>/Error.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+    <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;login&quot;</SPAN> type=<SPAN class="code-quote">&quot;redirectAction&quot;</SPAN>&gt;</SPAN>Logon!input<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+<SPAN class="code-tag">&lt;/global-results&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P><IMG class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/lightbulb_on.gif" height="16" width="16" align="absmiddle" alt="" border="0"> For more about results, see <A href="result-types.html" title="Result Types">Result Types</A>.</P>
+
+<H2><A name="ResultConfiguration-DynamicResults"></A>Dynamic Results</H2>
+
+<P>A result may not be known until execution time. Consider the implementation of a state-machine-based execution flow; the next state might depend on any combination of form input elements, session attributes, user roles, moon phase, etc. In other words, determining the next action, input page, etc. may not be known at configuration time.</P>
+
+<P>Result values may be retrieved from its corresponding Action implementation by using EL expressions that access the Action's properties, just like the Struts 2 tag libraries. So given the following Action fragment:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>FragmentAction implementation</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+<SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">String</SPAN> nextAction;
+
+<SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> getNextAction() {
+    <SPAN class="code-keyword">return</SPAN> nextAction;
+}
+</PRE>
+</DIV></DIV>
+
+<P>you might define a result like this:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>FragmentAction configuration</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;fragment&quot;</SPAN> class=<SPAN class="code-quote">&quot;FragmentAction&quot;</SPAN>&gt;</SPAN>
+    <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;next&quot;</SPAN> type=<SPAN class="code-quote">&quot;redirectAction&quot;</SPAN>&gt;</SPAN>${nextAction}<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+<SPAN class="code-tag">&lt;/action&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>If a <TT>FragmentAction</TT> method returns &quot;next&quot; the actual <EM>value</EM> of that result will be whatever is in <TT>FragmentAction</TT>'s <TT>nextAction</TT> property. So <TT>nextAction</TT> may be computed based on whatever state information necessary then passed at runtime to &quot;next&quot;'s <TT>redirectAction</TT>.</P>
+
+<P>See <A href="parameters-in-configuration-results.html" title="Parameters in configuration results">Parameters in configuration results</A> for an expanded discussion.</P>
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

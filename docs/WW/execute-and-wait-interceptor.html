@@ -1,0 +1,254 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Execute and Wait Interceptor</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="guides.html" title="Guides">Guides</A>&nbsp;&gt;&nbsp;<A href="core-developers-guide.html" title="Core Developers Guide">Core Developers Guide</A>&nbsp;&gt;&nbsp;<A href="interceptors.html" title="Interceptors">Interceptors</A>&nbsp;&gt;&nbsp;<A href="" title="Execute and Wait Interceptor">Execute and Wait Interceptor</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Execute and Wait Interceptor</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=14318">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=14318">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14318">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14318">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14318">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14318">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          
+<P>The ExecuteAndWaitInterceptor is great for running long-lived actions in the background while showing the user a nice
+progress meter. This also prevents the HTTP request from timing out when the action takes more than 5 or 10 minutes.</P>
+
+<P><P> Using this interceptor is pretty straight forward. Assuming that you are including struts-default.xml, this
+interceptor is already configured but is not part of any of the default stacks. Because of the nature of this
+interceptor, it must be the <B>last</B> interceptor in the stack.</P>
+
+<P><P> This interceptor works on a per-session basis. That means that the same action name (myLongRunningAction, in the
+above example) cannot be run more than once at a time in a given session. On the initial request or any subsequent
+requests (before the action has completed), the <B>wait</B> result will be returned. <B>The wait result is
+responsible for issuing a subsequent request back to the action, giving the effect of a self-updating progress
+meter</B>.</P>
+
+<P><P> If no &quot;wait&quot; result is found, Struts will automatically generate a wait result on the fly. This result is
+written in FreeMarker and cannot run unless FreeMarker is installed. If you don't wish to deploy with FreeMarker, you
+must provide your own wait result. This is generally a good thing to do anyway, as the default wait page is very
+plain.</P>
+
+<P><P>Whenever the wait result is returned, the <B>action that is currently running in the background will be placed on
+top of the stack</B>. This allows you to display progress data, such as a count, in the wait page. By making the wait
+page automatically reload the request to the action (which will be short-circuited by the interceptor), you can give
+the appearance of an automatic progress meter.</P>
+
+<P><P>This interceptor also supports using an initial wait delay. An initial delay is a time in milliseconds we let the
+server wait before the wait page is shown to the user. During the wait this interceptor will wake every 100 millis
+to check if the background process is done premature, thus if the job for some reason doesn't take to long the wait
+page is not shown to the user.
+<BR> This is useful for e.g. search actions that have a wide span of execution time. Using a delay time of 2000
+millis we ensure the user is presented fast search results immediately and for the slow results a wait page is used.</P>
+
+<P><P><B>Important</B>: Because the action will be running in a seperate thread, you can't use ActionContext because it
+is a ThreadLocal. This means if you need to access, for example, session data, you need to implement SessionAware
+rather than calling ActionContext.getSession().</P>
+
+<P><P>The thread kicked off by this interceptor will be named in the form <B><U>actionName</U>BackgroundProcess</B>.
+For example, the <I>search</I> action would run as a thread named <I>searchBackgroundProcess</I>.</P>
+
+
+<H2><A name="ExecuteandWaitInterceptor-Parameters"></A>Parameters</H2>
+
+
+<P><UL></P>
+
+<P><LI>threadPriority (optional) - the priority to assign the thread. Default is <CODE>Thread.NORM_PRIORITY</CODE>.</LI>
+<LI>delay (optional) - an initial delay in millis to wait before the wait page is shown (returning <CODE>wait</CODE> as result code). Default is no initial delay.</LI>
+<LI>delaySleepInterval (optional) - only used with delay. Used for waking up at certain intervals to check if the background process is already done. Default is 100 millis.</LI></P>
+
+<P></UL></P>
+
+
+<H2><A name="ExecuteandWaitInterceptor-ExtendingtheInterceptor"></A>Extending the Interceptor</H2>
+
+
+<P>If you wish to make special preparations before and/or after the invocation of the background thread, you can extend
+the BackgroundProcess class and implement the beforeInvocation() and afterInvocation() methods. This may be useful
+for obtaining and releasing resources that the background process will need to execute successfully. To use your
+background process extension, extend ExecuteAndWaitInterceptor and implement the getNewBackgroundProcess() method.</P>
+
+
+<H2><A name="ExecuteandWaitInterceptor-Examples"></A>Examples</H2>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;someAction&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.examples.SomeAction&quot;</SPAN>&gt;</SPAN>
+    <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;completeStack&quot;</SPAN>/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;execAndWait&quot;</SPAN>/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;wait&quot;</SPAN>&gt;</SPAN>longRunningAction-wait.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+    <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;success&quot;</SPAN>&gt;</SPAN>longRunningAction-success.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+<SPAN class="code-tag">&lt;/action&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;%@ taglib prefix=<SPAN class="code-quote">&quot;s&quot;</SPAN> uri=<SPAN class="code-quote">&quot;/struts&quot;</SPAN> %&gt;</SPAN>
+<SPAN class="code-tag">&lt;html&gt;</SPAN>
+  <SPAN class="code-tag">&lt;head&gt;</SPAN>
+    <SPAN class="code-tag">&lt;title&gt;</SPAN>Please wait<SPAN class="code-tag">&lt;/title&gt;</SPAN>
+    <SPAN class="code-tag">&lt;meta http-equiv=<SPAN class="code-quote">&quot;refresh&quot;</SPAN> content=<SPAN class="code-quote">&quot;5;url=&lt;s:url includeParams=&quot;</SPAN>all<SPAN class="code-quote">&quot; /&gt;</SPAN>&quot;</SPAN>/&gt;
+  <SPAN class="code-tag">&lt;/head&gt;</SPAN>
+  <SPAN class="code-tag">&lt;body&gt;</SPAN>
+    Please wait while we process your request.
+    Click <SPAN class="code-tag">&lt;a href=<SPAN class="code-quote">&quot;&lt;s:url includeParams=&quot;</SPAN>all<SPAN class="code-quote">&quot; /&gt;</SPAN>&quot;</SPAN>&gt;<SPAN class="code-tag">&lt;/a&gt;</SPAN> if this page does not reload automatically.
+  <SPAN class="code-tag">&lt;/body&gt;</SPAN>
+<SPAN class="code-tag">&lt;/html&gt;</SPAN>
+<SPAN class="code-tag">&lt;/pre&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;p/&gt;</SPAN> <SPAN class="code-tag">&lt;u&gt;</SPAN>Example code2:<SPAN class="code-tag">&lt;/u&gt;</SPAN>
+This example will wait 2 second (2000 millis) before the wait page is shown to the user. Therefore
+if the long process didn't last long anyway the user isn't shown a wait page.
+
+<SPAN class="code-tag">&lt;pre&gt;</SPAN>
+<SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;someAction&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.examples.SomeAction&quot;</SPAN>&gt;</SPAN>
+    <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;completeStack&quot;</SPAN>/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;execAndWait&quot;</SPAN>&gt;</SPAN>
+        <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;delay&quot;</SPAN>&gt;</SPAN>2000<SPAN class="code-tag">&lt;param&gt;</SPAN>
+    <SPAN class="code-tag">&lt;interceptor-ref&gt;</SPAN>
+    <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;wait&quot;</SPAN>&gt;</SPAN>longRunningAction-wait.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+    <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;success&quot;</SPAN>&gt;</SPAN>longRunningAction-success.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+<SPAN class="code-tag">&lt;/action&gt;</SPAN>
+<SPAN class="code-tag">&lt;/pre&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;p/&gt;</SPAN> <SPAN class="code-tag">&lt;u&gt;</SPAN>Example code3:<SPAN class="code-tag">&lt;/u&gt;</SPAN>
+This example will wait 1 second (1000 millis) before the wait page is shown to the user.
+And at every 50 millis this interceptor will check if the background process is done, if so
+it will return before the 1 second has elapsed, and the user isn't shown a wait page.
+
+<SPAN class="code-tag">&lt;pre&gt;</SPAN>
+<SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;someAction&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.examples.SomeAction&quot;</SPAN>&gt;</SPAN>
+    <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;completeStack&quot;</SPAN>/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;execAndWait&quot;</SPAN>&gt;</SPAN>
+        <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;delay&quot;</SPAN>&gt;</SPAN>1000<SPAN class="code-tag">&lt;param&gt;</SPAN>
+        <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;delaySleepInterval&quot;</SPAN>&gt;</SPAN>50<SPAN class="code-tag">&lt;param&gt;</SPAN>
+    <SPAN class="code-tag">&lt;interceptor-ref&gt;</SPAN>
+    <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;wait&quot;</SPAN>&gt;</SPAN>longRunningAction-wait.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+    <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;success&quot;</SPAN>&gt;</SPAN>longRunningAction-success.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+<SPAN class="code-tag">&lt;/action&gt;</SPAN>
+<SPAN class="code-tag">&lt;/pre&gt;</SPAN>
+
+</PRE>
+</DIV></DIV>
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

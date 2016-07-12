@@ -1,0 +1,261 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>AJAX</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="guides.html" title="Guides">Guides</A>&nbsp;&gt;&nbsp;<A href="core-developers-guide.html" title="Core Developers Guide">Core Developers Guide</A>&nbsp;&gt;&nbsp;<A href="" title="AJAX">AJAX</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">AJAX</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=34512">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=34512">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=34512">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=34512">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=34512">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=34512">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <P>AJAX is an acronym for Asynchronous JavaScript and XML. Essentially, a JavaScript can make a HTTP request and update portions of a page directly, without going through a conventional POST or GET and refreshing the entire page. Better yet, a page can contain several JavaScripts making simultaneous (asynchronous) requests.</P>
+
+<P>The key point is that when a script makes an &quot;Ajax request&quot; (XHR), the server doesn't know it came from a script, and handles it like any other request. One reason Ajax is so successful is that it works just fine with existing server technologies, including Struts.</P>
+
+<P>It's not the Ajax request that is different, but the Ajax response. Instead of returning an entire page for the browser to display (or redisplay), an Ajax response will just return a portion of a page. The response can take the form of XML, or HTML, or plain text, another script, or whatever else the calling script may want.</P>
+
+<P>Both Struts 1 and Struts 2 can return any type of response. We are not limited to forwarding to a server page. In Struts 1, you can just do something like:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+response.setContentType(<SPAN class="code-quote">&quot;text/html&quot;</SPAN>);
+PrintWriter out = response.getWriter();
+out.println(<SPAN class="code-quote">&quot;Hello World!  This is an AJAX response from a Struts Action.&quot;</SPAN>);
+out.flush();
+<SPAN class="code-keyword">return</SPAN> <SPAN class="code-keyword">null</SPAN>;
+</PRE>
+</DIV></DIV>
+
+<P>In Struts 2, we can do the same thing with a Stream result.</P>
+
+<DIV class="panelMacro"><TABLE class="noteMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD><B>There are easier ways!</B><BR>Using a Struts 2 plugin (e.g., JSON plugin, jQuery plugin, etc.) is, in general, preferred to writing the response directly from within an action. See sections following this for further details.</TD></TR></TABLE></DIV>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Struts 2 Stream result Action</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+<SPAN class="code-keyword">package</SPAN> actions;
+
+<SPAN class="code-keyword">import</SPAN> java.io.InputStream;
+<SPAN class="code-keyword">import</SPAN> java.io.StringBufferInputStream;
+<SPAN class="code-keyword">import</SPAN> com.opensymphony.xwork2.ActionSupport;
+
+<SPAN class="code-keyword">public</SPAN> class TextResult <SPAN class="code-keyword">extends</SPAN> ActionSupport  {
+    <SPAN class="code-keyword">private</SPAN> InputStream inputStream;
+    <SPAN class="code-keyword">public</SPAN> InputStream getInputStream() {
+        <SPAN class="code-keyword">return</SPAN> inputStream;
+    }
+
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> execute() <SPAN class="code-keyword">throws</SPAN> Exception {
+        inputStream = <SPAN class="code-keyword">new</SPAN> ByteArrayInputStream(<SPAN class="code-quote">&quot;Hello World! This is a text string response from a Struts 2 Action.&quot;</SPAN>.getBytes(<SPAN class="code-quote">&quot;UTF-8&quot;</SPAN>));
+        <SPAN class="code-keyword">return</SPAN> SUCCESS;
+    }
+}
+</PRE>
+</DIV></DIV>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Struts 2 Configuring the TextResult Action</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;text-result&quot;</SPAN> class=<SPAN class="code-quote">&quot;actions.TextResult&quot;</SPAN>&gt;</SPAN>
+    <SPAN class="code-tag">&lt;result type=<SPAN class="code-quote">&quot;stream&quot;</SPAN>&gt;</SPAN>
+        <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;contentType&quot;</SPAN>&gt;</SPAN>text/html<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+        <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;inputName&quot;</SPAN>&gt;</SPAN>inputStream<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/result&gt;</SPAN>
+<SPAN class="code-tag">&lt;/action&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P><IMG class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/check.gif" height="16" width="16" align="absmiddle" alt="" border="0"> Struts 2 can also return a JSON (JavaScript Object Notation) response, using a <A href="http://cwiki.apache.org/S2PLUGINS/json-plugin.html" class="external-link" rel="nofollow">plugin</A>.</P>
+
+<P>On the client side, there are two basic strategies, which can be mixed and matched.</P>
+
+<P>First, you can use some type of JSP tag. Here, you don't have to know very much at all about Ajax or JavaScript. The taglib does all the work, and you just have to figure out how to use the taglib. The standard Struts 2 taglib includes several <A href="ajax-tags.html" title="Ajax Tags">Ajax JSP tags</A>, and many third-party libraries are available, including: </P>
+
+<UL>
+	<LI><A href="http://ajaxtags.sourceforge.net/" class="external-link" rel="nofollow">Ajax Tags</A></LI>
+	<LI><A href="http://javawebparts.sourceforge.net/" class="external-link" rel="nofollow">AjaxParts Taglib</A></LI>
+	<LI><A href="http://servletsuite.blogspot.com/2006/06/coldtags-suite-ajax-edition.html" class="external-link" rel="nofollow">ColdTags Suite</A></LI>
+	<LI><A href="http://www.jenkov.com/prizetags/introduction.tmpl" class="external-link" rel="nofollow">Prize Tags</A></LI>
+	<LI><A href="http://json-taglib.sourceforge.net/" class="external-link" rel="nofollow">JSON-taglib</A></LI>
+</UL>
+
+
+<P>Alternatively, you can use a plain-old Ajax widget on a plain-old HTML page, using libraries like <A href="http://dojotoolkit.org/" class="external-link" rel="nofollow">Dojo</A>, <A href="http://jquery.com/" class="external-link" rel="nofollow">JQuery</A>, or <A href="http://developer.yahoo.com/yui/" class="external-link" rel="nofollow">YUI</A>, and the StreamResult or the <A href="http://cwiki.apache.org/S2PLUGINS/json-plugin.html" class="external-link" rel="nofollow">JSON Plugin</A>. Here, the sky's the limit, but you actually have to learn something about JavaScript as a language. </P>
+
+<H2><A name="AJAX-AjaxPlugins"></A>Ajax Plugins</H2>
+
+<P>While Struts works fine with Ajax out-of-the-box, for added value, several Ajax-centric plugins are available. </P>
+
+<H3><A name="AJAX-AjaxTagPlugins"></A>Ajax Tag Plugins </H3>
+
+<UL>
+	<LI><B>Ajax Parts</B> - The <A href="http://code.google.com/p/struts2ajaxpartstaglibplugin/" class="external-link" rel="nofollow">AjaxParts Taglib (APT)</A> is a component of the Java Web Parts (JWP) project (<A href="http://javawebparts.sourceforge.net/" class="external-link" rel="nofollow">http://javawebparts.sourceforge.net</A>) that allows for 100% declarative (read: no Javascript coding required!) AJAX functionality within a Java-based webapp.</LI>
+	<LI><B>Dojo</B> - The <A href="ajax-tags.html" title="Ajax Tags">Ajax Tags Dojo Plugin</A> was represented as a theme for Struts 2.0. For Struts 2.1, the Dojo tags are bundled as a plugin.</LI>
+	<LI><B>YUI</B> - The <A href="http://cwiki.apache.org/S2PLUGINS/yui-plugin.html" class="external-link" rel="nofollow">Yahoo User Interface (YUI) Plugin</A> has only a few tags are available so far, but the YUI tags tend to be easier to use than the Dojo versions.</LI>
+	<LI><B>jQuery</B> - The <A href="http://cwiki.apache.org/S2PLUGINS/jquery-plugin-easy-ajax-and-widget-integration.html" class="external-link" rel="nofollow">jQuery Plugin</A> provide ajax functionality and UI Widgets an JavaScript Grid based on the jQuery javascript framework..</LI>
+</UL>
+
+
+<H3><A name="AJAX-OtherAjaxPlugins"></A>Other Ajax Plugins </H3>
+
+<UL>
+	<LI><B>Ajax File Upload</B> - With the <A href="http://www.davidjc.com/ajaxfileupload/demo!input.action" class="external-link" rel="nofollow">Ajax File Upload Plugin</A> we can upload a file to the server and asynchronously monitor its progress.</LI>
+	<LI><B>GWT</B> - The <A href="http://cwiki.apache.org/S2PLUGINS/2007/01/10/gwt-plugin.html" class="external-link" rel="nofollow">Google Web Toolkit Plugin</A> exposes Struts 2 actions to the GWT RPC mechanism.</LI>
+	<LI><B>JSON</B> - The <A href="http://cwiki.apache.org/S2PLUGINS/json-plugin.html" class="external-link" rel="nofollow">JSON Plugin</A> serializes Actions properties into JSON, making it easy to respond to JavaScript requests.</LI>
+</UL>
+
+
+<P>See the <A href="http://cwiki.apache.org/S2PLUGINS/home.html" class="external-link" rel="nofollow">Struts Plugin Repository</A> for a complete list of Struts 2 plugins. </P>
+
+<H2><A name="AJAX-AjaxResultswithJSP"></A>Ajax Results with JSP</H2>
+
+<P>While server pages are most often used to generate HTML, we can use server pages to create other types of data streams. Here's an example:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>book.jsp</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+&lt;%@ page <SPAN class="code-keyword">import</SPAN>=&quot;java.util.Iterator,
+		 java.util.List,
+		 com.esolaria.dojoex.Book,
+		 com.esolaria.dojoex.BookManager&quot; %&gt;
+&lt;%
+	<SPAN class="code-object">String</SPAN> bookIdStr = request.getParameter(<SPAN class="code-quote">&quot;bookId&quot;</SPAN>);
+	<SPAN class="code-object">int</SPAN> bookId = (bookIdStr == <SPAN class="code-keyword">null</SPAN> || &quot;&quot;.equals(bookIdStr.trim())) 
+		? 0 : <SPAN class="code-object">Integer</SPAN>.parseInt(bookIdStr);
+	Book book = BookManager.getBook(bookId);
+	<SPAN class="code-keyword">if</SPAN> (book != <SPAN class="code-keyword">null</SPAN>) {
+		out.println(book.toJSONString());
+		<SPAN class="code-object">System</SPAN>.out.println(<SPAN class="code-quote">&quot;itis: &quot;</SPAN> + book.toJSONString());
+	}
+%&gt;
+</PRE>
+</DIV></DIV>
+
+<P>In the code example, we use <TT>System.out.println</TT> to return a JSON data stream as the response. For more about this technique, see the article <A href="http://today.java.net/pub/a/today/2006/04/27/building-ajax-with-dojo-and-json.html" class="external-link" rel="nofollow">Using Dojo and JSON to Build Ajax Applications</A>.</P>
+
+
+<H2><A name="AJAX-Next%3ADependencyInjection"></A>Next: <A href="dependency-injection.html" title="Dependency Injection">Dependency Injection</A></H2>
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

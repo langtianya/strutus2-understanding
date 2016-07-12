@@ -1,0 +1,277 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>RomeResult</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="faqs.html" title="FAQs">FAQs</A>&nbsp;&gt;&nbsp;<A href="cookbook.html" title="Cookbook">Cookbook</A>&nbsp;&gt;&nbsp;<A href="" title="RomeResult">RomeResult</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">RomeResult</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=14266">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=14266">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14266">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14266">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14266">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14266">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <DIV class="panelMacro"><TABLE class="infoMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD><B>Now available as a Struts 2 plugin</B><BR>The RomeResult is now available as a Struts 2 plugin over at <A href="http://code.google.com/p/s2-rome" class="external-link" rel="nofollow">http://code.google.com/p/s2-rome</A>.</TD></TR></TABLE></DIV>
+
+<P>A couple of days ago I quickly had to create a result type that would transform a Rome (<A href="https://rome.dev.java.net/" class="external-link" rel="nofollow">https://rome.dev.java.net/</A>) SyndFeed to several news feeds. The framework makes this very, very easy.</P>
+<DIV class="panelMacro"><TABLE class="infoMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD><B>Used versions</B><BR>WebWork 2.2 beta 4<BR>
+Rome 0.7 beta</TD></TR></TABLE></DIV>
+
+<H2><A name="RomeResult-Thecode"></A>The code</H2>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>com.acme.result.RomeResult.java</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+/**
+ *
+ */
+<SPAN class="code-keyword">package</SPAN> com.acme.result;
+
+<SPAN class="code-keyword">import</SPAN> java.io.Writer;
+
+<SPAN class="code-keyword">import</SPAN> org.apache.log4j.Logger;
+
+<SPAN class="code-keyword">import</SPAN> org.apache..ServletActionContext;
+<SPAN class="code-keyword">import</SPAN> com.opensymphony.xwork.ActionInvocation;
+<SPAN class="code-keyword">import</SPAN> com.opensymphony.xwork.Result;
+<SPAN class="code-keyword">import</SPAN> com.sun.syndication.feed.synd.SyndFeed;
+<SPAN class="code-keyword">import</SPAN> com.sun.syndication.io.SyndFeedOutput;
+
+/**
+ * A simple Result to output a Rome SyndFeed object into a newsfeed.
+ * @author Philip Luppens
+ *
+ */
+<SPAN class="code-keyword">public</SPAN> class RomeResult <SPAN class="code-keyword">implements</SPAN> Result {
+
+	<SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">String</SPAN> feedName;
+
+	<SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">String</SPAN> feedType;
+
+	<SPAN class="code-keyword">private</SPAN> <SPAN class="code-keyword">final</SPAN> <SPAN class="code-keyword">static</SPAN> Logger logger = Logger.getLogger(RomeResult.class);
+
+	/*
+	 * (non-Javadoc)
+	 *
+	 * @see com.opensymphony.xwork.Result#execute(com.opensymphony.xwork.ActionInvocation)
+	 */
+	<SPAN class="code-keyword">public</SPAN> void execute(ActionInvocation ai) <SPAN class="code-keyword">throws</SPAN> Exception {
+		<SPAN class="code-keyword">if</SPAN> (feedName == <SPAN class="code-keyword">null</SPAN>) {
+			<SPAN class="code-comment">// ack, we need <SPAN class="code-keyword">this</SPAN> to find the feed on the stack
+</SPAN>			logger
+					.error(<SPAN class="code-quote">&quot;Required parameter 'feedName' not found. &quot;</SPAN>
+							+ <SPAN class="code-quote">&quot;Make sure you have the param tag set and &quot;</SPAN>
+							+ <SPAN class="code-quote">&quot;the <SPAN class="code-keyword">static</SPAN>-parameters interceptor enabled in your interceptor stack.&quot;</SPAN>);
+			<SPAN class="code-comment">// no point in continuing ..
+</SPAN>			<SPAN class="code-keyword">return</SPAN>;
+		}
+
+		<SPAN class="code-comment">// don't forget to set the content to the correct mimetype
+</SPAN>		ServletActionContext.getResponse().setContentType(<SPAN class="code-quote">&quot;text/xml&quot;</SPAN>);
+		<SPAN class="code-comment">// get the feed from the stack that can be found by the feedName
+</SPAN>		SyndFeed feed = (SyndFeed) ai.getStack().findValue(feedName);
+
+		<SPAN class="code-keyword">if</SPAN> (logger.isDebugEnabled()) {
+			logger.debug(<SPAN class="code-quote">&quot;Found object on stack with name '&quot;</SPAN> + feedName + <SPAN class="code-quote">&quot;': &quot;</SPAN>
+					+ feed);
+		}
+		<SPAN class="code-keyword">if</SPAN> (feed != <SPAN class="code-keyword">null</SPAN>) {
+
+			<SPAN class="code-keyword">if</SPAN> (feedType != <SPAN class="code-keyword">null</SPAN>) {
+				<SPAN class="code-comment">// Accepted types are: rss_0.90 - rss_2.0 and atom_0.3
+</SPAN>				<SPAN class="code-comment">// There is a bug though in the rss 2.0 generator when it checks
+</SPAN>				<SPAN class="code-comment">// <SPAN class="code-keyword">for</SPAN> the type attribute in the description element. It's has a
+</SPAN>				<SPAN class="code-comment">// big 'FIXME' next to it (v. 0.7beta).
+</SPAN>				feed.setFeedType(feedType);
+			}
+			SyndFeedOutput output = <SPAN class="code-keyword">new</SPAN> SyndFeedOutput();
+			<SPAN class="code-comment">//we'll need the writer since Rome doesn't support writing to an outputStream yet
+</SPAN>			Writer out = <SPAN class="code-keyword">null</SPAN>;
+			<SPAN class="code-keyword">try</SPAN> {
+				out = ServletActionContext.getResponse().getWriter();
+				output.output(feed, out);
+			} <SPAN class="code-keyword">catch</SPAN> (Exception e) {
+				<SPAN class="code-comment">// Woops, couldn't write the feed ?
+</SPAN>				logger.error(<SPAN class="code-quote">&quot;Could not write the feed&quot;</SPAN>, e);
+			} <SPAN class="code-keyword">finally</SPAN> {
+				<SPAN class="code-comment">//close the output writer (will flush automatically)
+</SPAN>				<SPAN class="code-keyword">if</SPAN> (out != <SPAN class="code-keyword">null</SPAN>) {
+					out.close();
+				}
+			}
+
+		} <SPAN class="code-keyword">else</SPAN> {
+			<SPAN class="code-comment">// woops .. no object found on the stack with that name ?
+</SPAN>			logger.error(<SPAN class="code-quote">&quot;Did not find object on stack with name '&quot;</SPAN> + feedName
+					+ <SPAN class="code-quote">&quot;'&quot;</SPAN>);
+		}
+	}
+
+	<SPAN class="code-keyword">public</SPAN> void setFeedName(<SPAN class="code-object">String</SPAN> feedName) {
+		<SPAN class="code-keyword">this</SPAN>.feedName = feedName;
+	}
+
+	<SPAN class="code-keyword">public</SPAN> void setFeedType(<SPAN class="code-object">String</SPAN> feedType) {
+		<SPAN class="code-keyword">this</SPAN>.feedType = feedType;
+	}
+
+}
+</PRE>
+</DIV></DIV>
+
+<H2><A name="RomeResult-CodeExplanation"></A>Code Explanation</H2>
+
+<P>Easy enough. We try to find the SyndFeed object on the WW stack. If we can find it, we will set the feed type (rss v0.9 &#43;, atom 0.3) if it has been specified in the result parameters (see below). Then we use a SyndFeedOutput to write our newsfeed to our PrintWriter from our response.</P>
+
+<H2><A name="RomeResult-ActionConfiguration"></A>Action Configuration</H2>
+
+<P>Before you can use this result, you will need to register it in your <TT>struts.xml</TT>:</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;package name=<SPAN class="code-quote">&quot;default&quot;</SPAN> extends=<SPAN class="code-quote">&quot;struts-default&quot;</SPAN>&gt;</SPAN>
+	<SPAN class="code-tag">&lt;result-types&gt;</SPAN>
+		<SPAN class="code-tag">&lt;result-type name=<SPAN class="code-quote">&quot;feed&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.acme.result.RomeResult&quot;</SPAN>/&gt;</SPAN>
+	<SPAN class="code-tag">&lt;/result-types&gt;</SPAN>
+	<SPAN class="code-tag">&lt;interceptors&gt;</SPAN>
+..
+</PRE>
+</DIV></DIV>
+<P>You can now use this result type. So, create an Action that will create and populate the Rome SyndFeed, and make sure you provide a getter for your populated SyndFeed. The actual creation of your feed is beyond this recipe, but you can find plenty of examples in the Rome Wiki (<A href="http://wiki.java.net/bin/view/Javawsxml/Rome05Tutorials" class="external-link" rel="nofollow">http://wiki.java.net/bin/view/Javawsxml/Rome05Tutorials</A>).</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;feed&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.acme.action.CreateFeedAction&quot;</SPAN>&gt;</SPAN>
+	<SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;success&quot;</SPAN> type=<SPAN class="code-quote">&quot;feed&quot;</SPAN>&gt;</SPAN>
+		<SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;feedName&quot;</SPAN>&gt;</SPAN>feed<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+		<SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;feedType&quot;</SPAN>&gt;</SPAN>rss_1.0<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+	<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+<SPAN class="code-tag">&lt;/action&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H2><A name="RomeResult-Summary"></A>Summary </H2>
+
+<P>This is a simple feed result using Rome as a news feed generator. You might want to make sure you don't generate your feed on every request, but there are lots of ways to deal with such problems. You can also provi<BR>
+de additional setters in the Result to set your feed title, url, etc, but this should suffice for a quickstart.</P>
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

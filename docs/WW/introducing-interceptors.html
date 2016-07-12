@@ -1,0 +1,262 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Introducing Interceptors</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="tutorials.html" title="Tutorials">Tutorials</A>&nbsp;&gt;&nbsp;<A href="getting-started.html" title="Getting Started">Getting Started</A>&nbsp;&gt;&nbsp;<A href="" title="Introducing Interceptors">Introducing Interceptors</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Introducing Interceptors</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=24187261">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=24187261">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=24187261">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=24187261">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=24187261">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=24187261">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <DIV class="panelMacro"><TABLE class="infoMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>The example code for this tutorial, Interceptors_Struts2_Ant or Interceptors_Struts2_Mvn, is available on Google Code - <A href="http://code.google.com/p/struts2-examples/downloads/list" class="external-link" rel="nofollow">http://code.google.com/p/struts2-examples/downloads/list</A>. After downloading and unzipping the file, you'll have a folder named Interceptors_Struts2_Ant (or Interceptors_Struts2_Mvn). In that folder will be a README.txt file with instructions on now to build and run the example application.</TD></TR></TABLE></DIV>
+
+<H3><A name="IntroducingInterceptors-Introduction"></A>Introduction</H3>
+
+<P>So far our tutorials have not delved into the inner workings of the Struts 2 framework. But in this tutorial we'll introduce a key set of classes the Struts 2 framework relies upon to do most of the work whenever an Action is executed. In this tutorial's example project there is a register link that is mapped in the Struts XML configuration file (struts.xml) to the execute method of class Register. Before that execute method is called much work is done behind the scenes by the Struts 2 framework. For example:</P>
+
+<OL>
+	<LI>Handling any exceptions generated</LI>
+	<LI>Converting the String request parameters to the Register class's instance fields where the name values match</LI>
+	<LI>Calling the validate method and/or the external XML validation</LI>
+</OL>
+
+
+<P>After the execute method is completed more work must be done</P>
+
+<OL>
+	<LI>Handling any exceptions generated</LI>
+	<LI>Converting the Register class's instance fields to String values for display in the view page</LI>
+	<LI>Forwarding to the correct view page depending on the result String returned by the execute method</LI>
+</OL>
+
+
+<DIV class="panelMacro"><TABLE class="noteMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>The above list of tasks are not complete - several other tasks are done before and after the execution of the Action.</TD></TR></TABLE></DIV>
+
+<P>The benefit of using Struts 2 is all this work happens automatically. You can focus on the logic of the controller (the Struts 2 ActionSupport class), the Service layer, the data access layer, your domain models, etc.</P>
+
+<DIV class="panelMacro"><TABLE class="tipMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>The <A href="http://struts.apache.org/mail.html" class="external-link" rel="nofollow">Struts 2 user mailing list</A> is an excellent place to get help. If you are having a problem getting the tutorial example applications to work search the Struts 2 mailing list. If you don't find an answer to your problem, post a question on the mailing list.</TD></TR></TABLE></DIV>
+
+<H3><A name="IntroducingInterceptors-IntroducingInterceptors"></A>Introducing Interceptors</H3>
+
+<P>The tasks that are done by the Struts 2 framework before and after an Action is executed are done by Struts 2 interceptors. Interceptors are standard Java classes included in the Struts 2 core jar which are executed in a specific order.</P>
+
+<P>In our example application there is a package node in struts.xml. The package node has an attribute of extends with a value of &quot;struts-default.&quot; The value &quot;struts-default&quot; identifies to the framework the specific stack of interceptors that will be executed before and after the Actions in that package.</P>
+
+<P>If you want to learn more about the inner workings of interceptors, what interceptors belong to the struts default stack, and what are all the interceptors included with Struts 2, visit <A href="interceptors.html" title="Interceptors">Understanding Interceptors</A>.</P>
+
+<P>Sometime the Struts 2 default stack of interceptors are not exactly what you need for a particular action. You may want to use interceptors that are not part of the Struts 2 default stack. For an individual Action or for the entire package of Actions, you can specify a different stack of interceptors that the Action or package should use. Below is how you would specify that the register Action should use both the <A href="logger-interceptor.html" title="Logger Interceptor">logger</A> and <A href="timer-interceptor.html" title="Timer Interceptor">timer</A> interceptors in addition to the interceptors provided by the default stack.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Specify Specific Interceptors For An Action</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+
+<SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;register&quot;</SPAN> class=<SPAN class="code-quote">&quot;org.apache.struts.register.action.Register&quot;</SPAN> method=<SPAN class="code-quote">&quot;execute&quot;</SPAN>&gt;</SPAN>
+	<SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;timer&quot;</SPAN> /&gt;</SPAN>
+	<SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;logger&quot;</SPAN> /&gt;</SPAN>
+	<SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;defaultStack&quot;</SPAN>&gt;</SPAN>
+		<SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;exception.logEnabled&quot;</SPAN>&gt;</SPAN>true<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+		<SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;exception.logLevel&quot;</SPAN>&gt;</SPAN>ERROR<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+	<SPAN class="code-tag">&lt;/interceptor-ref&gt;</SPAN>
+	<SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;success&quot;</SPAN>&gt;</SPAN>thankyou.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+	<SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;input&quot;</SPAN>&gt;</SPAN>register.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+<SPAN class="code-tag">&lt;/action&gt;</SPAN>
+
+
+
+</PRE>
+</DIV></DIV>
+
+<P>The logger interceptor logs the start and end of the execution of an Action. The timer interceptor logs the amount of time (in milliseconds) for execution of the Action. These two interceptors used together can provide developers useful feedback.</P>
+
+<P>In the code example above note the three interceptor-ref nodes. Each one has a value for the name attribute. For the register Action we are instructing the framework to use the timer, logger, and defaultStack interceptors. The defaultStack are all the interceptors normally executed for an Action.</P>
+
+<P>How did I know to use the value of timer for the name attribute and even that there is a timer interceptor? On the <A href="interceptors.html" title="Interceptors">Interceptors</A> web page in the Struts 2 documentation are a list of interceptors that come with the Struts 2 framework and what the name value is for each interceptor.</P>
+
+<P>How did I know that the timer interceptor isn't part of the defaultStack of interceptors already? Again on the Interceptors documentation web page is a list of which interceptors belong to the defaultStack.  </P>
+
+<P>Note the param nodes.  These nodes are used to provide a value to the setLogEnabled and setLogLevel methods of the <A href="exception-interceptor.html" title="Exception Interceptor">exception interceptor</A>.  Providing the values of true and ERROR will cause the Struts 2 framework to log any exceptions not caught by the application's code and to log those exceptions at the ERROR level.</P>
+
+<H3><A name="IntroducingInterceptors-RunTheExample"></A>Run The Example</H3>
+
+<P>In the example application follow the README instructions to build, deploy, and run the application. View the output sent to the JVM console to see the log messages generated by the logger and timer interceptors. You should see log messages similar to the following:</P>
+
+<P>INFO: Starting execution stack for action //register<BR>
+Nov 20, 2010 9:55:48 AM com.opensymphony.xwork2.util.logging.jdk.JdkLogger info</P>
+
+<P>INFO: Finishing execution stack for action //register</P>
+
+<P>Nov 20, 2010 9:55:48 AM com.opensymphony.xwork2.util.logging.jdk.JdkLogger info </P>
+
+<P>INFO: Executed action <A href="https://cwiki.apache.org/register!execute" class="external-link" rel="nofollow">//register!execute</A> took 177 ms. </P>
+
+<P>If you wanted to have the logger and timer interceptors executed for all Actions in a package you would use the following in struts.xml: </P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Specify Specific Interceptors For A Package</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+
+<SPAN class="code-tag">&lt;package name=<SPAN class="code-quote">&quot;basicstruts2&quot;</SPAN> extends=<SPAN class="code-quote">&quot;struts-default&quot;</SPAN> &gt;</SPAN> 
+
+
+       <SPAN class="code-tag">&lt;interceptors&gt;</SPAN> 
+
+         <SPAN class="code-tag">&lt;interceptor-stack name=<SPAN class="code-quote">&quot;appDefault&quot;</SPAN>&gt;</SPAN> 
+
+            <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;timer&quot;</SPAN> /&gt;</SPAN> 
+
+            <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;logger&quot;</SPAN> /&gt;</SPAN> 
+
+            <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;defaultStack&quot;</SPAN> /&gt;</SPAN> 
+
+         <SPAN class="code-tag">&lt;/interceptor-stack&gt;</SPAN> 
+
+        <SPAN class="code-tag">&lt;/interceptors&gt;</SPAN> 
+
+         
+
+        <SPAN class="code-tag">&lt;default-interceptor-ref name=<SPAN class="code-quote">&quot;appDefault&quot;</SPAN> /&gt;</SPAN> 
+
+       <SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- rest of package omitted --&gt;</SPAN></SPAN> 
+
+
+<SPAN class="code-tag">&lt;/package&gt;</SPAN> 
+
+</PRE>
+</DIV></DIV>
+
+<P>In the code above we use the interceptors node to define a new stack of interceptors that includes the timer, logger, and defaultStack interceptors.  We give this new interceptor stack a name of appDefault.  Then we use the default-interceptor-ref node to specify that for all Actions defined inside this package node the appDefault stack of interceptors are to be used. Thus the timer and logger interceptor will be executed for each Action in this package.    </P>
+
+<P>Note that in both examples we are still executing all the other interceptors by including the defaultStack as one of the interceptor-ref nodes.  When you specify what interceptors you want to use for an Action or a package then only those interceptors are executed.  So if in the example we had left out the interceptor-ref for defaultStack only the logger and timer interceptors would have executed. </P>
+
+<H3><A name="IntroducingInterceptors-CreateYourOwnInterceptor"></A>Create Your Own Interceptor</H3>
+<P>In addition to specifying your own stack of interceptors, you can also write your own new interceptor and add it to the stack that is executed.  The Struts <A href="writing-interceptors.html" title="Writing Interceptors">Writing Interceptors</A> guide explains how to do this.  For example, you could create your own interceptor to handle authentication and authorization.   </P>
+
+<H3><A name="IntroducingInterceptors-Summary"></A>Summary</H3>
+<P>Interceptors provide the Struts 2 framework with both power and flexibility.  Developers may add additional interceptors (either ones provided by Struts 2 or ones they create) to the stack of interceptors executed when an Action class is called.   </P>
+
+<P>For more information about interceptors consult the Struts 2 <A href="interceptors.html" title="Interceptors">Interceptor</A> documentation. </P>
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

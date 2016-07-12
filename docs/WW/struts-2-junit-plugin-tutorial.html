@@ -1,0 +1,329 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Struts 2 JUnit Plugin Tutorial</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="tutorials.html" title="Tutorials">Tutorials</A>&nbsp;&gt;&nbsp;<A href="" title="Struts 2 JUnit Plugin Tutorial">Struts 2 JUnit Plugin Tutorial</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Struts 2 JUnit Plugin Tutorial</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=14811898">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=14811898">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14811898">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14811898">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14811898">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14811898">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <P>When creating unit tests for your Struts 2 application you'll want to be able to test certain aspects of the action class that normally require the action to be running within a Servlet container and the Struts 2 interceptors to have executed.&nbsp; For example if your Struts 2 action class includes a validate method that checks the values of the instance fields populated by the user's input on a Struts 2 form, you need the interceptors to have run that get the user's form field input out of request scope and assign the form field values to the appropriate instance fields.</P>
+
+<P>Struts 2 provides a JUnit plugin library that makes it easier to develop unit tests for testing your Struts 2 action classes.&nbsp; This tutorial will provide an example of how to use the Struts 2 JUnit plugin.</P>
+
+<DIV class="panelMacro"><TABLE class="noteMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>This tutorial assumes the reader knows how to create a Struts 2 application and how to write unit tests using JUnit.</TD></TR></TABLE></DIV>
+
+
+<P>To use the Struts 2 JUnit plugin, you'll need to have the plugin's Jar file on your application's class path.&nbsp; If you're using Maven you can add this dependency to your pom.xml.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Struts 2 JUnit Plugin Dependency</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;dependency&gt;</SPAN>
+    <SPAN class="code-tag">&lt;groupId&gt;</SPAN>org.apache.struts<SPAN class="code-tag">&lt;/groupId&gt;</SPAN>
+    <SPAN class="code-tag">&lt;artifactId&gt;</SPAN>struts2-junit-plugin<SPAN class="code-tag">&lt;/artifactId&gt;</SPAN>
+    <SPAN class="code-tag">&lt;version&gt;</SPAN>STRUTS_VERSION<SPAN class="code-tag">&lt;/version&gt;</SPAN>
+<SPAN class="code-tag">&lt;/dependency&gt;</SPAN>
+
+</PRE>
+</DIV></DIV>
+
+<P>Of course replace STRUTS_VERSION with the current Struts 2 version number.</P>
+
+<P>For this tutorial we'll use the following Struts 2 ActionSupport class.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>AccountAction.java</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+<SPAN class="code-keyword">public</SPAN> class AccountAction <SPAN class="code-keyword">extends</SPAN> ActionSupport {
+
+	<SPAN class="code-keyword">private</SPAN> <SPAN class="code-keyword">static</SPAN> <SPAN class="code-keyword">final</SPAN> <SPAN class="code-object">long</SPAN> serialVersionUID = 1L;
+
+	<SPAN class="code-keyword">private</SPAN> <SPAN class="code-keyword">static</SPAN> <SPAN class="code-keyword">final</SPAN> Logger logger = Logger.getLogger( AccountAction.class.getName() );
+
+	<SPAN class="code-keyword">private</SPAN> Account accountBean;
+
+	<SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> execute(){
+
+		<SPAN class="code-keyword">return</SPAN> SUCCESS;
+
+	}
+
+	<SPAN class="code-keyword">public</SPAN> void validate(){
+
+		logger.debug(<SPAN class="code-quote">&quot;In method validate. accountBean's state is &quot;</SPAN> + accountBean );
+
+		<SPAN class="code-keyword">if</SPAN> ( accountBean.getUserName().length() == 0 ){
+
+			addFieldError( <SPAN class="code-quote">&quot;accountBean.userName&quot;</SPAN>, <SPAN class="code-quote">&quot;User name is required.&quot;</SPAN> );
+
+		}
+
+		<SPAN class="code-keyword">if</SPAN> ( accountBean.getUserName().length() &lt; 5 ) {
+
+			addFieldError( <SPAN class="code-quote">&quot;accountBean.userName&quot;</SPAN>, <SPAN class="code-quote">&quot;User name must be at least 5 characters <SPAN class="code-object">long</SPAN>.&quot;</SPAN> );
+
+		}
+
+		<SPAN class="code-keyword">if</SPAN> ( accountBean.getUserName().length() &gt; 10 ) {
+
+			addFieldError( <SPAN class="code-quote">&quot;accountBean.userName&quot;</SPAN>, <SPAN class="code-quote">&quot;User name cannot be at more than 10 characters <SPAN class="code-object">long</SPAN>.&quot;</SPAN> );
+
+		}
+
+
+	}
+
+	<SPAN class="code-keyword">public</SPAN> Account getAccountBean() {
+		<SPAN class="code-keyword">return</SPAN> accountBean;
+	}
+
+	<SPAN class="code-keyword">public</SPAN> void setAccountBean(Account accountBean) {
+		<SPAN class="code-keyword">this</SPAN>.accountBean = accountBean;
+	}
+
+}
+
+
+</PRE>
+</DIV></DIV>
+
+<P>The above action class is called after a user enters information on a create account form.  Struts takes the user's input on the form fields and uses those values to populate the state of the Account object (accountBean).</P>
+
+<P>Then the validate method is executed to check the values of the accountBean's instance fields against certain business rules (for example the length of the username cannot be more than 10).</P>
+
+<P>To test the validate method we can use the Struts 2 JUnit plugin to simulate the Servlet container and Struts 2 framework. Our Junit test class just needs to extend the StrutsTestCase.  The StrutsTestCase class is part of the Strut 2 JUnit Plugin library.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>JUnit Test Case For Struts Action Class</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+<SPAN class="code-keyword">public</SPAN> class TestAccountActionUsingStrutsTestCase <SPAN class="code-keyword">extends</SPAN> StrutsTestCase {
+
+    <SPAN class="code-keyword">public</SPAN> void testUserNameErrorMessage() <SPAN class="code-keyword">throws</SPAN> Exception {
+
+    	request.setParameter(<SPAN class="code-quote">&quot;accountBean.userName&quot;</SPAN>, <SPAN class="code-quote">&quot;Bruc&quot;</SPAN>);
+    	request.setParameter(<SPAN class="code-quote">&quot;accountBean.password&quot;</SPAN>, <SPAN class="code-quote">&quot;test&quot;</SPAN>);
+
+    	ActionProxy proxy = getActionProxy(<SPAN class="code-quote">&quot;/createaccount&quot;</SPAN>);
+
+    	AccountAction accountAction = (AccountAction) proxy.getAction();
+
+        proxy.execute();
+
+        assertTrue(<SPAN class="code-quote">&quot;Problem There were no errors present in fieldErrors but there should have been one error present&quot;</SPAN>, accountAction.getFieldErrors().size() == 1);
+		assertTrue(<SPAN class="code-quote">&quot;Problem field account.userName not present in fieldErrors but it should have been&quot;</SPAN>,
+				accountAction.getFieldErrors().containsKey(<SPAN class="code-quote">&quot;accountBean.userName&quot;</SPAN>) );
+
+    }
+
+    <SPAN class="code-keyword">public</SPAN> void testUserNameCorrect() <SPAN class="code-keyword">throws</SPAN> Exception {
+
+    	request.setParameter(<SPAN class="code-quote">&quot;accountBean.userName&quot;</SPAN>, <SPAN class="code-quote">&quot;Bruce&quot;</SPAN>);
+    	request.setParameter(<SPAN class="code-quote">&quot;accountBean.password&quot;</SPAN>, <SPAN class="code-quote">&quot;test&quot;</SPAN>);
+
+    	ActionProxy proxy = getActionProxy(<SPAN class="code-quote">&quot;/createaccount&quot;</SPAN>);
+
+    	AccountAction accountAction = (AccountAction) proxy.getAction();
+
+        <SPAN class="code-object">String</SPAN> result = proxy.execute();
+
+        assertTrue(<SPAN class="code-quote">&quot;Problem There were errors present in fieldErrors but there should not have been any errors present&quot;</SPAN>, accountAction.getFieldErrors().size() == 0);
+        assertEquals(<SPAN class="code-quote">&quot;Result returned form executing the action was not success but it should have been.&quot;</SPAN>, <SPAN class="code-quote">&quot;success&quot;</SPAN>, result);
+
+    }
+
+}
+
+
+</PRE>
+</DIV></DIV>
+
+<P>The request object above is a MockHttpServletRequest provided by the StrutsTestCase class.  We can use this mock Servlet Request object to set values on the request scope as if the user had typed those values into a Struts 2 form input fields.  Those values will then be available to the Struts 2 action class.</P>
+
+<P>We then create a proxy of the createaccount action.  This action is defined in struts.xml as follows.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>struts.xml</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+&lt;action name=<SPAN class="code-quote">&quot;createaccount&quot;</SPAN> class=<SPAN class="code-quote">&quot;edu.ku.it.si.struts2_junit_example.action.AccountAction&quot;</SPAN>&gt;
+	&lt;result&gt;/thankyou.jsp&lt;/result&gt;
+	&lt;result name=<SPAN class="code-quote">&quot;input&quot;</SPAN>&gt;/createaccount.jsp&lt;/result&gt;
+&lt;/action&gt;
+
+</PRE>
+</DIV></DIV>
+
+<P>When we run this test, the proxy of the createaccount action will be executed which will cause the Struts 2 interceptors to fire (so the request scope values will be assigned to the correct Action class instance fields) and then the validate method will be executed.</P>
+
+<P>The two test methods above are used to test the action's validate method when the username doesn't meet the business requirements (too few characters) and when the username does meet the business requirements.</P>
+
+<P>Note in the second test method where we have the statement: </P>
+
+<P><TT>String result = proxy.execute();</TT></P>
+
+<P>This statement stores the result returned by the Action class (e.g. &quot;success&quot;) which we can then use in an assert statement to test if the result is what it should be.</P>
+
+<P><TT>assertEquals(&quot;Result returned form executing the action was not success but it should have been.&quot;, &quot;success&quot;, result);</TT></P>
+
+<H3><A name="Struts2JUnitPluginTutorial-TestingaStrutsactionagainstacustomStrutsconfigurationfile"></A>Testing a Struts action against a custom Struts configuration file</H3>
+
+<P>Override <TT>getConfigPath</TT> method to return a comma separated list of paths to a configuration file.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Specify Struts Configuration File Location Example</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+    @Override
+    <SPAN class="code-keyword">protected</SPAN> <SPAN class="code-object">String</SPAN> getConfigPath() {
+        <SPAN class="code-keyword">return</SPAN> <SPAN class="code-quote">&quot;struts-test.xml&quot;</SPAN>;
+    }
+
+</PRE>
+</DIV></DIV>
+
+<H3><A name="Struts2JUnitPluginTutorial-TestingAStrutsActionWhenUsingSpring"></A>Testing A Struts Action When Using Spring</H3>
+
+<P>If your Struts application is using Spring to manage class relationships and you want test your Struts action class with the Spring container, then have your test class extend <TT>StrutsSpringTestCase</TT> instead of <TT>StrutsTestCase</TT>.  </P>
+
+<P>The <TT>StrutsSpringTestCase</TT> class expects your Spring configuration file to be loaded from <TT>classpath:applicationContext.xml</TT> (configuration file named applicationContext.xml and in the root of the class path).  If your Spring configuration file has a different name or location, in your test class override method:</P>
+
+<P> <TT>protected java.lang.String getContextLocations()</TT></P>
+
+<P>For example:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Specify Spring Configuration File Location Example</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+
+@Override
+<SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> getContextLocations() {
+		
+  <SPAN class="code-keyword">return</SPAN> <SPAN class="code-quote">&quot;edu/ku/it/si/tutorial/action/TestAccountAction-context.xml&quot;</SPAN>;
+
+}
+
+</PRE>
+</DIV></DIV>
+
+
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

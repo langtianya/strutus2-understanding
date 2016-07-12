@@ -1,0 +1,276 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>XSL Result</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="guides.html" title="Guides">Guides</A>&nbsp;&gt;&nbsp;<A href="core-developers-guide.html" title="Core Developers Guide">Core Developers Guide</A>&nbsp;&gt;&nbsp;<A href="result-types.html" title="Result Types">Result Types</A>&nbsp;&gt;&nbsp;<A href="" title="XSL Result">XSL Result</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">XSL Result</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=14003">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=14003">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14003">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14003">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14003">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14003">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          
+
+<P>XSLTResult uses XSLT to transform an action object to XML. The recent version
+has been specifically modified to deal with Xalan flaws. When using Xalan you
+may notice that even though you have a very minimal stylesheet like this one
+<PRE>
+&lt;xsl:template match=&quot;/result&quot;&gt;
+  &lt;result/&gt;
+&lt;/xsl:template&gt;</PRE></P>
+
+<P><P>
+Xalan would still iterate through every property of your action and all
+its descendants.
+</P></P>
+
+<P><P>
+If you had double-linked objects, Xalan would work forever analysing an
+infinite object tree. Even if your stylesheet was not constructed to process
+them all. It's because the current Xalan eagerly and extensively converts
+everything to its internal DTM model before further processing.
+</P></P>
+
+<P><P>
+That's why there's a loop eliminator added that works by indexing every
+object-property combination during processing. If it notices that some
+object's property was already walked through, it doesn't go any deeper.
+Say you have two objects, x and y, with the following properties set
+(pseudocode):
+</P>
+<PRE>
+x.y = y;
+and
+y.x = x;
+action.x=x;</PRE></P>
+
+<P><P>
+Due to that modification, the resulting XML document based on x would be:
+</P></P>
+
+<P><PRE>
+&lt;result&gt;
+  &lt;x&gt;
+    &lt;y/&gt;
+  &lt;/x&gt;
+&lt;/result&gt;</PRE></P>
+
+<P><P>
+Without it there would be endless x/y/x/y/x/y/... elements.
+</P></P>
+
+<P><P>
+The XSLTResult code tries also to deal with the fact that DTM model is built
+in a manner that children are processed before siblings. The result is that if
+there is object x that is both set in action's x property, and very deeply
+under action's a property then it would only appear under a, not under x.
+That's not what we expect, and that's why XSLTResult allows objects to repeat
+in various places to some extent.
+</P></P>
+
+<P><P>
+Sometimes the object mesh is still very dense and you may notice that even
+though you have a relatively simple stylesheet, execution takes a tremendous
+amount of time. To help you to deal with that obstacle of Xalan, you may
+attach regexp filters to elements paths (xpath).
+</P></P>
+
+<P><P>
+<B>Note:</B> In your .xsl file the root match must be named <TT>result</TT>.
+<BR>This example will output the username by using <TT>getUsername</TT> on your
+action class:
+<PRE>
+&lt;xsl:template match=&quot;result&quot;&gt;
+  &lt;html&gt;
+  &lt;body&gt;
+  Hello &lt;xsl:value-of select=&quot;username&quot;/&gt; how are you?
+  &lt;/body&gt;
+  &lt;/html&gt;
+&lt;/xsl:template&gt;
+</PRE></P>
+
+<P><P>
+In the following example the XSLT result would only walk through action's
+properties without their childs. It would also skip every property that has
+&quot;hugeCollection&quot; in their name. Element's path is first compared to
+excludingPattern - if it matches it's no longer processed. Then it is
+compared to matchingPattern and processed only if there's a match.
+</P></P>
+
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;success&quot;</SPAN> type=<SPAN class="code-quote">&quot;xslt&quot;</SPAN>&gt;</SPAN>
+  <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;location&quot;</SPAN>&gt;</SPAN>foo.xslt<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+  <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;matchingPattern&quot;</SPAN>&gt;</SPAN>^/result/[^/*]$<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+  <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;excludingPattern&quot;</SPAN>&gt;</SPAN>.*(hugeCollection).*<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H1><A name="XSLResult-Parameters"></A>Parameters</H1>
+
+
+<P><UL></P>
+
+<P><LI><B>location (default)</B> - the location to go to after execution.</LI></P>
+
+<P><LI><B>parse</B> - true by default. If set to false, the location param will
+not be parsed for Ognl expressions.</LI></P>
+
+<P><!--
+<li><b>matchingPattern</b> -  Pattern that matches only desired elements, by
+default it matches everything.</li></p>
+
+<p><li><b>excludingPattern</b> -  Pattern that eliminates unwanted elements, by
+default it matches none.</li>
+--></P>
+
+<P></UL></P>
+
+<P><P>
+<CODE>struts.properties</CODE> related configuration:
+</P>
+<UL></P>
+
+<P><LI><B>struts.xslt.nocache</B> - Defaults to false. If set to true, disables
+stylesheet caching. Good for development, bad for production.</LI></P>
+
+<P></UL></P>
+
+
+<H1><A name="XSLResult-Examples"></A>Examples</H1>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;success&quot;</SPAN> type=<SPAN class="code-quote">&quot;xslt&quot;</SPAN>&gt;</SPAN>
+  <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;location&quot;</SPAN>&gt;</SPAN>foo.xslt<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+  <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;matchingPattern&quot;</SPAN>&gt;</SPAN>^/result/[^/*]$<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+  <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;excludingPattern&quot;</SPAN>&gt;</SPAN>.*(hugeCollection).*<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

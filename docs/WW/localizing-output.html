@@ -1,0 +1,287 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Localizing Output</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="tutorials.html" title="Tutorials">Tutorials</A>&nbsp;&gt;&nbsp;<A href="bootstrap.html" title="Bootstrap">Bootstrap</A>&nbsp;&gt;&nbsp;<A href="" title="Localizing Output">Localizing Output</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Localizing Output</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=23507">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=23507">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=23507">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=23507">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=23507">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=23507">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <P>In the <A href="validating-input.html" title="Validating Input">Validating Input</A> lesson, we used the validation framework to verify data submitted from a form. In the <EM>Localizing Output</EM> lesson, we move the validation messages to a message resource bundle. </P>
+
+<P>When creating web applications, we often find ourselves using the same messages or field labels on multiple pages. We may also want to localize the messages if the application is going to be used by people of different languages. </P>
+
+<H2><A name="LocalizingOutput-LocalizingValidationMessagesandFields"></A>Localizing Validation Messages and Fields</H2>
+
+<P>Let's add a message resource bundle and move into it the validation messages and field labels.</P>
+
+<H3><A name="LocalizingOutput-TheCode"></A>The Code </H3>
+
+<P>The framework associates message resources to classes. To add a message resource for the Logon action, we could just name the resource <TT>Logon.properties</TT> and set it on the classpath next to the Logon Action. </P>
+
+<P>But, most people find it counter-productive to use separate message resource bundles for each class. Instead, many people prefer to add a bundle for an entire package of classes. To do this, simply add a <TT>package.properties</TT> file to the package. In our case, it would be the tutorial package.</P>
+
+<DIV class="code panel" style="border-style: solid;border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;border-bottom-style: solid;"><B>tutorial/package.properties</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+requiredstring = ${getText(fieldName)} is required.
+password = Password
+username = User Name
+</PRE>
+</DIV></DIV> 
+
+<P>We also need to make changes to the validator and Logon page. </P>
+
+<H2><A name="LocalizingOutput-Logonvalidation.xml"></A>Logon-validation.xml </H2>
+
+<P><IMG class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/forbidden.gif" height="16" width="16" align="absmiddle" alt="" border="0"> &lt;message&gt;Username is required&lt;/message&gt;<BR>
+<IMG class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/add.gif" height="16" width="16" align="absmiddle" alt="" border="0"> &lt;message key=&quot;requiredstring&quot;/&gt;</P>
+
+<P><IMG class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/forbidden.gif" height="16" width="16" align="absmiddle" alt="" border="0"> &lt;message&gt;Password is required&lt;/message&gt;<BR>
+<IMG class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/add.gif" height="16" width="16" align="absmiddle" alt="" border="0"> &lt;message key=&quot;requiredstring&quot;/&gt;</P>
+
+<H2><A name="LocalizingOutput-Logon.jsp"></A>Logon.jsp </H2>
+
+<P><IMG class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/forbidden.gif" height="16" width="16" align="absmiddle" alt="" border="0"> &lt;s:textfield label=&quot;User Name&quot; name=&quot;username&quot;/&gt;<BR>
+<IMG class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/add.gif" height="16" width="16" align="absmiddle" alt="" border="0"> &lt;s:textfield label=&quot;%{getText('username')}&quot; name=&quot;username&quot;/&gt;</P>
+
+<P><IMG class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/forbidden.gif" height="16" width="16" align="absmiddle" alt="" border="0"> &lt;s:password label=&quot;Password&quot; name=&quot;password&quot; /&gt;<BR>
+<IMG class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/add.gif" height="16" width="16" align="absmiddle" alt="" border="0"> &lt;s:password label=&quot;%{getText('password')}&quot; name=&quot;password&quot; /&gt;</P>
+
+<H3><A name="LocalizingOutput-HowtheCodeWorks"></A>How the Code Works</H3>
+
+<UL>
+	<LI>The &quot;key&quot; attribute tells the validator to check for a message resource bundle.</LI>
+	<LI>In the resource bundle, the expression 
+<DIV class="preformatted panel" style="border-width: 1px;"><DIV class="preformattedContent panelContent">
+<PRE>${getText(fieldName)}</PRE>
+</DIV></DIV>
+<P> tells the framework to lookup the field name in the bundle too. This way we can use the same default message for all the <TT>requiredstring</TT> validators.</P></LI>
+	<LI>Likewise, in the text filed, the expression 
+<DIV class="preformatted panel" style="border-width: 1px;"><DIV class="preformattedContent panelContent">
+<PRE>%{getText('password')}</PRE>
+</DIV></DIV>
+<P> tells the framework to lookup &quot;password&quot; in the message resources.</P></LI>
+</UL>
+
+
+<H2><A name="LocalizingOutput-LocalizingOtherMessages"></A>Localizing Other Messages</H2>
+
+<P>Other page elements can be localized too. For example, we could add the &quot;Hello World&quot; and the &quot;Missing page&quot; message to the bundle. </P>
+
+<H3><A name="LocalizingOutput-TheCode"></A>The Code</H3>
+
+<DIV class="code panel" style="border-style: solid;border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;border-bottom-style: solid;"><B>tutorial/package.properties</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+# ... 
+HelloWorld.message = Struts is up and running ...
+Missing.message = This feature is under construction. Please <SPAN class="code-keyword">try</SPAN> again in the next iteration.
+</PRE>
+</DIV></DIV> 
+
+<P>This will work for <TT>HelloWorld</TT> since it is already in the tutorial package. But it won't work for the default Missing action, unless we add our own base class for the tutorial package. </P>
+
+<DIV class="code panel" style="border-style: solid;border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;border-bottom-style: solid;"><B>TutorialSupport.java</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+<SPAN class="code-keyword">package</SPAN> tutorial;
+<SPAN class="code-keyword">import</SPAN> com.opensymphony.xwork2.ActionSupport;
+<SPAN class="code-keyword">public</SPAN> class TutorialSupport <SPAN class="code-keyword">extends</SPAN> ActionSupport {}
+</PRE>
+</DIV></DIV> 
+
+<P>And update the default wildcard mapping. </P>
+
+<DIV class="code panel" style="border-style: solid;border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;border-bottom-style: solid;"><B>struts.xml</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+&lt;action name=<SPAN class="code-quote">&quot;*&quot;</SPAN> class=<SPAN class="code-quote">&quot;tutorial.TutorialSupport&quot;</SPAN>&gt;
+  &lt;result&gt;/{1}.jsp&lt;/result&gt;
+&lt;/action&gt;
+</PRE>
+</DIV></DIV>
+
+<P>Now, we can update <TT>HelloWorld.jsp</TT> and <TT>Missing.jsp</TT> to lookup the messages.</P>
+
+<H4><A name="LocalizingOutput-Missing.jsp"></A>Missing.jsp </H4>
+
+<P><IMG class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/forbidden.gif" height="16" width="16" align="absmiddle" alt="" border="0"> This feature is under construction. Please try again in the next iteration. <BR>
+<IMG class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/add.gif" height="16" width="16" align="absmiddle" alt="" border="0"> &lt;s:text name=&quot;Missing.message&quot;/&gt;</P>
+
+<P>In the case of HelloWorld, we set the message from the Action class. Let's update the class to use the message resource instead. </P>
+
+<DIV class="code panel" style="border-style: solid;border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;border-bottom-style: solid;"><B>HelloWorld.java</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+<SPAN class="code-keyword">package</SPAN> tutorial;
+
+<SPAN class="code-keyword">public</SPAN> class HelloWorld <SPAN class="code-keyword">extends</SPAN> TutorialSupport {
+
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-keyword">static</SPAN> <SPAN class="code-keyword">final</SPAN> <SPAN class="code-object">String</SPAN> MESSAGE = <SPAN class="code-quote">&quot;HelloWorld.message&quot;</SPAN>;
+
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> execute() <SPAN class="code-keyword">throws</SPAN> Exception {
+        setMessage(getText(MESSAGE));
+        <SPAN class="code-keyword">return</SPAN> SUCCESS;
+    }
+
+  <SPAN class="code-comment">// ... 
+</SPAN>}
+</PRE>
+</DIV></DIV>
+
+<H3><A name="LocalizingOutput-HowtheCodeWorks"></A>How the Code Works </H3>
+
+<UL>
+	<LI>For <TT>Missing.jsp</TT>, we used the <TT>text</TT> tag to lookup the message from the resource bundle.</LI>
+</UL>
+
+
+<UL>
+	<LI>For HelloWorld, we use the <TT>getText</TT> method in the Action class to lookup the message.</LI>
+	<LI>The HelloWorld.jsp displayed the message set by the Action, so it didn't need to change at all.</LI>
+</UL>
+
+
+<H2><A name="LocalizingOutput-WhattoRemember"></A>What to Remember </H2>
+
+<P>The framework is internationalized. To localize an application, we add the resource bundles, and update some elements or tags to refer to the bundles instead of static text. </P>
+
+<P><IMG class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/lightbulb_on.gif" height="16" width="16" align="absmiddle" alt="" border="0"> For more, see <A href="localization.html" title="Localization">Localization</A> in the Core Developers Guide.</P>
+
+<DIV class="table-wrap">
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TH class="confluenceTh"> Next </TH>
+<TD class="confluenceTd"> <A href="flying-solo.html" title="Flying Solo">Flying Solo</A> </TD>
+</TR>
+<TR>
+<TH class="confluenceTh"> Prev </TH>
+<TD class="confluenceTd"> <A href="validating-input.html" title="Validating Input">Validating Input</A> </TD>
+</TR>
+</TBODY></TABLE>
+</DIV>
+
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

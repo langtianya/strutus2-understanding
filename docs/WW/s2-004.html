@@ -1,0 +1,193 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>S2-004</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="security-bulletins.html" title="Security Bulletins">Security Bulletins</A>&nbsp;&gt;&nbsp;<A href="" title="S2-004">S2-004</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">S2-004</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=99572">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=99572">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=99572">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=99572">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=99572">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=99572">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <H2><A name="S2-004-Summary"></A>Summary</H2>
+
+<P>Directory traversal vulnerability while serving static content</P>
+<DIV class="table-wrap">
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TH class="confluenceTh"> Who should read this </TH>
+<TD class="confluenceTd"> All Struts 2 developers </TD>
+</TR>
+<TR>
+<TH class="confluenceTh"> Impact of vulnerability </TH>
+<TD class="confluenceTd"> Read access to server filesystem resources (under certain application server environments) </TD>
+</TR>
+<TR>
+<TH class="confluenceTh"> Maximum security rating </TH>
+<TD class="confluenceTd"> Important </TD>
+</TR>
+<TR>
+<TH class="confluenceTh"> Recommendation </TH>
+<TD class="confluenceTd"> Developers should upgrade to <A href="http://people.apache.org/builds/struts/2.0.12/" class="external-link" rel="nofollow">Struts 2.0.12</A> </TD>
+</TR>
+<TR>
+<TH class="confluenceTh"> Affected Software </TH>
+<TD class="confluenceTd"> Struts 2.0.0 - Struts 2.0.11.2 </TD>
+</TR>
+<TR>
+<TH class="confluenceTh"> Original JIRA Ticket </TH>
+<TD class="confluenceTd"> <A href="https://issues.apache.org/struts/browse/WW-2779" class="external-link" rel="nofollow">WW-2779</A> </TD>
+</TR>
+<TR>
+<TH class="confluenceTh"> Reporter </TH>
+<TD class="confluenceTd"> Csaba Barta and L&aacute;szl&oacute; T&oacute;th, PricewaterhouseCoopers </TD>
+</TR>
+</TBODY></TABLE>
+</DIV>
+
+
+<H2><A name="S2-004-Problem"></A>Problem</H2>
+
+<P>The Struts2 dispatcher logic by design allows to serve certain static resources found in the classpath of the web application for request URIs having a context relative path starting with &quot;/struts/&quot;.</P>
+
+<P>FilterDispatcher (in 2.0) and DefaultStaticContentLoader (in 2.1) have a security vulnerability that allows an attacker to traverse the directory structure and download files outside the &quot;static&quot; content folder, using double-encoded urls and relative paths, like:</P>
+
+<P><A href="http://localhost:8080/struts2-blank-2.0.11.1/struts" class="external-link" rel="nofollow">http://localhost:8080/struts2-blank-2.0.11.1/struts</A>..</P>
+
+<P><A href="http://localhost:8080/struts2-blank-2.0.11.1/struts/..%252f" class="external-link" rel="nofollow">http://localhost:8080/struts2-blank-2.0.11.1/struts/..%252f</A></P>
+
+<P><A href="http://exampletomcat.com:8080/struts2-blank-2.0.11.1/struts/..%252f..%252f..%252fWEB-INF/classess/example/Login.class/" class="external-link" rel="nofollow">http://exampletomcat.com:8080/struts2-blank-2.0.11.1/struts/..%252f..%252f..%252fWEB-INF/classess/example/Login.class/</A></P>
+
+<P>Although not all container are vulnerable to this, the Struts2 dispatcher logic has to prevent access to static content outside the static resource folders.</P>
+
+<H2><A name="S2-004-Solution"></A>Solution</H2>
+
+<P>As of Struts 2.0.12, the dispatcher logic was improved to correctly decode and normalize the request path before checking if static content serving applies for a given request.</P>
+
+<P>You can obtain <A href="http://people.apache.org/builds/struts/2.0.12/" class="external-link" rel="nofollow">Struts 2.0.12</A> as a drop in replacement for Struts 2.0.11.2 to get the fixed Struts 2 core library.</P>
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

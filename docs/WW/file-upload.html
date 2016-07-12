@@ -1,0 +1,651 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>File Upload</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="guides.html" title="Guides">Guides</A>&nbsp;&gt;&nbsp;<A href="core-developers-guide.html" title="Core Developers Guide">Core Developers Guide</A>&nbsp;&gt;&nbsp;<A href="interceptors.html" title="Interceptors">Interceptors</A>&nbsp;&gt;&nbsp;<A href="" title="File Upload">File Upload</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">File Upload</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=86602">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=86602">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=86602">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=86602">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=86602">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=86602">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <P>The Struts 2 framework provides built-in support for processing file uploads that conform to <A href="http://www.ietf.org/rfc/rfc1867.txt" class="external-link" rel="nofollow">RFC 1867</A>, &quot;Form-based File Upload in HTML&quot;. When correctly configured the framework will pass uploaded file(s) into your Action class. Support for individual and multiple file uploads are provided. When a file is uploaded it will typically be stored in a temporary directory. Uploaded files should be processed or moved by your Action class to ensure the data is not lost. Be aware that servers may have a security policy in place that prohibits you from writing to directories other than the temporary directory and the directories that belong to your web application.</P>
+
+<DIV>
+<UL>
+    <LI><A href="#FileUpload-Dependencies">Dependencies</A></LI>
+    <LI><A href="#FileUpload-BasicUsage">Basic Usage</A></LI>
+    <LI><A href="#FileUpload-UploadingMultipleFiles">Uploading Multiple Files</A></LI>
+<UL>
+    <LI><A href="#FileUpload-UploadingMultipleFilesusingArrays">Uploading Multiple Files using Arrays</A></LI>
+    <LI><A href="#FileUpload-UploadingMultipleFilesusingLists">Uploading Multiple Files using Lists</A></LI>
+</UL>
+    <LI><A href="#FileUpload-AdvancedConfiguration">Advanced Configuration</A></LI>
+<UL>
+    <LI><A href="#FileUpload-FileSizeLimits">File Size Limits</A></LI>
+    <LI><A href="#FileUpload-FileTypes">File Types</A></LI>
+    <LI><A href="#FileUpload-ErrorMessages">Error Messages</A></LI>
+    <LI><A href="#FileUpload-TemporaryDirectories">Temporary Directories</A></LI>
+    <LI><A href="#FileUpload-AlternateLibraries">Alternate Libraries</A></LI>
+</UL>
+</UL></DIV>
+
+<H2><A name="FileUpload-Dependencies"></A>Dependencies</H2>
+
+<P>The Struts 2 framework leverages add-on libraries to handle the parsing of uploaded files. These libraries are not included in the Struts distribution, you must add them into your project. The libraries needed are:</P>
+
+<DIV class="table-wrap">
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TH class="confluenceTh"> Library </TH>
+<TH class="confluenceTh"> URL </TH>
+<TH class="confluenceTh"> Struts 2.0.x </TH>
+<TH class="confluenceTh"> Struts 2.1.x </TH>
+</TR>
+<TR>
+<TD class="confluenceTd">Commons-FileUpload </TD>
+<TD class="confluenceTd"> <A href="http://commons.apache.org/fileupload/" class="external-link" rel="nofollow">http://commons.apache.org/fileupload/</A> </TD>
+<TD class="confluenceTd"> 1.1.1 </TD>
+<TD class="confluenceTd"> 1.2.1 </TD>
+</TR>
+<TR>
+<TD class="confluenceTd">Commons-IO </TD>
+<TD class="confluenceTd"> <A href="http://commons.apache.org/io/" class="external-link" rel="nofollow">http://commons.apache.org/io/</A> </TD>
+<TD class="confluenceTd"> 1.0 </TD>
+<TD class="confluenceTd"> 1.3.2 </TD>
+</TR>
+</TBODY></TABLE>
+</DIV>
+
+
+<P>If you are using Maven then you can add these libraries as dependencies in your project's pom.xml.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Struts 2.0.x File Upload Dependencies</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;dependency&gt;</SPAN>
+    <SPAN class="code-tag">&lt;groupId&gt;</SPAN>commons-fileupload<SPAN class="code-tag">&lt;/groupId&gt;</SPAN>
+    <SPAN class="code-tag">&lt;artifactId&gt;</SPAN>commons-fileupload<SPAN class="code-tag">&lt;/artifactId&gt;</SPAN>
+    <SPAN class="code-tag">&lt;version&gt;</SPAN>1.1.1<SPAN class="code-tag">&lt;/version&gt;</SPAN>
+<SPAN class="code-tag">&lt;/dependency&gt;</SPAN>
+<SPAN class="code-tag">&lt;dependency&gt;</SPAN>
+    <SPAN class="code-tag">&lt;groupId&gt;</SPAN>commons-io<SPAN class="code-tag">&lt;/groupId&gt;</SPAN>
+    <SPAN class="code-tag">&lt;artifactId&gt;</SPAN>commons-io<SPAN class="code-tag">&lt;/artifactId&gt;</SPAN>
+    <SPAN class="code-tag">&lt;version&gt;</SPAN>1.0<SPAN class="code-tag">&lt;/version&gt;</SPAN>
+<SPAN class="code-tag">&lt;/dependency&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Struts 2.1.x File Upload Dependencies</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;dependency&gt;</SPAN>
+    <SPAN class="code-tag">&lt;groupId&gt;</SPAN>commons-fileupload<SPAN class="code-tag">&lt;/groupId&gt;</SPAN>
+    <SPAN class="code-tag">&lt;artifactId&gt;</SPAN>commons-fileupload<SPAN class="code-tag">&lt;/artifactId&gt;</SPAN>
+    <SPAN class="code-tag">&lt;version&gt;</SPAN>1.2.1<SPAN class="code-tag">&lt;/version&gt;</SPAN>
+<SPAN class="code-tag">&lt;/dependency&gt;</SPAN>
+<SPAN class="code-tag">&lt;dependency&gt;</SPAN>
+    <SPAN class="code-tag">&lt;groupId&gt;</SPAN>commons-io<SPAN class="code-tag">&lt;/groupId&gt;</SPAN>
+    <SPAN class="code-tag">&lt;artifactId&gt;</SPAN>commons-io<SPAN class="code-tag">&lt;/artifactId&gt;</SPAN>
+    <SPAN class="code-tag">&lt;version&gt;</SPAN>1.3.2<SPAN class="code-tag">&lt;/version&gt;</SPAN>
+<SPAN class="code-tag">&lt;/dependency&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H2><A name="FileUpload-BasicUsage"></A>Basic Usage</H2>
+
+<P>The <TT>org.apache.struts2.interceptor.FileUploadInterceptor</TT> class is included as part of the <TT>defaultStack</TT>. As long as the required libraries are added to your project you will be able to take advantage of of the Struts 2 fileUpload capability. Configure an Action mapping for your Action class as you typically would.</P>
+
+<P><B>Example action mapping:</B></P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;doUpload&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.example.UploadAction&quot;</SPAN>&gt;</SPAN>
+    <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;success&quot;</SPAN>&gt;</SPAN>good_result.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+<SPAN class="code-tag">&lt;/action&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>A form must be create with a form field of type file, <TT>&lt;INPUT type=&quot;file&quot; name=&quot;upload&quot;&gt;</TT>. The form used to upload the file must have its encoding type set to multipart/form-data, <TT>&lt;FORM action=&quot;doUpload&quot; enctype=&quot;multipart/form-data&quot; method=&quot;post&quot;&gt;</TT>. The standard procedure for adding these elements is by using the Struts 2 tag libraries as shown in the following example:</P>
+
+<P><B>Example JSP form tags:</B></P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;s:form action=<SPAN class="code-quote">&quot;doUpload&quot;</SPAN> method=<SPAN class="code-quote">&quot;post&quot;</SPAN> enctype=<SPAN class="code-quote">&quot;multipart/form-data&quot;</SPAN>&gt;</SPAN>
+    <SPAN class="code-tag">&lt;s:file name=<SPAN class="code-quote">&quot;upload&quot;</SPAN> label=<SPAN class="code-quote">&quot;File&quot;</SPAN>/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;s:submit/&gt;</SPAN>
+<SPAN class="code-tag">&lt;/s:form&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>The fileUpload interceptor will use setter injection to insert the uploaded file and related data into your Action class. For a form field named <B>upload</B> you would provide the three setter methods shown in the following example:</P>
+
+<P><B>Example Action class:</B></P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+<SPAN class="code-keyword">package</SPAN> com.example;
+
+   <SPAN class="code-keyword">import</SPAN> java.io.File;
+   <SPAN class="code-keyword">import</SPAN> com.opensymphony.xwork2.ActionSupport;
+
+   <SPAN class="code-keyword">public</SPAN> class UploadAction <SPAN class="code-keyword">extends</SPAN> ActionSupport {
+      <SPAN class="code-keyword">private</SPAN> File file;
+      <SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">String</SPAN> contentType;
+      <SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">String</SPAN> filename;
+
+      <SPAN class="code-keyword">public</SPAN> void setUpload(File file) {
+         <SPAN class="code-keyword">this</SPAN>.file = file;
+      }
+
+      <SPAN class="code-keyword">public</SPAN> void setUploadContentType(<SPAN class="code-object">String</SPAN> contentType) {
+         <SPAN class="code-keyword">this</SPAN>.contentType = contentType;
+      }
+
+      <SPAN class="code-keyword">public</SPAN> void setUploadFileName(<SPAN class="code-object">String</SPAN> filename) {
+         <SPAN class="code-keyword">this</SPAN>.filename = filename;
+      }
+
+      <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> execute() {
+         <SPAN class="code-comment">//...
+</SPAN>         <SPAN class="code-keyword">return</SPAN> SUCCESS;
+      }
+ }
+</PRE>
+</DIV></DIV>
+<P>The purpose of each one of these methods is described in the table below. Notice that if you have multiple file form elements with different names you would be required to have another corresponding set of these methods for each file uploaded.</P>
+<DIV class="table-wrap">
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TH class="confluenceTh"> Method Signature </TH>
+<TH class="confluenceTh"> Description </TH>
+</TR>
+<TR>
+<TD class="confluenceTd"> setX(File file) </TD>
+<TD class="confluenceTd"> The file that contains the content of the uploaded file. This is a temporary file and <TT>file.getName()</TT> will not return the original name of the file </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> setXContentType(String contentType) </TD>
+<TD class="confluenceTd"> The mime type of the uploaded file </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> setXFileName(String fileName) </TD>
+<TD class="confluenceTd"> The actual file name of the uploaded file (not the HTML name) </TD>
+</TR>
+</TBODY></TABLE>
+</DIV>
+
+
+<H2><A name="FileUpload-UploadingMultipleFiles"></A>Uploading Multiple Files</H2>
+
+<P>As mentioned in the previous section one technique for uploading multiple files would be to simply have multiple form input elements of type file all with different names. This would require a number of setter methods that was equal to 3 times the number of files being uploaded. Another option is to use Arrays or java.util.Lists. The following examples are taken from the Showcase example application that is part sample applications you can download at <A href="http://struts.apache.org/download.cgi" class="external-link" rel="nofollow">http://struts.apache.org/download.cgi</A>. For the Action mapping details see <TT>struts-fileupload.xml</TT> in the sample application download.</P>
+
+<H3><A name="FileUpload-UploadingMultipleFilesusingArrays"></A>Uploading Multiple Files using Arrays</H3>
+
+<P><B>multipleUploadUsingArray.jsp</B> Notice all file input types have the same name.</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-html">&lt;%@ page
+		language=<SPAN class="code-quote">&quot;java&quot;</SPAN>
+		contentType=<SPAN class="code-quote">&quot;text/html; charset=UTF-8&quot;</SPAN>
+		pageEncoding=<SPAN class="code-quote">&quot;UTF-8&quot;</SPAN>%&gt;
+<SPAN class="code-tag">&lt;%@ taglib prefix=<SPAN class="code-quote">&quot;s&quot;</SPAN> uri=<SPAN class="code-quote">&quot;/struts-tags&quot;</SPAN> %&gt;</SPAN>
+<SPAN class="code-tag">&lt;html&gt;</SPAN>
+<SPAN class="code-tag">&lt;head&gt;</SPAN>
+	<SPAN class="code-tag">&lt;title&gt;</SPAN>Struts2 Showcase - Fileupload sample - Multiple fileupload using Array<SPAN class="code-tag">&lt;/title&gt;</SPAN>
+<SPAN class="code-tag">&lt;/head&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;body&gt;</SPAN>
+<SPAN class="code-tag">&lt;div class=<SPAN class="code-quote">&quot;page-header&quot;</SPAN>&gt;</SPAN>
+	<SPAN class="code-tag">&lt;h1&gt;</SPAN>Fileupload sample - Multiple fileupload using Array<SPAN class="code-tag">&lt;/h1&gt;</SPAN>
+<SPAN class="code-tag">&lt;/div&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;div class=<SPAN class="code-quote">&quot;container-fluid&quot;</SPAN>&gt;</SPAN>
+	<SPAN class="code-tag">&lt;div class=<SPAN class="code-quote">&quot;row-fluid&quot;</SPAN>&gt;</SPAN>
+		<SPAN class="code-tag">&lt;div class=<SPAN class="code-quote">&quot;span12&quot;</SPAN>&gt;</SPAN>
+
+			<SPAN class="code-tag">&lt;s:form action=<SPAN class="code-quote">&quot;doMultipleUploadUsingArray&quot;</SPAN> method=<SPAN class="code-quote">&quot;POST&quot;</SPAN> enctype=<SPAN class="code-quote">&quot;multipart/form-data&quot;</SPAN>&gt;</SPAN>
+				<SPAN class="code-tag">&lt;s:file label=<SPAN class="code-quote">&quot;File (1)&quot;</SPAN> name=<SPAN class="code-quote">&quot;upload&quot;</SPAN> /&gt;</SPAN>
+				<SPAN class="code-tag">&lt;s:file label=<SPAN class="code-quote">&quot;File (2)&quot;</SPAN> name=<SPAN class="code-quote">&quot;upload&quot;</SPAN> /&gt;</SPAN>
+				<SPAN class="code-tag">&lt;s:file label=<SPAN class="code-quote">&quot;FIle (3)&quot;</SPAN> name=<SPAN class="code-quote">&quot;upload&quot;</SPAN> /&gt;</SPAN>
+				<SPAN class="code-tag">&lt;s:submit cssClass=<SPAN class="code-quote">&quot;btn btn-primary&quot;</SPAN>/&gt;</SPAN>
+			<SPAN class="code-tag">&lt;/s:form&gt;</SPAN>
+
+		<SPAN class="code-tag">&lt;/div&gt;</SPAN>
+	<SPAN class="code-tag">&lt;/div&gt;</SPAN>
+<SPAN class="code-tag">&lt;/div&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;/body&gt;</SPAN>
+<SPAN class="code-tag">&lt;/html&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P><B>MultipleFileUploadUsingArrayAction.java</B></P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java"><SPAN class="code-keyword">package</SPAN> org.apache.struts2.showcase.fileupload;
+
+<SPAN class="code-keyword">import</SPAN> com.opensymphony.xwork2.ActionSupport;
+
+<SPAN class="code-keyword">import</SPAN> java.io.File;
+
+/**
+ * Showcase action - mutiple file upload using array.
+ *
+ * @version $Date$ $Id$
+ */
+<SPAN class="code-keyword">public</SPAN> class MultipleFileUploadUsingArrayAction <SPAN class="code-keyword">extends</SPAN> ActionSupport {
+
+	<SPAN class="code-keyword">private</SPAN> File[] uploads;
+	<SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">String</SPAN>[] uploadFileNames;
+	<SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">String</SPAN>[] uploadContentTypes;
+
+
+	<SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> upload() <SPAN class="code-keyword">throws</SPAN> Exception {
+		<SPAN class="code-object">System</SPAN>.out.println(<SPAN class="code-quote">&quot;\n\n upload2&quot;</SPAN>);
+		<SPAN class="code-object">System</SPAN>.out.println(<SPAN class="code-quote">&quot;files:&quot;</SPAN>);
+		<SPAN class="code-keyword">for</SPAN> (File u : uploads) {
+			<SPAN class="code-object">System</SPAN>.out.println(<SPAN class="code-quote">&quot;*** &quot;</SPAN> + u + <SPAN class="code-quote">&quot;\t&quot;</SPAN> + u.length());
+		}
+		<SPAN class="code-object">System</SPAN>.out.println(<SPAN class="code-quote">&quot;filenames:&quot;</SPAN>);
+		<SPAN class="code-keyword">for</SPAN> (<SPAN class="code-object">String</SPAN> n : uploadFileNames) {
+			<SPAN class="code-object">System</SPAN>.out.println(<SPAN class="code-quote">&quot;*** &quot;</SPAN> + n);
+		}
+		<SPAN class="code-object">System</SPAN>.out.println(<SPAN class="code-quote">&quot;content types:&quot;</SPAN>);
+		<SPAN class="code-keyword">for</SPAN> (<SPAN class="code-object">String</SPAN> c : uploadContentTypes) {
+			<SPAN class="code-object">System</SPAN>.out.println(<SPAN class="code-quote">&quot;*** &quot;</SPAN> + c);
+		}
+		<SPAN class="code-object">System</SPAN>.out.println(<SPAN class="code-quote">&quot;\n\n&quot;</SPAN>);
+		<SPAN class="code-keyword">return</SPAN> SUCCESS;
+	}
+
+	<SPAN class="code-keyword">public</SPAN> File[] getUpload() {
+		<SPAN class="code-keyword">return</SPAN> <SPAN class="code-keyword">this</SPAN>.uploads;
+	}
+
+	<SPAN class="code-keyword">public</SPAN> void setUpload(File[] upload) {
+		<SPAN class="code-keyword">this</SPAN>.uploads = upload;
+	}
+
+	<SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN>[] getUploadFileName() {
+		<SPAN class="code-keyword">return</SPAN> <SPAN class="code-keyword">this</SPAN>.uploadFileNames;
+	}
+
+	<SPAN class="code-keyword">public</SPAN> void setUploadFileName(<SPAN class="code-object">String</SPAN>[] uploadFileName) {
+		<SPAN class="code-keyword">this</SPAN>.uploadFileNames = uploadFileName;
+	}
+
+	<SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN>[] getUploadContentType() {
+		<SPAN class="code-keyword">return</SPAN> <SPAN class="code-keyword">this</SPAN>.uploadContentTypes;
+	}
+
+	<SPAN class="code-keyword">public</SPAN> void setUploadContentType(<SPAN class="code-object">String</SPAN>[] uploadContentType) {
+		<SPAN class="code-keyword">this</SPAN>.uploadContentTypes = uploadContentType;
+	}
+}
+</PRE>
+</DIV></DIV>
+
+<H3><A name="FileUpload-UploadingMultipleFilesusingLists"></A>Uploading Multiple Files using Lists</H3>
+
+<P><B>multipleUploadUsingList.jsp</B> Notice all file input types have the same name.</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-html">&lt;%@ page 
+	language=<SPAN class="code-quote">&quot;java&quot;</SPAN> 
+	contentType=<SPAN class="code-quote">&quot;text/html; charset=UTF-8&quot;</SPAN>
+    pageEncoding=<SPAN class="code-quote">&quot;UTF-8&quot;</SPAN>%&gt;
+<SPAN class="code-tag">&lt;%@ taglib prefix=<SPAN class="code-quote">&quot;s&quot;</SPAN> uri=<SPAN class="code-quote">&quot;/struts-tags&quot;</SPAN> %&gt;</SPAN>
+<SPAN class="code-tag">&lt;html&gt;</SPAN>
+<SPAN class="code-tag">&lt;head&gt;</SPAN>
+	<SPAN class="code-tag">&lt;title&gt;</SPAN>Struts2 Showcase - Fileupload sample - Multiple fileupload using List<SPAN class="code-tag">&lt;/title&gt;</SPAN>
+<SPAN class="code-tag">&lt;/head&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;body&gt;</SPAN>
+<SPAN class="code-tag">&lt;div class=<SPAN class="code-quote">&quot;page-header&quot;</SPAN>&gt;</SPAN>
+	<SPAN class="code-tag">&lt;h1&gt;</SPAN>Fileupload sample - Multiple fileupload using List<SPAN class="code-tag">&lt;/h1&gt;</SPAN>
+<SPAN class="code-tag">&lt;/div&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;div class=<SPAN class="code-quote">&quot;container-fluid&quot;</SPAN>&gt;</SPAN>
+	<SPAN class="code-tag">&lt;div class=<SPAN class="code-quote">&quot;row-fluid&quot;</SPAN>&gt;</SPAN>
+		<SPAN class="code-tag">&lt;div class=<SPAN class="code-quote">&quot;span12&quot;</SPAN>&gt;</SPAN>
+
+			<SPAN class="code-tag">&lt;s:form action=<SPAN class="code-quote">&quot;doMultipleUploadUsingList&quot;</SPAN> method=<SPAN class="code-quote">&quot;POST&quot;</SPAN> enctype=<SPAN class="code-quote">&quot;multipart/form-data&quot;</SPAN>&gt;</SPAN>
+				<SPAN class="code-tag">&lt;s:file label=<SPAN class="code-quote">&quot;File (1)&quot;</SPAN> name=<SPAN class="code-quote">&quot;upload&quot;</SPAN> /&gt;</SPAN>
+				<SPAN class="code-tag">&lt;s:file label=<SPAN class="code-quote">&quot;File (2)&quot;</SPAN> name=<SPAN class="code-quote">&quot;upload&quot;</SPAN> /&gt;</SPAN>
+				<SPAN class="code-tag">&lt;s:file label=<SPAN class="code-quote">&quot;FIle (3)&quot;</SPAN> name=<SPAN class="code-quote">&quot;upload&quot;</SPAN> /&gt;</SPAN>
+				<SPAN class="code-tag">&lt;s:submit cssClass=<SPAN class="code-quote">&quot;btn btn-primary&quot;</SPAN>/&gt;</SPAN>
+			<SPAN class="code-tag">&lt;/s:form&gt;</SPAN>
+
+		<SPAN class="code-tag">&lt;/div&gt;</SPAN>
+	<SPAN class="code-tag">&lt;/div&gt;</SPAN>
+<SPAN class="code-tag">&lt;/div&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;/body&gt;</SPAN>
+<SPAN class="code-tag">&lt;/html&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P><B>MultipleFileUploadUsingListAction.java</B></P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java"><SPAN class="code-keyword">package</SPAN> org.apache.struts2.showcase.fileupload;
+
+<SPAN class="code-keyword">import</SPAN> com.opensymphony.xwork2.ActionSupport;
+
+<SPAN class="code-keyword">import</SPAN> java.io.File;
+<SPAN class="code-keyword">import</SPAN> java.util.ArrayList;
+<SPAN class="code-keyword">import</SPAN> java.util.List;
+
+/**
+ * Showcase action - multiple file upload using List
+ *
+ * @version $Date$ $Id$
+ */
+<SPAN class="code-keyword">public</SPAN> class MultipleFileUploadUsingListAction <SPAN class="code-keyword">extends</SPAN> ActionSupport {
+
+	<SPAN class="code-keyword">private</SPAN> List&lt;File&gt; uploads = <SPAN class="code-keyword">new</SPAN> ArrayList&lt;File&gt;();
+	<SPAN class="code-keyword">private</SPAN> List&lt;<SPAN class="code-object">String</SPAN>&gt; uploadFileNames = <SPAN class="code-keyword">new</SPAN> ArrayList&lt;<SPAN class="code-object">String</SPAN>&gt;();
+	<SPAN class="code-keyword">private</SPAN> List&lt;<SPAN class="code-object">String</SPAN>&gt; uploadContentTypes = <SPAN class="code-keyword">new</SPAN> ArrayList&lt;<SPAN class="code-object">String</SPAN>&gt;();
+
+
+	<SPAN class="code-keyword">public</SPAN> List&lt;File&gt; getUpload() {
+		<SPAN class="code-keyword">return</SPAN> <SPAN class="code-keyword">this</SPAN>.uploads;
+	}
+
+	<SPAN class="code-keyword">public</SPAN> void setUpload(List&lt;File&gt; uploads) {
+		<SPAN class="code-keyword">this</SPAN>.uploads = uploads;
+	}
+
+	<SPAN class="code-keyword">public</SPAN> List&lt;<SPAN class="code-object">String</SPAN>&gt; getUploadFileName() {
+		<SPAN class="code-keyword">return</SPAN> <SPAN class="code-keyword">this</SPAN>.uploadFileNames;
+	}
+
+	<SPAN class="code-keyword">public</SPAN> void setUploadFileName(List&lt;<SPAN class="code-object">String</SPAN>&gt; uploadFileNames) {
+		<SPAN class="code-keyword">this</SPAN>.uploadFileNames = uploadFileNames;
+	}
+
+	<SPAN class="code-keyword">public</SPAN> List&lt;<SPAN class="code-object">String</SPAN>&gt; getUploadContentType() {
+		<SPAN class="code-keyword">return</SPAN> <SPAN class="code-keyword">this</SPAN>.uploadContentTypes;
+	}
+
+	<SPAN class="code-keyword">public</SPAN> void setUploadContentType(List&lt;<SPAN class="code-object">String</SPAN>&gt; contentTypes) {
+		<SPAN class="code-keyword">this</SPAN>.uploadContentTypes = contentTypes;
+	}
+
+	<SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> upload() <SPAN class="code-keyword">throws</SPAN> Exception {
+
+		<SPAN class="code-object">System</SPAN>.out.println(<SPAN class="code-quote">&quot;\n\n upload1&quot;</SPAN>);
+		<SPAN class="code-object">System</SPAN>.out.println(<SPAN class="code-quote">&quot;files:&quot;</SPAN>);
+		<SPAN class="code-keyword">for</SPAN> (File u : uploads) {
+			<SPAN class="code-object">System</SPAN>.out.println(<SPAN class="code-quote">&quot;*** &quot;</SPAN> + u + <SPAN class="code-quote">&quot;\t&quot;</SPAN> + u.length());
+		}
+		<SPAN class="code-object">System</SPAN>.out.println(<SPAN class="code-quote">&quot;filenames:&quot;</SPAN>);
+		<SPAN class="code-keyword">for</SPAN> (<SPAN class="code-object">String</SPAN> n : uploadFileNames) {
+			<SPAN class="code-object">System</SPAN>.out.println(<SPAN class="code-quote">&quot;*** &quot;</SPAN> + n);
+		}
+		<SPAN class="code-object">System</SPAN>.out.println(<SPAN class="code-quote">&quot;content types:&quot;</SPAN>);
+		<SPAN class="code-keyword">for</SPAN> (<SPAN class="code-object">String</SPAN> c : uploadContentTypes) {
+			<SPAN class="code-object">System</SPAN>.out.println(<SPAN class="code-quote">&quot;*** &quot;</SPAN> + c);
+		}
+		<SPAN class="code-object">System</SPAN>.out.println(<SPAN class="code-quote">&quot;\n\n&quot;</SPAN>);
+		<SPAN class="code-keyword">return</SPAN> SUCCESS;
+	}
+}
+</PRE>
+</DIV></DIV>
+
+<H2><A name="FileUpload-AdvancedConfiguration"></A>Advanced Configuration</H2>
+
+<P>The Struts 2 <TT>default.properties</TT> file defines several settings that affect the behavior of file uploading. You may find in necessary to change these values. The names and default values are:</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-none">
+struts.multipart.parser=jakarta
+struts.multipart.saveDir=
+struts.multipart.maxSize=2097152
+</PRE>
+</DIV></DIV>
+
+<DIV class="panelMacro"><TABLE class="noteMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>Please remember that the <B>struts.multipart.maxSize</B> is the size limit of the whole request, which means when you uploading multiple files, the sum of their size must be below the <B>struts.multipart.maxSize</B>!</TD></TR></TABLE></DIV>
+
+<P>In order to change theses settings you define a constant in your applications <TT>struts.xml</TT> file like so:</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;?xml version=<SPAN class="code-quote">&quot;1.0&quot;</SPAN> encoding=<SPAN class="code-quote">&quot;UTF-8&quot;</SPAN>?&gt;</SPAN>
+&lt;!DOCTYPE struts PUBLIC 
+	<SPAN class="code-quote">&quot;-//Apache Software Foundation//DTD Struts Configuration 2.0//EN&quot;</SPAN> 
+	<SPAN class="code-quote">&quot;http://struts.apache.org/dtds/struts-2.0.dtd&quot;</SPAN>&gt;
+<SPAN class="code-tag">&lt;struts&gt;</SPAN>
+    <SPAN class="code-tag">&lt;constant name=<SPAN class="code-quote">&quot;struts.multipart.maxSize&quot;</SPAN> value=<SPAN class="code-quote">&quot;1000000&quot;</SPAN> /&gt;</SPAN>
+    ...
+<SPAN class="code-tag">&lt;/struts&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>Additionally the <TT>fileUpload</TT> interceptor has settings that can be put in place for individual action mappings by customizing your interceptor stack.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;doUpload&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.example.UploadAction&quot;</SPAN>&gt;</SPAN>
+    <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;basicStack&quot;</SPAN>/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;fileUpload&quot;</SPAN>&gt;</SPAN>
+        <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;allowedTypes&quot;</SPAN>&gt;</SPAN>text/plain<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/interceptor-ref&gt;</SPAN> 
+    <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;validation&quot;</SPAN>/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;workflow&quot;</SPAN>/&gt;</SPAN>
+
+    <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;success&quot;</SPAN>&gt;</SPAN>good_result.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+<SPAN class="code-tag">&lt;/action&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H3><A name="FileUpload-FileSizeLimits"></A>File Size Limits</H3>
+
+<P>There are two separate file size limits. First is <TT>struts.multipart.maxSize</TT> which comes from the Struts 2 <TT>default.properties</TT> file. This setting exists for security reasons to prohibit a malicious user from uploading extremely large files to file up your servers disk space. This setting defaults to approximately 2 megabytes and should be adjusted to the maximum size file (2 gigs max) that your will need the framework to receive. If you are uploading more than one file on a form the <TT>struts.multipart.maxSize</TT> applies to the combined total, not the individual file sizes. The other setting, <TT>maximumSize</TT>, is an interceptor setting that is used to ensure a particular Action does not receive a file that is too large. Notice the locations of both settings in the following example:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;?xml version=<SPAN class="code-quote">&quot;1.0&quot;</SPAN> encoding=<SPAN class="code-quote">&quot;UTF-8&quot;</SPAN>?&gt;</SPAN>
+&lt;!DOCTYPE struts PUBLIC 
+	<SPAN class="code-quote">&quot;-//Apache Software Foundation//DTD Struts Configuration 2.0//EN&quot;</SPAN> 
+	<SPAN class="code-quote">&quot;http://struts.apache.org/dtds/struts-2.0.dtd&quot;</SPAN>&gt;
+<SPAN class="code-tag">&lt;struts&gt;</SPAN>
+    <SPAN class="code-tag">&lt;constant name=<SPAN class="code-quote">&quot;struts.multipart.maxSize&quot;</SPAN> value=<SPAN class="code-quote">&quot;1000000&quot;</SPAN> /&gt;</SPAN>
+    
+    <SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;doUpload&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.example.UploadAction&quot;</SPAN>&gt;</SPAN>
+        <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;basicStack&quot;</SPAN>/&gt;</SPAN>
+        <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;fileUpload&quot;</SPAN>&gt;</SPAN>
+            <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;maximumSize&quot;</SPAN>&gt;</SPAN>500000<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+        <SPAN class="code-tag">&lt;/interceptor-ref&gt;</SPAN> 
+        <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;validation&quot;</SPAN>/&gt;</SPAN>
+        <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;workflow&quot;</SPAN>/&gt;</SPAN>
+
+        <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;success&quot;</SPAN>&gt;</SPAN>good_result.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/action&gt;</SPAN>
+<SPAN class="code-tag">&lt;/struts&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H3><A name="FileUpload-FileTypes"></A>File Types</H3>
+
+<P>There are two ways to limit the uploaded file type, declaratively and programmatically. To declaratively limit the file type a comma separated list of allowedTypes can be specified as a fileUpload interceptor param as shown in the following example:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;doUpload&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.example.UploadAction&quot;</SPAN>&gt;</SPAN>
+    <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;basicStack&quot;</SPAN>/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;fileUpload&quot;</SPAN>&gt;</SPAN>
+        <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;allowedTypes&quot;</SPAN>&gt;</SPAN>image/jpeg,image/gif<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/interceptor-ref&gt;</SPAN> 
+    <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;validation&quot;</SPAN>/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;workflow&quot;</SPAN>/&gt;</SPAN>
+
+    <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;success&quot;</SPAN>&gt;</SPAN>good_result.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+<SPAN class="code-tag">&lt;/action&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>When the uploaded file type does not match one of the MIME types specified a field error will be created as described in the next section entitled Error Messages. Programmatically limiting the file type means using the information passed in to your Action class via the <TT>setXContentType(String contentType)</TT> method. The benefit to this type of approach would be that it's more flexible and no interceptor configuration would be needed if file sizes are keep under 2 megs.</P>
+
+<H3><A name="FileUpload-ErrorMessages"></A>Error Messages</H3>
+
+<P>If an error occurs several field errors will be added assuming that the action implements <TT>com.opensymphony.xwork2.ValidationAware</TT> or extends <TT>com.opensymphony.xwork2.ActionSupport</TT>. These error messages are based on several i18n values stored in struts-messages.properties, a default i18n file processed for all i18n requests. You can override the text of these messages by providing text for the following keys:</P>
+
+<DIV class="table-wrap">
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TH class="confluenceTh"> Error Key </TH>
+<TH class="confluenceTh"> Description </TH>
+</TR>
+<TR>
+<TD class="confluenceTd"> struts.messages.error.uploading </TD>
+<TD class="confluenceTd"> A general error that occurs when the file could not be uploaded </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> struts.messages.error.file.too.large </TD>
+<TD class="confluenceTd"> Occurs when the uploaded file is too large as specified by maximumSize. </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> struts.messages.error.content.type.not.allowed </TD>
+<TD class="confluenceTd"> Occurs when the uploaded file does not match the expected content types specified </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> struts.messages.error.file.extension.not.allowed </TD>
+<TD class="confluenceTd"> Occurs when uploaded file has disallowed extension </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> struts.messages.upload.error.SizeLimitExceededException </TD>
+<TD class="confluenceTd"> Occurs when the upload request (as a whole) exceed configured <B>struts.multipart.maxSize</B> </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> struts.messages.upload.error.&lt;Exception class SimpleName&gt; </TD>
+<TD class="confluenceTd"> Occurs when any other exception took place during file upload process </TD>
+</TR>
+</TBODY></TABLE>
+</DIV>
+
+
+<H3><A name="FileUpload-TemporaryDirectories"></A>Temporary Directories</H3>
+
+<P>All uploaded files are saved to a temporary directory by the framework before being passed in to an Action. Depending on the allowed file sizes it may be necessary to have the framework store these temporary files in an alternate location. To do this change <TT>struts.multipart.saveDir</TT> to the directory where the uploaded files will be placed. If this property is not set it defaults to <TT>javax.servlet.context.tempdir</TT>. Keep in mind that on some operating systems, like Solaris, <TT>/tmp</TT> is memory based and files stored in that directory would consume an amount of RAM approximately equal to the size of the uploaded file.</P>
+
+<H3><A name="FileUpload-AlternateLibraries"></A>Alternate Libraries</H3>
+
+<P>The <TT>struts.multipart.parser</TT> used by the fileUpload interceptor to handle HTTP POST requests, encoded using the MIME-type multipart/form-data, can be changed out. Currently there are two choices, jakarta and pell. The jakarta parser is a standard part of the Struts 2 framework needing only its required libraries added to a project. The pell parser uses Jason Pell's multipart parser instead of the Commons-FileUpload library. The pell parser is a Struts 2 plugin, for more details see: <A href="http://cwiki.apache.org/S2PLUGINS/pell-multipart-plugin.html" class="external-link" rel="nofollow">http://cwiki.apache.org/S2PLUGINS/pell-multipart-plugin.html</A>. There was a third alternative, cos, but it was removed due to licensing incompatibilities.</P>
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

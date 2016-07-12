@@ -1,0 +1,296 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>How do we repopulate controls when validation fails</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="faqs.html" title="FAQs">FAQs</A>&nbsp;&gt;&nbsp;<A href="" title="How do we repopulate controls when validation fails">How do we repopulate controls when validation fails</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">How do we repopulate controls when validation fails</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=14095">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=14095">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14095">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14095">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14095">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14095">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <P>When validation fails, we typically forward back to the same server page, so that the errors can be presented, and so that the client can fix the problem and resubmit the form. Of course, aside from the errors, we may also need to present rich controls, like drop down lists. </P>
+
+<P>If we try to populate rich controls in an <TT>Action</TT> method, like <TT>input</TT> or <TT>execute</TT>, and validation fails, the method will not be invoked, and the controls are not populated. Two alternative ways to populate controls are the <TT>Preparable</TT> interface and the <TT>action</TT> tag. </P>
+
+<H3><A name="Howdowerepopulatecontrolswhenvalidationfails-Preparableinterface"></A>Preparable interface</H3>
+
+<P>Instead of populating controls in an <TT>Action</TT> method, implement the <TT>Preparable</TT> interface, and use a <TT>prepare</TT> method instead. The <TT>prepare</TT> method is called before validation, so it validation fails, we still have a chance to populate controls (or whatever). </P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Input.jsp</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;%@ taglib prefix=<SPAN class="code-quote">&quot;s&quot;</SPAN> uri=<SPAN class="code-quote">&quot;/struts-tags&quot;</SPAN> %&gt;</SPAN>
+<SPAN class="code-tag">&lt;s:form&gt;</SPAN>
+&lt;s:select
+   tooltip=<SPAN class="code-quote">&quot;Choose Your Favorite Language&quot;</SPAN>
+   label=<SPAN class="code-quote">&quot;Favorite Language&quot;</SPAN>
+   list=<SPAN class="code-quote">&quot;languages&quot;</SPAN>
+   name=<SPAN class="code-quote">&quot;language&quot;</SPAN>
+   listKey=<SPAN class="code-quote">&quot;key&quot;</SPAN>
+   listValue=<SPAN class="code-quote">&quot;description&quot;</SPAN>
+   emptyOption=<SPAN class="code-quote">&quot;true&quot;</SPAN>
+   headerKey=<SPAN class="code-quote">&quot;None&quot;</SPAN>
+   headerValue=<SPAN class="code-quote">&quot;None&quot;</SPAN>/&gt;
+<SPAN class="code-tag">&lt;s:submit&gt;</SPAN>
+<SPAN class="code-tag">&lt;/form&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Input.java (prepare)</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> prepare() {
+        languages.add(<SPAN class="code-keyword">new</SPAN> Language(<SPAN class="code-quote">&quot;EnglishKey&quot;</SPAN>, <SPAN class="code-quote">&quot;English Language&quot;</SPAN>));
+        languages.add(<SPAN class="code-keyword">new</SPAN> Language(<SPAN class="code-quote">&quot;FrenchKey&quot;</SPAN>, <SPAN class="code-quote">&quot;French Language&quot;</SPAN>));
+        languages.add(<SPAN class="code-keyword">new</SPAN> Language(<SPAN class="code-quote">&quot;SpanishKey&quot;</SPAN>, <SPAN class="code-quote">&quot;Spanish Language&quot;</SPAN>));
+        <SPAN class="code-keyword">return</SPAN> SUCCESS;
+    }
+
+    List languages = <SPAN class="code-keyword">new</SPAN> ArrayList();
+    <SPAN class="code-keyword">public</SPAN> List getLanguages() {
+        <SPAN class="code-keyword">return</SPAN> languages;
+    }
+
+    <SPAN class="code-object">String</SPAN> language;
+    <SPAN class="code-keyword">public</SPAN> void setLanguage(<SPAN class="code-object">String</SPAN> value) {
+        language = value;
+    }
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> getLanguage() {
+        <SPAN class="code-keyword">return</SPAN> language;
+    }
+
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-keyword">static</SPAN> class Language {
+
+        <SPAN class="code-keyword">public</SPAN> Language(<SPAN class="code-object">String</SPAN> key, <SPAN class="code-object">String</SPAN> description) {
+            <SPAN class="code-keyword">this</SPAN>.key = key;
+            <SPAN class="code-keyword">this</SPAN>.description = description;
+        }
+
+        <SPAN class="code-object">String</SPAN> key;
+        <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> getKey() {
+            <SPAN class="code-keyword">return</SPAN> key;
+        }
+
+        <SPAN class="code-object">String</SPAN> description;
+        <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> getDescription() {
+            <SPAN class="code-keyword">return</SPAN> description;
+        }
+    }
+ }
+</PRE>
+</DIV></DIV>
+
+<P><IMG class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/check.gif" height="16" width="16" align="absmiddle" alt="" border="0"> If a custom stack is being used, be sure to put the <A href="prepare-interceptor.html" title="Prepare Interceptor">Prepare Interceptor</A> before the <A href="validation-interceptor.html" title="Validation Interceptor">Validation Interceptor</A>.</P>
+
+<H3><A name="Howdowerepopulatecontrolswhenvalidationfails-actiontag"></A>action tag</H3>
+
+<P>Another solution is to use the <A href="action.html" title="action">action</A> tag to execute an Action in place.</P>
+
+<P>One way to use this tag is to put a control on a &quot;snippet&quot; JSP that is rendered as a result of an Action that does nothing but create the object that populates the control. The action tag sets &quot;executeresult=true&quot;, then control markup will be &quot;included&quot; into the page (like a tile), after the action executes.</P>
+
+<P>In effect, <TT>exectuteResult</TT> actions can be used like a tag that can run its own action before emitting the markup.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Input.jsp</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;%@ taglib prefix=<SPAN class="code-quote">&quot;s&quot;</SPAN> uri=<SPAN class="code-quote">&quot;/struts-tags&quot;</SPAN> %&gt;</SPAN>
+<SPAN class="code-tag">&lt;s:form&gt;</SPAN>
+   <SPAN class="code-tag">&lt;s:action name=<SPAN class="code-quote">&quot;Languages&quot;</SPAN> executeResult=<SPAN class="code-quote">&quot;true&quot;</SPAN>/&gt;</SPAN>
+   <SPAN class="code-tag">&lt;s:submit/&gt;</SPAN>
+<SPAN class="code-tag">&lt;/s::form&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Languages.jsp</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;%@ taglib prefix=<SPAN class="code-quote">&quot;s&quot;</SPAN> uri=<SPAN class="code-quote">&quot;/struts-tags&quot;</SPAN> %&gt;</SPAN>
+&lt;s:select
+   tooltip=<SPAN class="code-quote">&quot;Choose Your Favorite Language&quot;</SPAN>
+   label=<SPAN class="code-quote">&quot;Favorite Language&quot;</SPAN>
+   list=<SPAN class="code-quote">&quot;languages&quot;</SPAN>
+   name=language&quot;
+   listKey=<SPAN class="code-quote">&quot;key&quot;</SPAN>
+   listValue=<SPAN class="code-quote">&quot;description&quot;</SPAN>
+   emptyOption=<SPAN class="code-quote">&quot;true&quot;</SPAN>
+   headerKey=<SPAN class="code-quote">&quot;None&quot;</SPAN>
+   headerValue=<SPAN class="code-quote">&quot;None&quot;</SPAN>/&gt;
+</PRE>
+</DIV></DIV>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Languages.java</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+<SPAN class="code-keyword">public</SPAN> class Languages <SPAN class="code-keyword">extends</SPAN> ActionSupport {
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> execute() {
+        languages.add(<SPAN class="code-keyword">new</SPAN> Language(<SPAN class="code-quote">&quot;EnglishKey&quot;</SPAN>, <SPAN class="code-quote">&quot;English Language&quot;</SPAN>));
+        languages.add(<SPAN class="code-keyword">new</SPAN> Language(<SPAN class="code-quote">&quot;FrenchKey&quot;</SPAN>, <SPAN class="code-quote">&quot;French Language&quot;</SPAN>));
+        languages.add(<SPAN class="code-keyword">new</SPAN> Language(<SPAN class="code-quote">&quot;SpanishKey&quot;</SPAN>, <SPAN class="code-quote">&quot;Spanish Language&quot;</SPAN>));
+        <SPAN class="code-keyword">return</SPAN> SUCCESS;
+    }
+
+    List languages = <SPAN class="code-keyword">new</SPAN> ArrayList();
+    <SPAN class="code-keyword">public</SPAN> List getLanguages() {
+        <SPAN class="code-keyword">return</SPAN> languages;
+    }
+
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-keyword">static</SPAN> class Language {
+        <SPAN class="code-object">String</SPAN> description;
+        <SPAN class="code-object">String</SPAN> key;
+
+        <SPAN class="code-keyword">public</SPAN> Language(<SPAN class="code-object">String</SPAN> key, <SPAN class="code-object">String</SPAN> description) {
+            <SPAN class="code-keyword">this</SPAN>.key = key;
+            <SPAN class="code-keyword">this</SPAN>.description = description;
+        }
+
+        <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> getKey() {
+            <SPAN class="code-keyword">return</SPAN> key;
+        }
+
+        <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> getDescription() {
+            <SPAN class="code-keyword">return</SPAN> description;
+        }
+
+    }
+
+
+}
+</PRE>
+</DIV></DIV>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>struts.xml (Input, Languages)</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;Input&quot;</SPAN>&gt;</SPAN>
+    <SPAN class="code-tag">&lt;result&gt;</SPAN>/app/Input.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+<SPAN class="code-tag">&lt;/action&gt;</SPAN>
+<SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;Languages&quot;</SPAN> class=<SPAN class="code-quote">&quot;app.Languages&quot;</SPAN>&gt;</SPAN>
+    <SPAN class="code-tag">&lt;result&gt;</SPAN>Languages.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+<SPAN class="code-tag">&lt;/action&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>The advantage being that the &quot;Languages&quot; action could be dropped in wherever the &quot;Languages&quot; control is needed, and that the Action for the form doesn't need to know how to populate the Languages control.</P>
+
+<P>Now, the Action is going to be hit every time the page is rendered, but so long as you are using a caching data access layer, like IBATIS or Hibernate, it will end up being a memory-to-memory transfer, rather than a database access.</P>
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

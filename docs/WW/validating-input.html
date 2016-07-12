@@ -1,0 +1,228 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Validating Input</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="tutorials.html" title="Tutorials">Tutorials</A>&nbsp;&gt;&nbsp;<A href="bootstrap.html" title="Bootstrap">Bootstrap</A>&nbsp;&gt;&nbsp;<A href="" title="Validating Input">Validating Input</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Validating Input</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=23419">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=23419">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=23419">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=23419">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=23419">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=23419">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <P>In the <A href="coding-actions.html" title="Coding Actions">Coding Actions</A> lesson, we validated the username and password input with a few lines of Java code. Of course, in a larger application, over time, even these few lines of code can become a maintenance burden. </P>
+
+<P>Happily, the framework provides a validation framework that can validate input &quot;behind the scenes&quot;. </P>
+
+<H2><A name="ValidatingInput-TheCode"></A>The Code </H2>
+
+<P>Validation can be described through an XML document, or using annotations. The XML document is named after the Action being validated with a &quot;-validation&quot; suffix. Since we would like to validate the Logon Action class, our document is named Logon-validation.xml.</P>
+
+<DIV class="code panel" style="border-style: solid;border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;border-bottom-style: solid;"><B>Logon-validation.xml</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+&lt;!DOCTYPE validators PUBLIC 
+<SPAN class="code-quote">&quot;-<SPAN class="code-comment">//OpenSymphony Group//XWork Validator 1.0.2//EN&quot;</SPAN> 
+</SPAN><SPAN class="code-quote">&quot;http:<SPAN class="code-comment">//www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd&quot;</SPAN>&gt;
+</SPAN>
+&lt;validators&gt;
+    &lt;field name=<SPAN class="code-quote">&quot;username&quot;</SPAN>&gt;
+        &lt;field-validator type=<SPAN class="code-quote">&quot;requiredstring&quot;</SPAN>&gt;
+            &lt;message&gt;Username is required&lt;/message&gt;
+        &lt;/field-validator&gt;
+    &lt;/field&gt;
+    &lt;field name=<SPAN class="code-quote">&quot;password&quot;</SPAN>&gt;
+        &lt;field-validator type=<SPAN class="code-quote">&quot;requiredstring&quot;</SPAN>&gt;
+            &lt;message&gt;Password is required&lt;/message&gt;
+        &lt;/field-validator&gt;
+    &lt;/field&gt;
+&lt;/validators&gt;
+</PRE>
+</DIV></DIV>
+
+<P>Create a file named <TT>Logon-validation.xml</TT> next to the <TT>Logon.java</TT> class, and paste in the code. </P>
+
+<P>The first time a page displays, we wouldn't want the validation to fire. We should have a chance to enter the input before being told it's incorrect. One way to bypass validation is to refer to a special &quot;input&quot; method provided by the base ActionSupport class. To do that, we need to edit the Welcome page and the Logon mapping. </P>
+
+<P>To indicate the changes, we'll use <IMG class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/forbidden.gif" height="16" width="16" align="absmiddle" alt="" border="0"> to indicate a line we are removing, and <IMG class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/add.gif" height="16" width="16" align="absmiddle" alt="" border="0"> to indicated a line we are adding.</P>
+
+<H4><A name="ValidatingInput-Welcome.jsp"></A>Welcome.jsp</H4>
+<P><IMG class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/forbidden.gif" height="16" width="16" align="absmiddle" alt="" border="0"> <TT>&lt;li&gt;&lt;a href=&quot;&lt;s:url action=&quot;Logon&quot;/&gt;&quot;&gt;Sign On&lt;/a&gt;&lt;/li&gt;</TT><BR>
+<IMG class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/add.gif" height="16" width="16" align="absmiddle" alt="" border="0"> <TT>&lt;li&gt;&lt;a href=&quot;&lt;s:url action=&quot;Logon_input&quot;/&gt;&quot;&gt;Sign On&lt;/a&gt;&lt;/li&gt;</TT></P>
+
+<H4><A name="ValidatingInput-struts.xml"></A>struts.xml</H4>
+<P><IMG class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/forbidden.gif" height="16" width="16" align="absmiddle" alt="" border="0"> <TT>&lt;action name=&quot;Logon&quot; class=&quot;tutorial.Logon&quot;&gt;</TT><BR>
+<IMG class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/add.gif" height="16" width="16" align="absmiddle" alt="" border="0"> <TT>&lt;action name=&quot;Logon_*&quot; method=&quot;{1}&quot; class=&quot;tutorial.Logon&quot;&gt;</TT></P>
+
+<H2><A name="ValidatingInput-HowtheCodeWorks"></A>How the Code Works </H2>
+
+<P>To open the Logon form, the Welcome page refers to <TT>Logon_input</TT>. </P>
+<UL>
+	<LI>The framework matches this reference with the <TT>Logon_*</TT> action mapping.</LI>
+	<LI>The &quot;method={1}&quot; attribute is replaced with &quot;method=input&quot;.</LI>
+	<LI>The framework invokes the <TT>input</TT> method on the <TT>Logon</TT> Action class.</LI>
+	<LI>Since &quot;input&quot; is on a special list of methods that bypass validation, the validation framework is not invoked.</LI>
+	<LI>The default <TT>input</TT> method returns the result code &quot;input&quot;.</LI>
+	<LI>The framework renders &quot;Logon.jsp&quot; as the response, without any validation messages.</LI>
+</UL>
+
+
+<P>To submit the Logon form, the Login pages refers to <TT>Logon</TT>.</P>
+<UL>
+	<LI>The framework checks for a validation for the target Action class, <TT>Logon</TT>.</LI>
+	<LI>Finding a <TT>Logon-validation.xml</TT> file, the framework creates a validation object for the class, based on the XML document.
+	<UL>
+		<LI>Essentially, the validation is a set of Validator objects.</LI>
+	</UL>
+	</LI>
+	<LI>The Validators are applied to the incoming properties.</LI>
+	<LI>If a Validator fails, its message is added to an internal queue.</LI>
+	<LI>When all the Validators have fired, if the framework sees that errors have been posted, it seeks the &quot;input&quot; result, without invoking the Action class.</LI>
+	<LI>Otherwise, the default Action method fires. Since the input has already been validated, the &quot;success&quot; result code is returned.</LI>
+</UL>
+
+
+<H2><A name="ValidatingInput-WhattoRemember"></A>What to Remember</H2>
+
+<P>The framework provides a validation framework. A set of validators can be associated with an input field. If validation fails, the framework can return to the input page and display the error messages. To bypass validation, a special &quot;input&quot; Action method can be invoked, instead of the default &quot;execute&quot; method.</P>
+
+<P><IMG class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/lightbulb_on.gif" height="16" width="16" align="absmiddle" alt="" border="0"> For more, see <A href="validation.html" title="Validation">Validation</A> in the Core Developers Guide.</P>
+
+<DIV class="table-wrap">
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TH class="confluenceTh"> Next </TH>
+<TD class="confluenceTd"> <A href="localizing-output.html" title="Localizing Output">Localizing Output</A> </TD>
+</TR>
+<TR>
+<TH class="confluenceTh"> Prev </TH>
+<TD class="confluenceTd"> <A href="selecting-results.html" title="Selecting Results">Selecting Results</A> </TD>
+</TR>
+</TBODY></TABLE>
+</DIV>
+
+
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

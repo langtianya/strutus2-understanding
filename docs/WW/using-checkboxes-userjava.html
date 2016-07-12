@@ -1,0 +1,745 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Using Checkboxes - User.java</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="faqs.html" title="FAQs">FAQs</A>&nbsp;&gt;&nbsp;<A href="cookbook.html" title="Cookbook">Cookbook</A>&nbsp;&gt;&nbsp;<A href="using-checkboxes.html" title="Using Checkboxes">Using Checkboxes</A>&nbsp;&gt;&nbsp;<A href="" title="Using Checkboxes - User.java">Using Checkboxes - User.java</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Using Checkboxes - User.java</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=13877">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=13877">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=13877">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=13877">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=13877">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=13877">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java"><SPAN class="code-keyword">package</SPAN> cash.model;
+
+<SPAN class="code-keyword">import</SPAN> net.sf.hibernate.HibernateException;
+
+<SPAN class="code-keyword">import</SPAN> org.apache.log4j.Logger;
+
+<SPAN class="code-keyword">import</SPAN> java.security.GeneralSecurityException;
+<SPAN class="code-keyword">import</SPAN> java.security.MessageDigest;
+<SPAN class="code-keyword">import</SPAN> java.security.SecureRandom;
+<SPAN class="code-keyword">import</SPAN> java.util.ArrayList;
+<SPAN class="code-keyword">import</SPAN> java.util.Date;
+<SPAN class="code-keyword">import</SPAN> java.util.HashSet;
+<SPAN class="code-keyword">import</SPAN> java.util.Iterator;
+<SPAN class="code-keyword">import</SPAN> java.util.List;
+<SPAN class="code-keyword">import</SPAN> java.util.Locale;
+<SPAN class="code-keyword">import</SPAN> java.util.Set;
+<SPAN class="code-keyword">import</SPAN> java.util.SortedSet;
+<SPAN class="code-keyword">import</SPAN> java.util.TimeZone;
+<SPAN class="code-keyword">import</SPAN> java.util.TreeSet;
+
+<SPAN class="code-keyword">import</SPAN> cash.config.ConfigManager;
+<SPAN class="code-keyword">import</SPAN> cash.util.Hex;
+<SPAN class="code-keyword">import</SPAN> cash.util.HibernateUtil;
+<SPAN class="code-keyword">import</SPAN> cash.util.UtcDate;
+<SPAN class="code-keyword">import</SPAN> cash.validator.PasswordFormatValidator;
+
+/**
+ * Represents a User object.  Clients of <SPAN class="code-keyword">this</SPAN> class should instantiate a User object with the
+ * multi-arg constructor rather than using setters.
+ *
+ * @author Joel Hockey
+ * @version $Id: $
+ * @hibernate.class
+ *      table=<SPAN class="code-quote">&quot;user&quot;</SPAN>
+ *      dynamic-update=<SPAN class="code-quote">&quot;<SPAN class="code-keyword">true</SPAN>&quot;</SPAN>
+ *      optimistic-lock=<SPAN class="code-quote">&quot;version&quot;</SPAN>
+ */
+<SPAN class="code-keyword">public</SPAN> class User <SPAN class="code-keyword">implements</SPAN> java.io.Serializable {
+    <SPAN class="code-keyword">private</SPAN> <SPAN class="code-keyword">static</SPAN> <SPAN class="code-keyword">final</SPAN> Logger LOG = Logger.getLogger(User.class);
+
+    <SPAN class="code-keyword">private</SPAN> <SPAN class="code-keyword">static</SPAN> MessageDigest s_md5;
+    <SPAN class="code-keyword">private</SPAN> <SPAN class="code-keyword">static</SPAN> SecureRandom s_random;
+
+    <SPAN class="code-keyword">private</SPAN> <SPAN class="code-keyword">static</SPAN> <SPAN class="code-keyword">final</SPAN> <SPAN class="code-object">int</SPAN> MAX_LOGIN_FAILURE_COUNT = 20;
+    <SPAN class="code-keyword">private</SPAN> <SPAN class="code-keyword">static</SPAN> <SPAN class="code-keyword">final</SPAN> <SPAN class="code-object">boolean</SPAN> RESET_LOCKED_OUT_AFTER_TIME = <SPAN class="code-keyword">true</SPAN>;
+    <SPAN class="code-keyword">private</SPAN> <SPAN class="code-keyword">static</SPAN> <SPAN class="code-keyword">final</SPAN> <SPAN class="code-object">long</SPAN> RESET_LOCKED_OUT_TIME = 1 * 60 * 60 * 1000; <SPAN class="code-comment">// 1 hour
+</SPAN>
+    <SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">int</SPAN> m_id;
+    <SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">int</SPAN> m_version;
+    <SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">String</SPAN> m_username;
+    <SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">String</SPAN> m_password;
+    <SPAN class="code-keyword">private</SPAN> Date m_passwordChangeDate;
+    <SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">String</SPAN> m_hashedPassword;
+    <SPAN class="code-keyword">private</SPAN> SortedSet m_passwordHistory = <SPAN class="code-keyword">new</SPAN> TreeSet();
+    <SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">String</SPAN> m_salt;
+    <SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">byte</SPAN>[] m_saltBytes;
+    <SPAN class="code-keyword">private</SPAN> Date m_createDate;
+    <SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">String</SPAN> m_email;
+    <SPAN class="code-keyword">private</SPAN> Locale m_locale;
+    <SPAN class="code-keyword">private</SPAN> TimeZone m_timeZone;
+    <SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">String</SPAN> m_telephone;
+    <SPAN class="code-keyword">private</SPAN> Date m_lastSuccessfulLogin;
+    <SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">String</SPAN> m_lastSuccessfulLoginIp;
+    <SPAN class="code-keyword">private</SPAN> Date m_lastFailedLogin;
+    <SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">String</SPAN> m_lastFailedLoginIp;
+    <SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">int</SPAN> m_loginFailureCount;
+    <SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">int</SPAN> m_maxLoginFailureCount = MAX_LOGIN_FAILURE_COUNT;
+    <SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">boolean</SPAN> m_resetLockedOutAfterTime = RESET_LOCKED_OUT_AFTER_TIME;
+    <SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">long</SPAN> m_resetLockedOutTime = RESET_LOCKED_OUT_TIME;
+    <SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">boolean</SPAN> m_lockedOut = <SPAN class="code-keyword">false</SPAN>;
+    <SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">boolean</SPAN> m_disabled = <SPAN class="code-keyword">false</SPAN>;
+    <SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">boolean</SPAN> m_isSuperUser = <SPAN class="code-keyword">false</SPAN>;
+    <SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">boolean</SPAN> m_passwordNeverExpires = <SPAN class="code-keyword">false</SPAN>;
+    <SPAN class="code-keyword">private</SPAN> Set m_privileges = <SPAN class="code-keyword">new</SPAN> HashSet();
+
+    <SPAN class="code-keyword">static</SPAN> {
+        <SPAN class="code-keyword">try</SPAN> {
+            s_md5 = MessageDigest.getInstance(<SPAN class="code-quote">&quot;MD5&quot;</SPAN>);
+            s_random = SecureRandom.getInstance(<SPAN class="code-quote">&quot;SHA1PRNG&quot;</SPAN>);
+        } <SPAN class="code-keyword">catch</SPAN> (GeneralSecurityException gse) {
+            <SPAN class="code-comment">// shouldn't happen
+</SPAN>            LOG.error(<SPAN class="code-quote">&quot;Error creating MD5 or SHA1PRNG&quot;</SPAN>, gse);
+            <SPAN class="code-keyword">throw</SPAN> <SPAN class="code-keyword">new</SPAN> RuntimeException(<SPAN class="code-quote">&quot;Error creating MD5 or SHA1PRNG&quot;</SPAN>);
+        }
+    }
+
+    /** <SPAN class="code-keyword">default</SPAN> constructor <SPAN class="code-keyword">for</SPAN> Hibernate */
+    <SPAN class="code-keyword">public</SPAN> User() { }
+
+    /**
+     * Create a User.
+     *
+     * @param username The username <SPAN class="code-keyword">for</SPAN> logging in
+     * @param password The user's password
+     * @param email The user's email
+     * @<SPAN class="code-keyword">throws</SPAN> InvalidPasswordException <SPAN class="code-keyword">if</SPAN> password is invalid.
+     */
+    <SPAN class="code-keyword">public</SPAN> User(<SPAN class="code-object">String</SPAN> username, <SPAN class="code-object">String</SPAN> password, <SPAN class="code-object">String</SPAN> email) <SPAN class="code-keyword">throws</SPAN> InvalidPasswordException {
+
+        m_username = username;
+
+        <SPAN class="code-comment">// password
+</SPAN>        initSalt();
+        <SPAN class="code-keyword">if</SPAN> (!PasswordFormatValidator.checkPasswordFormat(password)) {
+            <SPAN class="code-keyword">throw</SPAN> <SPAN class="code-keyword">new</SPAN> InvalidPasswordException();
+        }
+        m_hashedPassword = hashPassword(password);
+
+        m_createDate = UtcDate.createUtcDate();
+        m_email = email;
+        m_locale = Locale.getDefault();
+        m_timeZone = TimeZone.getDefault();
+    }
+
+    /** @param id The id to set */
+    <SPAN class="code-keyword">public</SPAN> void setId(<SPAN class="code-object">int</SPAN> id) { m_id = id; }
+
+    /**
+     * @<SPAN class="code-keyword">return</SPAN> unique id of <SPAN class="code-keyword">this</SPAN> User.  Generated by DB.
+     * @hibernate.id
+     *      generator-class=<SPAN class="code-quote">&quot;<SPAN class="code-keyword">native</SPAN>&quot;</SPAN>
+     */
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">int</SPAN> getId() { <SPAN class="code-keyword">return</SPAN> m_id; }
+
+    /** @param version The version of <SPAN class="code-keyword">this</SPAN> object */
+    <SPAN class="code-keyword">public</SPAN> void setVersion(<SPAN class="code-object">int</SPAN> version) { m_version = version; }
+
+    /**
+     * @<SPAN class="code-keyword">return</SPAN> version of <SPAN class="code-keyword">this</SPAN> object
+     * @hibernate.version
+     */
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">int</SPAN> getVersion() { <SPAN class="code-keyword">return</SPAN> m_version; }
+
+    /** @param username The username to set */
+    <SPAN class="code-keyword">public</SPAN> void setUsername(<SPAN class="code-object">String</SPAN> username) { m_username = username; }
+
+    /**
+     * @<SPAN class="code-keyword">return</SPAN> username
+     * @hibernate.property
+     *      length=<SPAN class="code-quote">&quot;32&quot;</SPAN>
+     *      unique=<SPAN class="code-quote">&quot;<SPAN class="code-keyword">true</SPAN>&quot;</SPAN>
+     *      not-<SPAN class="code-keyword">null</SPAN>=<SPAN class="code-quote">&quot;<SPAN class="code-keyword">true</SPAN>&quot;</SPAN>
+     */
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> getUsername() { <SPAN class="code-keyword">return</SPAN> m_username; }
+
+    /**
+     * Set's the user's password without updating history or checking validity.
+     * This should only be used at User creation time, and password validity
+     * should be checked externally to <SPAN class="code-keyword">this</SPAN> method.
+     * Do not use to update password, see {@link #changePassword(<SPAN class="code-object">String</SPAN>)}
+     * @param password user's password
+     */
+    <SPAN class="code-keyword">public</SPAN> void setPassword(<SPAN class="code-object">String</SPAN> password) {
+        m_password = password;
+        <SPAN class="code-keyword">if</SPAN> (m_salt == <SPAN class="code-keyword">null</SPAN>) {
+            initSalt();
+        }
+        m_hashedPassword = hashPassword(password);
+        m_passwordChangeDate = UtcDate.createUtcDate();
+    }
+
+    /**
+     * This method is provided to help at User creation time.  It will only <SPAN class="code-keyword">return</SPAN>
+     * valid values <SPAN class="code-keyword">if</SPAN> {@link #setPassword(<SPAN class="code-object">String</SPAN>)} has already been called.
+     * @<SPAN class="code-keyword">return</SPAN> plaintext password.
+     */
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> getPassword() { <SPAN class="code-keyword">return</SPAN> m_password; }
+
+    /** @param time Date (UTC) user last changed password. */
+    <SPAN class="code-keyword">public</SPAN> void setPasswordChangeDate(Date time) { m_passwordChangeDate = time; }
+
+    /**
+     * @<SPAN class="code-keyword">return</SPAN> UTC date of last password change
+     * @hibernate.property
+     *      type=<SPAN class="code-quote">&quot;cash.model.TimestampType&quot;</SPAN>
+     *      length=<SPAN class="code-quote">&quot;23&quot;</SPAN>
+     */
+    <SPAN class="code-keyword">public</SPAN> Date getPasswordChangeDate() { <SPAN class="code-keyword">return</SPAN> m_passwordChangeDate; }
+
+    /**
+     * Sets the user's hashed password.  This method is provided only <SPAN class="code-keyword">for</SPAN> the use
+     * of hibernate.  Users of <SPAN class="code-keyword">this</SPAN> class should not call <SPAN class="code-keyword">this</SPAN> method.
+     * Use the {@link #setPassword(<SPAN class="code-object">String</SPAN>)} method to set the plaintext password.
+     * @param hash The hashed password to set
+     */
+    <SPAN class="code-keyword">public</SPAN> void setHashedPassword(<SPAN class="code-object">String</SPAN> hash) {
+        m_hashedPassword = hash;
+    }
+
+    /**
+     * @<SPAN class="code-keyword">return</SPAN> hashed password
+     * @hibernate.property
+     *      column=<SPAN class="code-quote">&quot;pwd&quot;</SPAN>
+     *      length=<SPAN class="code-quote">&quot;32&quot;</SPAN>
+     *      not-<SPAN class="code-keyword">null</SPAN>=<SPAN class="code-quote">&quot;<SPAN class="code-keyword">true</SPAN>&quot;</SPAN>
+     */
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> getHashedPassword() { <SPAN class="code-keyword">return</SPAN> m_hashedPassword; }
+
+    /**
+     * @param oldPasswords The last n passwords, where n
+     * is defined as noRepeatHistory in User configuration.  Passwords are ordered
+     * in descending order of creation.
+     */
+    <SPAN class="code-keyword">public</SPAN> void setPasswordHistory(SortedSet oldPasswords) { m_passwordHistory = oldPasswords; }
+
+    /**
+     * @<SPAN class="code-keyword">return</SPAN> Password history
+     * @hibernate.set
+     *      lazy=<SPAN class="code-quote">&quot;<SPAN class="code-keyword">true</SPAN>&quot;</SPAN>
+     *      sort=<SPAN class="code-quote">&quot;cash.model.PasswordHistory&quot;</SPAN>
+     *      inverse=<SPAN class="code-quote">&quot;<SPAN class="code-keyword">true</SPAN>&quot;</SPAN>
+     *      cascade=<SPAN class="code-quote">&quot;all&quot;</SPAN>
+     * @hibernate.collection-key
+     *      column=<SPAN class="code-quote">&quot;userId&quot;</SPAN>
+     * @hibernate.collection-one-to-many
+     *      class=<SPAN class="code-quote">&quot;cash.model.PasswordHistory&quot;</SPAN>
+     */
+    <SPAN class="code-keyword">public</SPAN> SortedSet getPasswordHistory() { <SPAN class="code-keyword">return</SPAN> m_passwordHistory; }
+
+    /** @param random The random salt to be used with password */
+    <SPAN class="code-keyword">public</SPAN> void setSalt(<SPAN class="code-object">String</SPAN> random) {
+        m_salt = random;
+        m_saltBytes = Hex.fromString(random);
+    }
+
+    /**
+     * @<SPAN class="code-keyword">return</SPAN> random salt used with password
+     * @hibernate.property
+     *      length=<SPAN class="code-quote">&quot;32&quot;</SPAN>
+     *      not-<SPAN class="code-keyword">null</SPAN>=<SPAN class="code-quote">&quot;<SPAN class="code-keyword">true</SPAN>&quot;</SPAN>
+     */
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> getSalt() { <SPAN class="code-keyword">return</SPAN> m_salt; }
+
+    /** @param time create date */
+    <SPAN class="code-keyword">public</SPAN> void setCreateDate(Date time) { m_createDate = time; }
+
+    /**
+     * @<SPAN class="code-keyword">return</SPAN> Date in UTC user was created.
+     * @hibernate.property
+     *      update=<SPAN class="code-quote">&quot;<SPAN class="code-keyword">false</SPAN>&quot;</SPAN>
+     *      not-<SPAN class="code-keyword">null</SPAN>=<SPAN class="code-quote">&quot;<SPAN class="code-keyword">true</SPAN>&quot;</SPAN>
+     *      type=<SPAN class="code-quote">&quot;cash.model.TimestampType&quot;</SPAN>
+     *      length=<SPAN class="code-quote">&quot;23&quot;</SPAN>
+     */
+    <SPAN class="code-keyword">public</SPAN> Date getCreateDate() { <SPAN class="code-keyword">return</SPAN> m_createDate; }
+
+    /** @param email User's email */
+    <SPAN class="code-keyword">public</SPAN> void setEmail(<SPAN class="code-object">String</SPAN> email) { m_email = email; }
+
+    /**
+     * @<SPAN class="code-keyword">return</SPAN> User's email
+     * @hibernate.property
+     *      length=<SPAN class="code-quote">&quot;255&quot;</SPAN>
+     *      not-<SPAN class="code-keyword">null</SPAN>=<SPAN class="code-quote">&quot;<SPAN class="code-keyword">true</SPAN>&quot;</SPAN>
+     */
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> getEmail() { <SPAN class="code-keyword">return</SPAN> m_email; }
+
+    /** @param locale The User's locale.  This should be a 2 character field. */
+    <SPAN class="code-keyword">public</SPAN> void setLocale(Locale locale) { m_locale = locale; }
+
+    /**
+     * @<SPAN class="code-keyword">return</SPAN> User's locale.  Uses 2 character ISO-something value.
+     * @hibernate.property
+     *      not-<SPAN class="code-keyword">null</SPAN>=<SPAN class="code-quote">&quot;<SPAN class="code-keyword">true</SPAN>&quot;</SPAN>
+     */
+    <SPAN class="code-keyword">public</SPAN> Locale getLocale() { <SPAN class="code-keyword">return</SPAN> m_locale; }
+
+    /** @param timeZone User's time zone */
+    <SPAN class="code-keyword">public</SPAN> void setTimeZone(TimeZone timeZone) { m_timeZone = timeZone; }
+
+    /**
+     * @<SPAN class="code-keyword">return</SPAN> User's timezone
+     * @hibernate.property
+     *      not-<SPAN class="code-keyword">null</SPAN>=<SPAN class="code-quote">&quot;<SPAN class="code-keyword">true</SPAN>&quot;</SPAN>
+     */
+    <SPAN class="code-keyword">public</SPAN> TimeZone getTimeZone() { <SPAN class="code-keyword">return</SPAN> m_timeZone; }
+
+    /** @param telephone User's telephone */
+    <SPAN class="code-keyword">public</SPAN> void setTelephone(<SPAN class="code-object">String</SPAN> telephone) { m_telephone = telephone; }
+
+    /**
+     * @<SPAN class="code-keyword">return</SPAN> Telephone of user
+     * @hibernate.property
+     *      length=<SPAN class="code-quote">&quot;16&quot;</SPAN>
+     */
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> getTelephone() { <SPAN class="code-keyword">return</SPAN> m_telephone; }
+
+    /** @param time user's last successful login date in UTC. */
+    <SPAN class="code-keyword">public</SPAN> void setLastSuccessfulLogin(Date time) { m_lastSuccessfulLogin = time; }
+
+    /**
+     * @<SPAN class="code-keyword">return</SPAN> UTC date of last successful login
+     * @hibernate.property
+     *      type=<SPAN class="code-quote">&quot;cash.model.TimestampType&quot;</SPAN>
+     *      length=<SPAN class="code-quote">&quot;23&quot;</SPAN>
+     */
+    <SPAN class="code-keyword">public</SPAN> Date getLastSuccessfulLogin() { <SPAN class="code-keyword">return</SPAN> m_lastSuccessfulLogin; }
+
+    /** @param ip IP address used <SPAN class="code-keyword">for</SPAN> user's last successful login. */
+    <SPAN class="code-keyword">public</SPAN> void setLastSuccessfulLoginIp(<SPAN class="code-object">String</SPAN> ip) { m_lastSuccessfulLoginIp = ip; }
+
+    /**
+     * @<SPAN class="code-keyword">return</SPAN> IP address used <SPAN class="code-keyword">for</SPAN> last successful login
+     * @hibernate.property
+     */
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> getLastSuccessfulLoginIp() { <SPAN class="code-keyword">return</SPAN> m_lastSuccessfulLoginIp; }
+
+    /** @param time user's last failed login date in UTC. */
+    <SPAN class="code-keyword">public</SPAN> void setLastFailedLogin(Date time) { m_lastFailedLogin = time; }
+
+    /**
+     * @<SPAN class="code-keyword">return</SPAN> UTC date of last failed login
+     * @hibernate.property
+     *      type=<SPAN class="code-quote">&quot;cash.model.TimestampType&quot;</SPAN>
+     *      length=<SPAN class="code-quote">&quot;23&quot;</SPAN>
+     */
+    <SPAN class="code-keyword">public</SPAN> Date getLastFailedLogin() { <SPAN class="code-keyword">return</SPAN> m_lastFailedLogin; }
+
+    /** @param ip IP address used <SPAN class="code-keyword">for</SPAN> user's last failed login. */
+    <SPAN class="code-keyword">public</SPAN> void setLastFailedLoginIp(<SPAN class="code-object">String</SPAN> ip) { m_lastFailedLoginIp = ip; }
+
+    /**
+     * @<SPAN class="code-keyword">return</SPAN> IP address used <SPAN class="code-keyword">for</SPAN> last failed login
+     * @hibernate.property
+     */
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> getLastFailedLoginIp() { <SPAN class="code-keyword">return</SPAN> m_lastFailedLoginIp; }
+
+    /**
+     * Sets the number of times that a user has failed when attempting to login.
+     * This value is reset when a user logs in successfully, or their account is reset.
+     * @param count the value to set.
+     */
+    <SPAN class="code-keyword">public</SPAN> void setLoginFailureCount(<SPAN class="code-object">int</SPAN> count) { m_loginFailureCount = count; }
+
+    /**
+     * @<SPAN class="code-keyword">return</SPAN> The number of times that a user has failed when attempting to login.
+     *  This value is reset when a user logs on successfully, or their account is reset.
+     * @hibernate.property
+     */
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">int</SPAN> getLoginFailureCount() { <SPAN class="code-keyword">return</SPAN> m_loginFailureCount; }
+
+    /**
+     * @param count The maximum number of times that a user may fail to login before
+     * their account is locked out
+     */
+    <SPAN class="code-keyword">public</SPAN> void setMaxLoginFailureCount(<SPAN class="code-object">int</SPAN> count) { m_maxLoginFailureCount = count; }
+
+    /**
+     * @<SPAN class="code-keyword">return</SPAN> The maximum number of times that a user may fail to login before their account
+     * is locked out.
+     * @hibernate.property
+     */
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">int</SPAN> getMaxLoginFailureCount() { <SPAN class="code-keyword">return</SPAN> m_maxLoginFailureCount; }
+
+    /**
+     * @param reset Whether <SPAN class="code-keyword">this</SPAN> user's account will be unlocked after a specified time when it is locked
+     * due to login failure.
+     * @see #setResetLockedOutAfterTime(<SPAN class="code-object">boolean</SPAN>) setResetLockedOutAfterTime
+     */
+    <SPAN class="code-keyword">public</SPAN> void setResetLockedOutAfterTime(<SPAN class="code-object">boolean</SPAN> reset) { m_resetLockedOutAfterTime = reset; }
+
+    /**
+     * @<SPAN class="code-keyword">return</SPAN> Whether <SPAN class="code-keyword">this</SPAN> user's account will be unlocked after a specified time when it
+     * is locked out due to login failure.
+     * @see #getResetLockedOutAfterTime getResetLockedOutAfterTime
+     * @hibernate.property
+     */
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">boolean</SPAN> getResetLockedOutAfterTime() { <SPAN class="code-keyword">return</SPAN> m_resetLockedOutAfterTime; }
+
+    /**
+     * @param time The time in millis between login attempts before login failure count is reset.  Login failure
+     * count will only be reset <SPAN class="code-keyword">if</SPAN> the Reset Locked Out After Time <SPAN class="code-object">boolean</SPAN> is set to <SPAN class="code-keyword">true</SPAN>.
+     */
+    <SPAN class="code-keyword">public</SPAN> void setResetLockedOutTime(<SPAN class="code-object">long</SPAN> time) { m_resetLockedOutTime = time; }
+
+    /**
+     * @<SPAN class="code-keyword">return</SPAN> Time in milliseconds before account is auto-reset after login lockout.
+     * @hibernate.property
+     */
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">long</SPAN> getResetLockedOutTime() { <SPAN class="code-keyword">return</SPAN> m_resetLockedOutTime; }
+
+    /** @param lockedOut User's locked out status. */
+    <SPAN class="code-keyword">public</SPAN> void setLockedOut(<SPAN class="code-object">boolean</SPAN> lockedOut) { m_lockedOut = lockedOut; }
+
+    /**
+     * @<SPAN class="code-keyword">return</SPAN> Whether <SPAN class="code-keyword">this</SPAN> user's account is locked out
+     * @hibernate.property
+     */
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">boolean</SPAN> isLockedOut() { <SPAN class="code-keyword">return</SPAN> m_lockedOut; }
+
+    /** @param disabled User's disabled status. */
+    <SPAN class="code-keyword">public</SPAN> void setDisabled(<SPAN class="code-object">boolean</SPAN> disabled) { m_disabled = disabled; }
+
+    /**
+     * @<SPAN class="code-keyword">return</SPAN> Whether <SPAN class="code-keyword">this</SPAN> user's account disabled
+     * @hibernate.property
+     */
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">boolean</SPAN> isDisabled() { <SPAN class="code-keyword">return</SPAN> m_disabled; }
+
+    /** @param superUser True <SPAN class="code-keyword">if</SPAN> user is <SPAN class="code-keyword">super</SPAN> user */
+    <SPAN class="code-keyword">public</SPAN> void setSuperUser(<SPAN class="code-object">boolean</SPAN> superUser) { m_isSuperUser = superUser; }
+
+    /**
+     * @<SPAN class="code-keyword">return</SPAN> Whether <SPAN class="code-keyword">this</SPAN> user is a <SPAN class="code-keyword">super</SPAN> user
+     * @hibernate.property
+     */
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">boolean</SPAN> isSuperUser() { <SPAN class="code-keyword">return</SPAN> m_isSuperUser; }
+
+    /** @param expires True <SPAN class="code-keyword">if</SPAN> user's password never expires */
+    <SPAN class="code-keyword">public</SPAN> void setPasswordNeverExpires(<SPAN class="code-object">boolean</SPAN> expires) { m_passwordNeverExpires = expires; }
+
+    /**
+     * @<SPAN class="code-keyword">return</SPAN> Whether <SPAN class="code-keyword">this</SPAN> user's password ever expires
+     * @hibernate.property
+     */
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">boolean</SPAN> getPasswordNeverExpires() { <SPAN class="code-keyword">return</SPAN> m_passwordNeverExpires; }
+
+    /** @param privs Set of privileges <SPAN class="code-keyword">for</SPAN> <SPAN class="code-keyword">this</SPAN> user  */
+    <SPAN class="code-keyword">public</SPAN> void setPrivileges(Set privs) { m_privileges = privs; }
+
+    /**
+     * @<SPAN class="code-keyword">return</SPAN> Set of Privileges <SPAN class="code-keyword">for</SPAN> <SPAN class="code-keyword">this</SPAN> User.
+     * @hibernate.set
+     *      table=<SPAN class="code-quote">&quot;user_priv&quot;</SPAN>
+     *      lazy=<SPAN class="code-quote">&quot;<SPAN class="code-keyword">true</SPAN>&quot;</SPAN>
+     *      cascade=<SPAN class="code-quote">&quot;all&quot;</SPAN>
+     * @hibernate.collection-key
+     *      column=<SPAN class="code-quote">&quot;userId&quot;</SPAN>
+     * @hibernate.collection-element
+     *      column=<SPAN class="code-quote">&quot;priv&quot;</SPAN>
+     *      type=<SPAN class="code-quote">&quot;string&quot;</SPAN>
+     */
+    <SPAN class="code-keyword">public</SPAN> Set getPrivileges() { <SPAN class="code-keyword">return</SPAN> m_privileges; }
+
+    /** convenience method of OGNL */
+    <SPAN class="code-keyword">public</SPAN> void setPriv(<SPAN class="code-object">String</SPAN>[] privs) {
+        <SPAN class="code-keyword">for</SPAN> (<SPAN class="code-object">int</SPAN> i = 0; i &lt; privs.length; i++) {
+            m_privileges.add(privs[i]);
+        }
+    }
+
+
+<SPAN class="code-comment">// other methods
+</SPAN>
+    /**
+     * Changes the user's password.  Password must meet criteria
+     * defined in configuration.  The user's password will be appended to
+     * a random 20 <SPAN class="code-object">byte</SPAN> salt and then hashed using MD5 to create the
+     * value that will be stored in the DB.  The current Hibernate Session
+     * will be used to update pwd history.
+     *
+     * @param password The password to set
+     * @<SPAN class="code-keyword">return</SPAN> <SPAN class="code-keyword">true</SPAN> <SPAN class="code-keyword">if</SPAN> password is changed, <SPAN class="code-keyword">false</SPAN> <SPAN class="code-keyword">if</SPAN> password was not changed
+     * because it did not meet password requirements.
+     * @<SPAN class="code-keyword">throws</SPAN> HibernateException <SPAN class="code-keyword">if</SPAN> error updating password history
+     */
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">boolean</SPAN> changePassword(<SPAN class="code-object">String</SPAN> password) <SPAN class="code-keyword">throws</SPAN> HibernateException {
+        <SPAN class="code-comment">// check format
+</SPAN>        <SPAN class="code-keyword">if</SPAN> (!PasswordFormatValidator.checkPasswordFormat(password)) {
+            <SPAN class="code-keyword">return</SPAN> <SPAN class="code-keyword">false</SPAN>;
+        }
+
+        <SPAN class="code-comment">// check history
+</SPAN>        <SPAN class="code-comment">// first check current password
+</SPAN>        <SPAN class="code-object">String</SPAN> hashedPwd = hashPassword(password);
+        LOG.debug(<SPAN class="code-quote">&quot;checking <SPAN class="code-keyword">if</SPAN> password is same as current&quot;</SPAN>);
+        <SPAN class="code-keyword">if</SPAN> (hashedPwd.equals(m_hashedPassword)) {
+            LOG.info(<SPAN class="code-quote">&quot;password is same as current password&quot;</SPAN>);
+            <SPAN class="code-keyword">return</SPAN> <SPAN class="code-keyword">false</SPAN>;
+        }
+
+        LOG.debug(<SPAN class="code-quote">&quot;checking <SPAN class="code-keyword">if</SPAN> password exists in history.  History size is &quot;</SPAN> + m_passwordHistory.size());
+        <SPAN class="code-keyword">for</SPAN> (Iterator i = getPasswordHistory().iterator(); i.hasNext(); ) {
+            PasswordHistory ph = (PasswordHistory)i.next();
+            <SPAN class="code-keyword">if</SPAN> (hashedPwd.equals(ph.getHashedPassword())) {
+                LOG.info(<SPAN class="code-quote">&quot;password already used as one of last &quot;</SPAN>
+                    + ConfigManager.getConfig().getUser().getNoRepeatHistory());
+                <SPAN class="code-keyword">return</SPAN> <SPAN class="code-keyword">false</SPAN>;
+            }
+        }
+
+        <SPAN class="code-comment">// add current pwd to history and truncate history <SPAN class="code-keyword">if</SPAN> it is too <SPAN class="code-object">long</SPAN> now
+</SPAN>        PasswordHistory ph = <SPAN class="code-keyword">new</SPAN> PasswordHistory(<SPAN class="code-keyword">this</SPAN>, m_hashedPassword);
+        m_passwordHistory.add(ph);
+        LOG.debug(<SPAN class="code-quote">&quot;saving old password into password history&quot;</SPAN>);
+        HibernateUtil.currentSession().save(ph);
+        <SPAN class="code-comment">// compare to (noRepeat - 1) because we are checking current as part of history
+</SPAN>        <SPAN class="code-keyword">if</SPAN> (m_passwordHistory.size() &gt; ConfigManager.getConfig().getUser().getNoRepeatHistory() - 1) {
+            PasswordHistory toRemove = (PasswordHistory)m_passwordHistory.first();
+            LOG.info(<SPAN class="code-quote">&quot;Removing password history object <SPAN class="code-keyword">for</SPAN> user &quot;</SPAN> + m_username
+                    + <SPAN class="code-quote">&quot; created: &quot;</SPAN> + toRemove.getCreateDate());
+            m_passwordHistory.remove(toRemove);
+            HibernateUtil.currentSession().delete(toRemove);
+        }
+
+        <SPAN class="code-comment">// now set password and date
+</SPAN>        m_hashedPassword = hashedPwd;
+        m_passwordChangeDate = UtcDate.createUtcDate();
+        <SPAN class="code-keyword">return</SPAN> <SPAN class="code-keyword">true</SPAN>;
+    }
+
+    /**
+     * Hashes input pwd to see <SPAN class="code-keyword">if</SPAN> it equals stored pwd hash value.
+     * @param pwd Password to check
+     * @<SPAN class="code-keyword">return</SPAN> <SPAN class="code-keyword">true</SPAN> <SPAN class="code-keyword">if</SPAN> passwords are equal.
+     */
+
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">boolean</SPAN> passwordEquals(<SPAN class="code-object">String</SPAN> pwd) {
+        <SPAN class="code-object">String</SPAN> hash = hashPassword(pwd);
+        <SPAN class="code-keyword">return</SPAN> m_hashedPassword.equalsIgnoreCase(hash);
+    }
+
+    /**
+     * Hashes salt and password to produce hashed password.
+     * @param pwd Password to hash
+     * @<SPAN class="code-keyword">return</SPAN> Hex encoding of MD5 hash of salt and pwd
+     */
+    <SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">String</SPAN> hashPassword(<SPAN class="code-object">String</SPAN> pwd) {
+        <SPAN class="code-object">byte</SPAN>[] pwdBytes = pwd.getBytes();  <SPAN class="code-comment">//TODO:  should an encoding be specified here?
+</SPAN>        <SPAN class="code-object">byte</SPAN>[] in = <SPAN class="code-keyword">new</SPAN> <SPAN class="code-object">byte</SPAN>[OS:m_saltBytes.length + pwdBytes.length];
+        <SPAN class="code-object">System</SPAN>.arraycopy(m_saltBytes, 0, in, 0, m_saltBytes.length);
+        <SPAN class="code-object">System</SPAN>.arraycopy(pwdBytes, 0, in, m_saltBytes.length, pwdBytes.length);
+        <SPAN class="code-object">byte</SPAN>[] out = s_md5.digest(in);
+        <SPAN class="code-keyword">return</SPAN> Hex.toString(out);
+    }
+
+    /** initialises salt */
+    <SPAN class="code-keyword">private</SPAN> void initSalt() {
+        m_saltBytes = <SPAN class="code-keyword">new</SPAN> <SPAN class="code-object">byte</SPAN>[OS:16];
+        s_random.nextBytes(m_saltBytes);
+        m_salt = Hex.toString(m_saltBytes);
+    }
+
+    /** @<SPAN class="code-keyword">return</SPAN> <SPAN class="code-object">String</SPAN> representation of User */
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> toString() {
+        <SPAN class="code-object">StringBuffer</SPAN> sb = <SPAN class="code-keyword">new</SPAN> <SPAN class="code-object">StringBuffer</SPAN>(500);
+        sb.append(<SPAN class="code-quote">&quot;[&quot;</SPAN>).append(<SPAN class="code-quote">&quot;ID:&quot;</SPAN>).append(m_id)
+        .append(<SPAN class="code-quote">&quot;,version:&quot;</SPAN>).append(m_version)
+        .append(<SPAN class="code-quote">&quot;,hashedPassword:&quot;</SPAN>).append(m_hashedPassword)
+        .append(<SPAN class="code-quote">&quot;,salt:&quot;</SPAN>).append(m_salt)
+        .append(<SPAN class="code-quote">&quot;,createDate:&quot;</SPAN>).append(m_createDate)
+        .append(<SPAN class="code-quote">&quot;,email:&quot;</SPAN>).append(m_email)
+        .append(<SPAN class="code-quote">&quot;,locale:&quot;</SPAN>).append(m_locale)
+        .append(<SPAN class="code-quote">&quot;,timeZone:&quot;</SPAN>).append(m_timeZone)
+        .append(<SPAN class="code-quote">&quot;,telephone:&quot;</SPAN>).append(m_telephone)
+        .append(<SPAN class="code-quote">&quot;,lastSuccessfulLogin:&quot;</SPAN>).append(m_lastSuccessfulLogin)
+        .append(<SPAN class="code-quote">&quot;,lastSuccessfulLoginIp:&quot;</SPAN>).append(m_lastSuccessfulLoginIp)
+        .append(<SPAN class="code-quote">&quot;,lastFailedLogin:&quot;</SPAN>).append(m_lastFailedLogin)
+        .append(<SPAN class="code-quote">&quot;,lastFailedLoginIp:&quot;</SPAN>).append(m_lastFailedLoginIp)
+        .append(<SPAN class="code-quote">&quot;,loginFailureCount:&quot;</SPAN>).append(m_loginFailureCount)
+        .append(<SPAN class="code-quote">&quot;,maxLoginFailureCount:&quot;</SPAN>).append(m_maxLoginFailureCount)
+        .append(<SPAN class="code-quote">&quot;,resetLockedOutAfterTime:&quot;</SPAN>).append(m_resetLockedOutAfterTime)
+        .append(<SPAN class="code-quote">&quot;,resetLockedOutTime:&quot;</SPAN>).append(m_resetLockedOutTime)
+        .append(<SPAN class="code-quote">&quot;,lockedOut:&quot;</SPAN>).append(m_lockedOut)
+        .append(<SPAN class="code-quote">&quot;,disabled:&quot;</SPAN>).append(m_disabled)
+        .append(<SPAN class="code-quote">&quot;,isSuperUser:&quot;</SPAN>).append(m_isSuperUser)
+        .append(<SPAN class="code-quote">&quot;,passwordNeverExpires:&quot;</SPAN>).append(m_passwordNeverExpires)
+        .append(<SPAN class="code-quote">&quot;,passwordChangeDate:&quot;</SPAN>).append(m_passwordChangeDate)
+        .append(<SPAN class="code-quote">&quot;,privs:&quot;</SPAN>).append(m_privileges);
+        <SPAN class="code-keyword">return</SPAN> sb.toString();
+    }
+
+    /**
+     * Copies editable data from <SPAN class="code-keyword">this</SPAN> object to User object provided.  This is used
+     * in Edit actions.  Not all fields are copied, only those that are editable
+     * @param user <SPAN class="code-object">Object</SPAN> to copy to
+     */
+    <SPAN class="code-keyword">public</SPAN> void copy(User user) {
+        user.setUsername(m_username);
+        user.setEmail(m_email);
+        user.setLocale(m_locale);
+        user.setTimeZone(m_timeZone);
+        user.setTelephone(m_telephone);
+        user.setLockedOut(m_lockedOut);
+        user.setDisabled(m_disabled);
+        user.setPasswordNeverExpires(m_passwordNeverExpires);
+
+        <SPAN class="code-comment">// <SPAN class="code-keyword">do</SPAN> some smarts <SPAN class="code-keyword">for</SPAN> privs removal.  Clear all <SPAN class="code-keyword">if</SPAN> more than half are removed
+</SPAN>        <SPAN class="code-keyword">if</SPAN> (m_privileges.size() &lt;= user.getPrivileges().size() / 2) {
+            LOG.debug(<SPAN class="code-quote">&quot;detected that many privs are removed, clearing all&quot;</SPAN>);
+            user.setPrivileges(m_privileges);
+        } <SPAN class="code-keyword">else</SPAN> {
+            <SPAN class="code-comment">// find which ones should be removed
+</SPAN>            List toRemove = <SPAN class="code-keyword">new</SPAN> ArrayList();
+            <SPAN class="code-keyword">for</SPAN> (Iterator i = user.getPrivileges().iterator(); i.hasNext(); ) {
+                <SPAN class="code-object">String</SPAN> priv = (<SPAN class="code-object">String</SPAN>)i.next();
+                <SPAN class="code-keyword">if</SPAN> (!m_privileges.contains(priv)) {
+                    toRemove.add(priv);
+                }
+            }
+
+            <SPAN class="code-comment">// remove them
+</SPAN>            <SPAN class="code-keyword">for</SPAN> (<SPAN class="code-object">int</SPAN> i = 0; i &lt; toRemove.size(); i++) {
+                user.getPrivileges().remove(toRemove.get(i));
+            }
+
+            <SPAN class="code-comment">// add all <SPAN class="code-keyword">new</SPAN> privs
+</SPAN>            <SPAN class="code-keyword">for</SPAN> (Iterator i = m_privileges.iterator(); i.hasNext(); ) {
+                user.getPrivileges().add(i.next());
+            }
+        }
+    }
+}
+</PRE>
+</DIV></DIV>
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

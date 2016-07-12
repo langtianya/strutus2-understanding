@@ -1,0 +1,301 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Chat Application</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="tutorials.html" title="Tutorials">Tutorials</A>&nbsp;&gt;&nbsp;<A href="examples.html" title="Examples">Examples</A>&nbsp;&gt;&nbsp;<A href="" title="Chat Application">Chat Application</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Chat Application</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=14125">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=14125">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14125">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14125">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14125">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14125">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          
+<P>The application works like a mini-BBS. Users login to the application with a nickname. The user session is saved in a session scoped component. Once logged in, they can leave quips or messages.</P>
+
+<H2><A name="ChatApplication-ActionClasses"></A>Action Classes</H2>
+<P><TT>LoginAction</TT> extends <TT>ActionSupport</TT>, which has default implementations of some of the basic action methods and provides some validation support.</P>
+
+<P>The two main methods we are concerned with in <TT>ActionSupport</TT> are <TT>validate()</TT> and <TT>execute()</TT>.</P>
+
+<H2><A name="ChatApplication-Validation"></A>Validation</H2>
+
+<P>Validation is performed on your Action class if it implements <TT>Validatable</TT> (<TT>ActionSupport</TT> does), and your DefaultWorkflowInterceptor is activated on that action. The default configuration includes the workflow interceptor.</P>
+
+<H2><A name="ChatApplication-Execution"></A>Execution</H2>
+
+<P><TT>execute()</TT> returns a String. This String will be used to determine which result is used.</P>
+
+<P>The framework provides some default return Strings, namely:</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+Action.SUCCESS = <SPAN class="code-quote">&quot;success&quot;</SPAN>
+Action.INPUT = <SPAN class="code-quote">&quot;input&quot;</SPAN>
+Action.NONE = <SPAN class="code-quote">&quot;none&quot;</SPAN>
+Action.ERROR = <SPAN class="code-quote">&quot;error&quot;</SPAN>
+Action.LOGIN = <SPAN class="code-quote">&quot;login&quot;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>For example, lets take a look at the relevant part of our <TT>struts.xml</TT> configuration for LoginAction...</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>struts.xml fragment</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+&lt;action name=<SPAN class="code-quote">&quot;login&quot;</SPAN> class=<SPAN class="code-quote">&quot;example.LoginAction&quot;</SPAN>&gt; 
+  &lt;result name=<SPAN class="code-quote">&quot;success&quot;</SPAN> type=<SPAN class="code-quote">&quot;chain&quot;</SPAN>&gt; 
+    &lt;param name=<SPAN class="code-quote">&quot;actionName&quot;</SPAN>&gt;viewMessages&lt;/param&gt;
+  &lt;/result&gt;
+
+  &lt;result name=<SPAN class="code-quote">&quot;input&quot;</SPAN> type=<SPAN class="code-quote">&quot;chain&quot;</SPAN>&gt; 
+    &lt;param name=<SPAN class="code-quote">&quot;actionName&quot;</SPAN>&gt;viewMessages&lt;/param&gt;
+  &lt;/result&gt;
+&lt;/action&gt;
+</PRE>
+</DIV></DIV>
+
+<P>If <TT>execute()</TT> returns a String of &quot;success&quot;, the result with attribute &quot;success&quot; will be used. If <TT>execute()</TT> returns a String of &quot;input&quot;, the result with attribute &quot;input&quot; will be used.</P>
+
+<P>You can define your own return results. For example:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+<SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> execute() {
+  <SPAN class="code-keyword">return</SPAN> <SPAN class="code-quote">&quot;resetPassword&quot;</SPAN>;
+}
+</PRE>
+</DIV></DIV>
+
+<P>We need only configure a result for the &quot;resetPassword&quot; name:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+&lt;action name=<SPAN class="code-quote">&quot;login&quot;</SPAN> class=<SPAN class="code-quote">&quot;example.LoginAction&quot;</SPAN>&gt; 
+  &lt;result name=<SPAN class="code-quote">&quot;resetPassword&quot;</SPAN> type=<SPAN class="code-quote">&quot;chain&quot;</SPAN>&gt; 
+    &lt;param name=<SPAN class="code-quote">&quot;actionName&quot;</SPAN>&gt;viewResetPassword&lt;/param&gt;
+  &lt;/result&gt;
+&lt;/action&gt;
+</PRE>
+</DIV></DIV>
+
+<H2><A name="ChatApplication-ContextVariables%2FMapping"></A>Context Variables / Mapping</H2>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>LoginAction.java</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+<SPAN class="code-keyword">public</SPAN> class LoginAction <SPAN class="code-keyword">extends</SPAN> ActionSupport {
+
+    <SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">String</SPAN> loginName;
+
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> getLoginName() {
+        <SPAN class="code-keyword">return</SPAN> loginName;
+    }
+
+    <SPAN class="code-keyword">public</SPAN> void setLoginName(<SPAN class="code-object">String</SPAN> loginName) {
+        <SPAN class="code-keyword">this</SPAN>.loginName = loginName;
+    }
+}
+</PRE>
+</DIV></DIV>
+
+<P><TT>LoginAction</TT> has a bean property <TT>loginName</TT>. This property will be set automatically by Struts 2 from forms containing a <TT>loginName</TT> element.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+&lt;form method=<SPAN class="code-quote">&quot;POST&quot;</SPAN> action=<SPAN class="code-quote">&quot;login.action&quot;</SPAN>&gt;
+  &lt;input type=<SPAN class="code-quote">&quot;text&quot;</SPAN> name=<SPAN class="code-quote">&quot;loginName&quot;</SPAN> size=<SPAN class="code-quote">&quot;20&quot;</SPAN>&gt;
+  &lt;input type=<SPAN class="code-quote">&quot;submit&quot;</SPAN> value=<SPAN class="code-quote">&quot;Login&quot;</SPAN>&gt;
+&lt;/form&gt;
+</PRE>
+</DIV></DIV>
+
+<P>Also, the bean property is available to your views. In Velocity, this accessible via the VelocityContext.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+$loginName
+</PRE>
+</DIV></DIV>
+
+<P>which is mapped to <TT>getLoginName()</TT> in our <TT>LoginAction</TT> class.</P>
+
+<P>You can map any other object you wish. For example, I could have a <TT>User</TT> object:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+class User {
+   <SPAN class="code-keyword">private</SPAN> Account account;
+   <SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">String</SPAN> name;
+   <SPAN class="code-comment">// with the relevant getX() methods...
+</SPAN>}
+</PRE>
+</DIV></DIV>
+
+<P>We add a <TT>user</TT> property to an action class:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+class MyExampleAction {
+   <SPAN class="code-comment">//...
+</SPAN>   User getUser() {
+      returns user;
+   }
+   <SPAN class="code-comment">//...
+</SPAN>}
+</PRE>
+</DIV></DIV>
+
+<P>In our Velocity template we can access <TT>User</TT> properties as expected:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+Welcome, $user.name.
+You last logged on at $user.lastLogin.
+You currently have $user.account.balance left in your account.
+</PRE>
+</DIV></DIV>
+
+<H2><A name="ChatApplication-Components"></A>Components</H2>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>components.xml</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+&lt;components&gt; 
+    &lt;component&gt; 
+        &lt;scope&gt;application&lt;/scope&gt;
+        &lt;class&gt;example.data.MessageList&lt;/class&gt;
+        &lt;enabler&gt;example.data.MessageListAware&lt;/enabler&gt;
+    &lt;/component&gt;
+
+    &lt;component&gt; 
+        &lt;scope&gt;session&lt;/scope&gt;
+        &lt;class&gt;example.web.UserSession&lt;/class&gt;
+        &lt;enabler&gt;example.web.UserSessionAware&lt;/enabler&gt;
+    &lt;/component&gt;
+&lt;/components&gt;
+</PRE>
+</DIV></DIV>
+
+<P>Two components, one to hold the application scoped chat messages, another to hold the user's session information (login account name, etc.) For all practical purposes, you can replace the application scoped component with a database. i.e. instead of reading/writing to the component, read/write to the database.</P>
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

@@ -1,0 +1,206 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Editing the Documentation</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="guides.html" title="Guides">Guides</A>&nbsp;&gt;&nbsp;<A href="contributors-guide.html" title="Contributors Guide">Contributors Guide</A>&nbsp;&gt;&nbsp;<A href="" title="Editing the Documentation">Editing the Documentation</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Editing the Documentation</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=27087">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=27087">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=27087">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=27087">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=27087">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=27087">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <P>Changes to the documentation can be requested to the <A href="https://issues.apache.org/struts/secure/Dashboard.jspa" class="external-link" rel="nofollow">issue tracker</A>, or added to a page as a comment. To add comments, create an account on the Struts 2 Documentation Confluence space at <A href="http://cwiki.apache.org/WW/home.html" class="external-link" rel="nofollow">cwiki.apache.org</A>. A volunteer with page editing privileges can then make the change by referring to the comment. (Confluence sends to the developers mailing list a daily summary of changes, including new comments.)</P>
+
+<P>To request page editing privileges, first file a <A href="http://www.apache.org/licenses/index.html#clas" class="external-link" rel="nofollow">Contributor's License Agreement</A> with the ASF. After CLA is submitted (fax is still best), you can request a karma upgrade on the <A href="http://struts.apache.org/mail.html" class="external-link" rel="nofollow">dev list</A>. After the CLA is submitted, it make take several days for it to be processed by the ASF Secretary (who is a part time volunteer, like everyone else around here). The roster of CLAs is available to ASF members, as well as at the bottom of <A href="http://people.apache.org/~jim/committers.html" class="external-link" rel="nofollow">this page</A>, so we will know when it is processed.</P>
+
+<P>The Struts 2 Documentation space is bundled with the Struts distribution, and, eventually, the content may be checked into an ASF repository. Accordingly, all volunteers working to this space must have a CLA on file. </P>
+
+<P>The project also hosts a second Confluence space, the <A href="http://cwiki.apache.org/S2WIKI/home.html" class="external-link" rel="nofollow">Struts 2 wiki</A>, which can be edited by anyone who creates a n account. </P>
+
+<P>See also: <A href="http://struts.apache.org/helping.html" class="external-link" rel="nofollow">How to Help FAQ</A>.</P>
+
+<H2><A name="EditingtheDocumentation-DocumentationWorkflow"></A>Documentation Workflow</H2>
+
+<P>Since projects like Struts wear our code &quot;on our sleeve&quot;, there's always a discussion over whether the website should represent the latest documentation or the documentation for the &quot;best available&quot; release. Over the years, we've done it one way and the another, and now we do it both ways <IMG class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/smile.gif" height="20" width="20" align="absmiddle" alt="" border="0"> </P>
+
+<P>The latest documentation for Struts 2.0.x is at </P>
+
+<UL>
+	<LI><A href="http://struts.apache.org/2.x/" class="external-link" rel="nofollow">http://struts.apache.org/2.x/</A></LI>
+</UL>
+
+
+<P>You can get here by following the home link to the &quot;2.x draft docs&quot;. </P>
+
+<P>The documentation for (say) the Struts 2.0.9 release is archived at </P>
+
+<UL>
+	<LI><A href="http://struts.apache.org/2.0.9/" class="external-link" rel="nofollow">http://struts.apache.org/2.0.9/</A></LI>
+</UL>
+
+
+<P>You can get here by following the link to the Struts 2.0.9 documentation. </P>
+
+<P>The draft documentation is saved first to the Confluence wiki software at </P>
+
+<UL>
+	<LI><A href="http://cwiki.apache.org/confluence/display/WW/" class="external-link" rel="nofollow">http://cwiki.apache.org/confluence/display/WW/</A></LI>
+</UL>
+
+
+<P>It's then immediately converted to HTML, on an edit-by-edit basis, and kept at </P>
+
+<UL>
+	<LI><A href="http://cwiki.apache.org/WW/home.html" class="external-link" rel="nofollow">http://cwiki.apache.org/WW/home.html</A></LI>
+</UL>
+
+
+<P>Then every hour or so, the cwiki site is synchronized with the the main site at </P>
+
+<UL>
+	<LI><A href="http://struts.apache.org/" class="external-link" rel="nofollow">http://struts.apache.org/</A></LI>
+</UL>
+
+
+<P>When we vote a test build to a release (of any flavor: alpha, beta, GA), we archive the HTML version of the documentation for future reference. When a release is designated GA, we update the appropriate links on the main site to point to the archival copy. </P>
+
+<P>Now, all this applies to the &quot;documentation wiki&quot;. Since we bundle the HTML version of the documentation wiki with the release, we require authors to file a CLA, to ensure that we actually have distribution rights. </P>
+
+<P>To cover all the bases, we also maintain a &quot;community wiki&quot;, that is not bundled with the distribution. </P>
+
+<UL>
+	<LI><A href="http://cwiki.apache.org/S2WIKI/home.html" class="external-link" rel="nofollow">http://cwiki.apache.org/S2WIKI/home.html</A></LI>
+</UL>
+
+
+<P>It's open to anyone who signs up for an account on Confluence. Sometimes, we do move documentation from the community wiki to the documentation wiki, if the author can a CLA. </P>
+
+<P>Sadly, not everyone can file a CLA. Many organizations still use aggressive IP agreement that assign rights to our every stray thought to the company, 24/7. In fact, some organizations grant a special dispensation for the ASF so that their employees can file CLAs. </P>
+
+<H2><A name="EditingtheDocumentation-Next%3ADocumentationColophonColophon"></A>Next: <A href="colophon.html" title="Colophon">Documentation Colophon</A></H2>
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

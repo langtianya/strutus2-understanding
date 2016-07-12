@@ -1,0 +1,253 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Handling File Uploads</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="faqs.html" title="FAQs">FAQs</A>&nbsp;&gt;&nbsp;<A href="cookbook.html" title="Cookbook">Cookbook</A>&nbsp;&gt;&nbsp;<A href="" title="Handling File Uploads">Handling File Uploads</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Handling File Uploads</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=13885">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=13885">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=13885">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=13885">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=13885">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=13885">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <P>The framework comes with built in file upload support. Uploading a file is simple. When FilterDispatcher receives a request, it checks to see if the request contains multipart content. If it does the dispatcher creates a MultipartWrapperRequest. This wrapper handles receiving the file and saving to disk. It is important for the Action programmer to check to see if any errors occured during processing. Three properties can be set that effect file uploading.</P>
+
+<DIV class="panelMacro"><TABLE class="noteMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>Ensure you have the necessary file upload libraries in your application.  If using the default file upload parser, Commons Fileupload and its dependencies should be in your application's classpath.</TD></TR></TABLE></DIV> 
+
+<H2><A name="HandlingFileUploads-Properties"></A>Properties</H2>
+
+<P>Properties can be set by putting a <TT>struts.properties</TT> file in <TT>WEB-INF/classes</TT>. Any property found in the properties file will override the default value.</P>
+<OL>
+	<LI><TT>struts.multipart.parser</TT> - This property should be set to a class that extends MultiPartRequest. Currently, the framework ships with the Jakarta FileUpload implementation.</LI>
+	<LI><TT>struts.multipart.saveDir</TT> - The directory where the uploaded files will be placed. If this property is not set it defaults to <TT>javax.servlet.context.tempdir</TT>.</LI>
+	<LI><TT>struts.multipart.maxSize</TT> - The maximum file size in bytes to allow for upload. This helps prevent system abuse by someone uploading lots of large files. The default value is 2 Megabytes and can be set as high as 2 Gigabytes (higher if you want to edit the Pell multipart source but you really need to rethink things if you need to upload files larger then 2 Gigabytes&#33;) If you are uploading more than one file on a form the maxSize applies to the combined total, not the individual file sizes.</LI>
+</OL>
+
+
+<P>If you're happy with the defaults, there is no need to put any of the properties in <TT>struts.properties</TT>.  </P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>struts.properties</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+# put the uploaded files in /tmp. My application will move them to their
+# <SPAN class="code-keyword">final</SPAN> destination
+struts.multipart.saveDir=/tmp
+</PRE>
+</DIV></DIV>
+<P>Note, while you can set these properties to new values at runtime the MultiPartRequestWrapper is created and the file handled before your Action code is called. So if you want to change values you must do so before this Action.</P>
+
+<H2><A name="HandlingFileUploads-SampleForm"></A>Sample Form</H2>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;%@ taglib uri=<SPAN class="code-quote">&quot;action2&quot;</SPAN> prefix=<SPAN class="code-quote">&quot;s&quot;</SPAN> %&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;html&gt;</SPAN>
+  <SPAN class="code-tag">&lt;head&gt;</SPAN>
+   <SPAN class="code-tag">&lt;title&gt;</SPAN>File Upload Test<SPAN class="code-tag">&lt;/title&gt;</SPAN>
+  <SPAN class="code-tag">&lt;/head&gt;</SPAN>
+  <SPAN class="code-tag">&lt;body&gt;</SPAN>
+    <SPAN class="code-tag">&lt;h1&gt;</SPAN>File Upload<SPAN class="code-tag">&lt;/h1&gt;</SPAN>
+
+    <SPAN class="code-tag">&lt;form action=<SPAN class="code-quote">&quot;FileUpload.action&quot;</SPAN> method=<SPAN class="code-quote">&quot;POST&quot;</SPAN> enctype=<SPAN class="code-quote">&quot;multipart/form-data&quot;</SPAN>&gt;</SPAN>
+
+    <SPAN class="code-tag">&lt;center&gt;</SPAN>
+      <SPAN class="code-tag">&lt;table width=<SPAN class="code-quote">&quot;350&quot;</SPAN> border=<SPAN class="code-quote">&quot;0&quot;</SPAN> cellpadding=<SPAN class="code-quote">&quot;3&quot;</SPAN> cellspacing=<SPAN class="code-quote">&quot;0&quot;</SPAN>&gt;</SPAN>
+      <SPAN class="code-tag">&lt;tr&gt;</SPAN>
+        <SPAN class="code-tag">&lt;td colspan=<SPAN class="code-quote">&quot;2&quot;</SPAN>&gt;</SPAN><SPAN class="code-tag">&lt;input type=<SPAN class="code-quote">&quot;file&quot;</SPAN> name=<SPAN class="code-quote">&quot;FileName&quot;</SPAN> value=<SPAN class="code-quote">&quot;Browse...&quot;</SPAN> size=<SPAN class="code-quote">&quot;50&quot;</SPAN>/&gt;</SPAN><SPAN class="code-tag">&lt;/td&gt;</SPAN>
+      <SPAN class="code-tag">&lt;/tr&gt;</SPAN>
+      <SPAN class="code-tag">&lt;tr&gt;</SPAN>
+        <SPAN class="code-tag">&lt;td colspan=<SPAN class="code-quote">&quot;2&quot;</SPAN> align=<SPAN class="code-quote">&quot;center&quot;</SPAN>&gt;</SPAN>
+          <SPAN class="code-tag">&lt;input type=<SPAN class="code-quote">&quot;submit&quot;</SPAN> value=<SPAN class="code-quote">&quot;Submit&quot;</SPAN>&gt;</SPAN>
+        <SPAN class="code-tag">&lt;/td&gt;</SPAN>
+      <SPAN class="code-tag">&lt;/tr&gt;</SPAN>
+      <SPAN class="code-tag">&lt;/table&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/center&gt;</SPAN>
+  <SPAN class="code-tag">&lt;/form&gt;</SPAN>
+<SPAN class="code-tag">&lt;/body&gt;</SPAN>
+<SPAN class="code-tag">&lt;/html&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>That's all you have to do to upload a file. No coding required, the file will be placed in the default directory. However, that leaves us with no error checking among other things. So let's add some code to the Action.</P>
+
+<H2><A name="HandlingFileUploads-FileUploadAction"></A>File Upload Action</H2>
+
+<P>Before the Action method is called the dispatcher will upload the file. Then we can get access to information about the file from MultiPartRequestWrapper.</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>FileUploadAction.java</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+MultiPartRequestWrapper multiWrapper =
+		(MultiPartRequestWrapper) ServletActionContext.getRequest();
+</PRE>
+</DIV></DIV>
+<P>The first thing you should always do is check for errors. If there were any, there's no point in continuing, most methods will return null. Unfortunately, currently there is no easy way to distinguish what error occured making it more difficult to route to different error pages. </P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+<SPAN class="code-keyword">if</SPAN> (multiWrapper.hasErrors()) {
+  Collection errors = multiWrapper.getErrors();
+  Iterator i = errors.iterator();
+  <SPAN class="code-keyword">while</SPAN> (i.hasNext()) {
+    addActionError((<SPAN class="code-object">String</SPAN>) i.next());
+  }
+  <SPAN class="code-keyword">return</SPAN> ERROR;
+}
+</PRE>
+</DIV></DIV>
+<P>Now get the input tag name for the uploaded file and use that to get information on the transfer. Since you can upload multiple files (just add multiple input tags) at a time <TT>getFileNames</TT> returns an Enumeration of the names.</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+Enumeration e = multiWrapper.getFileNames();
+
+<SPAN class="code-keyword">while</SPAN> (e.hasMoreElements()) {
+   <SPAN class="code-comment">// get the value of <SPAN class="code-keyword">this</SPAN> input tag
+</SPAN>   <SPAN class="code-object">String</SPAN> inputValue = (<SPAN class="code-object">String</SPAN>) e.nextElement();
+
+   <SPAN class="code-comment">// get the content type
+</SPAN>   <SPAN class="code-object">String</SPAN> contentType = multiWrapper.getContentType(inputValue);
+
+   <SPAN class="code-comment">// get the name of the file from the input tag
+</SPAN>   <SPAN class="code-object">String</SPAN> fileName = multiWrapper.getFilesystemName(inputValue);
+
+   <SPAN class="code-comment">// Get a File object <SPAN class="code-keyword">for</SPAN> the uploaded File
+</SPAN>   File file = multiWrapper.getFile(inputValue);
+
+   <SPAN class="code-comment">// If it's <SPAN class="code-keyword">null</SPAN> the upload failed
+</SPAN>   <SPAN class="code-keyword">if</SPAN> (file == <SPAN class="code-keyword">null</SPAN>) {
+      addActionError(<SPAN class="code-quote">&quot;Error uploading: &quot;</SPAN> + multiWrapper.getFilesystemName(inputValue));
+   }
+
+   <SPAN class="code-comment">// Do additional processing/logging...
+</SPAN>}
+</PRE>
+</DIV></DIV>
+
+<H2><A name="HandlingFileUploads-FurtherImprovements"></A>Further Improvements</H2>
+
+<P>Code above may be packed into one nice reusable component (Interceptor) that handles 90% of all typical file upload tasks. And Action does not know anything about web-app and just gets its files. Neat. </P>
+
+<P><IMG class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/lightbulb_on.gif" height="16" width="16" align="absmiddle" alt="" border="0"> For more, see the <A href="file-upload-interceptor.html" title="File Upload Interceptor">File Upload Interceptor</A></P>
+
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

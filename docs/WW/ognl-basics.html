@@ -1,0 +1,297 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>OGNL Basics</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="guides.html" title="Guides">Guides</A>&nbsp;&gt;&nbsp;<A href="tag-developers-guide.html" title="Tag Developers Guide">Tag Developers Guide</A>&nbsp;&gt;&nbsp;<A href="ognl.html" title="OGNL">OGNL</A>&nbsp;&gt;&nbsp;<A href="" title="OGNL Basics">OGNL Basics</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">OGNL Basics</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=14000">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=14000">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14000">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14000">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14000">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14000">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <H2><A name="OGNLBasics-XWorkspecificlanguagefeatures"></A>XWork-specific language features</H2>
+
+<P>The biggest addition that XWork provides on top of OGNL is the support for the ValueStack. While OGNL operates under the assumption there is only one &quot;root&quot;, XWork's ValueStack concept requires there be many &quot;roots&quot;. </P>
+
+<P>For example, suppose we are using standard OGNL (not using XWork) and there are two objects in the OgnlContext map: &quot;foo&quot; -&gt; foo and &quot;bar&quot; -&gt; bar and that the foo object is also configured to be the single <B>root</B> object. The following code illustrates how OGNL deals with these three situations:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+#foo.blah <SPAN class="code-comment">// returns foo.getBlah()
+</SPAN>#bar.blah <SPAN class="code-comment">// returns bar.getBlah()
+</SPAN>blah      <SPAN class="code-comment">// returns foo.getBlah() because foo is the root</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>What this means is that OGNL allows many objects in the context, but unless the object you are trying to access is the root, it must be prepended with a namespaces such as @bar. Now let's talk about how XWork is a little different...</P>
+
+<DIV class="panelMacro"><TABLE class="infoMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD><B>Useful Information</B><BR>In XWork, the entire ValueStack is the root object in the context. Rather than having your expressions get the object you want from the stack and then get properties from that (ie: peek().blah), XWork has a special OGNL PropertyAccessor that will automatically look at the all entries in the stack (from the top down) until it finds an object with the property you are looking for.</TD></TR></TABLE></DIV>
+
+<P>For example, suppose the stack contains two objects: Animal and Person. Both objects have a &quot;name&quot; property, Animal has a &quot;species&quot; property, and Person has a &quot;salary&quot; property. Animal is on the top of the stack, and Person is below it. The follow code fragments help you get an idea of what is going on here:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+species    <SPAN class="code-comment">// call to animal.getSpecies()
+</SPAN>salary     <SPAN class="code-comment">// call to person.getSalary()
+</SPAN>name       <SPAN class="code-comment">// call to animal.getName() because animal is on the top</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>In the last example, there was a tie and so the animal's name was returned. Usually this is the desired effect, but sometimes you want the property of a lower-level object. To do this, XWork has added support for indexes on the ValueStack. All you have to do is:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+[0].name   <SPAN class="code-comment">// call to animal.getName()
+</SPAN>[1].name   <SPAN class="code-comment">// call to person.getName()</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>With expression like [0] ... [3] etc. Struts 2 will cut the stack and still return back a CompoundRoot object. To get the top of that particular stack cut, use <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&title=0&linkCreation=true&fromPageId=14000" class="createlink">0</A>.top</P>
+
+<DIV class="table-wrap">
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TH class="confluenceTh">ognl expression</TH>
+<TH class="confluenceTh">description</TH>
+</TR>
+<TR>
+<TD class="confluenceTd"> [0].top </TD>
+<TD class="confluenceTd"> would get the top of the stack cut starting from element 0 in the stack (similar to top in this case)</TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> [1].top </TD>
+<TD class="confluenceTd"> would get the top of the stack cut starting from element 1 in the stack</TD>
+</TR>
+</TBODY></TABLE>
+</DIV>
+
+
+<H2><A name="OGNLBasics-Accessingstaticproperties"></A>Accessing static properties</H2>
+
+<P>OGNL supports accessing static properties as well as static methods.</P>
+
+<P>By default, Struts 2 is configured to disallow this--to enable OGNL's static member support you must set the <TT>struts.ognl.allowStaticMethodAccess</TT> constant to <TT>true</TT> via any of the <A href="constant-configuration.html" title="Constant Configuration">Constant Configuration</A> methods.</P>
+
+<P>OGNL's static access looks like this: </P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-none">
+@some.package.ClassName@FOO_PROPERTY
+@some.package.ClassName@someMethod()
+</PRE>
+</DIV></DIV>
+
+<P>However, XWork allows you to avoid having to specify the full package name and call static properties and methods of your action classes using the &quot;vs&quot; prefix:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+@vs@FOO_PROPERTY
+@vs@someMethod()
+
+@vs1@FOO_PROPERTY
+@vs1@someMethod()
+
+@vs2@BAR_PROPERTY
+@vs2@someOtherMethod()
+</PRE>
+</DIV></DIV>
+
+<P>&quot;vs&quot; stands for &quot;value stack&quot;.  The important thing to note here is that if the class name you specify is just &quot;vs&quot;, the class for the object on the top of the stack is used. If you specify a number after the &quot;vs&quot; string, an object's class deeper in the stack is used instead.</P>
+
+
+
+<H2><A name="OGNLBasics-DifferencesfromtheWebWork1.xEL"></A>Differences from the WebWork 1.x EL</H2>
+
+<P>Besides the examples and descriptions given above, there are a few major changes in the EL since WebWork 1.x. The biggest one is that properties are no longer accessed with a forward slash &#40;/&#41; but with a dot (.). Also, rather than using &quot;..&quot; to traverse down the stack, we now use &quot;[n]&quot; where n is some positive number. Lastly, in WebWork 1.x one could access special named objects (the request scope attributes to be exact) by using &quot;@foo&quot;, but now special variables are accessed using &quot;#foo&quot;. However, it is important to note that &quot;#foo&quot; does NOT access the request attributes. Because XWork is not built only for the web, there is no concept of &quot;request attributes&quot;, and thus &quot;#foo&quot; is merely a request to another object in the OgnlContext other than the root.</P>
+
+<DIV class="table-wrap">
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TH class="confluenceTh"> Old Expression     </TH>
+<TH class="confluenceTh"> New Expression </TH>
+</TR>
+<TR>
+<TD class="confluenceTd"> foo/blah           </TD>
+<TD class="confluenceTd"> foo.blah          </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> foo/someMethod()   </TD>
+<TD class="confluenceTd"> foo.someMethod()  </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> ../bar/blah        </TD>
+<TD class="confluenceTd"> [1].bar.blah    </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> @baz               </TD>
+<TD class="confluenceTd"> not directly supported, but #baz is similar </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> .                  </TD>
+<TD class="confluenceTd"> top or [0] </TD>
+</TR>
+</TBODY></TABLE>
+</DIV>
+
+
+
+
+<H2><A name="OGNLBasics-Struts2NamedObjects"></A>Struts 2 Named Objects</H2>
+
+<P>Struts 2 places request parameters and request, session, and application attributes on the OGNL stack. They may be accessed as shown below.</P>
+
+<DIV class="table-wrap">
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TH class="confluenceTh">name</TH>
+<TH class="confluenceTh">value</TH>
+</TR>
+<TR>
+<TD class="confluenceTd"> #parameters['foo'] or #parameters.foo </TD>
+<TD class="confluenceTd"> request parameter ['foo'] (request.getParameter()) </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> #request['foo'] or #request.foo </TD>
+<TD class="confluenceTd"> request attribute ['foo']  (request.getAttribute()) </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> #session['foo'] or #session.foo </TD>
+<TD class="confluenceTd"> session attribute 'foo' </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> #application['foo'] or #application.foo </TD>
+<TD class="confluenceTd"> ServletContext attributes 'foo' </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> #attr['foo'] or #attr.foo </TD>
+<TD class="confluenceTd"> Access to PageContext if available, otherwise searches request/session/application respectively</TD>
+</TR>
+</TBODY></TABLE>
+</DIV>
+
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

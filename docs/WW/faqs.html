@@ -1,0 +1,605 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>FAQs</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="" title="FAQs">FAQs</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">FAQs</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=14182">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=14182">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14182">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14182">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14182">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14182">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <DIV class="panelMacro"><TABLE class="tipMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD><B>Adding New FAQs</B><BR>Each FAQ should be cross-referenced from a relevant page in one of the guides. (If a relevant page in the guide is missing, then we probably need to create one!) Each question should be a new page. Answers should be concise and focused. If an answer seems long, or seems like it could relate to more than one section, then the question might be addressing more than one concern. 
+
+<P>FAQs can also be &quot;mini-HOWTOs&quot;. As long as the question and answer are focused on a single concern, length is not an issue.</P></TD></TR></TABLE></DIV>
+
+
+<H3><A name="FAQs-Migrating"></A>Migrating </H3>
+
+<UL>
+	<LI>See the <A href="migration-guide.html" title="Migration Guide">Migration Guide</A></LI>
+</UL>
+
+
+<H3><A name="FAQs-General"></A>General</H3>
+
+<UL>
+	<LI><A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&title=Where%20do%20we%20get%20the%20latest%20version%20of%20the%20framework&linkCreation=true&fromPageId=14182" class="createlink">Where do we get the latest version of the framework</A>?</LI>
+	<LI><A href="what-are-some-of-the-frameworks-best-features.html" title="What are some of the framework's best features">What are some of the framework's best features</A>?</LI>
+	<LI><A href="what-are-the-fundamental-differences-between-struts-and-jsf.html" title="What are the fundamental differences between Struts and JSF">What are the fundamental differences between Struts and JSF</A>?</LI>
+	<LI><A href="can-you-suggest-an-elevator-pitch.html" title="Can you suggest an elevator pitch">Can you suggest an elevator pitch</A>?</LI>
+</UL>
+
+
+<H3><A name="FAQs-HOWTO"></A>HOWTO</H3>
+
+<UL>
+	<LI><A href="how-can-we-display-dynamic-or-static-images-that-can-be-provided-as-an-array-of-bytes.html" title="How can we display dynamic or static images that can be provided as an array of bytes">How can we display dynamic or static images that can be provided as an array of bytes</A>?</LI>
+	<LI><A href="how-can-we-return-a-text-string-as-the-response.html" title="How can we return a text string as the response">How can we return a text string as the response</A>?</LI>
+	<LI><A href="how-can-we-test-applications.html" title="How can we test applications?">How can we test applications&#63;</A></LI>
+	<LI><A href="how-can-we-test-actions.html" title="How can we test Actions">How can we test Actions</A>?</LI>
+	<LI><A href="how-do-we-upload-files.html" title="How do we upload files">How do we upload files</A>?</LI>
+	<LI><A href="how-do-we-download-files-within-the-framework.html" title="How do we download files within the framework">How do we download files within the framework</A>?</LI>
+	<LI><A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&title=How%20can%20we%20force%20the%20Action%20Mappings%20(i.e.%20struts.xml)%20to%20reload&linkCreation=true&fromPageId=14182" class="createlink">How can we force the Action Mappings &#40;i.e. struts.xml&#41; to reload</A>?</LI>
+	<LI><A href="how-can-i-test-my-action-output-validation-or-the-action-execution-outside-a-container.html" title="How can I test my action output, validation or the action execution outside a container?">How can I test my action output, validation or the action execution outside a container&#63;</A></LI>
+</UL>
+
+
+<H3><A name="FAQs-Configuration"></A>Configuration</H3>
+
+<UL>
+	<LI><A href="can-we-break-up-a-large-strutsxml-file-into-smaller-pieces.html" title="Can we break up a large struts.xml file into smaller pieces">Can we break up a large struts.xml file into smaller pieces</A>?</LI>
+	<LI><A href="parameters-in-configuration-results.html" title="Parameters in configuration results">Parameters in configuration results</A></LI>
+	<LI><A href="make-struts-throw-exceptions-on-missing-properties-or-log-them.html" title="Make Struts throw exceptions on missing properties, or log them">Make Struts throw exceptions on missing properties, or log them</A></LI>
+</UL>
+
+
+<H3><A name="FAQs-AccessingResources"></A>Accessing Resources</H3>
+
+<UL>
+	<LI><A href="how-do-we-get-access-to-the-session.html" title="How do we get access to the session">How do we get access to the session</A>?</LI>
+	<LI><A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&title=How%20do%20we%20invalidate%20the%20session&linkCreation=true&fromPageId=14182" class="createlink">How do we invalidate the session</A>?</LI>
+	<LI><A href="how-can-we-access-the-httpservletrequest.html" title="How can we access the HttpServletRequest">How can we access the HttpServletRequest</A>?</LI>
+	<LI><A href="how-can-we-access-the-httpservletresponse.html" title="How can we access the HttpServletResponse">How can we access the HttpServletResponse</A>?</LI>
+	<LI><A href="how-can-we-access-request-parameters-passed-into-an-action.html" title="How can we access request parameters passed into an Action">How can we access request parameters passed into an Action</A>?</LI>
+	<LI><A href="how-do-we-access-static-parameters-from-an-action.html" title="How do we access static parameters from an Action">How do we access static parameters from an Action</A>?</LI>
+	<LI><A href="can-we-access-an-actions-result.html" title="Can we access an Action's Result">Can we access an Action's Result</A>?</LI>
+	<LI><A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&title=How%20do%20I%20obtain%20security%20details%20(e.g.%20JAAS)&linkCreation=true&fromPageId=14182" class="createlink">How do I obtain security details &#40;e.g. JAAS&#41;</A>?</LI>
+	<LI><A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&title=How%20do%20we%20access%20the%20ActionInvocation,%20action%20name%20or%20namespace%20from%20a%20view&linkCreation=true&fromPageId=14182" class="createlink">How do we access the ActionInvocation, action name or namespace from a view</A></LI>
+</UL>
+
+
+<H3><A name="FAQs-PerPageSettings"></A>Per-Page Settings</H3>
+
+<UL>
+	<LI><A href="can-i-change-theme-on-a-per-page-basis.html" title="Can I change theme on a per-page basis">Can I change theme on a per&#45;page basis</A>?</LI>
+	<LI><A href="can-i-change-templatedir-on-a-per-page-basis.html" title="Can I change templateDir on a per-page basis">Can I change templateDir on a per&#45;page basis</A>?</LI>
+	<LI><A href="can-i-change-templatesuffix-on-a-per-page-basis.html" title="Can I change templateSuffix on a per-page basis">Can I change templateSuffix on a per&#45;page basis</A>?</LI>
+</UL>
+
+
+<H3><A name="FAQs-Interceptors"></A>Interceptors</H3>
+
+<UL>
+	<LI><A href="why-isnt-our-prepare-interceptor-being-executed.html" title="Why isn't our Prepare interceptor being executed">Why isn't our Prepare interceptor being executed</A>?</LI>
+	<LI><A href="why-does-my-setter-not-get-called-by-the-params-interceptor.html" title="Why does my setter not get called by the params interceptor">Why does my setter not get called by the params interceptor</A>?</LI>
+	<LI><A href="how-do-we-configure-an-interceptor-to-be-used-with-every-action.html" title="How do we configure an Interceptor to be used with every Action">How do we configure an Interceptor to be used with every Action</A>?</LI>
+</UL>
+
+
+<H3><A name="FAQs-Validation"></A>Validation</H3>
+
+<UL>
+	<LI><A href="why-is-my-action-returning-input-when-the-form-is-filled-out-correctly.html" title="Why is my action returning &quot;input&quot; when the form is filled out correctly">Why is my action returning &quot;input&quot; when the form is filled out correctly</A>?</LI>
+	<LI><A href="how-do-i-use-messages-from-within-the-validator.html" title="How do I use messages from within the validator">How do I use messages from within the validator</A>?</LI>
+	<LI><A href="how-can-i-fix-the-attribute-short-circuit-error-message.html" title="How can I fix the &quot;Attribute 'short-circuit'&quot; error message">How can I fix the &quot;Attribute 'short&#45;circuit'&quot; error message</A>?</LI>
+	<LI><A href="how-do-we-repopulate-controls-when-validation-fails.html" title="How do we repopulate controls when validation fails">How do we repopulate controls when validation fails</A>?</LI>
+	<LI><A href="how-do-i-unit-test-my-actions-validation-logic.html" title="How do I unit test my action's validation logic">How do I unit test my action's validation logic</A>?</LI>
+	<LI><A href="why-does-ww-ignore-my-message-when-its-enclosed-in-cdata.html" title="Why does WW ignore my message when its enclosed in CDATA">Why does WW ignore my message when its enclosed in CDATA</A>?</LI>
+</UL>
+
+
+<H3><A name="FAQs-Localization"></A>Localization</H3>
+
+<UL>
+	<LI><A href="how-do-we-change-locales.html" title="How do we change locales">How do we change locales</A>?</LI>
+	<LI><A href="how-do-i-set-a-global-resource-bundle.html" title="How do I set a global resource bundle">How do I set a global resource bundle</A>?</LI>
+	<LI><A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&title=How%20do%20I%20decouple%20XWork%20LocalizedTextUtil%20global%20resource%20bundle%20loading%20from%20servlets&linkCreation=true&fromPageId=14182" class="createlink">How do I decouple XWork LocalizedTextUtil global resource bundle loading from servlets</A>?</LI>
+	<LI><A href="how-do-i-add-i18n-to-a-ui-tag-like-the-textfield-tag.html" title="How do I add I18N to a UI tag, like the textfield tag">How do I add I18N to a UI tag, like the textfield tag</A>?</LI>
+	<LI><A href="can-i-add-i18n-outside-the-actions-context.html" title="Can I add I18N outside the Action's context">Can I add I18N outside the Action's context</A>?</LI>
+	<LI><A href="how-to-support-utf-8-uriencoding-with-tomcat.html" title="How to support UTF-8 URIEncoding with Tomcat">How to support UTF&#45;8 URIEncoding with Tomcat</A>?</LI>
+	<LI><A href="how-do-i-enable-encoding-in-my-forms.html" title="How do I enable encoding in my forms">How do I enable encoding in my forms</A>?</LI>
+	<LI><A href="how-to-escape-special-chars-in-resource-bundles.html" title="How to escape special chars in resource bundles">How to escape special chars in resource bundles</A>?</LI>
+</UL>
+
+
+<H3><A name="FAQs-TypeConversion"></A>Type Conversion</H3>
+
+<UL>
+	<LI><A href="how-do-i-change-the-invalid-input-error-message-for-a-particular-field.html" title="How do I change the invalid input error message for a particular field">How do I change the invalid input error message for a particular field</A>?</LI>
+	<LI><A href="why-is-the-application-logging-a-warning-that-the-compound-root-cannot-find-a-particular-object-with-a-particular-property.html" title="Why is the application logging a warning that the Compound Root cannot find a particular Object with a particular property">Why is the application logging a warning that the Compound Root cannot find a particular Object with a particular property</A>?</LI>
+</UL>
+
+
+<H3><A name="FAQs-ValueStack"></A>Value Stack</H3>
+
+<UL>
+	<LI><A href="what-are-the-default-variables-in-the-value-stack.html" title="What are the default variables in the value stack">What are the default variables in the value stack</A>?</LI>
+</UL>
+
+
+<H3><A name="FAQs-TagsTagDevelopersGuide"></A><A href="tag-developers-guide.html" title="Tag Developers Guide">Tags</A></H3>
+
+<UL>
+	<LI><A href="why-do-the-form-tags-put-table-tags-around-controls.html" title="Why do the form tags put table tags around controls">Why do the form tags put table tags around controls</A>?</LI>
+	<LI><A href="how-can-i-put-a-string-literal-in-a-javascript-call-for-instance-in-an-onchange-attribute.html" title="How can I put a String literal in a Javascript call, for instance in an onChange attribute">How can I put a String literal in a Javascript call, for instance in an onChange attribute</A>?</LI>
+	<LI><A href="why-wont-the-if-tag-evaluate-a-one-char-string.html" title="Why won't the 'if' tag evaluate a one char string">Why won't the 'if' tag evaluate a one char string</A>?</LI>
+	<LI><A href="why-does-freemarker-complain-that-theres-an-error-in-my-user-directive-when-i-used-jsp-tag.html" title="Why does FreeMarker complain that there's an error in my user-directive when I used JSP Tag">Why does FreeMarker complain that there's an error in my user&#45;directive when I used JSP Tag</A>?</LI>
+	<LI><A href="can-an-action-tag-run-another-method-apart-from-the-default-execute-method.html" title="Can an action tag run another method apart from the default execute method">Can an action tag run another method apart from the default execute method</A>?</LI>
+	<LI><A href="why-didnt-my-action-tag-get-executed-when-i-have-validation-errors.html" title="Why didn't my action tag get executed when I have validation errors">Why didn't my action tag get executed when I have validation errors</A>?</LI>
+	<LI><A href="why-are-request-parameters-appended-to-our-hyperlinks.html" title="Why are request parameters appended to our hyperlinks">Why are request parameters appended to our hyperlinks</A>?</LI>
+	<LI><A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&title=why%20doesn't%20the%20if%20tag%20evaluate%20params%20properly&linkCreation=true&fromPageId=14182" class="createlink">Why doesn't the if tag evaluate test=&quot;#parameters.someParam ... &quot; properly</A></LI>
+	<LI><A href="how-do-i-render-a-single-radio-button.html" title="How do I render a single radio button">How do I render a single radio button</A>?</LI>
+	<LI><A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&title=Why%20do%20I%20get%20a%20javax.el.ELException%20when%20using%20OGNL%20with%20JSP%202.1%3F&linkCreation=true&fromPageId=14182" class="createlink">Why do I get a javax.el.ELException when using OGNL with JSP 2.1&#63;</A></LI>
+	<LI><A href="why-cant-i-use-jstl-style-el-expressions-in-struts-tags.html" title="Why can't I use JSTL-style EL expressions in Struts tags?">Why can't I use JSTL&#45;style EL expressions in Struts tags&#63;</A></LI>
+	<LI><A href="how-can-i-iterate-over-a-range-like-with-jstls-foreach-tag.html" title="How can I iterate over a range, like with JSTL's forEach tag?">How can I iterate over a range, like with JSTL's forEach tag&#63;</A></LI>
+</UL>
+
+
+<H3><A name="FAQs-POJOs"></A>POJOs</H3>
+
+<UL>
+	<LI><A href="should-the-framework-call-getmodel-multiple-times-as-a-page-renders.html" title="Should the framework call getModel multiple times as a page renders">Should the framework call getModel multiple times as a page renders</A>?</LI>
+</UL>
+
+
+<H3><A name="FAQs-Spring"></A>Spring </H3>
+
+<UL>
+	<LI><A href="how-can-we-create-our-action-objects-from-the-spring-configuration.html" title="How can we create our Action objects from the Spring configuration">How can we create our Action objects from the Spring configuration</A>?</LI>
+	<LI><A href="why-would-we-want-to-create-action-objects-from-the-spring-configuration.html" title="Why would we want to create Action objects from the Spring configuration">Why would we want to create Action objects from the Spring configuration</A>?</LI>
+</UL>
+
+
+<H3><A name="FAQs-Velocity"></A>Velocity</H3>
+
+<UL>
+	<LI><A href="im-trying-to-run-the-example-in-the-tutorial-on-tomcat-and-it-cant-instantiate-the-velocityengine.html" title="I'm trying to run the example in the tutorial on Tomcat, and it can't instantiate the VelocityEngine">I'm trying to run the example in the tutorial on Tomcat, and it can't instantiate the VelocityEngine</A></LI>
+</UL>
+
+
+<H3><A name="FAQs-Ajax%2FDojo"></A>Ajax/Dojo</H3>
+
+<UL>
+	<LI><A href="ie-showing-a-prompt-saying-this-page-contains-both-secure-and-nonsecure-items-when-using-dojo.html" title="IE showing a prompt saying &quot;This page contains both secure and nonsecure items&quot; when using dojo">IE showing a prompt saying &quot;This page contains both secure and nonsecure items&quot; when using dojo</A></LI>
+</UL>
+
+
+<H3><A name="FAQs-IssuesinSpecificEnvironments"></A>Issues in Specific Environments</H3>
+
+<UL>
+	<LI><A href="weblogic-81.html" title="Weblogic 8.1">Weblogic 8.1</A></LI>
+	<LI><A href="jrockit.html" title="JRockit">JRockit</A></LI>
+	<LI><A href="multiple-struts-2-wars-in-a-single-ear.html" title="Multiple Struts 2 wars in a single ear">Multiple Struts 2 wars in a single ear</A></LI>
+	<LI><A href="google-app-engine-gae.html" title="Google App Engine (GAE)">Google App Engine &#40;GAE&#41;</A></LI>
+</UL>
+
+
+<H2><A name="FAQs-Extensions"></A>Extensions</H2>
+
+<UL>
+	<LI><A href="does-the-framework-integrate-with-hibernate.html" title="Does the framework integrate with Hibernate">Does the framework integrate with Hibernate</A>?</LI>
+	<LI><A href="can-we-use-jstl-with-the-framework.html" title="Can we use JSTL with the framework">Can we use JSTL with the framework</A>?</LI>
+	<LI><A href="can-we-use-junit-with-the-framework.html" title="Can we use JUnit with the framework">Can we use JUnit with the framework</A>?</LI>
+	<LI><A href="can-we-use-testng-with-the-framework.html" title="Can we use TestNG with the framework">Can we use TestNG with the framework</A>?</LI>
+	<LI><A href="how-can-we-schedule-quartz-jobs.html" title="How can we schedule Quartz jobs">How can we schedule Quartz jobs</A>?</LI>
+	<LI><A href="can-we-use-acegi-security-with-the-framework.html" title="Can we use Acegi Security with the framework">Can we use Acegi Security with the framework</A>?</LI>
+</UL>
+
+
+<H3><A name="FAQs-PortletSupport%28JSR168%29"></A>Portlet Support(JSR168)</H3>
+
+<UL>
+	<LI><A href="which-portal-servers-are-supported.html" title="Which portal servers are supported">Which portal servers are supported</A>?</LI>
+	<LI><A href="how-to-build-the-portlet-war-for-a-specific-portal-server.html" title="How to build the portlet WAR for a specific portal server">How to build the portlet WAR for a specific portal server</A></LI>
+</UL>
+
+
+<H3><A name="FAQs-Migrating"></A>Migrating </H3>
+
+<UL>
+	<LI><A href="why-is-my-action-unavailable.html" title="Why is my action unavailable">Why is my action unavailable</A>?</LI>
+</UL>
+
+
+
+
+<H2><A name="FAQs-Errata%3F"></A>Errata?</H2>
+
+<DIV class="panelMacro"><TABLE class="tipMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>To suggest a change or a correction to any part of the documentation, log in and leave a comment on the appropriate page. We are always looking for <A href="http://struts.apache.org/2.x/docs/contributors-guide.html" class="external-link" rel="nofollow">help with the documentation!</A></TD></TR></TABLE></DIV>
+
+<H2><A name="FAQs-Next%3ACookbook"></A>Next: <A href="cookbook.html" title="Cookbook">Cookbook</A></H2>
+        </DIV>
+
+                  <DIV class="tabletitle">
+            Children
+            <SPAN class="smalltext" id="show" style="display: inline;">
+              <A href="javascript:showChildren()">Show Children</A></SPAN>
+            <SPAN class="smalltext" id="hide" style="display: none;">
+              <A href="javascript:hideChildren()">Hide Children</A></SPAN>
+          </DIV>
+          <DIV class="greybox" id="children" style="display: none;">
+                                      <A href="can-i-change-theme-on-a-per-page-basis.html" title="Can I change theme on a per-page basis">Can I change theme on a per-page basis</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="how-do-we-upload-files.html" title="How do we upload files">How do we upload files</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="why-are-request-parameters-appended-to-our-hyperlinks.html" title="Why are request parameters appended to our hyperlinks">Why are request parameters appended to our hyperlinks</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="why-does-ww-ignore-my-message-when-its-enclosed-in-cdata.html" title="Why does WW ignore my message when its enclosed in CDATA">Why does WW ignore my message when its enclosed in CDATA</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="how-do-i-unit-test-my-actions-validation-logic.html" title="How do I unit test my action's validation logic">How do I unit test my action's validation logic</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="does-the-framework-integrate-with-hibernate.html" title="Does the framework integrate with Hibernate">Does the framework integrate with Hibernate</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="should-the-framework-call-getmodel-multiple-times-as-a-page-renders.html" title="Should the framework call getModel multiple times as a page renders">Should the framework call getModel multiple times as a page renders</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="how-do-i-use-messages-from-within-the-validator.html" title="How do I use messages from within the validator">How do I use messages from within the validator</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="how-do-we-get-access-to-the-session.html" title="How do we get access to the session">How do we get access to the session</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="why-does-freemarker-complain-that-theres-an-error-in-my-user-directive-when-i-used-jsp-tag.html" title="Why does FreeMarker complain that there's an error in my user-directive when I used JSP Tag">Why does FreeMarker complain that there's an error in my user-directive when I used JSP Tag</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="how-can-we-schedule-quartz-jobs.html" title="How can we schedule Quartz jobs">How can we schedule Quartz jobs</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="how-can-we-access-the-httpservletresponse.html" title="How can we access the HttpServletResponse">How can we access the HttpServletResponse</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="which-portal-servers-are-supported.html" title="Which portal servers are supported">Which portal servers are supported</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="what-are-some-of-the-frameworks-best-features.html" title="What are some of the framework's best features">What are some of the framework's best features</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="why-isnt-our-prepare-interceptor-being-executed.html" title="Why isn't our Prepare interceptor being executed">Why isn't our Prepare interceptor being executed</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="why-is-the-application-logging-a-warning-that-the-compound-root-cannot-find-a-particular-object-with-a-particular-property.html" title="Why is the application logging a warning that the Compound Root cannot find a particular Object with a particular property">Why is the application logging a warning that the Compound Root cannot find a particular Object with a particular property</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="what-are-the-default-variables-in-the-value-stack.html" title="What are the default variables in the value stack">What are the default variables in the value stack</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="how-do-i-set-a-global-resource-bundle.html" title="How do I set a global resource bundle">How do I set a global resource bundle</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="how-can-we-access-request-parameters-passed-into-an-action.html" title="How can we access request parameters passed into an Action">How can we access request parameters passed into an Action</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="how-do-i-add-i18n-to-a-ui-tag-like-the-textfield-tag.html" title="How do I add I18N to a UI tag, like the textfield tag">How do I add I18N to a UI tag, like the textfield tag</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="what-is-the-actioncontext.html" title="What is the ActionContext?">What is the ActionContext?</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="how-do-i-decouple-xwork-localizedtextutil-global-resource-bundle-loading-from-serlvets.html" title="How do I decouple XWork LocalizedTextUtil global resource bundle loading from serlvets">How do I decouple XWork LocalizedTextUtil global resource bundle loading from serlvets</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="can-you-suggest-an-elevator-pitch.html" title="Can you suggest an elevator pitch">Can you suggest an elevator pitch</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="can-i-change-templatedir-on-a-per-page-basis.html" title="Can I change templateDir on a per-page basis">Can I change templateDir on a per-page basis</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="how-do-i-change-the-invalid-input-error-message-for-a-particular-field.html" title="How do I change the invalid input error message for a particular field">How do I change the invalid input error message for a particular field</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="can-we-use-junit-with-the-framework.html" title="Can we use JUnit with the framework">Can we use JUnit with the framework</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="how-to-escape-special-chars-in-resource-bundles.html" title="How to escape special chars in resource bundles">How to escape special chars in resource bundles</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="can-an-action-tag-run-another-method-apart-from-the-default-execute-method.html" title="Can an action tag run another method apart from the default execute method">Can an action tag run another method apart from the default execute method</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="can-we-use-acegi-security-with-the-framework.html" title="Can we use Acegi Security with the framework">Can we use Acegi Security with the framework</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="how-to-support-utf-8-uriencoding-with-tomcat.html" title="How to support UTF-8 URIEncoding with Tomcat">How to support UTF-8 URIEncoding with Tomcat</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="how-do-we-repopulate-controls-when-validation-fails.html" title="How do we repopulate controls when validation fails">How do we repopulate controls when validation fails</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="how-can-we-force-the-action-mappings-strutsxml-to-reload.html" title="How can we force the Action Mappings (struts.xml) to reload">How can we force the Action Mappings (struts.xml) to reload</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="how-can-i-fix-the-attribute-short-circuit-error-message.html" title="How can I fix the &quot;Attribute 'short-circuit'&quot; error message">How can I fix the &quot;Attribute 'short-circuit'&quot; error message</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="ie-showing-a-prompt-saying-this-page-contains-both-secure-and-nonsecure-items-when-using-dojo.html" title="IE showing a prompt saying &quot;This page contains both secure and nonsecure items&quot; when using dojo">IE showing a prompt saying &quot;This page contains both secure and nonsecure items&quot; when using dojo</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="can-we-break-up-a-large-strutsxml-file-into-smaller-pieces.html" title="Can we break up a large struts.xml file into smaller pieces">Can we break up a large struts.xml file into smaller pieces</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="can-we-use-jstl-with-the-framework.html" title="Can we use JSTL with the framework">Can we use JSTL with the framework</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="why-is-my-action-unavailable.html" title="Why is my action unavailable">Why is my action unavailable</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="where-do-we-get-the-latest-version-the-framework.html" title="Where do we get the latest version the framework">Where do we get the latest version the framework</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="how-to-build-the-portlet-war-for-a-specific-portal-server.html" title="How to build the portlet WAR for a specific portal server">How to build the portlet WAR for a specific portal server</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="how-do-we-change-locales.html" title="How do we change locales">How do we change locales</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="how-can-i-put-a-string-literal-in-a-javascript-call-for-instance-in-an-onchange-attribute.html" title="How can I put a String literal in a Javascript call, for instance in an onChange attribute">How can I put a String literal in a Javascript call, for instance in an onChange attribute</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="can-i-add-i18n-outside-the-actions-context.html" title="Can I add I18N outside the Action's context">Can I add I18N outside the Action's context</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="why-didnt-my-action-tag-get-executed-when-i-have-validation-errors.html" title="Why didn't my action tag get executed when I have validation errors">Why didn't my action tag get executed when I have validation errors</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="cookbook.html" title="Cookbook">Cookbook</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="im-trying-to-run-the-example-in-the-tutorial-on-tomcat-and-it-cant-instantiate-the-velocityengine.html" title="I'm trying to run the example in the tutorial on Tomcat, and it can't instantiate the VelocityEngine">I'm trying to run the example in the tutorial on Tomcat, and it can't instantiate the VelocityEngine</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="how-do-i-obtain-security-details-jaas.html" title="How do I obtain security details (JAAS)">How do I obtain security details (JAAS)</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="can-i-change-templatesuffix-on-a-per-page-basis.html" title="Can I change templateSuffix on a per-page basis">Can I change templateSuffix on a per-page basis</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="how-do-i-enable-encoding-in-my-forms.html" title="How do I enable encoding in my forms">How do I enable encoding in my forms</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="how-can-we-display-dynamic-or-static-images-that-can-be-provided-as-an-array-of-bytes.html" title="How can we display dynamic or static images that can be provided as an array of bytes">How can we display dynamic or static images that can be provided as an array of bytes</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="how-can-we-access-the-httpservletrequest.html" title="How can we access the HttpServletRequest">How can we access the HttpServletRequest</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="can-we-access-an-actions-result.html" title="Can we access an Action's Result">Can we access an Action's Result</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="how-do-we-access-static-parameters-from-an-action.html" title="How do we access static parameters from an Action">How do we access static parameters from an Action</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="why-wont-the-if-tag-evaluate-a-one-char-string.html" title="Why won't the 'if' tag evaluate a one char string">Why won't the 'if' tag evaluate a one char string</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="why-do-the-form-tags-put-table-tags-around-controls.html" title="Why do the form tags put table tags around controls">Why do the form tags put table tags around controls</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="why-doesnt-the-if-tag-evaluate-test.html" title="Why doesn't the if tag evaluate test=&quot;">Why doesn't the if tag evaluate test=&quot;</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="how-does-struts-2-make-web-applications-easier-to-develop-deploy-and-maintain.html" title="How does Struts 2 make web applications easier to develop, deploy, and maintain">How does Struts 2 make web applications easier to develop, deploy, and maintain</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="how-can-we-test-applications.html" title="How can we test applications?">How can we test applications?</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="how-do-we-configure-an-interceptor-to-be-used-with-every-action.html" title="How do we configure an Interceptor to be used with every Action">How do we configure an Interceptor to be used with every Action</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="why-is-my-action-returning-input-when-the-form-is-filled-out-correctly.html" title="Why is my action returning &quot;input&quot; when the form is filled out correctly">Why is my action returning &quot;input&quot; when the form is filled out correctly</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="how-can-we-create-our-action-objects-from-the-spring-configuration.html" title="How can we create our Action objects from the Spring configuration">How can we create our Action objects from the Spring configuration</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="why-would-we-want-to-create-action-objects-from-the-spring-configuration.html" title="Why would we want to create Action objects from the Spring configuration">Why would we want to create Action objects from the Spring configuration</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="how-can-we-change-which-methods-are-excused-from-validation.html" title="How can we change which methods are excused from validation">How can we change which methods are excused from validation</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="how-can-we-test-actions.html" title="How can we test Actions">How can we test Actions</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="can-we-use-testng-with-the-framework.html" title="Can we use TestNG with the framework">Can we use TestNG with the framework</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="parameters-in-configuration-results.html" title="Parameters in configuration results">Parameters in configuration results</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="weblogic-81.html" title="Weblogic 8.1">Weblogic 8.1</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="how-do-i-render-a-single-radio-button.html" title="How do I render a single radio button">How do I render a single radio button</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="why-do-i-get-a-javaxelelexception-when-using-ognl-with-jsp21.html" title="Why do I get a javax.el.ELException when using OGNL with JSP2.1?">Why do I get a javax.el.ELException when using OGNL with JSP2.1?</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="why-does-my-setter-not-get-called-by-the-params-interceptor.html" title="Why does my setter not get called by the params interceptor">Why does my setter not get called by the params interceptor</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="how-do-we-get-invalidate-the-session.html" title="How do we get invalidate the session">How do we get invalidate the session</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="how-can-we-return-a-text-string-as-the-response.html" title="How can we return a text string as the response">How can we return a text string as the response</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="how-do-we-download-files-within-the-framework.html" title="How do we download files within the framework">How do we download files within the framework</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="what-are-the-fundamental-differences-between-struts-and-jsf.html" title="What are the fundamental differences between Struts and JSF">What are the fundamental differences between Struts and JSF</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="does-myeclipse-6-support-struts-2.html" title="Does MyEclipse 6 support Struts 2?">Does MyEclipse 6 support Struts 2?</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="jrockit.html" title="JRockit">JRockit</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="why-doesnt-the-if-tag-evaluate-params-properly.html" title="why doesnt the if tag evaluate params properly">why doesnt the if tag evaluate params properly</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="why-cant-i-use-jstl-style-el-expressions-in-struts-tags.html" title="Why can't I use JSTL-style EL expressions in Struts tags?">Why can't I use JSTL-style EL expressions in Struts tags?</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="how-can-i-iterate-over-a-range-like-with-jstls-foreach-tag.html" title="How can I iterate over a range, like with JSTL's forEach tag?">How can I iterate over a range, like with JSTL's forEach tag?</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="how-do-we-access-the-action-invocation-action-name-or-namespace-from-a-view.html" title="How do we access the Action Invocation, action name or namespace from a view">How do we access the Action Invocation, action name or namespace from a view</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="multiple-struts-2-wars-in-a-single-ear.html" title="Multiple Struts 2 wars in a single ear">Multiple Struts 2 wars in a single ear</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="google-app-engine-gae.html" title="Google App Engine (GAE)">Google App Engine (GAE)</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="how-can-i-test-my-action-output-validation-or-the-action-execution-outside-a-container.html" title="How can I test my action output, validation or the action execution outside a container?">How can I test my action output, validation or the action execution outside a container?</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="make-struts-throw-exceptions-on-missing-properties-or-log-them.html" title="Make Struts throw exceptions on missing properties, or log them">Make Struts throw exceptions on missing properties, or log them</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                      </DIV>
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

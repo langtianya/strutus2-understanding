@@ -1,0 +1,257 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Parameters Interceptor</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="guides.html" title="Guides">Guides</A>&nbsp;&gt;&nbsp;<A href="core-developers-guide.html" title="Core Developers Guide">Core Developers Guide</A>&nbsp;&gt;&nbsp;<A href="interceptors.html" title="Interceptors">Interceptors</A>&nbsp;&gt;&nbsp;<A href="" title="Parameters Interceptor">Parameters Interceptor</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Parameters Interceptor</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=14064">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=14064">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14064">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14064">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14064">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14064">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <P>This interceptor sets all parameters on the value stack.</P>
+
+<P>This interceptor gets all parameters from ActionContext#getParameters() and sets them on the value stack by
+calling {@link ValueStack#setValue(String, Object)}, typically resulting in the values submitted in a form
+request being applied to an action in the value stack. Note that the parameter map must contain a String key and
+often containers a String[] for the value.</P>
+
+<P>The interceptor takes one parameter named 'ordered'. When set to true action properties are guaranteed to be
+set top-down which means that top action's properties are set first. Then it's subcomponents properties are set.
+The reason for this order is to enable a 'factory' pattern. For example, let's assume that one has an action
+that contains a property named 'modelClass' that allows to choose what is the underlying implementation of model.
+By assuring that modelClass property is set before any model properties are set, it's possible to choose model
+implementation during action.setModelClass() call. Similiarily it's possible to use action.setPrimaryKey()
+property set call to actually load the model class from persistent storage. Without any assumption on parameter
+order you have to use patterns like 'Preparable'.</P>
+
+<P>Because parameter names are effectively OGNL statements, it is important that security be taken in to account.
+This interceptor will not apply any values in the parameters map if the expression contains an assignment (=),
+multiple expressions (,), or references any objects in the context (#). This is all done in the {@link
+#acceptableName(String)} method. In addition to this method, if the action being invoked implements the {@link
+ParameterNameAware} interface, the action will be consulted to determine if the parameter should be set.</P>
+
+<P>In addition to these restrictions, a flag (ReflectionContextState#DENY_METHOD_EXECUTION) is set such that
+no methods are allowed to be invoked. That means that any expression such as <I>person.doSomething()</I> or
+<I>person.getName()</I> will be explicitely forbidden. This is needed to make sure that your application is not
+exposed to attacks by malicious users.</P>
+
+<P>While this interceptor is being invoked, a flag (ReflectionContextState#CREATE_NULL_OBJECTS) is turned
+on to ensure that any null reference is automatically created - if possible. See the type conversion documentation
+and the InstantiatingNullHandler javadocs for more information.</P>
+
+<P>Finally, a third flag (XWorkConverter#REPORT_CONVERSION_ERRORS) is set that indicates any errors when
+converting the the values to their final data type (String[] -&gt; int) an unrecoverable error occured. With this
+flag set, the type conversion errors will be reported in the action context. See the type conversion documentation
+and the XWorkConverter javadocs for more information.</P>
+
+<P>If you are looking for detailed logging information about your parameters, turn on DEBUG level logging for this
+interceptor. A detailed log of all the parameter keys and values will be reported.</P>
+
+<P><B>Note:</B> Since XWork 2.0.2, this interceptor extends MethodFilterInterceptor, therefore being
+able to deal with excludeMethods / includeMethods parameters. See [Workflow Interceptor]
+(class DefaultWorkflowInterceptor) for documentation and examples on how to use this feature.</P>
+
+<P>For more information on ways to restrict the parameter names allowed, see the ParameterNameAware javadocs:</P>
+
+
+<P>This interface is implemented by actions that want to declare acceptable parameters. Works in conjunction with {@link
+ParametersInterceptor}. For example, actions may want to create a whitelist of parameters they will accept or a
+blacklist of paramters they will reject to prevent clients from setting other unexpected (and possibly dangerous)
+parameters.</P>
+
+
+<H2><A name="ParametersInterceptor-Parameters"></A>Parameters</H2>
+
+
+<P><UL>
+<LI>ordered - set to true if you want the top-down property setter behaviour</LI>
+<LI>acceptParamNames - a comma delimited list of regular expressions to describe a whitelist of accepted parameter names.
+Don't change the default unless you know what you are doing in terms of security implications</LI>
+<LI>excludeParams - a comma delimited list of regular expressions to describe a blacklist of not allowed parameter names</LI>
+<LI>paramNameMaxLength - the maximum length of parameter names; parameters with longer names will be ignored; the default is 100 characters</LI>
+</UL></P>
+
+
+<H2><A name="ParametersInterceptor-Excludingparameters"></A>Excluding parameters</H2>
+<P>This interceptor can be forced to ignore parameters, by setting its <EM>excludeParams</EM> attribute. This attribute accepts a comma separated list of regular expressions. When any of these expressions match the name of a parameter, such parameter will be ignored by the interceptor. Interceptor stacks defined by Struts already exclude some parameters:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Default List of Parameters Excluded</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-html">
+
+dojo\..*,^struts\..*,^session\..*,^request\..*,^application\..*,^servlet(Request|Response)\..*,parameters\...*
+
+</PRE>
+</DIV></DIV>
+
+<P>Below is an example of adding a parameter named submit to the list of parameters that should be excluded.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Setup Interceptor Stack To Exclude submit Parameter</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+
+
+<SPAN class="code-tag">&lt;interceptors&gt;</SPAN>
+  <SPAN class="code-tag">&lt;interceptor-stack name=<SPAN class="code-quote">&quot;appDefault&quot;</SPAN>&gt;</SPAN>
+    <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;defaultStack&quot;</SPAN>&gt;</SPAN>
+       <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;exception.logEnabled&quot;</SPAN>&gt;</SPAN>true<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+       <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;exception.logLevel&quot;</SPAN>&gt;</SPAN>ERROR<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+       <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;params.excludeParams&quot;</SPAN>&gt;</SPAN>dojo\..*,^struts\..*,^session\..*,^request\..*,^application\..*,^servlet(Request|Response)\..*,parameters\...*,submit<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/interceptor-ref&gt;</SPAN>
+  <SPAN class="code-tag">&lt;/interceptor-stack&gt;</SPAN>
+<SPAN class="code-tag">&lt;/interceptors&gt;</SPAN>
+		
+<SPAN class="code-tag">&lt;default-interceptor-ref name=<SPAN class="code-quote">&quot;appDefault&quot;</SPAN> /&gt;</SPAN>
+
+</PRE>
+</DIV></DIV>
+
+<H2><A name="ParametersInterceptor-ExtendingtheInterceptor"></A>Extending the Interceptor</H2>
+
+
+<P> The best way to add behavior to this interceptor is to utilize the ParameterNameAware interface in your
+actions. However, if you wish to apply a global rule that isn't implemented in your action, then you could extend
+this interceptor and override the #acceptableName(String) method.</P>
+
+
+<DIV class="panelMacro"><TABLE class="warningMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/forbidden.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD><P>Using ParameterNameAware could be dangerous as @{link ParameterNameAware#acceptableParameterName(String)} takes precedence
+over ParametersInterceptor which means if ParametersInterceptor excluded given parameter name you can accept it with
+@{link ParameterNameAware#acceptableParameterName(String)}.</P>
+
+<P>The best idea is to define very tight restrictions with ParametersInterceptor and relax them per action with
+@{link ParameterNameAware#acceptableParameterName(String)}</P></TD></TR></TABLE></DIV>
+
+<H2><A name="ParametersInterceptor-Examples"></A>Examples</H2>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;someAction&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.examples.SomeAction&quot;</SPAN>&gt;</SPAN>
+    <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;params&quot;</SPAN>/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;success&quot;</SPAN>&gt;</SPAN>good_result.ftl<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+<SPAN class="code-tag">&lt;/action&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

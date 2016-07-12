@@ -1,0 +1,314 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Wildcard Mappings</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="guides.html" title="Guides">Guides</A>&nbsp;&gt;&nbsp;<A href="core-developers-guide.html" title="Core Developers Guide">Core Developers Guide</A>&nbsp;&gt;&nbsp;<A href="configuration-elements.html" title="Configuration Elements">Configuration Elements</A>&nbsp;&gt;&nbsp;<A href="" title="Wildcard Mappings">Wildcard Mappings</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Wildcard Mappings</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=44247">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=44247">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=44247">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=44247">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=44247">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=44247">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <H2><A name="WildcardMappings-Wildcards"></A>Wildcards </H2>
+<P>As an application grows in size, so will the number of action mappings. Wildcards can be used to combine similar mappings into one more generic mapping.</P>
+
+<P>The best way to explain wildcards is to show an example and walk through how it works. This example modifies a conventional mapping to use wildcards to match all pages that start with /edit:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+&lt;action name=<SPAN class="code-quote">&quot;/edit*&quot;</SPAN> class=<SPAN class="code-quote">&quot;org.apache.struts.webapp.example.Edit{1}Action&quot;</SPAN>&gt;
+    &lt;result name=<SPAN class="code-quote">&quot;failure&quot;</SPAN>&gt;/mainMenu.jsp&lt;/result&gt;
+    &lt;result&gt;{1}.jsp&lt;/result&gt;
+&lt;/action&gt;
+</PRE>
+</DIV></DIV>
+
+<P>The &quot;&#42;&quot; in the name attribute allows the mapping to match the request URIs /editSubscription, editRegistration, or any other URI that starts with /edit, however /editSubscription/add would not be matched. The part of the URI matched by the wildcard will then be substituted into various attributes of the action mapping and its action results replacing {1}. For the rest of the request, the framework will see the action mapping and its action results containing the new values.</P>
+
+<P>Mappings are matched against the request in the order they appear in the framework's configuration file. If more than one pattern matches <B>the last one wins</B>, so less specific patterns must appear before more specific ones. However, if the request URL can be matched against a path without any wildcards in it, no wildcard matching is performed and order is not important. Also, note that wildcards are not greedy, meaning they only match until the first occurrence of the following string pattern.  For example, consider the following mapping:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;List*s&quot;</SPAN> class=<SPAN class="code-quote">&quot;actions.List{1}s&quot;</SPAN>&gt;</SPAN>
+  <SPAN class="code-tag">&lt;result&gt;</SPAN>list{1}s.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+<SPAN class="code-tag">&lt;/action&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>This mapping would work correctly for the URI <TT>ListAccounts</TT> but not <TT>ListSponsors</TT>, because the latter would turn into this configuration:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;ListSpons&quot;</SPAN> class=<SPAN class="code-quote">&quot;actions.ListSpons&quot;</SPAN>&gt;</SPAN>
+  <SPAN class="code-tag">&lt;result&gt;</SPAN>listSpons.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+<SPAN class="code-tag">&lt;/action&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>Wildcard patterns can contain one or more of the following special tokens:</P>
+<DIV class="table-wrap">
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TD class="confluenceTd">&#42;</TD>
+<TD class="confluenceTd">Matches zero or more characters excluding the slash ('/') character.</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">&#42;&#42;</TD>
+<TD class="confluenceTd">Matches zero or more characters including the slash ('/') character.</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">\character</TD>
+<TD class="confluenceTd">The backslash character is used as an escape sequence. Thus 
+<DIV class="preformatted panel" style="border-width: 1px;"><DIV class="preformattedContent panelContent">
+<PRE>'\*'</PRE>
+</DIV></DIV>
+<P> matches the character asterisk ('*'), and </P>
+<DIV class="preformatted panel" style="border-width: 1px;"><DIV class="preformattedContent panelContent">
+<PRE>'\\'</PRE>
+</DIV></DIV>
+<P> matches the character backslash ('\').</P></TD>
+</TR>
+</TBODY></TABLE>
+</DIV>
+
+
+<DIV class="panelMacro"><TABLE class="noteMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>Patterns can optionally be matched &quot;loosely&quot;. When the end of the pattern matches &#42;[^&#42;]&#42;$ (wildcard, no wildcard, wildcard), if the pattern fails, it is also matched as if the last two characters didn't exist. The goal is to support the legacy &quot;&#42;&#33;&#42;&quot; syntax, where the &quot;!&#42;&quot; is optional.</TD></TR></TABLE></DIV>
+
+<P>In the action mapping and action results, the wildcard-matched values can be accessed with the token {N} where N is a number from 1 to 9 indicating which wildcard-matched value to substitute. The whole request URI can be accessed with the {0} token.</P>
+
+<P>Also, the action mapping and action result properties will accept wildcard-matched strings in their value attribute, like:</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;/edit/*&quot;</SPAN> class=<SPAN class="code-quote">&quot;org.apache.struts.webapp.example.Edit{1}Action&quot;</SPAN>&gt;</SPAN>
+    <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;id&quot;</SPAN>&gt;</SPAN>{1}<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+    <SPAN class="code-tag">&lt;result&gt;</SPAN>
+      <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;location&quot;</SPAN>&gt;</SPAN>/mainMenu.jsp<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+      <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;id&quot;</SPAN>&gt;</SPAN>{1}<SPAN class="code-tag">&lt;/param&gt;</SPAN> 
+    <SPAN class="code-tag">&lt;/result&gt;</SPAN>
+<SPAN class="code-tag">&lt;/action&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P><IMG class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/lightbulb_on.gif" height="16" width="16" align="absmiddle" alt="" border="0"> See also <A href="action-configuration.html#ActionConfiguration-WildcardMethod">Wildcard Method</A></P>
+
+<H2><A name="WildcardMappings-Parametersinnamespaces"></A>Parameters in namespaces</H2>
+<P>From Struts 2.1+ namespace patterns can be extracted as request parameters and bound to the action. To enable this feature, set the following constant in struts.xml:</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;constant name=<SPAN class="code-quote">&quot;struts.patternMatcher&quot;</SPAN> value=<SPAN class="code-quote">&quot;namedVariable&quot;</SPAN>/&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>With that in place, namespace definitions can contain {PARAM_NAME} patterns which will be evaluated against the request URL and extracted as parameters, for example:</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+@Namespace{<SPAN class="code-quote">&quot;/users/{userID}&quot;</SPAN>);
+<SPAN class="code-keyword">public</SPAN> class DetailsAction exends ActionSupport {
+  <SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">Long</SPAN> userID;
+  <SPAN class="code-keyword">public</SPAN> void setUserID(<SPAN class="code-object">Long</SPAN> userID) {...}
+}
+</PRE>
+</DIV></DIV>
+<P>If the request URL is <EM>/users/10/detail</EM>, then the DetailsAction will be executed and its userID field will be set to <EM>10</EM>. </P>
+
+<DIV class="panelMacro"><TABLE class="warningMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/forbidden.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>Only one PatternMatcher implementation can be used at a time.  The two implementations included with Struts 2 are mutually exclusive.  You cannot use Wildcards and Named Variable patterns at the same application (if that were required, you'd need to create a custom PatternMatcher implementation).
+
+<P>Some tags tags not are 100% compatible with variables in the namespace. For instance, they may write the literal namespace into the HTML (eg /{user}/2w) instead of the path used in the request (ie. /brett/24).  This usually affects attributes that attempt to guess the namespace of an action (eg. Form tag, Action tag, action=). This problem can be avoided by using HTML tags directly with relative paths or explicit URLs.</P></TD></TR></TABLE></DIV>
+
+<DIV class="panelMacro"><TABLE class="noteMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>Similar functionality can also be implemented using a custom ActionMapper.  The ActionMapper will need to parse the namespace and request itself to set parameters on the matched action.  The default ActonMapper is responsible for invoking the PatternMatcher.</TD></TR></TABLE></DIV>
+
+<H2><A name="WildcardMappings-Parametersaftertheactionname"></A>Parameters after the action name</H2>
+<P>To use parameters in the URL, after the action name, make sure this is set:</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;constant name=<SPAN class="code-quote">&quot;struts.enable.SlashesInActionNames&quot;</SPAN> value=<SPAN class="code-quote">&quot;true&quot;</SPAN>/&gt;</SPAN>
+<SPAN class="code-tag">&lt;constant name=<SPAN class="code-quote">&quot;struts.mapper.alwaysSelectFullNamespace&quot;</SPAN> value=<SPAN class="code-quote">&quot;false&quot;</SPAN>/&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+<P>Then the action mapping will look like:</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;package name=<SPAN class="code-quote">&quot;edit&quot;</SPAN> extends=<SPAN class="code-quote">&quot;struts-default&quot;</SPAN> namespace=<SPAN class="code-quote">&quot;/edit&quot;</SPAN>&gt;</SPAN>
+    <SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;/person/*&quot;</SPAN> class=<SPAN class="code-quote">&quot;org.apache.struts.webapp.example.EditAction&quot;</SPAN>&gt;</SPAN>
+        <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;id&quot;</SPAN>&gt;</SPAN>{1}<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+        <SPAN class="code-tag">&lt;result&gt;</SPAN>/mainMenu.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/action&gt;</SPAN>   
+<SPAN class="code-tag">&lt;/package&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+<P>When a URL like <TT>/edit/person/123</TT> is requested, EditAction will be called, and its &quot;id&quot; field will be set to 123. </P>
+
+<H2><A name="WildcardMappings-AdvancedWildcards"></A>Advanced Wildcards</H2>
+<P>From 2.1.9+ regular expressions can be defined defined in the action name. To use this form of wild card, the following constants must be set:</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;constant name=<SPAN class="code-quote">&quot;struts.enable.SlashesInActionNames&quot;</SPAN> value=<SPAN class="code-quote">&quot;true&quot;</SPAN>/&gt;</SPAN>
+<SPAN class="code-tag">&lt;constant name=<SPAN class="code-quote">&quot;struts.mapper.alwaysSelectFullNamespace&quot;</SPAN> value=<SPAN class="code-quote">&quot;false&quot;</SPAN>/&gt;</SPAN>
+<SPAN class="code-tag">&lt;constant name=<SPAN class="code-quote">&quot;struts.patternMatcher&quot;</SPAN> value=<SPAN class="code-quote">&quot;regex&quot;</SPAN> /&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>The regular expressions can be in two forms, the simplest one is {FIELD_NAME}, in which case the field with the FIELD_NAME in the action will be populated with the matched text, for example:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;package name=<SPAN class="code-quote">&quot;books&quot;</SPAN> extends=<SPAN class="code-quote">&quot;struts-default&quot;</SPAN> namespace=<SPAN class="code-quote">&quot;/&quot;</SPAN>&gt;</SPAN>
+    <SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;/{type}/content/{title}&quot;</SPAN> class=<SPAN class="code-quote">&quot;example.BookAction&quot;</SPAN>&gt;</SPAN>
+	<SPAN class="code-tag">&lt;result&gt;</SPAN>/books/content.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/action&gt;</SPAN>
+<SPAN class="code-tag">&lt;/package&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+<P>In this example, if the url <TT>/fiction/content/Frankenstein</TT> is requested, BookAction's field &quot;type&quot; will be set to &quot;fiction&quot;, and the field &quot;title&quot; will be set to &quot;Frankenstein&quot;. </P>
+
+<P>The regular expression can also be in the form {FIELD_NAME:REGULAR_EXPRESSION}. The regular expression is a normal Java regular expression. For example:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;package name=<SPAN class="code-quote">&quot;books&quot;</SPAN> extends=<SPAN class="code-quote">&quot;struts-default&quot;</SPAN> namespace=<SPAN class="code-quote">&quot;/&quot;</SPAN>&gt;</SPAN>
+    <SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;/{type}/{author:.+}/list&quot;</SPAN> class=<SPAN class="code-quote">&quot;example.ListBooksAction&quot;</SPAN>&gt;</SPAN>
+	<SPAN class="code-tag">&lt;result&gt;</SPAN>/books/list.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/action&gt;</SPAN>
+<SPAN class="code-tag">&lt;/package&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+<P>In this example, if the url <TT>/philosophy/AynRand/list</TT> is requested, ListBooksAction's field &quot;type&quot; will be set to &quot;philosophy&quot; and &quot;author&quot; to &quot;AynRand&quot;. </P>
+
+<P>The matched groups can still be accessed using the {X} notation, like:</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;package name=<SPAN class="code-quote">&quot;books&quot;</SPAN> extends=<SPAN class="code-quote">&quot;struts-default&quot;</SPAN> namespace=<SPAN class="code-quote">&quot;/&quot;</SPAN>&gt;</SPAN>
+    <SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;/books/{ISBN}/content&quot;</SPAN> class=<SPAN class="code-quote">&quot;example.BookAction&quot;</SPAN>&gt;</SPAN>
+	<SPAN class="code-tag">&lt;result&gt;</SPAN>/books/{1}.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/action&gt;</SPAN>
+<SPAN class="code-tag">&lt;/package&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H2><A name="WildcardMappings-Next%3AApplicationServers"></A>Next: <A href="application-servers.html" title="Application Servers">Application Servers</A></H2>
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

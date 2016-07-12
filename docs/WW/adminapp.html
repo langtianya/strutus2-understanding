@@ -1,0 +1,356 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>AdminApp</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="tutorials.html" title="Tutorials">Tutorials</A>&nbsp;&gt;&nbsp;<A href="" title="AdminApp">AdminApp</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">AdminApp</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=14086">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=14086">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14086">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14086">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14086">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14086">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          
+
+<P>TODO: Documenting updated version (currently at <A href="http://www.i-tao.com/adminapp.html" class="external-link" rel="nofollow">http://www.i-tao.com/adminapp.html</A>). IN PROGRESS.</P>
+
+<H2><A name="AdminApp-Introduction"></A>Introduction</H2>
+<P>This page aims at providing some additional information about the <A href="http://www.hibernate.org/" class="external-link" rel="nofollow">Hibernate</A> <A href="http://www.hibernate.org/159.html#a5" class="external-link" rel="nofollow">AdminApp</A>. The Hibernate AdminApp (hereafter referred to as AA) was created by the Hibernate developers to show a possible implementation strategy for Hibernate with Webwork. Although AA can still be used as a starting point for webapplications, most of its libraries become quite aged (WW 2.0 beta, Hibernate 2, XWork 1.0 beta). Therefore, a shiny <A href="http://www.i-tao.com/adminapp.html" class="external-link" rel="nofollow">new fork</A> (AA2) has been created by Ron Chan.</P>
+
+<P>AA2 relies on WW2.2, Hibernate 3.1, and Spring as its IoC container (rather than XWork's, which has been deprecated in WW 2.2). We'll first discuss the original AA. Later on, we'll show the differences with AA2. Ron, if you're reading this, feel free to point out any mistakes/edit this document.</P>
+
+<P>Like we pointed out before, AA shows a possible implementation strategy to use Hibernate in WebWork in combination with a so-called open-session-in-view pattern (<A href="http://www.hibernate.org/43.html" class="external-link" rel="nofollow">more info</A>, <A href="http://www.jroller.com/page/cardsharp?entry=open_session_in_view_pattern" class="external-link" rel="nofollow">even more</A>). This pattern allows maximum flexibility in our view layer by creating a Hibernate Session object that will live till the end of the request (after the view has been rendered). This allows lazy loading of objects in our view, rather than having to preload all objects and their associations in our business layer, and yet ensures the correct disposing of the Session object.</P>
+
+<P>To accomplish this, AA uses XWork's <A href="dependency-injection.html" title="Dependency Injection">components</A> and <A href="interceptors.html" title="Interceptors">interceptors</A>:</P>
+
+<UL>
+	<LI><A href="dependency-injection.html" title="Dependency Injection">components</A>: XWork manages the lifecycle of objects in several scopes (application, session, request) and takes care of the IoC through the ..Aware interfaces (so called enablers). Hibernate's expensive-to-create SessionFactory will thus be created in the application scope (meaning it will only be initialised once when the application starts up), while the Session objects, used to load our models, is registered in the request scope (will be created once per request).</LI>
+</UL>
+
+
+<UL>
+	<LI><A href="interceptors.html" title="Interceptors">interceptors</A>: AA uses an interceptor (the HibernateInterceptor) to extract the Session from the WebWork action, so it can control the transactions, redirect/rollback on errors and properly dispose the Session after the view is rendered.</LI>
+</UL>
+
+
+<H2><A name="AdminApp-AdminAppSourceOverview"></A>AdminApp Source Overview</H2>
+
+<P>Now, let's properly dissect the AA files:</P>
+<UL>
+	<LI>/lib: contains the various jars for our application. Nothing special here.</LI>
+	<LI>/src/java/org/hibernate/admin/action: lists our WebWork actions. All actions extend an abstract AbstractAction file, which overrides the execute() method from our XWork's ActionSupport. This is where we define a setHibernateSession() method, which is the method we declared in our enabler interface (HibernateSessionAware). This will notify XWork to invoke its IoC magic to set the HibernateSession.</LI>
+</UL>
+
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>org.hibernate.admin.action.AbstractAction</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+        <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> execute() <SPAN class="code-keyword">throws</SPAN> Exception {
+	
+		<SPAN class="code-comment">// We go to INPUT on field and data errors
+</SPAN>		<SPAN class="code-keyword">if</SPAN> ( hasErrors() ) {
+			LOG.debug(<SPAN class="code-quote">&quot;action not executed, field or action errors&quot;</SPAN>);
+			LOG.debug( <SPAN class="code-quote">&quot;Field errors: &quot;</SPAN> + getFieldErrors() );
+			LOG.debug( <SPAN class="code-quote">&quot;Action errors: &quot;</SPAN> + getActionErrors() );
+			<SPAN class="code-keyword">return</SPAN> INPUT;
+		}
+
+		LOG.debug(<SPAN class="code-quote">&quot;executing action&quot;</SPAN>);
+		<SPAN class="code-keyword">return</SPAN> go();
+	}
+	
+	<SPAN class="code-keyword">protected</SPAN> <SPAN class="code-keyword">abstract</SPAN> <SPAN class="code-object">String</SPAN> go() <SPAN class="code-keyword">throws</SPAN> HibernateException;
+
+	<SPAN class="code-keyword">public</SPAN> void setHibernateSession(HibernateSession session) {
+		<SPAN class="code-keyword">this</SPAN>.session = session;
+	}
+
+	<SPAN class="code-keyword">protected</SPAN> Session getSession() <SPAN class="code-keyword">throws</SPAN> HibernateException {
+		<SPAN class="code-keyword">return</SPAN> session.getSession();
+	}
+</PRE>
+</DIV></DIV>
+<P>In this execute() method we'll simply call a abstract go() method (which is then defined in each of the actions). When we need the Hibernate Session, we use the getSession() method, inherited from our AbstractAction. Don't worry about transactions or saving so called dirty objects (our HibernateInterceptor takes care of all that). As you can see, this totally minimizes the LoC (lines of code) needed to retrieve or manipulated our models).</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>org.hibernate.admin.action.EditUserAction</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+<SPAN class="code-keyword">public</SPAN> class EditUserAction <SPAN class="code-keyword">extends</SPAN> AbstractAction {
+	<SPAN class="code-comment">//.. ommited <SPAN class="code-keyword">for</SPAN> brevity
+</SPAN>	
+	<SPAN class="code-keyword">protected</SPAN> <SPAN class="code-object">String</SPAN> go() <SPAN class="code-keyword">throws</SPAN> HibernateException {
+		..
+		getSession().update(user);
+		..
+		<SPAN class="code-keyword">return</SPAN> SUCCESS;
+	}
+	
+	<SPAN class="code-comment">//.. getters and setters ommited
+</SPAN>
+}
+</PRE>
+</DIV></DIV>
+
+<P>There are 3 more *-validation.xml files in this directory containing the validation logic for the Actions. XWork will validate your request before the action gets executed, so you can decouple your (simple) validation logic from your Action. For example, take a look at the CreateUserAction-validation.xml:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>CreateUserAction-validation.xml</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+..
+    <SPAN class="code-tag">&lt;field name=<SPAN class="code-quote">&quot;user.name.lastName&quot;</SPAN>&gt;</SPAN>
+        <SPAN class="code-tag">&lt;field-validator type=<SPAN class="code-quote">&quot;requiredstring&quot;</SPAN>&gt;</SPAN>
+            <SPAN class="code-tag">&lt;message&gt;</SPAN>You must enter a last name.<SPAN class="code-tag">&lt;/message&gt;</SPAN>
+        <SPAN class="code-tag">&lt;/field-validator&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/field&gt;</SPAN>
+    <SPAN class="code-tag">&lt;field name=<SPAN class="code-quote">&quot;user.email&quot;</SPAN>&gt;</SPAN>
+        <SPAN class="code-tag">&lt;field-validator type=<SPAN class="code-quote">&quot;email&quot;</SPAN>&gt;</SPAN>
+            <SPAN class="code-tag">&lt;message&gt;</SPAN>Please correct the e-mail address.<SPAN class="code-tag">&lt;/message&gt;</SPAN>
+        <SPAN class="code-tag">&lt;/field-validator&gt;</SPAN>
+        <SPAN class="code-tag">&lt;field-validator type=<SPAN class="code-quote">&quot;required&quot;</SPAN>&gt;</SPAN>
+            <SPAN class="code-tag">&lt;message&gt;</SPAN>Please enter an e-mail address.<SPAN class="code-tag">&lt;/message&gt;</SPAN>
+        <SPAN class="code-tag">&lt;/field-validator&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/field&gt;</SPAN>
+..
+</PRE>
+</DIV></DIV>
+
+<P><A href="validation.html" title="Validation">Several validator types</A> are available. Here we rely on XWork to validate our Actions, but it's also possible to validate our object Models (see <A href="validation.html" title="Validation">WW Validation</A>). You will mostly use these to validate submitted forms in your webapp. </P>
+
+<P>When a validator fails, you will automatically be returned to the input page with a clear indication which field failed to validate if: </P>
+
+<P>a) actually provided an input type in your <A href="strutsxml.html" title="struts.xml">struts.xml</A> file</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>xwork.xml</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+	..
+        <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;input&quot;</SPAN> type=<SPAN class="code-quote">&quot;dispatcher&quot;</SPAN>&gt;</SPAN>
+		<SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;location&quot;</SPAN>&gt;</SPAN>/editUser.jsp<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+	<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+	..
+</PRE>
+</DIV></DIV>
+<P>b) you enabled the validation interceptor in your <A href="strutsxml.html" title="struts.xml">struts.xml</A></P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>xwork.xml</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+	..
+	<SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;defaultStack&quot;</SPAN>/&gt;</SPAN>
+	<SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;validation&quot;</SPAN>/&gt;</SPAN>
+	..
+</PRE>
+</DIV></DIV>
+<P>c) you use the WebWork tag library (warning: this is the old syntax):</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>CreateUser.jsp</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+..
+<SPAN class="code-tag">&lt;ww:form name=<SPAN class="code-quote">&quot;'createUserForm'&quot;</SPAN> action=<SPAN class="code-quote">&quot;'createUser.action'&quot;</SPAN> method=<SPAN class="code-quote">&quot;'POST'&quot;</SPAN>&gt;</SPAN>
+    <SPAN class="code-tag">&lt;ww:textfield label=<SPAN class="code-quote">&quot;'Username'&quot;</SPAN> name=<SPAN class="code-quote">&quot;'user.handle'&quot;</SPAN>/&gt;</SPAN>
+..
+</PRE>
+</DIV></DIV>
+
+<P>New syntax (since 2.2):</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>CreateUser.jsp</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+..
+<SPAN class="code-tag">&lt;ww:form name=<SPAN class="code-quote">&quot;createUserForm&quot;</SPAN> action=<SPAN class="code-quote">&quot;createUser&quot;</SPAN> method=<SPAN class="code-quote">&quot;POST&quot;</SPAN>&gt;</SPAN>
+    <SPAN class="code-tag">&lt;ww:textfield label=<SPAN class="code-quote">&quot;Username&quot;</SPAN> name=<SPAN class="code-quote">&quot;user.handle&quot;</SPAN>/&gt;</SPAN>
+..
+</PRE>
+</DIV></DIV>
+
+<UL>
+	<LI>/src/java/org/hibernate/admin/component: contains the components and enablers for both the HibernateSessionFactory and the HibernateSession. These components are declared in the /src/java/<A href="dependency-injection.html" title="Dependency Injection">components.xml</A> file (which will be copied to the root of your compiled classes afterwards):</LI>
+</UL>
+
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>components.xml</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;components&gt;</SPAN>
+
+    <SPAN class="code-tag">&lt;component&gt;</SPAN>
+        <SPAN class="code-tag">&lt;scope&gt;</SPAN>request<SPAN class="code-tag">&lt;/scope&gt;</SPAN>
+        <SPAN class="code-tag">&lt;class&gt;</SPAN>org.hibernate.admin.component.HibernateSession<SPAN class="code-tag">&lt;/class&gt;</SPAN>
+        <SPAN class="code-tag">&lt;enabler&gt;</SPAN>org.hibernate.admin.component.HibernateSessionAware<SPAN class="code-tag">&lt;/enabler&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/component&gt;</SPAN>
+
+    <SPAN class="code-tag">&lt;component&gt;</SPAN>
+        <SPAN class="code-tag">&lt;scope&gt;</SPAN>application<SPAN class="code-tag">&lt;/scope&gt;</SPAN>
+        <SPAN class="code-tag">&lt;class&gt;</SPAN>org.hibernate.admin.component.HibernateSessionFactory<SPAN class="code-tag">&lt;/class&gt;</SPAN>
+        <SPAN class="code-tag">&lt;enabler&gt;</SPAN>org.hibernate.admin.component.HibernateSessionFactoryAware<SPAN class="code-tag">&lt;/enabler&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/component&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;/components&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<UL>
+	<LI>/src/java/org/hibernate/admin/interceptor: contains the Hibernate interceptor. <A href="interceptors.html" title="Interceptors">Interceptors</A> are an incredibly powerful feature of WebWork - it allows you to control invocations before and after they excute, manipulate their results, or, as in our case, extract the HibernateSession object and dispose it after the Action has been executed (and the view rendered). Because we use a try/catch/finally block, we're able to catch exceptions and yet make sure our Session gets closed properly (the number one cause of db connection leaks).</LI>
+</UL>
+
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>org.hibernate.admin.interceptor.HibernateInterceptor</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+	<SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> intercept(ActionInvocation invocation) <SPAN class="code-keyword">throws</SPAN> Exception {
+		Action action = invocation.getAction();
+		<SPAN class="code-keyword">if</SPAN> ( !(action <SPAN class="code-keyword">instanceof</SPAN> AbstractAction) ) <SPAN class="code-keyword">return</SPAN> invocation.invoke();
+		
+		HibernateSession hs = ( (AbstractAction) action ).getHibernateSession();
+		<SPAN class="code-keyword">try</SPAN> {
+			<SPAN class="code-keyword">return</SPAN> invocation.invoke();
+		}
+		
+		<SPAN class="code-comment">// Note that all the cleanup is done
+</SPAN>		<SPAN class="code-comment">// after the view is rendered, so we
+</SPAN>		<SPAN class="code-comment">// have an open session in the view
+</SPAN>		
+		<SPAN class="code-keyword">catch</SPAN> (Exception e) {	
+			hs.setRollBackOnly(<SPAN class="code-keyword">true</SPAN>);
+			<SPAN class="code-keyword">if</SPAN> (e <SPAN class="code-keyword">instanceof</SPAN> HibernateException) {
+				LOG.error(<SPAN class="code-quote">&quot;HibernateException in execute()&quot;</SPAN>, e);
+				<SPAN class="code-keyword">return</SPAN> Action.ERROR;
+			}
+			<SPAN class="code-keyword">else</SPAN> {
+				LOG.error(<SPAN class="code-quote">&quot;Exception in execute()&quot;</SPAN>, e);
+				<SPAN class="code-keyword">throw</SPAN> e;
+			}
+		}
+		
+		<SPAN class="code-keyword">finally</SPAN> {
+			<SPAN class="code-keyword">try</SPAN> {
+				hs.disposeSession();
+			}
+			<SPAN class="code-keyword">catch</SPAN> (HibernateException e) {
+				LOG.error(<SPAN class="code-quote">&quot;HibernateException in dispose()&quot;</SPAN>, e);
+				<SPAN class="code-keyword">return</SPAN> Action.ERROR;
+			}
+		}
+	}
+</PRE>
+</DIV></DIV>
+
+
+<H2><A name="AdminApp-Conclusion"></A>Conclusion</H2>
+<P>In this document, we tried to point out several key features in the Hibernate AdminApp. In part II, we'll have a look at the new AdminApp, which is far more up to date, and uses Spring as its IoC container. No more implements ActionSupport or Aware interfaces, resulting in even cleaner code.</P>
+
+<P>AdminApp is a very good example of how a webapp can be structered, using as many advantages from the various frameworks as possible.</P>
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

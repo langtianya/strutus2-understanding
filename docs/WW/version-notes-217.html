@@ -1,0 +1,216 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Version Notes 2.1.7</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="guides.html" title="Guides">Guides</A>&nbsp;&gt;&nbsp;<A href="migration-guide.html" title="Migration Guide">Migration Guide</A>&nbsp;&gt;&nbsp;<A href="" title="Version Notes 2.1.7">Version Notes 2.1.7</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Version Notes 2.1.7</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=120987">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=120987">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=120987">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=120987">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=120987">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=120987">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <P><IMG class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/check.gif" height="16" width="16" align="absmiddle" alt="" border="0"> These are the notes for the Struts 2.1.7 distribution.</P>
+
+<P><IMG class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/check.gif" height="16" width="16" align="absmiddle" alt="" border="0"> For prior notes in this release series, see <A href="version-notes-216.html" title="Version Notes 2.1.6">Version Notes 2.1.6</A></P>
+<UL>
+	<LI>If you are a Maven user, you might want to get started using the <A href="struts-maven-archetypes.html" title="Struts Maven Archetypes">Maven Archetype</A>.</LI>
+	<LI>Another quick-start entry point is the <B>blank</B> application. Rename and deploy the WAR as a starting point for your own development.</LI>
+</UL>
+
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Maven Dependency</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+&lt;dependency&gt;
+  &lt;groupId&gt;org.apache.struts&lt;/groupId&gt;
+  &lt;artifactId&gt;struts2-core&lt;/artifactId&gt;
+  &lt;version&gt;2.1.7&lt;/version&gt;
+&lt;/dependency&gt;
+</PRE>
+</DIV></DIV>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Snapshot Repository</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+&lt;repositories&gt;
+  &lt;repository&gt;
+    &lt;id&gt;apache.snapshots&lt;/id&gt;
+    &lt;name&gt;ASF Maven 2 Snapshot&lt;/name&gt;
+    &lt;url&gt;http:<SPAN class="code-comment">//people.apache.org/repo/m2-snapshot-repository&lt;/url&gt;
+</SPAN>  &lt;/repository&gt;
+&lt;/repositories&gt;
+</PRE>
+</DIV></DIV>
+
+<H2><A name="VersionNotes2.1.7-Backwardcompatibilityissueswithpriordevelopmentrelease"></A>Backward compatibility issues with prior development release</H2>
+
+<UL>
+	<LI>The bean 'named-variable' has been renamed to 'namedVariable' to match camelCase convention utilized throughout the framework</LI>
+	<LI>@Result annotations used at the method level now override @Result annotations placed at class-level when using the conventions plugin</LI>
+	<LI>@ParentPackage annotation on an action's super class will now be honored</LI>
+	<LI>if you have dynamicmethodinvocation turned off, but use multiple submit buttons within a single s:form, or the method: parameter, you will no longer be able to</LI>
+</UL>
+
+
+
+<H2><A name="VersionNotes2.1.7-NewFeaturesandPlugins"></A>New Features and Plugins</H2>
+
+<UL>
+	<LI>This is mostly a bug-fix release with over 100 JIRA issues closed</LI>
+	<LI>The Multipart Request handler is now pluggable, allowing for better implementations to be wired in</LI>
+	<LI>Invalid OGNL now throws exceptions with stack traces placed in the Application Server log</LI>
+</UL>
+
+
+<H2><A name="VersionNotes2.1.7-ExperimentalFeaturesandPlugins"></A>Experimental Features and Plugins</H2>
+
+<P><IMG class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/check.gif" height="16" width="16" align="absmiddle" alt="" border="0"> Please help us test these brave new features. Feedback appreciated&#33;</P>
+<UL>
+	<LI>There is now an advanced file upload plugin in the sandbox meant to be used for AJAX file uploads</LI>
+</UL>
+
+
+<H3><A name="VersionNotes2.1.7-IssueDetail"></A>Issue Detail</H3>
+
+<UL>
+	<LI><A href="https://issues.apache.org/struts/secure/ReleaseNote.jspa?projectId=10030&styleName=Html&version=21907" class="external-link" rel="nofollow">JIRA Release Notes 2.1.7 </A></LI>
+</UL>
+
+
+<H3><A name="VersionNotes2.1.7-IssueList"></A>Issue List</H3>
+
+<UL>
+	<LI><A href="https://issues.apache.org/struts/secure/IssueNavigator.jspa?reset=true&pid=10030&resolution=1&fixfor=21907&sorter%2Ffield=priority&sorter%2Forder=DESC" class="external-link" rel="nofollow">Struts 2.1.7 DONE </A></LI>
+</UL>
+
+
+<H3><A name="VersionNotes2.1.7-Otherresources"></A>Other resources</H3>
+
+<UL>
+	<LI><A href="http://www.mail-archive.com/commits@struts.apache.org/" class="external-link" rel="nofollow">Commit Logs (Struts 1 and Struts 2)</A></LI>
+	<LI><A href="http://svn.apache.org/viewvc/struts/struts2/trunk/" class="external-link" rel="nofollow">Source Code Repository (includes change browsing)</A></LI>
+</UL>
+
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

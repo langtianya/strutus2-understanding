@@ -1,0 +1,472 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>struts-default.xml</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="guides.html" title="Guides">Guides</A>&nbsp;&gt;&nbsp;<A href="core-developers-guide.html" title="Core Developers Guide">Core Developers Guide</A>&nbsp;&gt;&nbsp;<A href="configuration-files.html" title="Configuration Files">Configuration Files</A>&nbsp;&gt;&nbsp;<A href="" title="struts-default.xml">struts-default.xml</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">struts-default.xml</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=13819">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=13819">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=13819">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=13819">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=13819">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=13819">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          
+<P>A base configuration file named <TT>struts-default.xml</TT> is included in the <TT>struts2.jar</TT> file. This file is automatically included into <TT>struts.xml</TT> file to  provide the standard configuration settings without having to copy them. </P>
+
+<DIV class="panelMacro"><TABLE class="tipMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>To exclude the <TT>struts-default.xml</TT> or to provide your own version, see the <TT>struts.configuration.files</TT> setting in <A href="strutsproperties.html" title="struts.properties">struts.properties</A>.</TD></TR></TABLE></DIV>
+
+<P>The contents of struts-default.xml are here:</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;?xml version=<SPAN class="code-quote">&quot;1.0&quot;</SPAN> encoding=<SPAN class="code-quote">&quot;UTF-8&quot;</SPAN> ?&gt;</SPAN>
+&lt;!--
+/*
+ * $Id$
+ *
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * <SPAN class="code-quote">&quot;License&quot;</SPAN>); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *  http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * <SPAN class="code-quote">&quot;AS IS&quot;</SPAN> BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+--&gt;
+&lt;!DOCTYPE struts PUBLIC
+    <SPAN class="code-quote">&quot;-//Apache Software Foundation//DTD Struts Configuration 2.3//EN&quot;</SPAN>
+    <SPAN class="code-quote">&quot;http://struts.apache.org/dtds/struts-2.3.dtd&quot;</SPAN>&gt;
+
+<SPAN class="code-tag">&lt;struts&gt;</SPAN>
+    <SPAN class="code-tag">&lt;bean class=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.ObjectFactory&quot;</SPAN> name=<SPAN class="code-quote">&quot;xwork&quot;</SPAN> /&gt;</SPAN>
+    <SPAN class="code-tag">&lt;bean type=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.ObjectFactory&quot;</SPAN> name=<SPAN class="code-quote">&quot;struts&quot;</SPAN> class=<SPAN class="code-quote">&quot;org.apache.struts2.impl.StrutsObjectFactory&quot;</SPAN> /&gt;</SPAN>
+
+    <SPAN class="code-tag">&lt;bean type=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.FileManager&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.util.fs.DefaultFileManager&quot;</SPAN> name=<SPAN class="code-quote">&quot;system&quot;</SPAN> scope=<SPAN class="code-quote">&quot;singleton&quot;</SPAN>/&gt;</SPAN>
+
+    <SPAN class="code-tag">&lt;bean type=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.FileManagerFactory&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.util.fs.DefaultFileManagerFactory&quot;</SPAN> name=<SPAN class="code-quote">&quot;xwork&quot;</SPAN> scope=<SPAN class="code-quote">&quot;singleton&quot;</SPAN>/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;bean type=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.FileManagerFactory&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.util.fs.DefaultFileManagerFactory&quot;</SPAN> name=<SPAN class="code-quote">&quot;struts&quot;</SPAN> scope=<SPAN class="code-quote">&quot;singleton&quot;</SPAN>/&gt;</SPAN>
+
+    <SPAN class="code-tag">&lt;bean type=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.ActionProxyFactory&quot;</SPAN> name=<SPAN class="code-quote">&quot;xwork&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.DefaultActionProxyFactory&quot;</SPAN>/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;bean type=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.ActionProxyFactory&quot;</SPAN> name=<SPAN class="code-quote">&quot;struts&quot;</SPAN> class=<SPAN class="code-quote">&quot;org.apache.struts2.impl.StrutsActionProxyFactory&quot;</SPAN>/&gt;</SPAN>
+
+    <SPAN class="code-tag">&lt;bean type=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.conversion.ObjectTypeDeterminer&quot;</SPAN> name=<SPAN class="code-quote">&quot;tiger&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.conversion.impl.DefaultObjectTypeDeterminer&quot;</SPAN>/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;bean type=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.conversion.ObjectTypeDeterminer&quot;</SPAN> name=<SPAN class="code-quote">&quot;notiger&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.conversion.impl.DefaultObjectTypeDeterminer&quot;</SPAN>/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;bean type=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.conversion.ObjectTypeDeterminer&quot;</SPAN> name=<SPAN class="code-quote">&quot;struts&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.conversion.impl.DefaultObjectTypeDeterminer&quot;</SPAN>/&gt;</SPAN>
+
+    <SPAN class="code-tag">&lt;bean type=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.util.PatternMatcher&quot;</SPAN> name=<SPAN class="code-quote">&quot;struts&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.util.WildcardHelper&quot;</SPAN> /&gt;</SPAN>
+    <SPAN class="code-tag">&lt;bean type=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.util.PatternMatcher&quot;</SPAN> name=<SPAN class="code-quote">&quot;namedVariable&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.util.NamedVariablePatternMatcher&quot;</SPAN>/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;bean type=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.util.PatternMatcher&quot;</SPAN> name=<SPAN class="code-quote">&quot;regex&quot;</SPAN> class=<SPAN class="code-quote">&quot;org.apache.struts2.util.RegexPatternMatcher&quot;</SPAN>/&gt;</SPAN>
+
+    <SPAN class="code-tag">&lt;bean type=<SPAN class="code-quote">&quot;org.apache.struts2.dispatcher.mapper.ActionMapper&quot;</SPAN> name=<SPAN class="code-quote">&quot;struts&quot;</SPAN> class=<SPAN class="code-quote">&quot;org.apache.struts2.dispatcher.mapper.DefaultActionMapper&quot;</SPAN> /&gt;</SPAN>
+    <SPAN class="code-tag">&lt;bean type=<SPAN class="code-quote">&quot;org.apache.struts2.dispatcher.mapper.ActionMapper&quot;</SPAN> name=<SPAN class="code-quote">&quot;composite&quot;</SPAN> class=<SPAN class="code-quote">&quot;org.apache.struts2.dispatcher.mapper.CompositeActionMapper&quot;</SPAN> /&gt;</SPAN>
+    <SPAN class="code-tag">&lt;bean type=<SPAN class="code-quote">&quot;org.apache.struts2.dispatcher.mapper.ActionMapper&quot;</SPAN> name=<SPAN class="code-quote">&quot;restful&quot;</SPAN> class=<SPAN class="code-quote">&quot;org.apache.struts2.dispatcher.mapper.RestfulActionMapper&quot;</SPAN> /&gt;</SPAN>
+    <SPAN class="code-tag">&lt;bean type=<SPAN class="code-quote">&quot;org.apache.struts2.dispatcher.mapper.ActionMapper&quot;</SPAN> name=<SPAN class="code-quote">&quot;restful2&quot;</SPAN> class=<SPAN class="code-quote">&quot;org.apache.struts2.dispatcher.mapper.Restful2ActionMapper&quot;</SPAN> /&gt;</SPAN>
+
+    <SPAN class="code-tag">&lt;bean type=<SPAN class="code-quote">&quot;org.apache.struts2.dispatcher.multipart.MultiPartRequest&quot;</SPAN> name=<SPAN class="code-quote">&quot;struts&quot;</SPAN> class=<SPAN class="code-quote">&quot;org.apache.struts2.dispatcher.multipart.JakartaMultiPartRequest&quot;</SPAN> scope=<SPAN class="code-quote">&quot;default&quot;</SPAN>/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;bean type=<SPAN class="code-quote">&quot;org.apache.struts2.dispatcher.multipart.MultiPartRequest&quot;</SPAN> name=<SPAN class="code-quote">&quot;jakarta&quot;</SPAN> class=<SPAN class="code-quote">&quot;org.apache.struts2.dispatcher.multipart.JakartaMultiPartRequest&quot;</SPAN> scope=<SPAN class="code-quote">&quot;default&quot;</SPAN> /&gt;</SPAN>
+    <SPAN class="code-tag">&lt;constant name=<SPAN class="code-quote">&quot;struts.multipart.parser&quot;</SPAN> value=<SPAN class="code-quote">&quot;jakarta&quot;</SPAN> /&gt;</SPAN>
+
+    <SPAN class="code-tag">&lt;bean type=<SPAN class="code-quote">&quot;org.apache.struts2.views.TagLibrary&quot;</SPAN> name=<SPAN class="code-quote">&quot;s&quot;</SPAN> class=<SPAN class="code-quote">&quot;org.apache.struts2.views.DefaultTagLibrary&quot;</SPAN> /&gt;</SPAN>
+
+    <SPAN class="code-tag">&lt;bean class=<SPAN class="code-quote">&quot;org.apache.struts2.views.freemarker.FreemarkerManager&quot;</SPAN> name=<SPAN class="code-quote">&quot;struts&quot;</SPAN> /&gt;</SPAN>
+    <SPAN class="code-tag">&lt;bean class=<SPAN class="code-quote">&quot;org.apache.struts2.views.velocity.VelocityManager&quot;</SPAN> name=<SPAN class="code-quote">&quot;struts&quot;</SPAN> optional=<SPAN class="code-quote">&quot;true&quot;</SPAN> /&gt;</SPAN>
+
+    <SPAN class="code-tag">&lt;bean class=<SPAN class="code-quote">&quot;org.apache.struts2.components.template.TemplateEngineManager&quot;</SPAN> /&gt;</SPAN>
+    <SPAN class="code-tag">&lt;bean type=<SPAN class="code-quote">&quot;org.apache.struts2.components.template.TemplateEngine&quot;</SPAN> name=<SPAN class="code-quote">&quot;ftl&quot;</SPAN> class=<SPAN class="code-quote">&quot;org.apache.struts2.components.template.FreemarkerTemplateEngine&quot;</SPAN> /&gt;</SPAN>
+    <SPAN class="code-tag">&lt;bean type=<SPAN class="code-quote">&quot;org.apache.struts2.components.template.TemplateEngine&quot;</SPAN> name=<SPAN class="code-quote">&quot;vm&quot;</SPAN> class=<SPAN class="code-quote">&quot;org.apache.struts2.components.template.VelocityTemplateEngine&quot;</SPAN> /&gt;</SPAN>
+    <SPAN class="code-tag">&lt;bean type=<SPAN class="code-quote">&quot;org.apache.struts2.components.template.TemplateEngine&quot;</SPAN> name=<SPAN class="code-quote">&quot;jsp&quot;</SPAN> class=<SPAN class="code-quote">&quot;org.apache.struts2.components.template.JspTemplateEngine&quot;</SPAN> /&gt;</SPAN>
+
+    <SPAN class="code-tag">&lt;bean type=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.conversion.impl.XWorkConverter&quot;</SPAN> name=<SPAN class="code-quote">&quot;struts&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.conversion.impl.XWorkConverter&quot;</SPAN> /&gt;</SPAN>
+    <SPAN class="code-tag">&lt;bean type=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.conversion.ConversionPropertiesProcessor&quot;</SPAN> name=<SPAN class="code-quote">&quot;struts&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.conversion.impl.DefaultConversionPropertiesProcessor&quot;</SPAN> /&gt;</SPAN>
+    <SPAN class="code-tag">&lt;bean type=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.conversion.ConversionFileProcessor&quot;</SPAN> name=<SPAN class="code-quote">&quot;struts&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.conversion.impl.DefaultConversionFileProcessor&quot;</SPAN> /&gt;</SPAN>
+    <SPAN class="code-tag">&lt;bean type=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.conversion.ConversionAnnotationProcessor&quot;</SPAN> name=<SPAN class="code-quote">&quot;struts&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.conversion.impl.DefaultConversionAnnotationProcessor&quot;</SPAN> /&gt;</SPAN>
+    <SPAN class="code-tag">&lt;bean type=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.conversion.TypeConverterCreator&quot;</SPAN> name=<SPAN class="code-quote">&quot;struts&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.conversion.impl.DefaultTypeConverterCreator&quot;</SPAN> /&gt;</SPAN>
+    <SPAN class="code-tag">&lt;bean type=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.conversion.TypeConverterHolder&quot;</SPAN> name=<SPAN class="code-quote">&quot;struts&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.conversion.impl.DefaultTypeConverterHolder&quot;</SPAN> /&gt;</SPAN>
+
+    <SPAN class="code-tag">&lt;bean class=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.conversion.impl.XWorkBasicConverter&quot;</SPAN> /&gt;</SPAN>
+
+    <SPAN class="code-tag">&lt;bean type=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.conversion.impl.CollectionConverter&quot;</SPAN> name=<SPAN class="code-quote">&quot;struts&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.conversion.impl.CollectionConverter&quot;</SPAN> scope=<SPAN class="code-quote">&quot;singleton&quot;</SPAN>/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;bean type=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.conversion.impl.ArrayConverter&quot;</SPAN> name=<SPAN class="code-quote">&quot;struts&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.conversion.impl.ArrayConverter&quot;</SPAN> scope=<SPAN class="code-quote">&quot;singleton&quot;</SPAN>/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;bean type=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.conversion.impl.DateConverter&quot;</SPAN> name=<SPAN class="code-quote">&quot;struts&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.conversion.impl.DateConverter&quot;</SPAN> scope=<SPAN class="code-quote">&quot;singleton&quot;</SPAN>/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;bean type=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.conversion.impl.NumberConverter&quot;</SPAN> name=<SPAN class="code-quote">&quot;struts&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.conversion.impl.NumberConverter&quot;</SPAN> scope=<SPAN class="code-quote">&quot;singleton&quot;</SPAN>/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;bean type=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.conversion.impl.StringConverter&quot;</SPAN> name=<SPAN class="code-quote">&quot;struts&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.conversion.impl.StringConverter&quot;</SPAN> scope=<SPAN class="code-quote">&quot;singleton&quot;</SPAN>/&gt;</SPAN>
+
+    <SPAN class="code-tag">&lt;bean type=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.TextProvider&quot;</SPAN> name=<SPAN class="code-quote">&quot;struts&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.TextProviderSupport&quot;</SPAN> scope=<SPAN class="code-quote">&quot;default&quot;</SPAN> /&gt;</SPAN>
+    <SPAN class="code-tag">&lt;bean type=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.LocaleProvider&quot;</SPAN> name=<SPAN class="code-quote">&quot;struts&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.DefaultLocaleProvider&quot;</SPAN> scope=<SPAN class="code-quote">&quot;singleton&quot;</SPAN> /&gt;</SPAN>
+
+    <SPAN class="code-tag">&lt;bean type=<SPAN class="code-quote">&quot;org.apache.struts2.components.UrlRenderer&quot;</SPAN> name=<SPAN class="code-quote">&quot;struts&quot;</SPAN> class=<SPAN class="code-quote">&quot;org.apache.struts2.components.ServletUrlRenderer&quot;</SPAN>/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;bean type=<SPAN class="code-quote">&quot;org.apache.struts2.views.util.UrlHelper&quot;</SPAN> name=<SPAN class="code-quote">&quot;struts&quot;</SPAN> class=<SPAN class="code-quote">&quot;org.apache.struts2.views.util.DefaultUrlHelper&quot;</SPAN>/&gt;</SPAN>
+
+    <SPAN class="code-tag">&lt;bean type=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.util.ValueStackFactory&quot;</SPAN> name=<SPAN class="code-quote">&quot;struts&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.ognl.OgnlValueStackFactory&quot;</SPAN> /&gt;</SPAN>
+    <SPAN class="code-tag">&lt;bean type=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.util.reflection.ReflectionProvider&quot;</SPAN> name=<SPAN class="code-quote">&quot;struts&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.ognl.OgnlReflectionProvider&quot;</SPAN> /&gt;</SPAN>
+    <SPAN class="code-tag">&lt;bean type=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.util.reflection.ReflectionContextFactory&quot;</SPAN> name=<SPAN class="code-quote">&quot;struts&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.ognl.OgnlReflectionContextFactory&quot;</SPAN> /&gt;</SPAN>
+
+    <SPAN class="code-tag">&lt;bean type=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.TextProvider&quot;</SPAN> name=<SPAN class="code-quote">&quot;system&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.DefaultTextProvider&quot;</SPAN> /&gt;</SPAN>
+    <SPAN class="code-tag">&lt;bean type=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.conversion.NullHandler&quot;</SPAN> name=<SPAN class="code-quote">&quot;java.lang.Object&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.conversion.impl.InstantiatingNullHandler&quot;</SPAN> /&gt;</SPAN>
+
+    <SPAN class="code-tag">&lt;bean type=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.validator.ActionValidatorManager&quot;</SPAN> name=<SPAN class="code-quote">&quot;struts&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.validator.AnnotationActionValidatorManager&quot;</SPAN> /&gt;</SPAN>
+    <SPAN class="code-tag">&lt;bean type=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.validator.ActionValidatorManager&quot;</SPAN> name=<SPAN class="code-quote">&quot;no-annotations&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.validator.DefaultActionValidatorManager&quot;</SPAN> /&gt;</SPAN>
+
+    <SPAN class="code-tag">&lt;bean type=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.validator.ValidatorFactory&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.validator.DefaultValidatorFactory&quot;</SPAN>/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;bean type=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.validator.ValidatorFileParser&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.validator.DefaultValidatorFileParser&quot;</SPAN> /&gt;</SPAN>
+
+    <SPAN class="code-tag">&lt;bean class=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.ognl.OgnlUtil&quot;</SPAN> /&gt;</SPAN>
+
+    <SPAN class="code-tag">&lt;bean type=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.util.TextParser&quot;</SPAN> name=<SPAN class="code-quote">&quot;struts&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.util.OgnlTextParser&quot;</SPAN> scope=<SPAN class="code-quote">&quot;singleton&quot;</SPAN>/&gt;</SPAN>
+
+    <SPAN class="code-tag">&lt;bean type=<SPAN class="code-quote">&quot;ognl.PropertyAccessor&quot;</SPAN> name=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.util.CompoundRoot&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.ognl.accessor.CompoundRootAccessor&quot;</SPAN> /&gt;</SPAN>
+    <SPAN class="code-tag">&lt;bean type=<SPAN class="code-quote">&quot;ognl.PropertyAccessor&quot;</SPAN> name=<SPAN class="code-quote">&quot;java.lang.Object&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.ognl.accessor.ObjectAccessor&quot;</SPAN> /&gt;</SPAN>
+    <SPAN class="code-tag">&lt;bean type=<SPAN class="code-quote">&quot;ognl.PropertyAccessor&quot;</SPAN> name=<SPAN class="code-quote">&quot;java.util.Iterator&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.ognl.accessor.XWorkIteratorPropertyAccessor&quot;</SPAN> /&gt;</SPAN>
+    <SPAN class="code-tag">&lt;bean type=<SPAN class="code-quote">&quot;ognl.PropertyAccessor&quot;</SPAN> name=<SPAN class="code-quote">&quot;java.util.Enumeration&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.ognl.accessor.XWorkEnumerationAccessor&quot;</SPAN> /&gt;</SPAN>
+    <SPAN class="code-tag">&lt;bean type=<SPAN class="code-quote">&quot;ognl.PropertyAccessor&quot;</SPAN> name=<SPAN class="code-quote">&quot;java.util.List&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.ognl.accessor.XWorkListPropertyAccessor&quot;</SPAN> /&gt;</SPAN>
+    <SPAN class="code-tag">&lt;bean type=<SPAN class="code-quote">&quot;ognl.PropertyAccessor&quot;</SPAN> name=<SPAN class="code-quote">&quot;java.util.Set&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.ognl.accessor.XWorkCollectionPropertyAccessor&quot;</SPAN> /&gt;</SPAN>
+    <SPAN class="code-tag">&lt;bean type=<SPAN class="code-quote">&quot;ognl.PropertyAccessor&quot;</SPAN> name=<SPAN class="code-quote">&quot;java.util.Map&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.ognl.accessor.XWorkMapPropertyAccessor&quot;</SPAN> /&gt;</SPAN>
+    <SPAN class="code-tag">&lt;bean type=<SPAN class="code-quote">&quot;ognl.PropertyAccessor&quot;</SPAN> name=<SPAN class="code-quote">&quot;java.util.Collection&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.ognl.accessor.XWorkCollectionPropertyAccessor&quot;</SPAN> /&gt;</SPAN>
+    <SPAN class="code-tag">&lt;bean type=<SPAN class="code-quote">&quot;ognl.PropertyAccessor&quot;</SPAN> name=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.ognl.ObjectProxy&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.ognl.accessor.ObjectProxyPropertyAccessor&quot;</SPAN> /&gt;</SPAN>
+
+    <SPAN class="code-tag">&lt;bean type=<SPAN class="code-quote">&quot;ognl.MethodAccessor&quot;</SPAN> name=<SPAN class="code-quote">&quot;java.lang.Object&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.ognl.accessor.XWorkMethodAccessor&quot;</SPAN> /&gt;</SPAN>
+    <SPAN class="code-tag">&lt;bean type=<SPAN class="code-quote">&quot;ognl.MethodAccessor&quot;</SPAN> name=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.util.CompoundRoot&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.ognl.accessor.CompoundRootAccessor&quot;</SPAN> /&gt;</SPAN>
+
+    <SPAN class="code-tag">&lt;bean class=<SPAN class="code-quote">&quot;org.apache.struts2.views.jsp.ui.OgnlTool&quot;</SPAN> /&gt;</SPAN>
+
+    <SPAN class="code-tag">&lt;bean type=<SPAN class="code-quote">&quot;org.apache.struts2.dispatcher.StaticContentLoader&quot;</SPAN> class=<SPAN class="code-quote">&quot;org.apache.struts2.dispatcher.DefaultStaticContentLoader&quot;</SPAN> name=<SPAN class="code-quote">&quot;struts&quot;</SPAN> /&gt;</SPAN>
+    <SPAN class="code-tag">&lt;bean type=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.UnknownHandlerManager&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.DefaultUnknownHandlerManager&quot;</SPAN> name=<SPAN class="code-quote">&quot;struts&quot;</SPAN> /&gt;</SPAN>
+
+    <SPAN class="code-tag"><SPAN class="code-comment">&lt;!--  Silly workarounds for OGNL since there is currently no way to flush its internal caches --&gt;</SPAN></SPAN>
+    <SPAN class="code-tag">&lt;bean type=<SPAN class="code-quote">&quot;ognl.PropertyAccessor&quot;</SPAN> name=<SPAN class="code-quote">&quot;java.util.ArrayList&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.ognl.accessor.XWorkListPropertyAccessor&quot;</SPAN> /&gt;</SPAN>
+    <SPAN class="code-tag">&lt;bean type=<SPAN class="code-quote">&quot;ognl.PropertyAccessor&quot;</SPAN> name=<SPAN class="code-quote">&quot;java.util.HashSet&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.ognl.accessor.XWorkCollectionPropertyAccessor&quot;</SPAN> /&gt;</SPAN>
+    <SPAN class="code-tag">&lt;bean type=<SPAN class="code-quote">&quot;ognl.PropertyAccessor&quot;</SPAN> name=<SPAN class="code-quote">&quot;java.util.HashMap&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.ognl.accessor.XWorkMapPropertyAccessor&quot;</SPAN> /&gt;</SPAN>
+
+    <SPAN class="code-tag">&lt;package name=<SPAN class="code-quote">&quot;struts-default&quot;</SPAN> abstract=<SPAN class="code-quote">&quot;true&quot;</SPAN>&gt;</SPAN>
+        <SPAN class="code-tag">&lt;result-types&gt;</SPAN>
+            <SPAN class="code-tag">&lt;result-type name=<SPAN class="code-quote">&quot;chain&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.ActionChainResult&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;result-type name=<SPAN class="code-quote">&quot;dispatcher&quot;</SPAN> class=<SPAN class="code-quote">&quot;org.apache.struts2.dispatcher.ServletDispatcherResult&quot;</SPAN> default=<SPAN class="code-quote">&quot;true&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;result-type name=<SPAN class="code-quote">&quot;freemarker&quot;</SPAN> class=<SPAN class="code-quote">&quot;org.apache.struts2.views.freemarker.FreemarkerResult&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;result-type name=<SPAN class="code-quote">&quot;httpheader&quot;</SPAN> class=<SPAN class="code-quote">&quot;org.apache.struts2.dispatcher.HttpHeaderResult&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;result-type name=<SPAN class="code-quote">&quot;redirect&quot;</SPAN> class=<SPAN class="code-quote">&quot;org.apache.struts2.dispatcher.ServletRedirectResult&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;result-type name=<SPAN class="code-quote">&quot;redirectAction&quot;</SPAN> class=<SPAN class="code-quote">&quot;org.apache.struts2.dispatcher.ServletActionRedirectResult&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;result-type name=<SPAN class="code-quote">&quot;stream&quot;</SPAN> class=<SPAN class="code-quote">&quot;org.apache.struts2.dispatcher.StreamResult&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;result-type name=<SPAN class="code-quote">&quot;velocity&quot;</SPAN> class=<SPAN class="code-quote">&quot;org.apache.struts2.dispatcher.VelocityResult&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;result-type name=<SPAN class="code-quote">&quot;xslt&quot;</SPAN> class=<SPAN class="code-quote">&quot;org.apache.struts2.views.xslt.XSLTResult&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;result-type name=<SPAN class="code-quote">&quot;plainText&quot;</SPAN> class=<SPAN class="code-quote">&quot;org.apache.struts2.dispatcher.PlainTextResult&quot;</SPAN> /&gt;</SPAN>
+        <SPAN class="code-tag">&lt;/result-types&gt;</SPAN>
+
+        <SPAN class="code-tag">&lt;interceptors&gt;</SPAN>
+            <SPAN class="code-tag">&lt;interceptor name=<SPAN class="code-quote">&quot;alias&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.interceptor.AliasInterceptor&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;interceptor name=<SPAN class="code-quote">&quot;autowiring&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.spring.interceptor.ActionAutowiringInterceptor&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;interceptor name=<SPAN class="code-quote">&quot;chain&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.interceptor.ChainingInterceptor&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;interceptor name=<SPAN class="code-quote">&quot;conversionError&quot;</SPAN> class=<SPAN class="code-quote">&quot;org.apache.struts2.interceptor.StrutsConversionErrorInterceptor&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;interceptor name=<SPAN class="code-quote">&quot;cookie&quot;</SPAN> class=<SPAN class="code-quote">&quot;org.apache.struts2.interceptor.CookieInterceptor&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;interceptor name=<SPAN class="code-quote">&quot;clearSession&quot;</SPAN> class=<SPAN class="code-quote">&quot;org.apache.struts2.interceptor.ClearSessionInterceptor&quot;</SPAN> /&gt;</SPAN>
+            <SPAN class="code-tag">&lt;interceptor name=<SPAN class="code-quote">&quot;createSession&quot;</SPAN> class=<SPAN class="code-quote">&quot;org.apache.struts2.interceptor.CreateSessionInterceptor&quot;</SPAN> /&gt;</SPAN>
+            <SPAN class="code-tag">&lt;interceptor name=<SPAN class="code-quote">&quot;debugging&quot;</SPAN> class=<SPAN class="code-quote">&quot;org.apache.struts2.interceptor.debugging.DebuggingInterceptor&quot;</SPAN> /&gt;</SPAN>
+            <SPAN class="code-tag">&lt;interceptor name=<SPAN class="code-quote">&quot;execAndWait&quot;</SPAN> class=<SPAN class="code-quote">&quot;org.apache.struts2.interceptor.ExecuteAndWaitInterceptor&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;interceptor name=<SPAN class="code-quote">&quot;exception&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.interceptor.ExceptionMappingInterceptor&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;interceptor name=<SPAN class="code-quote">&quot;fileUpload&quot;</SPAN> class=<SPAN class="code-quote">&quot;org.apache.struts2.interceptor.FileUploadInterceptor&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;interceptor name=<SPAN class="code-quote">&quot;i18n&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.interceptor.I18nInterceptor&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;interceptor name=<SPAN class="code-quote">&quot;logger&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.interceptor.LoggingInterceptor&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;interceptor name=<SPAN class="code-quote">&quot;modelDriven&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.interceptor.ModelDrivenInterceptor&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;interceptor name=<SPAN class="code-quote">&quot;scopedModelDriven&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.interceptor.ScopedModelDrivenInterceptor&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;interceptor name=<SPAN class="code-quote">&quot;params&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.interceptor.ParametersInterceptor&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;interceptor name=<SPAN class="code-quote">&quot;actionMappingParams&quot;</SPAN> class=<SPAN class="code-quote">&quot;org.apache.struts2.interceptor.ActionMappingParametersInteceptor&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;interceptor name=<SPAN class="code-quote">&quot;prepare&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.interceptor.PrepareInterceptor&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;interceptor name=<SPAN class="code-quote">&quot;staticParams&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.interceptor.StaticParametersInterceptor&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;interceptor name=<SPAN class="code-quote">&quot;scope&quot;</SPAN> class=<SPAN class="code-quote">&quot;org.apache.struts2.interceptor.ScopeInterceptor&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;interceptor name=<SPAN class="code-quote">&quot;servletConfig&quot;</SPAN> class=<SPAN class="code-quote">&quot;org.apache.struts2.interceptor.ServletConfigInterceptor&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;interceptor name=<SPAN class="code-quote">&quot;timer&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.interceptor.TimerInterceptor&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;interceptor name=<SPAN class="code-quote">&quot;token&quot;</SPAN> class=<SPAN class="code-quote">&quot;org.apache.struts2.interceptor.TokenInterceptor&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;interceptor name=<SPAN class="code-quote">&quot;tokenSession&quot;</SPAN> class=<SPAN class="code-quote">&quot;org.apache.struts2.interceptor.TokenSessionStoreInterceptor&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;interceptor name=<SPAN class="code-quote">&quot;validation&quot;</SPAN> class=<SPAN class="code-quote">&quot;org.apache.struts2.interceptor.validation.AnnotationValidationInterceptor&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;interceptor name=<SPAN class="code-quote">&quot;workflow&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.interceptor.DefaultWorkflowInterceptor&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;interceptor name=<SPAN class="code-quote">&quot;store&quot;</SPAN> class=<SPAN class="code-quote">&quot;org.apache.struts2.interceptor.MessageStoreInterceptor&quot;</SPAN> /&gt;</SPAN>
+            <SPAN class="code-tag">&lt;interceptor name=<SPAN class="code-quote">&quot;checkbox&quot;</SPAN> class=<SPAN class="code-quote">&quot;org.apache.struts2.interceptor.CheckboxInterceptor&quot;</SPAN> /&gt;</SPAN>
+            <SPAN class="code-tag">&lt;interceptor name=<SPAN class="code-quote">&quot;profiling&quot;</SPAN> class=<SPAN class="code-quote">&quot;org.apache.struts2.interceptor.ProfilingActivationInterceptor&quot;</SPAN> /&gt;</SPAN>
+            <SPAN class="code-tag">&lt;interceptor name=<SPAN class="code-quote">&quot;roles&quot;</SPAN> class=<SPAN class="code-quote">&quot;org.apache.struts2.interceptor.RolesInterceptor&quot;</SPAN> /&gt;</SPAN>
+            <SPAN class="code-tag">&lt;interceptor name=<SPAN class="code-quote">&quot;annotationWorkflow&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.interceptor.annotations.AnnotationWorkflowInterceptor&quot;</SPAN> /&gt;</SPAN>
+            <SPAN class="code-tag">&lt;interceptor name=<SPAN class="code-quote">&quot;multiselect&quot;</SPAN> class=<SPAN class="code-quote">&quot;org.apache.struts2.interceptor.MultiselectInterceptor&quot;</SPAN> /&gt;</SPAN>
+
+            <SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- Basic stack --&gt;</SPAN></SPAN>
+            <SPAN class="code-tag">&lt;interceptor-stack name=<SPAN class="code-quote">&quot;basicStack&quot;</SPAN>&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;exception&quot;</SPAN>/&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;servletConfig&quot;</SPAN>/&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;prepare&quot;</SPAN>/&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;checkbox&quot;</SPAN>/&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;multiselect&quot;</SPAN>/&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;actionMappingParams&quot;</SPAN>/&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;params&quot;</SPAN>&gt;</SPAN>
+                    <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;excludeParams&quot;</SPAN>&gt;</SPAN>dojo\..*,^struts\..*,^session\..*,^request\..*,^application\..*,^servlet(Request|Response)\..*,parameters\...*<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+                <SPAN class="code-tag">&lt;/interceptor-ref&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;conversionError&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;/interceptor-stack&gt;</SPAN>
+
+            <SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- Sample validation and workflow stack --&gt;</SPAN></SPAN>
+            <SPAN class="code-tag">&lt;interceptor-stack name=<SPAN class="code-quote">&quot;validationWorkflowStack&quot;</SPAN>&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;basicStack&quot;</SPAN>/&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;validation&quot;</SPAN>/&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;workflow&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;/interceptor-stack&gt;</SPAN>
+
+            <SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- Sample file upload stack --&gt;</SPAN></SPAN>
+            <SPAN class="code-tag">&lt;interceptor-stack name=<SPAN class="code-quote">&quot;fileUploadStack&quot;</SPAN>&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;fileUpload&quot;</SPAN>/&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;basicStack&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;/interceptor-stack&gt;</SPAN>
+
+            <SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- Sample model-driven stack  --&gt;</SPAN></SPAN>
+            <SPAN class="code-tag">&lt;interceptor-stack name=<SPAN class="code-quote">&quot;modelDrivenStack&quot;</SPAN>&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;modelDriven&quot;</SPAN>/&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;basicStack&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;/interceptor-stack&gt;</SPAN>
+
+            <SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- Sample action chaining stack --&gt;</SPAN></SPAN>
+            <SPAN class="code-tag">&lt;interceptor-stack name=<SPAN class="code-quote">&quot;chainStack&quot;</SPAN>&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;chain&quot;</SPAN>/&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;basicStack&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;/interceptor-stack&gt;</SPAN>
+
+            <SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- Sample i18n stack --&gt;</SPAN></SPAN>
+            <SPAN class="code-tag">&lt;interceptor-stack name=<SPAN class="code-quote">&quot;i18nStack&quot;</SPAN>&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;i18n&quot;</SPAN>/&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;basicStack&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;/interceptor-stack&gt;</SPAN>
+
+            &lt;!-- An example of the paramsPrepareParams trick. This stack
+                 is exactly the same as the defaultStack, except that it
+                 includes one extra interceptor before the prepare interceptor:
+                 the params interceptor.
+
+                 This is useful for when you wish to apply parameters directly
+                 to an object that you wish to load externally (such as a DAO
+                 or database or service layer), but can't load that object
+                 until at least the ID parameter has been loaded. By loading
+                 the parameters twice, you can retrieve the object in the
+                 prepare() method, allowing the second params interceptor to
+                 apply the values on the object. --&gt;
+            <SPAN class="code-tag">&lt;interceptor-stack name=<SPAN class="code-quote">&quot;paramsPrepareParamsStack&quot;</SPAN>&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;exception&quot;</SPAN>/&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;alias&quot;</SPAN>/&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;i18n&quot;</SPAN>/&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;checkbox&quot;</SPAN>/&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;multiselect&quot;</SPAN>/&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;params&quot;</SPAN>&gt;</SPAN>
+                    <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;excludeParams&quot;</SPAN>&gt;</SPAN>dojo\..*,^struts\..*,^session\..*,^request\..*,^application\..*,^servlet(Request|Response)\..*,parameters\...*<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+                <SPAN class="code-tag">&lt;/interceptor-ref&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;servletConfig&quot;</SPAN>/&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;prepare&quot;</SPAN>/&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;chain&quot;</SPAN>/&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;modelDriven&quot;</SPAN>/&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;fileUpload&quot;</SPAN>/&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;staticParams&quot;</SPAN>/&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;actionMappingParams&quot;</SPAN>/&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;params&quot;</SPAN>&gt;</SPAN>
+                    <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;excludeParams&quot;</SPAN>&gt;</SPAN>dojo\..*,^struts\..*,^session\..*,^request\..*,^application\..*,^servlet(Request|Response)\..*,parameters\...*<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+                <SPAN class="code-tag">&lt;/interceptor-ref&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;conversionError&quot;</SPAN>/&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;validation&quot;</SPAN>&gt;</SPAN>
+                    <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;excludeMethods&quot;</SPAN>&gt;</SPAN>input,back,cancel,browse<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+                <SPAN class="code-tag">&lt;/interceptor-ref&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;workflow&quot;</SPAN>&gt;</SPAN>
+                    <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;excludeMethods&quot;</SPAN>&gt;</SPAN>input,back,cancel,browse<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+                <SPAN class="code-tag">&lt;/interceptor-ref&gt;</SPAN>
+            <SPAN class="code-tag">&lt;/interceptor-stack&gt;</SPAN>
+
+            &lt;!-- A complete stack with all the common interceptors in place.
+                 Generally, this stack should be the one you use, though it
+                 may do more than you need. Also, the ordering can be
+                 switched around (ex: if you wish to have your servlet-related
+                 objects applied before prepare() is called, you'd need to move
+                 servletConfig interceptor up.
+
+                 This stack also excludes from the normal validation and workflow
+                 the method names input, back, and cancel. These typically are
+                 associated with requests that should not be validated.
+                 --&gt;
+            <SPAN class="code-tag">&lt;interceptor-stack name=<SPAN class="code-quote">&quot;defaultStack&quot;</SPAN>&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;exception&quot;</SPAN>/&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;alias&quot;</SPAN>/&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;servletConfig&quot;</SPAN>/&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;i18n&quot;</SPAN>/&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;prepare&quot;</SPAN>/&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;chain&quot;</SPAN>/&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;scopedModelDriven&quot;</SPAN>/&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;modelDriven&quot;</SPAN>/&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;fileUpload&quot;</SPAN>/&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;checkbox&quot;</SPAN>/&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;multiselect&quot;</SPAN>/&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;staticParams&quot;</SPAN>/&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;actionMappingParams&quot;</SPAN>/&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;params&quot;</SPAN>&gt;</SPAN>
+                    <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;excludeParams&quot;</SPAN>&gt;</SPAN>dojo\..*,^struts\..*,^session\..*,^request\..*,^application\..*,^servlet(Request|Response)\..*,parameters\...*<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+                <SPAN class="code-tag">&lt;/interceptor-ref&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;conversionError&quot;</SPAN>/&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;validation&quot;</SPAN>&gt;</SPAN>
+                    <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;excludeMethods&quot;</SPAN>&gt;</SPAN>input,back,cancel,browse<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+                <SPAN class="code-tag">&lt;/interceptor-ref&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;workflow&quot;</SPAN>&gt;</SPAN>
+                    <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;excludeMethods&quot;</SPAN>&gt;</SPAN>input,back,cancel,browse<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+                <SPAN class="code-tag">&lt;/interceptor-ref&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;debugging&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;/interceptor-stack&gt;</SPAN>
+
+            &lt;!-- The completeStack is here for backwards compatibility for
+                 applications that still refer to the defaultStack by the
+                 old name --&gt;
+            <SPAN class="code-tag">&lt;interceptor-stack name=<SPAN class="code-quote">&quot;completeStack&quot;</SPAN>&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;defaultStack&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;/interceptor-stack&gt;</SPAN>
+
+            &lt;!-- Sample execute and wait stack.
+                 Note: execAndWait should always be the *last* interceptor. --&gt;
+            <SPAN class="code-tag">&lt;interceptor-stack name=<SPAN class="code-quote">&quot;executeAndWaitStack&quot;</SPAN>&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;execAndWait&quot;</SPAN>&gt;</SPAN>
+                    <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;excludeMethods&quot;</SPAN>&gt;</SPAN>input,back,cancel<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+                <SPAN class="code-tag">&lt;/interceptor-ref&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;defaultStack&quot;</SPAN>/&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;execAndWait&quot;</SPAN>&gt;</SPAN>
+                    <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;excludeMethods&quot;</SPAN>&gt;</SPAN>input,back,cancel<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+                <SPAN class="code-tag">&lt;/interceptor-ref&gt;</SPAN>
+            <SPAN class="code-tag">&lt;/interceptor-stack&gt;</SPAN>
+
+       <SPAN class="code-tag">&lt;/interceptors&gt;</SPAN>
+
+        <SPAN class="code-tag">&lt;default-interceptor-ref name=<SPAN class="code-quote">&quot;defaultStack&quot;</SPAN>/&gt;</SPAN>
+
+        <SPAN class="code-tag">&lt;default-class-ref class=<SPAN class="code-quote">&quot;com.opensymphony.xwork2.ActionSupport&quot;</SPAN> /&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/package&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;/struts&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+<P>This file defines all of the default bundled results and interceptors and many interceptor stacks which you can use either as-is or as a basis for your own application-specific interceptor stacks. <B>Notice the name of the package is &quot;struts-default&quot;</B>.</P>
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

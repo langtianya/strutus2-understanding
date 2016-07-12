@@ -1,0 +1,388 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>TutorialLesson06</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="tutorials.html" title="Tutorials">Tutorials</A>&nbsp;&gt;&nbsp;<A href="bootstrap.html" title="Bootstrap">Bootstrap</A>&nbsp;&gt;&nbsp;<A href="" title="TutorialLesson06">TutorialLesson06</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">TutorialLesson06</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=14155">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=14155">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14155">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14155">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14155">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14155">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          
+
+<H1><A name="TutorialLesson06-Lesson5%3AInterceptors"></A>Lesson 5: Interceptors</H1>
+
+<P>Interceptors allow arbitrary code to be included in the call stack for your action before and/or after processing the action, which can vastly simplify your code itself and provide excellent opportunities for code reuse. Many of the features of XWork and WebWork are implemented as interceptors and can be applied via external configuration along with your own Interceptors in whatever order you specify for any set of actions you define.</P>
+
+<P>In other words, when you access a <TT>&#42;.action</TT> URL, WebWork's <TT>ServletDispatcher</TT> proceeds to the invocation of the an action object. Before it is executed, however, the invocation can be intercepted by another object, that is hence called interceptor. To have an interceptor executed before (or after) a given action, just configure <TT>xwork.xml</TT> properly, like the example below, taken from <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&title=TutorialLesson04-01-01&linkCreation=true&fromPageId=14155" class="createlink">lesson 4.1.1</A>:</P>
+
+<H3><A name="TutorialLesson06-Interceptorconfigurationfromlesson4.1.1%3A"></A>Interceptor configuration from lesson 4.1.1:</H3>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;formProcessing&quot;</SPAN> class=<SPAN class="code-quote">&quot;lesson04_01_01.FormProcessingAction&quot;</SPAN>&gt;</SPAN>
+	<SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;input&quot;</SPAN> type=<SPAN class="code-quote">&quot;dispatcher&quot;</SPAN>&gt;</SPAN>ex01-index.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+	<SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;success&quot;</SPAN> type=<SPAN class="code-quote">&quot;dispatcher&quot;</SPAN>&gt;</SPAN>ex01-success.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+	<SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;validationWorkflowStack&quot;</SPAN> /&gt;</SPAN>
+<SPAN class="code-tag">&lt;/action&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+<P>As you can see, lesson 4.1.1's <TT>formProcessing</TT> Action uses the <TT>validationWorkflowStack</TT>. That is an interceptor stack, which organizes a bunch of interceptors in the order in which they are to be executed. That stack is configured in <TT>webwork-default.xml</TT>, so all we have to do to use it is declare a <TT>&lt;interceptor-ref /&gt;</TT> under the action configuration or a <TT>&lt;default-interceptor-ref /&gt;</TT>, under package configuration, as seen in <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&title=Lesson%203%20-%20An%20html%20form%20with%20data&linkCreation=true&fromPageId=14155" class="createlink">lesson 3</A>'s first example:</P>
+
+<H3><A name="TutorialLesson06-Interceptorconfigurationfromlesson3.1%3A"></A>Interceptor configuration from lesson 3.1:</H3>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">&lt;!DOCTYPE xwork PUBLIC <SPAN class="code-quote">&quot;-//OpenSymphony Group//XWork 1.0//EN&quot;</SPAN>
+<SPAN class="code-quote">&quot;http://www.opensymphony.com/xwork/xwork-1.0.dtd&quot;</SPAN>&gt;
+
+<SPAN class="code-tag">&lt;xwork&gt;</SPAN>
+	<SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- Include webwork defaults (from WebWork JAR). --&gt;</SPAN></SPAN>
+	<SPAN class="code-tag">&lt;include file=<SPAN class="code-quote">&quot;webwork-default.xml&quot;</SPAN> /&gt;</SPAN>
+
+	<SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- Configuration for the default package. --&gt;</SPAN></SPAN>
+	<SPAN class="code-tag">&lt;package name=<SPAN class="code-quote">&quot;default&quot;</SPAN> extends=<SPAN class="code-quote">&quot;webwork-default&quot;</SPAN>&gt;</SPAN>
+		<SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- Default interceptor stack. --&gt;</SPAN></SPAN>
+		<SPAN class="code-tag">&lt;default-interceptor-ref name=<SPAN class="code-quote">&quot;defaultStack&quot;</SPAN> /&gt;</SPAN>
+
+		<SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- Action: Lesson 03: HelloWebWorldAction. --&gt;</SPAN></SPAN>
+		<SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;helloWebWorld&quot;</SPAN> class=<SPAN class="code-quote">&quot;lesson03.HelloWebWorldAction&quot;</SPAN>&gt;</SPAN>
+			<SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;success&quot;</SPAN> type=<SPAN class="code-quote">&quot;dispatcher&quot;</SPAN>&gt;</SPAN>ex01-success.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+		<SPAN class="code-tag">&lt;/action&gt;</SPAN>
+	<SPAN class="code-tag">&lt;/package&gt;</SPAN>
+<SPAN class="code-tag">&lt;/xwork&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+<P>But let's see how it works from scracth:</P>
+<OL>
+	<LI>Create an interceptor class, which is a class that implements the <TT>com.opensymphony.xwork.interceptor.Interceptor</TT> interface (bundled in <TT>xwork-1.0.jar</TT>);</LI>
+	<LI>Declare the class in your XML configuration file (<TT>xwork.xml</TT>) using the element <TT>&lt;interceptor /&gt;</TT> nested within <TT>&lt;interceptors /&gt;</TT>;</LI>
+	<LI>Create stacks of interceptors, using the <TT>&lt;interceptor-stack /&gt;</TT> element (<EM>optional</EM>);</LI>
+	<LI>Determine which interceptors are used by which action, using <TT>&lt;interceptor-ref /&gt;</TT> or <TT>&lt;default-interceptor-ref /&gt;</TT>. The former defines the interceptors to be used in a specific action, while the latter determines the default interceptor stack to be used by all actions that do not specify their own <TT>&lt;interceptor-ref /&gt;</TT>.</LI>
+</OL>
+
+
+<P>Looking inside <TT>webwork-default.xml</TT> we can see how it's done:</P>
+
+<H3><A name="TutorialLesson06-webworkdefault.xml%3A"></A>webwork-default.xml:</H3>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">&lt;!DOCTYPE xwork PUBLIC <SPAN class="code-quote">&quot;-//OpenSymphony Group//XWork 1.0//EN&quot;</SPAN>
+<SPAN class="code-quote">&quot;http://www.opensymphony.com/xwork/xwork-1.0.dtd&quot;</SPAN>&gt;
+
+<SPAN class="code-tag">&lt;xwork&gt;</SPAN>
+	<SPAN class="code-tag">&lt;package name=<SPAN class="code-quote">&quot;webwork-default&quot;</SPAN>&gt;</SPAN>
+		<SPAN class="code-tag">&lt;result-types&gt;</SPAN>
+			&lt;result-type name=<SPAN class="code-quote">&quot;dispatcher&quot;</SPAN> default=<SPAN class="code-quote">&quot;true&quot;</SPAN>
+				class=<SPAN class="code-quote">&quot;com.opensymphony.webwork.dispatcher.ServletDispatcherResult&quot;</SPAN>/&gt;
+			&lt;result-type name=<SPAN class="code-quote">&quot;redirect&quot;</SPAN>
+				class=<SPAN class="code-quote">&quot;com.opensymphony.webwork.dispatcher.ServletRedirectResult&quot;</SPAN>/&gt;
+			&lt;result-type name=<SPAN class="code-quote">&quot;velocity&quot;</SPAN>
+				class=<SPAN class="code-quote">&quot;com.opensymphony.webwork.dispatcher.VelocityResult&quot;</SPAN>/&gt;
+			&lt;result-type name=<SPAN class="code-quote">&quot;chain&quot;</SPAN>
+				class=<SPAN class="code-quote">&quot;com.opensymphony.xwork.ActionChainResult&quot;</SPAN>/&gt;
+			&lt;result-type name=<SPAN class="code-quote">&quot;xslt&quot;</SPAN>
+				class=<SPAN class="code-quote">&quot;com.opensymphony.webwork.views.xslt.XSLTResult&quot;</SPAN>/&gt;
+		<SPAN class="code-tag">&lt;/result-types&gt;</SPAN>
+
+		<SPAN class="code-tag">&lt;interceptors&gt;</SPAN>
+			&lt;interceptor name=<SPAN class="code-quote">&quot;timer&quot;</SPAN>
+				class=<SPAN class="code-quote">&quot;com.opensymphony.xwork.interceptor.TimerInterceptor&quot;</SPAN>/&gt;
+			&lt;interceptor name=<SPAN class="code-quote">&quot;logger&quot;</SPAN>
+				class=<SPAN class="code-quote">&quot;com.opensymphony.xwork.interceptor.LoggingInterceptor&quot;</SPAN>/&gt;
+			&lt;interceptor name=<SPAN class="code-quote">&quot;chain&quot;</SPAN>
+				class=<SPAN class="code-quote">&quot;com.opensymphony.xwork.interceptor.ChainingInterceptor&quot;</SPAN>/&gt;
+			&lt;interceptor name=<SPAN class="code-quote">&quot;static-params&quot;</SPAN>
+				class=<SPAN class="code-quote">&quot;com.opensymphony.xwork.interceptor.StaticParametersInterceptor&quot;</SPAN>/&gt;
+			&lt;interceptor name=<SPAN class="code-quote">&quot;params&quot;</SPAN>
+				class=<SPAN class="code-quote">&quot;com.opensymphony.xwork.interceptor.ParametersInterceptor&quot;</SPAN>/&gt;
+			&lt;interceptor name=<SPAN class="code-quote">&quot;model-driven&quot;</SPAN>
+				class=<SPAN class="code-quote">&quot;com.opensymphony.xwork.interceptor.ModelDrivenInterceptor&quot;</SPAN>/&gt;
+			&lt;interceptor name=<SPAN class="code-quote">&quot;component&quot;</SPAN>
+				class=<SPAN class="code-quote">&quot;com.opensymphony.xwork.interceptor.component.ComponentInterceptor&quot;</SPAN>/&gt;
+			&lt;interceptor name=<SPAN class="code-quote">&quot;token&quot;</SPAN>
+				class=<SPAN class="code-quote">&quot;com.opensymphony.webwork.interceptor.TokenInterceptor&quot;</SPAN>/&gt;
+			&lt;interceptor name=<SPAN class="code-quote">&quot;token-session&quot;</SPAN>
+				class=<SPAN class="code-quote">&quot;com.opensymphony.webwork.interceptor.TokenSessionStoreInterceptor&quot;</SPAN>/&gt;
+			&lt;interceptor name=<SPAN class="code-quote">&quot;validation&quot;</SPAN>
+				class=<SPAN class="code-quote">&quot;com.opensymphony.xwork.validator.ValidationInterceptor&quot;</SPAN>/&gt;
+			&lt;interceptor name=<SPAN class="code-quote">&quot;workflow&quot;</SPAN>
+				class=<SPAN class="code-quote">&quot;com.opensymphony.xwork.interceptor.DefaultWorkflowInterceptor&quot;</SPAN>/&gt;
+			&lt;interceptor name=<SPAN class="code-quote">&quot;servlet-config&quot;</SPAN>
+				class=<SPAN class="code-quote">&quot;com.opensymphony.webwork.interceptor.ServletConfigInterceptor&quot;</SPAN>/&gt;
+			&lt;interceptor name=<SPAN class="code-quote">&quot;prepare&quot;</SPAN>
+				class=<SPAN class="code-quote">&quot;com.opensymphony.xwork.interceptor.PrepareInterceptor&quot;</SPAN>/&gt;
+			&lt;interceptor name=<SPAN class="code-quote">&quot;conversionError&quot;</SPAN>
+				class=<SPAN class="code-quote">&quot;com.opensymphony.webwork.interceptor.WebWorkConversionErrorInterceptor&quot;</SPAN>/&gt;
+			<SPAN class="code-tag">&lt;interceptor-stack name=<SPAN class="code-quote">&quot;defaultStack&quot;</SPAN>&gt;</SPAN>
+				<SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;static-params&quot;</SPAN>/&gt;</SPAN>
+				<SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;params&quot;</SPAN>/&gt;</SPAN>
+				<SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;conversionError&quot;</SPAN>/&gt;</SPAN>
+			<SPAN class="code-tag">&lt;/interceptor-stack&gt;</SPAN>
+			<SPAN class="code-tag">&lt;interceptor-stack name=<SPAN class="code-quote">&quot;validationWorkflowStack&quot;</SPAN>&gt;</SPAN>
+				<SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;defaultStack&quot;</SPAN>/&gt;</SPAN>
+				<SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;validation&quot;</SPAN>/&gt;</SPAN>
+				<SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;workflow&quot;</SPAN>/&gt;</SPAN>
+			<SPAN class="code-tag">&lt;/interceptor-stack&gt;</SPAN>
+		<SPAN class="code-tag">&lt;/interceptors&gt;</SPAN>
+	<SPAN class="code-tag">&lt;/package&gt;</SPAN>
+<SPAN class="code-tag">&lt;/xwork&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+<P>Since we included <TT>webwork-default.xml</TT> in our <TT>xwork.xml</TT>, all the interceptors and stacks above are available for us to use in our actions. Here's what these interceptors do:</P>
+<UL>
+	<LI><B>timer</B>: clocks how long the action (including nested interceptors and view) takes to execute;</LI>
+	<LI><B>logger</B>: logs the action being executed;</LI>
+	<LI><B>chain</B>: makes the previous action's properties available to the current action. Used to make action chaining (reference: <A href="result-types.html" title="Result Types">Result Types</A>);</LI>
+	<LI><B>static-params</B>: sets the parameters defined in <TT>xwork.xml</TT> onto the action. These are the <TT>&lt;param /&gt;</TT> tags that are direct children of the <TT>&lt;action /&gt;</TT> tag;</LI>
+	<LI><B>params</B>: sets the request (POST and GET) parameters onto the action class. We have seen an example of this in <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&title=Lesson%203%20-%20An%20html%20form%20with%20data&linkCreation=true&fromPageId=14155" class="createlink">lesson 3</A>;</LI>
+	<LI><B>model-driven</B>: if the action implements <TT>ModelDriven</TT>, pushes the <TT>getModel()</TT> result onto the Value Stack;</LI>
+	<LI><B>component</B>: enables and makes registered components available to the actions. (reference: <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&title=IoC%20%26%20Components&linkCreation=true&fromPageId=14155" class="createlink">IoC &amp; Components</A>);</LI>
+	<LI><B>token</B>: checks for valid token presence in action, prevents duplicate form submission;</LI>
+	<LI><B>token-session</B>: same as above, but storing the submitted data in session when handed an invalid token;</LI>
+	<LI><B>validation</B>: performs validation using the validators defined in {<TT>Action}-validation.xml</TT> (reference: <A href="validation.html" title="Validation">Validation</A>). We've seen an example of this in <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&title=TutorialLesson04-01-01&linkCreation=true&fromPageId=14155" class="createlink">lesson 4.1.1</A>;</LI>
+	<LI><B>workflow</B>: calls the validate method in your action class. If action errors created then it returns the <TT>INPUT</TT> view. Good to use together with the validation interceptor (reference: <A href="validation.html" title="Validation">Validation</A>);</LI>
+	<LI><B>servlet-config</B>: give access to <TT>HttpServletRequest</TT> and <TT>HttpServletResponse</TT> (think twice before using this since this ties you to the Servlet API);</LI>
+	<LI><B>prepare</B>: allows you to programmatic access to your Action class before the parameters are set on it.;</LI>
+	<LI><B>conversionError</B>: <FONT color="red"><EM>help needed here</EM></FONT>.</LI>
+</UL>
+
+
+<H2><A name="TutorialLesson06-BuildingyourownInterceptor"></A>Building your own Interceptor</H2>
+
+<P>If none of the above interceptors suit your particular need, you will have to implement your own interceptor. Fortunately, this is an easy task to accomplish. Suppose we need an interceptor that places a greeting in the Session according to the time of the day (morning, afternoon or evening). Here's how we could implement it:</P>
+
+<H3><A name="TutorialLesson06-GreetingInterceptor.java%3A"></A>GreetingInterceptor.java:</H3>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java"><SPAN class="code-keyword">package</SPAN> lesson05;
+
+<SPAN class="code-keyword">import</SPAN> java.util.Calendar;
+<SPAN class="code-keyword">import</SPAN> com.opensymphony.xwork.interceptor.Interceptor;
+<SPAN class="code-keyword">import</SPAN> com.opensymphony.xwork.ActionInvocation;
+
+<SPAN class="code-keyword">public</SPAN> class GreetingInterceptor <SPAN class="code-keyword">implements</SPAN> Interceptor {
+	<SPAN class="code-keyword">public</SPAN> void init() { }
+	<SPAN class="code-keyword">public</SPAN> void destroy() { }
+	<SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> intercept(ActionInvocation invocation) <SPAN class="code-keyword">throws</SPAN> Exception {
+		Calendar calendar = Calendar.getInstance();
+		<SPAN class="code-object">int</SPAN> hour = calendar.get(Calendar.HOUR_OF_DAY);
+		<SPAN class="code-object">String</SPAN> greeting = (hour &lt; 6) ? <SPAN class="code-quote">&quot;Good evening&quot;</SPAN> :
+			((hour &lt; 12) ? <SPAN class="code-quote">&quot;Good morning&quot;</SPAN>:
+			((hour &lt; 18) ? <SPAN class="code-quote">&quot;Good afternoon&quot;</SPAN>: <SPAN class="code-quote">&quot;Good evening&quot;</SPAN>));
+
+		invocation.getInvocationContext().getSession().put(<SPAN class="code-quote">&quot;greeting&quot;</SPAN>, greeting);
+
+		<SPAN class="code-object">String</SPAN> result = invocation.invoke();
+
+		<SPAN class="code-keyword">return</SPAN> result;
+	}
+}
+</PRE>
+</DIV></DIV>
+
+<H3><A name="TutorialLesson06-xwork.xml%3A"></A>xwork.xml:</H3>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">&lt;!DOCTYPE xwork PUBLIC <SPAN class="code-quote">&quot;-//OpenSymphony Group//XWork 1.0//EN&quot;</SPAN>
+<SPAN class="code-quote">&quot;http://www.opensymphony.com/xwork/xwork-1.0.dtd&quot;</SPAN>&gt;
+
+<SPAN class="code-tag">&lt;xwork&gt;</SPAN>
+	<SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- Include webwork defaults (from WebWork JAR). --&gt;</SPAN></SPAN>
+	<SPAN class="code-tag">&lt;include file=<SPAN class="code-quote">&quot;webwork-default.xml&quot;</SPAN> /&gt;</SPAN>
+
+	<SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- Configuration for the default package. --&gt;</SPAN></SPAN>
+	<SPAN class="code-tag">&lt;package name=<SPAN class="code-quote">&quot;default&quot;</SPAN> extends=<SPAN class="code-quote">&quot;webwork-default&quot;</SPAN>&gt;</SPAN>
+		<SPAN class="code-tag">&lt;interceptors&gt;</SPAN>
+			<SPAN class="code-tag">&lt;interceptor name=<SPAN class="code-quote">&quot;greeting&quot;</SPAN> class=<SPAN class="code-quote">&quot;section02.lesson05.GreetingInterceptor&quot;</SPAN> /&gt;</SPAN>
+		<SPAN class="code-tag">&lt;/interceptors&gt;</SPAN>
+
+		<SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- Action: Lesson 5: GreetingInterceptor. --&gt;</SPAN></SPAN>
+		<SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;greetingAction&quot;</SPAN> class=<SPAN class="code-quote">&quot;lesson05.GreetingAction&quot;</SPAN>&gt;</SPAN>
+			<SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;success&quot;</SPAN> type=<SPAN class="code-quote">&quot;velocity&quot;</SPAN>&gt;</SPAN>ex01-result.vm<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+			<SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;greeting&quot;</SPAN> /&gt;</SPAN>
+		<SPAN class="code-tag">&lt;/action&gt;</SPAN>
+	<SPAN class="code-tag">&lt;/package&gt;</SPAN>
+<SPAN class="code-tag">&lt;/xwork&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H3><A name="TutorialLesson06-GreetingAction.java%3A"></A>GreetingAction.java:</H3>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java"><SPAN class="code-keyword">package</SPAN> lesson05;
+
+<SPAN class="code-keyword">import</SPAN> com.opensymphony.xwork.ActionSupport;
+
+<SPAN class="code-keyword">public</SPAN> class GreetingAction <SPAN class="code-keyword">extends</SPAN> ActionSupport {
+	<SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> execute() <SPAN class="code-keyword">throws</SPAN> Exception {
+		<SPAN class="code-keyword">return</SPAN> SUCCESS;
+	}
+}
+</PRE>
+</DIV></DIV>
+
+<H3><A name="TutorialLesson06-ex01result.vm%3A"></A>ex01-result.vm:</H3>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-html"><SPAN class="code-tag">&lt;html&gt;</SPAN>
+<SPAN class="code-tag">&lt;head&gt;</SPAN>
+<SPAN class="code-tag">&lt;title&gt;</SPAN>WebWork Tutorial - Lesson 5 - Example 1<SPAN class="code-tag">&lt;/title&gt;</SPAN>
+<SPAN class="code-tag">&lt;/head&gt;</SPAN>
+<SPAN class="code-tag">&lt;body&gt;</SPAN>
+
+#set ($ses = $req.getSession())
+<SPAN class="code-tag">&lt;p&gt;</SPAN><SPAN class="code-tag">&lt;b&gt;</SPAN>${ses.getAttribute('greeting')}!<SPAN class="code-tag">&lt;/b&gt;</SPAN><SPAN class="code-tag">&lt;/p&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;/body&gt;</SPAN>
+<SPAN class="code-tag">&lt;/html&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+<P>Let's take a look at our interceptor class first. As explained before, the interceptor must implement <TT>com.opensymphony.xwork.interceptor.Interceptor</TT>'s methods: <TT>init()</TT>, called during interceptor initialization, <TT>destroy()</TT>, called during destruction, and most importantly, <TT>intercept(ActionInvocation invocation)</TT>, which is where we place the code that does the work.</P>
+
+<P>Notice that our interceptor returns the result from <TT>invocation.invoke()</TT> which is the method responsible for executing the next interceptor in the stack or, if this is the last one, the action. This means that the interceptor has the power of short-circuiting the action invocation and return a result string without executing the action at all&#33; Use this with caution, though.</P>
+
+<P>One other thing that interceptors can do is execute code after the action has executed. To do that, just place code after the invocation.invoke() call. WebWork provides an abstract class that already implements this kind of behaviour: <TT>com.opensymphony.xwork.interceptor.AroundInterceptor</TT>. Just extend it and implement the methods <TT>before(ActionInvocation invocation)</TT> and <TT>after(ActionInvocation dispatcher, String result)</TT>.</P>
+
+<P>The <TT>xwork.xml</TT> configuration, the action class and the result page are pretty straightforward and require no further explanation.</P>
+<BLOCKQUOTE><P><A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&title=TutorialExamples&linkCreation=true&fromPageId=14155" class="createlink">Try the example&#33;</A></P></BLOCKQUOTE>
+
+<HR>
+<P><A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&title=TutorialLesson05&linkCreation=true&fromPageId=14155" class="createlink">Previous Lesson</A> &#124; <A href="tutorialend.html" title="TutorialEnd">End of Tutorial</A></P>
+        </DIV>
+
+                  <DIV class="tabletitle">
+            Children
+            <SPAN class="smalltext" id="show" style="display: inline;">
+              <A href="javascript:showChildren()">Show Children</A></SPAN>
+            <SPAN class="smalltext" id="hide" style="display: none;">
+              <A href="javascript:hideChildren()">Hide Children</A></SPAN>
+          </DIV>
+          <DIV class="greybox" id="children" style="display: none;">
+                                      <A href="tutorialend.html" title="TutorialEnd">TutorialEnd</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                      </DIV>
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

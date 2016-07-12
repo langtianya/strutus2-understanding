@@ -1,0 +1,263 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Unit Testing</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="tutorials.html" title="Tutorials">Tutorials</A>&nbsp;&gt;&nbsp;<A href="getting-started.html" title="Getting Started">Getting Started</A>&nbsp;&gt;&nbsp;<A href="" title="Unit Testing">Unit Testing</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Unit Testing</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=27838592">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=27838592">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=27838592">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=27838592">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=27838592">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=27838592">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <DIV class="panelMacro"><TABLE class="infoMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>The example code for this tutorial, Unit_Testing_Struts2_Mvn, is available on Google Code - <A href="http://code.google.com/p/struts2-examples/downloads/list" class="external-link" rel="nofollow">http://code.google.com/p/struts2-examples/downloads/list</A>. After downloading and unzipping the file, you'll have a folder named Unit_Testing_Struts2_Mvn. In that folder will be a README.txt file with instructions on now to build and run the example application.  This tutorial assumes you already know how to write unit tests using Junit.</TD></TR></TABLE></DIV>
+
+<H3><A name="UnitTesting-Introduction"></A>Introduction</H3>
+
+<P>Struts 2 supports running unit tests of methods in the Struts Action class with the <A href="http://struts.apache.org/2.3.1.2/docs/junit-plugin.html" class="external-link" rel="nofollow">Struts 2 JUnit plugin</A>.  The JUnit plugin allows you to test methods of an Action class from within the Struts 2 framework.  The Struts Servlet filter and interceptors fire just as if your application was running on a Servlet container.  </P>
+
+<DIV class="panelMacro"><TABLE class="tipMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>The <A href="http://struts.apache.org/mail.html" class="external-link" rel="nofollow">Struts 2 user mailing list</A> is an excellent place to get help. If you are having a problem getting the tutorial example applications to work search the Struts 2 mailing list. If you don't find an answer to your problem, post a question on the mailing list.</TD></TR></TABLE></DIV>
+
+
+<H3><A name="UnitTesting-Setup"></A>Setup</H3>
+
+<P>The Struts 2 JUnit plugin jar file must be on your application's class path.  In the example application (see info above) the pom.xml includes a dependency for the struts2-junit-plugin.  There are numerous transitive dependencies, including to JUnit and the Spring framework.</P>
+
+<H3><A name="UnitTesting-WritingAUnitTest"></A>Writing A Unit Test</H3>
+<P>In the example application, the Register Action class includes using the validate method.  This method is automatically executed by the Struts 2 framework prior to the execute method.  Additionally, this method needs the values from the user's input on the form to already have been provided to the instance fields of the Action class (this work is done by another Struts 2 interceptor).  So it would be difficult to test the validate method without the overall Struts 2 framework running.</P>
+
+<P>To use the Struts 2 plugin to ensure the Strut 2 framework runs as part of the test, you need to have your JUnit test class extend StrutsTestCase (see RegisterTest class in the example application). </P>
+
+<DIV class="panelMacro"><TABLE class="infoMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>Note that the Struts 2 JUnit plugin can be used to design unit tests of other Action class methods such as the input method and also to test methods of a custom interceptor you add to the interceptor stack.  Also in this example, the test is for validation performed in the <A href="form-validation.html" title="Form Validation">validate method</A>.  But the same type of test would work if the validation was done using <A href="form-validation-using-xml.html" title="Form Validation Using XML">XML file validation</A>.</TD></TR></TABLE></DIV> 
+
+<P>To test the validate method we want Struts to call the Struts action that will cause the Action class's validate and execute methods to be run.  In the example application this action is register.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>struts.xml</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+
+
+	  <SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;register&quot;</SPAN> class=<SPAN class="code-quote">&quot;org.apache.struts.register.action.Register&quot;</SPAN> method=<SPAN class="code-quote">&quot;execute&quot;</SPAN>&gt;</SPAN>
+		<SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;success&quot;</SPAN>&gt;</SPAN>/thankyou.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+		<SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;input&quot;</SPAN>&gt;</SPAN>/register.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+	  <SPAN class="code-tag">&lt;/action&gt;</SPAN>
+
+</PRE>
+</DIV></DIV>
+
+<P>Remember the validate method will be called automatically by the framework before calling the execute method.  If validation fails the Struts framework will return &quot;input&quot;.  If there are no validation errors then the framework will call the execute method and return whatever String the execute method returns.</P>
+
+<H3><A name="UnitTesting-TestValidationShouldPass"></A>Test Validation Should Pass</H3>
+<P>For our first test we'll test that there should be no validation errors.  In the normal flow of this application the user would first enter the form data shown on the register.jsp page.</P>
+
+
+<P><SPAN class="image-wrap" style=""><IMG src="unit-testing.data/Screen%20shot%202012-02-17%20at%202.46.54%20PM.png" style="border: 1px solid black"></SPAN></P>
+
+<P>The input fields for the form have the following name values:  personBean.firstName, personBean.lastName, personBean.email, and personBean.age.  When the user fills out those fields Struts will take the values and provide them to the appropriate set methods of the personBean object.  So as part of the test I need to simulate the user filling out these form fields.  The StrutsTestCase provides a request object (of type MockHttpServletRequest) that I can use to set these values in the request scope.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>testExecuteValidationPasses method from RegisterTest class</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+
+@Test
+public void testExecuteValidationPasses() throws Exception() {
+
+  request.setParameter(<SPAN class="code-quote">&quot;personBean.firstName&quot;</SPAN>, <SPAN class="code-quote">&quot;Bruce&quot;</SPAN>);
+
+  request.setParameter(<SPAN class="code-quote">&quot;personBean.lastName&quot;</SPAN>, <SPAN class="code-quote">&quot;Phillips&quot;</SPAN>);
+		
+  request.setParameter(<SPAN class="code-quote">&quot;personBean.email&quot;</SPAN>, <SPAN class="code-quote">&quot;bphillips@ku.edu&quot;</SPAN>);
+		
+  request.setParameter(<SPAN class="code-quote">&quot;personBean.age&quot;</SPAN>, <SPAN class="code-quote">&quot;19&quot;</SPAN>);
+
+  ActionProxy actionProxy = getActionProxy(<SPAN class="code-quote">&quot;/register.action&quot;</SPAN>);
+
+  Register action = (Register) actionProxy.getAction() ;
+
+  assertNotNull(<SPAN class="code-quote">&quot;The action is null but should not be.&quot;</SPAN>, action);
+
+  String result - actionProxy.execute();
+
+  assertEquals(<SPAN class="code-quote">&quot;The execute method did not return &quot;</SPAN> + ActionSupport.SUCCESS + <SPAN class="code-quote">&quot; but should have.&quot;</SPAN>, ActionSupport.SUCCESS, result);
+  
+}
+
+
+</PRE>
+</DIV></DIV>
+
+<P>The first statements in the test method use the request object to set the values of any request parameters.  These simulate the values the user would enter into the form fields.  Note how the first argument to setParameter is the same as the value of the name attribute in the Struts textfield tag in the register.jsp page.</P>
+
+<P>In this test I'm providing good data for each form field as I want to ensure my validation doesn't register an error if the user provides correct information.</P>
+
+<P>I then call the getActionProxy method with the argument of &quot;/register.action&quot; and then the getAction method to get a reference to the Struts action class for this test.  This will ensure that the Struts 2 JUnit plugin will know which Action class should be used--the class associated with the register action in the struts.xml.  In this case that class is the Register class.</P>
+
+<P>The assertNotNull test ensures that argument to getActionProxy reference an Action class identified in struts.xml.  It's a way of checking that you've correctly setup struts.xml for this action.  </P>
+
+<P>After that I can call actionProxy.execute().  This causes the Struts 2 framework to go through its normal process of Servlet fileter and interceptors for the action identified by the actionProxy (in this case that is the register.action).  The validate method of class Register will get called and if it doesn't create any field or action errors then Struts 2 will call the execute method.  In this example, the execute method should return &quot;success&quot;.  </P>
+
+<P>So in the next statement, I check that success was returned.</P>
+
+
+<H3><A name="UnitTesting-TestValidationShouldFail"></A>Test Validation Should Fail</H3>
+<P>To test that validation should fail, I just need to have a test method that doesn't provide input for a form field.  For example, in the validate method of the Register Action class, is a test to ensure the user has entered some information for the personBean.firstName input field.  In the test method I would just not use the request object to set a parameter for that field.</P>
+
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>testExecuteValidationFailsMissingFirstName method from RegisterTest class</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+
+@Test
+public void testExecuteValidationFailsMissingFirstName() throws Exception() {
+
+  //request.setParameter(<SPAN class="code-quote">&quot;personBean.firstName&quot;</SPAN>, <SPAN class="code-quote">&quot;Bruce&quot;</SPAN>);
+
+  request.setParameter(<SPAN class="code-quote">&quot;personBean.lastName&quot;</SPAN>, <SPAN class="code-quote">&quot;Phillips&quot;</SPAN>);
+		
+  request.setParameter(<SPAN class="code-quote">&quot;personBean.email&quot;</SPAN>, <SPAN class="code-quote">&quot;bphillips@ku.edu&quot;</SPAN>);
+		
+  request.setParameter(<SPAN class="code-quote">&quot;personBean.age&quot;</SPAN>, <SPAN class="code-quote">&quot;19&quot;</SPAN>);
+
+  ActionProxy actionProxy = getActionProxy(<SPAN class="code-quote">&quot;/register.action&quot;</SPAN>);
+
+  Register action = (Register) actionProxy.getAction() ;
+
+  assertNotNull(<SPAN class="code-quote">&quot;The action is null but should not be.&quot;</SPAN>, action);
+
+  String result - actionProxy.execute();
+
+  assertEquals(<SPAN class="code-quote">&quot;The execute method did not return &quot;</SPAN> + ActionSupport.INPUT + <SPAN class="code-quote">&quot; but should have.&quot;</SPAN>, ActionSupport.INPUT, result);
+  
+}
+
+
+</PRE>
+</DIV></DIV>
+
+<P>In the last assertEquals statement my test checks that the Struts 2 framework returned &quot;input&quot; as that is what the Struts 2 framework will return if the validation adds a field or action error.</P>
+
+<H3><A name="UnitTesting-Summary"></A>Summary</H3>
+
+<P>There is much more you can do with the Struts 2 JUnit plugin to help you test the methods of your Action class in conjunction with the Struts 2 fraemwork.  If your Struts 2 application uses Spring to inject dependencies into the Action class then the Struts 2 JUnit Plugin has a StrutsSpringTestCase that your test class should extend.  Please read <A href="http://struts.apache.org/2.3.1.2/docs/testing-actions.html" class="external-link" rel="nofollow">Testing Actions</A> to learn more.</P>
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

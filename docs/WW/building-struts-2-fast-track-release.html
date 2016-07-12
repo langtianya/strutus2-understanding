@@ -1,0 +1,431 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Building Struts 2 - Fast track release</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="guides.html" title="Guides">Guides</A>&nbsp;&gt;&nbsp;<A href="contributors-guide.html" title="Contributors Guide">Contributors Guide</A>&nbsp;&gt;&nbsp;<A href="creating-and-signing-a-distribution.html" title="Creating and Signing a Distribution">Creating and Signing a Distribution</A>&nbsp;&gt;&nbsp;<A href="creating-and-signing-a-struts-23x-distribution.html" title="Creating and Signing a Struts 2.3.x Distribution">Creating and Signing a Struts 2.3.x Distribution</A>&nbsp;&gt;&nbsp;<A href="" title="Building Struts 2 - Fast track release">Building Struts 2 - Fast track release</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Building Struts 2 - Fast track release</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=27834014">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=27834014">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=27834014">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=27834014">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=27834014">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=27834014">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <H1><A name="BuildingStruts2-Fasttrackrelease-Content"></A>Content</H1>
+<STYLE type="text/css">/*<![CDATA[*/
+div.rbtoc1327103875776 {margin-left: 0px;padding: 0px;}
+div.rbtoc1327103875776 ul {list-style: none;margin-left: 0px;}
+div.rbtoc1327103875776 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</STYLE><DIV class="rbtoc1327103875776">
+<UL>
+    <LI><SPAN class="TOCOutline">1</SPAN> <A href="#BuildingStruts2-Fasttrackrelease-BuildingSteps%2528Struts%2529">Building Steps (Struts)</A></LI>
+<UL>
+    <LI><SPAN class="TOCOutline">1.1</SPAN> <A href="#BuildingStruts2-Fasttrackrelease-Gettingready">Getting ready</A></LI>
+    <LI><SPAN class="TOCOutline">1.2</SPAN> <A href="#BuildingStruts2-Fasttrackrelease-Obtainafreshcheckout.">Obtain a fresh checkout.</A></LI>
+    <LI><SPAN class="TOCOutline">1.3</SPAN> <A href="#BuildingStruts2-Fasttrackrelease-Changesitetarget">Change site target</A></LI>
+    <LI><SPAN class="TOCOutline">1.4</SPAN> <A href="#BuildingStruts2-Fasttrackrelease-ReverttoSNAPSHOT">Revert to -SNAPSHOT</A></LI>
+    <LI><SPAN class="TOCOutline">1.5</SPAN> <A href="#BuildingStruts2-Fasttrackrelease-Preparerelease">Prepare release</A></LI>
+    <LI><SPAN class="TOCOutline">1.6</SPAN> <A href="#BuildingStruts2-Fasttrackrelease-Performtherelease">Perform the release</A></LI>
+    <LI><SPAN class="TOCOutline">1.7</SPAN> <A href="#BuildingStruts2-Fasttrackrelease-Movetheassembliestothe%252Fwww%252Fpeople.apache.org%252Fbuilds%252Fstruts%252F%2524VERSIONdir">Move the assemblies to the /www/people.apache.org/builds/struts/$VERSION dir</A></LI>
+    <LI><SPAN class="TOCOutline">1.8</SPAN> <A href="#BuildingStruts2-Fasttrackrelease-Jirastuff">Jira stuff</A></LI>
+    <LI><SPAN class="TOCOutline">1.9</SPAN> <A href="#BuildingStruts2-Fasttrackrelease-Voteonit">Vote on it</A></LI>
+    <LI><SPAN class="TOCOutline">1.10</SPAN> <A href="#BuildingStruts2-Fasttrackrelease-Copyfiles">Copy files</A></LI>
+    <LI><SPAN class="TOCOutline">1.11</SPAN> <A href="#BuildingStruts2-Fasttrackrelease-Promoterelease">Promote release</A></LI>
+    <LI><SPAN class="TOCOutline">1.12</SPAN> <A href="#BuildingStruts2-Fasttrackrelease-Cleanupoldreleases">Clean up old releases</A></LI>
+    <LI><SPAN class="TOCOutline">1.13</SPAN> <A href="#BuildingStruts2-Fasttrackrelease-Waitforrsync">Wait for rsync</A></LI>
+    <LI><SPAN class="TOCOutline">1.14</SPAN> <A href="#BuildingStruts2-Fasttrackrelease-%2528Optional%2529UpdateSecurityBulletins">(Optional) - Update Security Bulletins</A></LI>
+    <LI><SPAN class="TOCOutline">1.15</SPAN> <A href="#BuildingStruts2-Fasttrackrelease-Updatesite%2528Struts2site%2529">Update site (Struts 2 site)</A></LI>
+    <LI><SPAN class="TOCOutline">1.16</SPAN> <A href="#BuildingStruts2-Fasttrackrelease-Updatesite%2528Strutstoplevelsite%2529">Update site (Struts top level site)</A></LI>
+    <LI><SPAN class="TOCOutline">1.17</SPAN> <A href="#BuildingStruts2-Fasttrackrelease-Redeploythedraftdocs">Redeploy the draft docs</A></LI>
+    <LI><SPAN class="TOCOutline">1.18</SPAN> <A href="#BuildingStruts2-Fasttrackrelease-Permissions">Permissions</A></LI>
+    <LI><SPAN class="TOCOutline">1.19</SPAN> <A href="#BuildingStruts2-Fasttrackrelease-Postannouncements">Post announcements</A></LI>
+</UL>
+</UL></DIV>
+
+<H2><A name="BuildingStruts2-Fasttrackrelease-BuildingSteps%28Struts%29"></A>Building Steps (Struts)</H2>
+
+<H3><A name="BuildingStruts2-Fasttrackrelease-Gettingready"></A>Getting ready</H3>
+<OL>
+	<LI>When a serious security issue arises, we should try to create a <TT>STRUTS&#95;&#35;&#95;#&#95;#&#95;X</TT> branch from the last GA release (from tag), and apply to that branch only<BR>
+the security  patch.</LI>
+	<LI>If the patch first applies to some other dependency, implore the other group to do the same, to avoid side-effects from other changes.</LI>
+	<LI>Release the upcoming version in JIRA (under Administration/Manage Releases) and tag the release date</LI>
+	<LI>Create DONE and TODO filters for the new version, share with all, and remove obsolete TODO filter</LI>
+	<LI>Create a new Version Notes page in Confluence, link from <A href="migration-guide.html" title="Migration Guide">Migration Guide</A>, and link to prior release page and JIRA DONE filters of the version to release, secure the page to allow access only member of struts-committers group in Confluence</LI>
+</OL>
+
+
+<H3><A name="BuildingStruts2-Fasttrackrelease-Obtainafreshcheckout."></A>Obtain a fresh checkout.</H3>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+svn co https:<SPAN class="code-comment">//svn.apache.org/repos/asf/struts/struts2/branches/STRUTS_#_#_#_X STRUTS_#_#_#_X</SPAN>
+</PRE>
+</DIV></DIV> 
+
+<H3><A name="BuildingStruts2-Fasttrackrelease-Changesitetarget"></A>Change site target</H3>
+
+<P>Edit the top pom.xml file and replace 2.x the url below with version number that's going to be released</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+    <SPAN class="code-tag">&lt;distributionManagement&gt;</SPAN>
+        <SPAN class="code-tag">&lt;site&gt;</SPAN>
+            <SPAN class="code-tag">&lt;id&gt;</SPAN>apache-site<SPAN class="code-tag">&lt;/id&gt;</SPAN>
+            <SPAN class="code-tag">&lt;url&gt;</SPAN>scp://people.apache.org/www/struts.apache.org/2.x/<SPAN class="code-tag">&lt;/url&gt;</SPAN>
+        <SPAN class="code-tag">&lt;/site&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/distributionManagement&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>commit the change</P>
+
+<H3><A name="BuildingStruts2-Fasttrackrelease-ReverttoSNAPSHOT"></A>Revert to -SNAPSHOT</H3>
+
+<P>Maven the release plugin can create a release only from -SNAPSHOT version, replace the current version in all poms with the planned release version plus -SNASPHOT suffix, eg.</P>
+
+<P>2.3.1 -&gt; 2.3.1.1-SNAPSHOT</P>
+
+<P>build locally and commit</P>
+
+<H3><A name="BuildingStruts2-Fasttrackrelease-Preparerelease"></A>Prepare release</H3>
+<P>Tag the release by using the &quot;release:prepare&quot; goal of Maven: </P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+mvn release:prepare -Dusername=yourSvnUsername -Dpassword=yourSvnPassword -DautoVersionSubmodules=<SPAN class="code-keyword">true</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>For a <A href="http://maven.apache.org/plugins/maven-release-plugin/usage.html" class="external-link" rel="nofollow">dry run</A>, add '-DdryRun=true'. If you do a dry run, use 'mvn release:clean' to clean up after you have looked at the output. </P>
+
+<P>When prompted for the SCM tag name, follow this pattern: STRUTS_2_3_[PATCH_VERSION]</P>
+
+<DIV class="panelMacro"><TABLE class="noteMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>For some reason, when using svn client 1.5, the release plugin might fail to tag the release, if it fails, run:<BR>
+svn up -r head<BR>
+mvn release:prepare -Dresume</TD></TR></TABLE></DIV>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-release-plugin:2.0-beta-7:prepare (<SPAN class="code-keyword">default</SPAN>-cli) on project struts2-parent: Unable to tag SCM
+[ERROR] Provider message:
+[ERROR] The svn tag command failed.
+[ERROR] Command output:
+[ERROR] svn: Commit failed (details follow):
+[ERROR] svn: No such revision 1223030
+</PRE>
+</DIV></DIV>
+
+<DIV class="panelMacro"><TABLE class="noteMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>If you get the error message above, try to re-run mvn release:prepare -Dusername=yourSvnUsername -Dpassword=yourSvnPassword -DautoVersionSubmodules=true command again, -Dresume flag is set to true by default and the plugin will resume the release process from where it failed before.</TD></TR></TABLE></DIV>
+
+<P>This step will (<A href="http://maven.apache.org/plugins/maven-release-plugin/examples/prepare-release.html" class="external-link" rel="nofollow">more information</A>):</P>
+<UL>
+	<LI>Check that there are no uncommitted changes in the sources</LI>
+	<LI>Check that there are no SNAPSHOT dependencies</LI>
+	<LI>Change the version in the poms from x-SNAPSHOT to a new version (you will be prompted for the versions to use)</LI>
+	<LI>Transform the SCM information in the POM to include the final destination of the tag</LI>
+	<LI>Run the project tests against the modified POMs to confirm everything is in working order</LI>
+	<LI>Commit the modified POMs</LI>
+	<LI>Tag the code in the SCM with a version name (this will be prompted for)</LI>
+	<LI>Bump the version in the POMs to a new value y-SNAPSHOT (these values will also be prompted for)</LI>
+	<LI>Commit the modified POMs</LI>
+</UL>
+
+
+<H3><A name="BuildingStruts2-Fasttrackrelease-Performtherelease"></A>Perform the release </H3>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+mvn release:perform -Dusername=yourSvnUsername
+</PRE>
+</DIV></DIV> 
+
+<P>This step will (<A href="http://maven.apache.org/plugins/maven-release-plugin/examples/perform-release.html" class="external-link" rel="nofollow">more information</A>):</P>
+<UL>
+	<LI>Checkout from an SCM URL with optional tag</LI>
+	<LI>Run the predefined Maven goals to release the project (by default, deploy site-deploy)</LI>
+</UL>
+
+
+<DIV class="panelMacro"><TABLE class="infoMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>N.B.: this step takes a long time (about 2 hours with a broadband connection)</TD></TR></TABLE></DIV>
+
+<P>After this step the artifacts will be hosted by <A href="http://repository.apache.org/" class="external-link" rel="nofollow">Nexus </A></P>
+
+<P>If you need to run perform again, (or in a different box), do:</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+svn co http:<SPAN class="code-comment">//svn.apache.org/repos/asf/struts/struts2/tags/$VERSION
+</SPAN>cd $VERSION
+mvn deploy site-deploy --no-plugin-updates -DperformRelease=<SPAN class="code-keyword">true</SPAN> 
+</PRE>
+</DIV></DIV>
+
+<P>Next, log in to <A href="http://repository.apache.org/" class="external-link" rel="nofollow">Nexus </A> and <B>close</B> staging repository.</P>
+
+<H3><A name="BuildingStruts2-Fasttrackrelease-Movetheassembliestothe%2Fwww%2Fpeople.apache.org%2Fbuilds%2Fstruts%2F%24VERSIONdir"></A>Move the assemblies to the /www/people.apache.org/builds/struts/$VERSION dir</H3>
+
+<P>After closing repository in Nexus, check if the version is available from staging repository as below:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+https:<SPAN class="code-comment">//repository.apache.org/content/groups/staging/org/apache/struts/struts2-assembly/$VERSION/</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>In order to move the assemblies login to people.apache.org and execute the following code: </P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-none">
+#!/bin/sh
+# create the destination directory
+mkdir $VERSION
+cd $VERSION
+
+# get the distro
+wget -erobots=off -nv  -l 1 --accept=zip,md5,sha1,asc -r --no-check-certificate -nd -nH https://repository.apache.org/content/groups/staging/org/apache/struts/struts2-assembly/$VERSION
+
+# rename files
+for f in *2-assembly*.zip*
+do
+ mv $f `echo $f | sed s/2-assembly//g`
+done
+
+# remove unneeded files
+for f in struts2-assembly-*.pom*
+do
+ rm $f
+done
+</PRE>
+</DIV></DIV>
+<P>After that move the assemblies directory to the builds destination with</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+mv $VERSION /www/people.apache.org/builds/struts/
+</PRE>
+</DIV></DIV>
+
+<H3><A name="BuildingStruts2-Fasttrackrelease-Jirastuff"></A>Jira stuff </H3>
+<UL>
+	<LI>Update JIRA roadmap with tag/release date - release the version in JIRA</LI>
+	<LI>Add next milestone to the JIRA roadmap</LI>
+	<LI>Create DONE and TODO filters, share with all, and remove obsolete TODO filter</LI>
+	<LI>Create new release page, link from <A href="migration-guide.html" title="Migration Guide">Migration Guide</A>, and link to prior release page and JIRA filters</LI>
+</UL>
+
+
+<H3><A name="BuildingStruts2-Fasttrackrelease-Voteonit"></A>Vote on it</H3>
+<P>Post a release/quality vote to the dev list (and <B>only</B> the dev list). The example mail is on <A href="sample-announcements.html" title="Sample announcements">Sample announcements</A> page. Include the term &quot;fast-track&quot; in the subject, as: [VOTE] Struts 2.0.9.1 quality (fast track).</P>
+
+<H3><A name="BuildingStruts2-Fasttrackrelease-Copyfiles"></A>Copy files</H3>
+<P>After the vote, if the distribution is being mirrored (there was a favourable release vote) copy the Sources and Binaries:</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+ssh people.apache.org
+cd /www/people.apache.org/builds/struts/$VERSION
+cp struts-$VERSION-src.*  /www/www.apache.org/dist/struts/source
+cp struts-$VERSION-docs.*  /www/www.apache.org/dist/struts/documentation
+cp struts-$VERSION-lib.* /www/www.apache.org/dist/struts/library
+cp struts-$VERSION-apps.* /www/www.apache.org/dist/struts/examples
+cp struts-$VERSION-all.* /www/www.apache.org/dist/struts/binaries   
+</PRE>
+</DIV></DIV>
+
+<P>If a new DTD was defined, copy it to /www/struts.apache.org/dtds/ and change permission to struts group (chown :struts *.dtd) and write rights (chmod g+w *.dtd).</P>
+
+<DIV class="panelMacro"><TABLE class="noteMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>The default setup on people.apache.org will leave the files and directories only changeable by the user who creates them. The last two steps will allow future releases to go smoothly.</TD></TR></TABLE></DIV>
+
+<H3><A name="BuildingStruts2-Fasttrackrelease-Promoterelease"></A>Promote release</H3>
+<P>Log in again to <A href="http://repository.apache.org/" class="external-link" rel="nofollow">Nexus</A> and <B>release</B> the repository, it will be automatically replicated across Maven Repositories<BR>
+See <A href="http://maven.apache.org/developers/release/apache-release.html" class="external-link" rel="nofollow">Releasing a Maven-based project</A> for further details.</P>
+
+<H3><A name="BuildingStruts2-Fasttrackrelease-Cleanupoldreleases"></A>Clean up old releases</H3>
+<P>Remove the old files from under /www/www.apache.org/dist/struts/ to synchronize only the latest version with peers. All the files from /www/www.apache.org/dist/ are always mirrored to <A href="http://archive.apache.org/dist/struts/" class="external-link" rel="nofollow">http://archive.apache.org/dist/struts/</A></P>
+
+<H3><A name="BuildingStruts2-Fasttrackrelease-Waitforrsync"></A>Wait for rsync</H3>
+<P>Wait 24 hours before proceeding. </P>
+
+<H3><A name="BuildingStruts2-Fasttrackrelease-%28Optional%29UpdateSecurityBulletins"></A>(Optional) - Update Security Bulletins</H3>
+<P>If the release will fix a - hopefully yet undisclosed - security issue, it's now time to update the <A href="security-bulletins.html" title="Security Bulletins">Security Bulletins</A> page and add a new announcement. For a template, just check former announcements</P>
+
+<H3><A name="BuildingStruts2-Fasttrackrelease-Updatesite%28Struts2site%29"></A>Update site (Struts 2 site)</H3>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+ssh people.apache.org
+export VERSION=2.#.#
+
+unzip /www/people.apache.org/builds/struts/$VERSION/struts-$VERSION-docs.zip -d ~/docs
+#now the docs are under ~/docs/struts-$VERSION/docs
+mkdir -p /www/struts.apache.org/$VERSION
+mv ~/docs/struts-$VERSION/docs/* /www/struts.apache.org/$VERSION
+chmod -R g+w /www/struts.apache.org/$VERSION
+chown -R :struts /www/struts.apache.org/$VERSION
+</PRE>
+</DIV></DIV>
+
+<P>Edit /www/struts.apache.org/$VERSION/archetype-catalog.xml and update the version of artifacts</P>
+
+<H3><A name="BuildingStruts2-Fasttrackrelease-Updatesite%28Strutstoplevelsite%29"></A>Update site (Struts top level site)</H3>
+<UL>
+	<LI>Check out site src code
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+svn co https:<SPAN class="code-comment">//svn.apache.org/repos/asf/struts/site/ struts-site</SPAN>
+</PRE>
+</DIV></DIV></LI>
+	<LI>Update xml files
+	<UL>
+		<LI>struts-site/src/site/xdoc/announce.xml (if applicable, refer also to corresponding security bulletin)</LI>
+		<LI>struts-site/src/site/xdoc/downloads.xml (remove previous version)</LI>
+		<LI>struts-site/src/site/xdoc/download.xml (remove previous version)</LI>
+		<LI>struts-site/src/site/xdoc/index.xml</LI>
+		<LI>struts-site/src/site/site.xml</LI>
+		<LI>struts-site/src/site/resources/archetype-catalog.xml</LI>
+	</UL>
+	</LI>
+	<LI>Commit the changes</LI>
+	<LI>Generate the site
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+mvn site:site
+</PRE>
+</DIV></DIV></LI>
+	<LI>Open <TT>struts-site/target/site/index.html</TT> and verify the urls and versions are right</LI>
+	<LI>Deploy site
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+mvn site-deploy
+</PRE>
+</DIV></DIV>
+<P>It takes a few hours for the site changes to go live</P></LI>
+</UL>
+
+
+<H3><A name="BuildingStruts2-Fasttrackrelease-Redeploythedraftdocs"></A>Redeploy the draft docs</H3>
+<P>Make public available all the pages that could leak confidential information about the vulnerability. Wait or manually export the space in Confluence. Build snapshot locally and copy assembly/target/assembly/out/struts2-#.#.#-SNAPSHOT-docs.zip to people.apache.org and update /www/struts.apache.org/2.x/docs</P>
+
+<H3><A name="BuildingStruts2-Fasttrackrelease-Permissions"></A>Permissions </H3>
+<P>After updating the site, be sure that the permissions are set to group writeable (<TT>$ chmod &#45;R g+w .</TT> and <TT>$ chown -R :struts .</TT>) </P>
+
+<H3><A name="BuildingStruts2-Fasttrackrelease-Postannouncements"></A>Post announcements </H3>
+<P>We leave this as the last step, once the artifacts have had time to sync up on the mirrors. Target it to: user@struts.a.o and announcements@struts.a.o, samples are available at <A href="sample-announcements.html" title="Sample announcements">Sample announcements</A> page</P>
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

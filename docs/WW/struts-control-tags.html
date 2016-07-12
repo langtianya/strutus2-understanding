@@ -1,0 +1,252 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Struts Control Tags</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="tutorials.html" title="Tutorials">Tutorials</A>&nbsp;&gt;&nbsp;<A href="getting-started.html" title="Getting Started">Getting Started</A>&nbsp;&gt;&nbsp;<A href="" title="Struts Control Tags">Struts Control Tags</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Struts Control Tags</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=27838827">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=27838827">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=27838827">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=27838827">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=27838827">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=27838827">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <DIV class="panelMacro"><TABLE class="infoMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>The example code for this tutorial, Control_Tags_Struts2_Mvn, is available on Google Code - <A href="http://code.google.com/p/struts2-examples/downloads/list" class="external-link" rel="nofollow">http://code.google.com/p/struts2-examples/downloads/list</A>. After downloading and unzipping the file, you'll have a folder named Control_Tags_Struts2_Mvn. In that folder will be a README.txt file with instructions on now to build and run the example application.</TD></TR></TABLE></DIV>
+
+<H3><A name="StrutsControlTags-Introduction"></A>Introduction</H3>
+
+<P>Struts 2 has several control tags that can be used in the view.  This tutorial will discuss and show examples of how to use the Struts 2 if and iterator tags. For more information about these and other control tags visit <A href="http://cwiki.apache.org/confluence/display/WW/Generic%20Tag%20Reference" class="external-link" rel="nofollow">tags reference</A>.</P>
+
+<DIV class="panelMacro"><TABLE class="tipMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>The <A href="http://struts.apache.org/mail.html" class="external-link" rel="nofollow">Struts 2 user mailing list</A> is an excellent place to get help. If you are having a problem getting the tutorial example applications to work search the Struts 2 mailing list. If you don't find an answer to your problem, post a question on the mailing list.</TD></TR></TABLE></DIV>
+
+
+<H3><A name="StrutsControlTags-Struts2ifTag"></A>Struts 2 if Tag</H3>
+
+<P>In the example application's thankyou.jsp is this markup.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+
+<SPAN class="code-tag">&lt;s:if test=<SPAN class="code-quote">&quot;personBean.over21&quot;</SPAN>&gt;</SPAN>
+
+    <SPAN class="code-tag">&lt;p&gt;</SPAN>You are old enough to vote!<SPAN class="code-tag">&lt;/p&gt;</SPAN>
+    
+<SPAN class="code-tag">&lt;/s:if&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;s:else&gt;</SPAN>
+
+   <SPAN class="code-tag">&lt;p&gt;</SPAN>You are NOT old enough to vote.<SPAN class="code-tag">&lt;/p&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;/s:else&gt;</SPAN>
+
+</PRE>
+</DIV></DIV>
+
+<P>The Struts if tag has a test attribute.  The value of the test attribute must evaluate to true or false.  If true the statements between the opening and closing s:if tags will be executed.  If false, the statements between the opening and closing s:else tags will be executed.  Note that s:else tags come after the closing s:if tag and that the s:else tags are not required.</P>
+
+<P>In the above example the Struts framework will call method getPersonBean exposed by the Action class (EditAction.java).  Using the Person object returned by that method, the framework will then call method isOver21 of class Person.  That method returns a boolean that will be used to determine if the test is true or false.</P>
+
+<P>The value of the test attribute must be an expression that evaluates to true or false, but doesn't need to be a method call that returns a boolean.  For example this s:if tag that is in thankyou.jsp has a more complicated expression.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+
+<SPAN class="code-tag">&lt;s:if test=<SPAN class="code-quote">&quot;personBean.carModels.length &gt;</SPAN> 1&quot;</SPAN>&gt;
+
+	<SPAN class="code-tag">&lt;p&gt;</SPAN>Car models
+
+<SPAN class="code-tag">&lt;/s:if&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;s:else&gt;</SPAN>
+
+   <SPAN class="code-tag">&lt;p&gt;</SPAN>Car model
+
+
+<SPAN class="code-tag">&lt;/s:else&gt;</SPAN>
+
+
+</PRE>
+</DIV></DIV>
+
+<P>The purpose of the above markup is to use either &quot;Car model&quot; or &quot;Car models&quot; depending on how many car models the user selected on the edit page.  So the value for the test attribute of this iterator tag gets the length of the carModels String array and compares that to 1.  If it's greater then 1, the correct grammar is &quot;Car models&quot; else the correct grammar is &quot;Car model&quot;.</P>
+
+
+<H3><A name="StrutsControlTags-StrutsiteratorTag"></A>Struts iterator Tag</H3>
+
+<P>The Struts iterator tag is used to generate a loop that iterates over each item in a collection.  In the thankyou.jsp is this markup.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+
+<SPAN class="code-tag">&lt;table style=<SPAN class="code-quote">&quot;margin-left:15px&quot;</SPAN>&gt;</SPAN>
+	
+	<SPAN class="code-tag">&lt;s:iterator value=<SPAN class="code-quote">&quot;personBean.carModels&quot;</SPAN>&gt;</SPAN>
+	
+		<SPAN class="code-tag">&lt;tr&gt;</SPAN><SPAN class="code-tag">&lt;td&gt;</SPAN><SPAN class="code-tag">&lt;s:property /&gt;</SPAN><SPAN class="code-tag">&lt;/td&gt;</SPAN><SPAN class="code-tag">&lt;/tr&gt;</SPAN>
+
+	<SPAN class="code-tag">&lt;/s:iterator&gt;</SPAN>
+	
+	
+<SPAN class="code-tag">&lt;/table&gt;</SPAN>
+
+
+</PRE>
+</DIV></DIV>
+
+<P>The goal of this code is to create an HTML table with a row that display a car model selected by the user on the edit page.  The car models the user selects on the edit page are stored in the carModels field (a String array) of the personBean object (of class Person).</P>
+
+<P>The iterator tag has a value attribute that must evaluate to a collection (Array, List, Map).</P>
+
+<P>The s:property tag nested inside the iterator tag is used to display the specific value of the collection each time the iterator loops over an element of the collection.  Since the collection is an Array of String objects, the s:property tag doesn't need to specify a value attribute.  By default the s:property tag will display the single String for that element of the collection.</P>
+
+<P>If the collection contains objects that have multiple fields, then you should use the value attribute of the s:property tag to determine what field to display.  For example:</P>
+
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+
+<SPAN class="code-tag">&lt;table style=<SPAN class="code-quote">&quot;margin-left:15px&quot;</SPAN>&gt;</SPAN>
+
+	<SPAN class="code-tag">&lt;s:iterator value=<SPAN class="code-quote">&quot;states&quot;</SPAN> &gt;</SPAN>
+	
+		<SPAN class="code-tag">&lt;tr&gt;</SPAN><SPAN class="code-tag">&lt;td&gt;</SPAN><SPAN class="code-tag">&lt;s:property value=<SPAN class="code-quote">&quot;stateAbbr&quot;</SPAN> /&gt;</SPAN><SPAN class="code-tag">&lt;/td&gt;</SPAN> <SPAN class="code-tag">&lt;td&gt;</SPAN><SPAN class="code-tag">&lt;s:property value=<SPAN class="code-quote">&quot;stateName&quot;</SPAN> /&gt;</SPAN><SPAN class="code-tag">&lt;/tr&gt;</SPAN>
+
+	<SPAN class="code-tag">&lt;/s:iterator&gt;</SPAN>
+	
+<SPAN class="code-tag">&lt;/table&gt;</SPAN>
+
+
+</PRE>
+</DIV></DIV>
+
+<P>The value of the iterator tag is states, which causes the Struts 2 framework to call the getStates method of the Action class (EditAction.java).  The getStates method returns a List of State objects.  The State class has two fields stateAbbr and stateName, both having the appropriate get method.  The iterator will loop over each State object stored in the collection.  Each time through the loop, the Struts 2 framework will have a reference to the current State object and will call getStateAbbr and getStateName methods for that current State object.</P>
+
+<H3><A name="StrutsControlTags-AdditionalIteratorAttributes"></A>Additional Iterator Attributes</H3>
+
+<P>The Struts 2 iterator tag has additional attributes you can use to control the begin and end values for specifying that the iterator tag should only loop over a part of the collection.  See the <A href="iterator.html" class="external-link" rel="nofollow">iterator tag reference</A> for more information.</P>
+
+
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

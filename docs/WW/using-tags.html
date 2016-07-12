@@ -1,0 +1,360 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Using Tags</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="tutorials.html" title="Tutorials">Tutorials</A>&nbsp;&gt;&nbsp;<A href="bootstrap.html" title="Bootstrap">Bootstrap</A>&nbsp;&gt;&nbsp;<A href="" title="Using Tags">Using Tags</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Using Tags</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=23381">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=23381">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=23381">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=23381">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=23381">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=23381">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <P>In the <A href="hello-world.html" title="Hello World">Hello World</A> lesson, we presented a page with a simple Welcome message. In the <EM>Using Tags</EM> lesson, we create a Welcome page with links to other actions in the application. </P>
+
+<P>Web applications differ from conventional websites in that web applications can create a dynamic response. To make it easier to reference dynamic data from a page, the framework offers a set of tags. Some of the tags mimic standard HTML tag while providing added value. Other tags create non-standard, but useful controls. </P>
+
+<P>One use of the Struts Tags is to create links to other web resources, especially to other resources in the local application. </P>
+
+<DIV class="panelMacro"><TABLE class="tipMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>While HTML provides a simple <TT>a</TT> tag for creating hyperlinks, the HTML tag often requires us to include redundant information. Also the HTML tag cannot easily access dynamic data provided by the framework.</TD></TR></TABLE></DIV>
+
+<H2><A name="UsingTags-Linking"></A>Linking </H2>
+
+<P>A very common use case in web applications is linking to other pages. Now that we know Struts is up and running, let's add a Welcome page with links to other actions.</P>
+
+<DIV class="panel" style="border-width: 1px;"><DIV class="panelContent">
+<P><SPAN class="image-wrap" style=""><IMG src="using-tags.data/Welcome.PNG" style="border: 0px solid black"></SPAN></P>
+</DIV></DIV>
+
+<H3><A name="UsingTags-TheCode"></A>The Code</H3>
+<DIV class="code panel" style="border-style: solid;border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;border-bottom-style: solid;"><B>Welcome.jsp</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;%@ taglib prefix=<SPAN class="code-quote">&quot;s&quot;</SPAN> uri=<SPAN class="code-quote">&quot;/struts-tags&quot;</SPAN> %&gt;</SPAN>
+<SPAN class="code-tag">&lt;html&gt;</SPAN>
+<SPAN class="code-tag">&lt;head&gt;</SPAN>
+    <SPAN class="code-tag">&lt;title&gt;</SPAN>Welcome<SPAN class="code-tag">&lt;/title&gt;</SPAN>
+    <SPAN class="code-tag">&lt;link href=<SPAN class="code-quote">&quot;&lt;s:url value=&quot;</SPAN>/css/tutorial.css<SPAN class="code-quote">&quot;/&gt;</SPAN>&quot;</SPAN> rel=<SPAN class="code-quote">&quot;stylesheet&quot;</SPAN>
+          type=<SPAN class="code-quote">&quot;text/css&quot;</SPAN>/&gt;
+<SPAN class="code-tag">&lt;/head&gt;</SPAN>
+<SPAN class="code-tag">&lt;body&gt;</SPAN>
+<SPAN class="code-tag">&lt;h3&gt;</SPAN>Commands<SPAN class="code-tag">&lt;/h3&gt;</SPAN>
+<SPAN class="code-tag">&lt;ul&gt;</SPAN>
+    <SPAN class="code-tag">&lt;li&gt;</SPAN><SPAN class="code-tag">&lt;a href=<SPAN class="code-quote">&quot;&lt;s:url action=&quot;</SPAN>Register<SPAN class="code-quote">&quot;/&gt;</SPAN>&quot;</SPAN>&gt;Register<SPAN class="code-tag">&lt;/a&gt;</SPAN><SPAN class="code-tag">&lt;/li&gt;</SPAN>
+    <SPAN class="code-tag">&lt;li&gt;</SPAN><SPAN class="code-tag">&lt;a href=<SPAN class="code-quote">&quot;&lt;s:url action=&quot;</SPAN>Logon<SPAN class="code-quote">&quot;/&gt;</SPAN>&quot;</SPAN>&gt;Sign On<SPAN class="code-tag">&lt;/a&gt;</SPAN><SPAN class="code-tag">&lt;/li&gt;</SPAN>
+<SPAN class="code-tag">&lt;/ul&gt;</SPAN>
+<SPAN class="code-tag">&lt;/body&gt;</SPAN>
+<SPAN class="code-tag">&lt;/html&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>Another common use case is using a link to change locales. On the HelloWorld page, let's add links to change the user's locale and to display a message from the application resources. </P>
+
+<DIV class="panel" style="border-width: 1px;"><DIV class="panelContent">
+<P><SPAN class="image-wrap" style=""><IMG src="using-tags.data/HelloWorld.PNG" style="border: 0px solid black"></SPAN></P>
+</DIV></DIV>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>HelloWorld.jsp</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;body&gt;</SPAN>
+<SPAN class="code-tag">&lt;h2&gt;</SPAN><SPAN class="code-tag">&lt;s:property value=<SPAN class="code-quote">&quot;message&quot;</SPAN>/&gt;</SPAN><SPAN class="code-tag">&lt;/h2&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;h3&gt;</SPAN>Languages<SPAN class="code-tag">&lt;/h3&gt;</SPAN>
+<SPAN class="code-tag">&lt;ul&gt;</SPAN>
+    <SPAN class="code-tag">&lt;li&gt;</SPAN>
+        <SPAN class="code-tag">&lt;s:url var=<SPAN class="code-quote">&quot;url&quot;</SPAN> action=<SPAN class="code-quote">&quot;Welcome&quot;</SPAN>&gt;</SPAN>
+            <SPAN class="code-tag">&lt;s:param name=<SPAN class="code-quote">&quot;request_locale&quot;</SPAN>&gt;</SPAN>en<SPAN class="code-tag">&lt;/s:param&gt;</SPAN>
+        <SPAN class="code-tag">&lt;/s:url&gt;</SPAN>
+        <SPAN class="code-tag">&lt;s:a href=<SPAN class="code-quote">&quot;%{url}&quot;</SPAN>&gt;</SPAN>English<SPAN class="code-tag">&lt;/s:a&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/li&gt;</SPAN>
+    <SPAN class="code-tag">&lt;li&gt;</SPAN>
+        <SPAN class="code-tag">&lt;s:url var=<SPAN class="code-quote">&quot;url&quot;</SPAN> action=<SPAN class="code-quote">&quot;Welcome&quot;</SPAN>&gt;</SPAN>
+            <SPAN class="code-tag">&lt;s:param name=<SPAN class="code-quote">&quot;request_locale&quot;</SPAN>&gt;</SPAN>es<SPAN class="code-tag">&lt;/s:param&gt;</SPAN>
+        <SPAN class="code-tag">&lt;/s:url&gt;</SPAN>
+        <SPAN class="code-tag">&lt;s:a href=<SPAN class="code-quote">&quot;%{url}&quot;</SPAN>&gt;</SPAN>Espanol<SPAN class="code-tag">&lt;/s:a&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/li&gt;</SPAN>
+<SPAN class="code-tag">&lt;/ul&gt;</SPAN>
+<SPAN class="code-tag">&lt;/body&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<DIV class="panelMacro"><TABLE class="noteMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>The <TT>var</TT> attribute (used in the <TT>&lt;s:url...&gt;</TT> tags) was introduced in Struts 2.1; use the <TT>id</TT> attribute in its place with Struts 2.0.</TD></TR></TABLE></DIV>
+
+<H3><A name="UsingTags-HowtheCodeWorks"></A>How the Code Works</H3>
+
+<P>&quot;%{url}&quot; will be evaluated to the url defined with the s:url tag. On the Welcome and HelloWorld pages, we use two different Struts tags to create links. We create </P>
+
+<UL>
+	<LI>Resource links</LI>
+	<LI>Direct links, and</LI>
+	<LI>Links with parameters.</LI>
+</UL>
+
+
+<P>Let's look at each in turn. </P>
+
+<H4><A name="UsingTags-Resourcelinks"></A>Resource links </H4>
+
+<P>First, in the head element, we use the <TT>url</TT> tag to inject a page reference into the HTML <TT>link</TT> tag. </P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+&lt;link href=<SPAN class="code-quote">&quot;&lt;s:url value=&quot;</SPAN>/css/tutorial.css<SPAN class="code-quote">&quot;/&gt;&quot;</SPAN> 
+  rel=<SPAN class="code-quote">&quot;stylesheet&quot;</SPAN> type=<SPAN class="code-quote">&quot;text/css&quot;</SPAN>/&gt;
+</PRE>
+</DIV></DIV>
+
+<P>Note that the reference is absolute. We can move the page containing the link around without worrying about resolving relative references.</P>
+
+<P>The <TT>url</TT> tag will also inject the web application context name.</P>
+
+<H4><A name="UsingTags-Directlinks"></A>Direct links</H4>
+
+<P>In the &quot;Commands&quot; section, we use the <TT>url</TT> tag again, to link to a Struts 2 Action. </P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+&lt;li&gt;&lt;a href=<SPAN class="code-quote">&quot;&lt;s:url action=&quot;</SPAN>Register<SPAN class="code-quote">&quot;/&gt;&quot;</SPAN>&gt;Register&lt;/a&gt;&lt;/li&gt;
+</PRE>
+</DIV></DIV>
+
+<P>When the link is rendered, the tag will automatically append the appropriate extension, so that we do not need to embed that information across the application. </P>
+
+<P>The tag will also URL-encode the link with the Java session ID, if needed, so that the Java session can be retained across requests. </P>
+
+<H4><A name="UsingTags-Linkswithparameters"></A>Links with parameters</H4>
+
+<P>Finally, in the Languages section on the HelloWorld page, we use the <TT>url</TT> tag along with the <TT>param</TT> and <TT>a</TT> tags to create a link with request parameters. </P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+&lt;s:url <SPAN class="code-keyword">var</SPAN>=<SPAN class="code-quote">&quot;url&quot;</SPAN> action=<SPAN class="code-quote">&quot;Welcome&quot;</SPAN>&gt;
+  &lt;s:param name=<SPAN class="code-quote">&quot;request_locale&quot;</SPAN>&gt;en&lt;/s:param&gt;
+&lt;/s:url&gt;
+&lt;s:a href=<SPAN class="code-quote">&quot;%{url}&quot;</SPAN>&gt;English&lt;/s:a&gt;
+</PRE>
+</DIV></DIV>
+
+<P>This <TT>param</TT> tag will add the parameter &quot;?request_locale=en&quot; to the <TT>Welcome</TT> Action URL, and store it under the name &quot;url&quot;. The <TT>a</TT> tag then injects the &quot;url&quot; reference into the hyperlink. This request_locale parameter will be picked up by the <A href="i18n-interceptor.html" title="I18n Interceptor">I18n Interceptor</A>, and change your Locale accordingly.</P>
+
+<P><IMG class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/check.gif" height="16" width="16" align="absmiddle" alt="" border="0"> Any number of parameters can be added to the URI by adding more <TT>param</TT> tags.</P>
+
+<H2><A name="UsingTags-WildcardMappings"></A>Wildcard Mappings</H2>
+
+<P>Since the Welcome page is nothing but links, we don't need an Action class. We'll still use a mapping, however, so we can use an action URI. If we link only to actions, and never to pages, then it's easy to add an Action class later. </P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+&lt;action name=<SPAN class="code-quote">&quot;Welcome&quot;</SPAN> &gt;
+  &lt;result&gt;/Welcome.jsp&lt;/result&gt;
+&lt;/action&gt;
+</PRE>
+</DIV></DIV>
+
+<P>As we create the application, we will often want to go directly to a page. To make prototyping easy, we can change the Welcome entry to a wilcard mapping. </P>
+
+<H3><A name="UsingTags-TheCode"></A>The Code</H3>
+
+<DIV class="code panel" style="border-style: solid;border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;border-bottom-style: solid;"><B>struts.xml</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;*&quot;</SPAN> &gt;</SPAN>
+  <SPAN class="code-tag">&lt;result&gt;</SPAN>/{1}.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+<SPAN class="code-tag">&lt;/action&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H3><A name="UsingTags-HowtheCodeWorks"></A>How the Code Works </H3>
+
+<P>If no other mapping matches, the framework will </P>
+
+<UL>
+	<LI>match &quot;Welcome&quot; to the asterisk, and</LI>
+	<LI>substitute &quot;Welcome&quot; for any &quot;{1}&quot; tokens in the mapping.</LI>
+</UL>
+
+
+<P>Likewise, if there is a link to a &quot;Login&quot; action, and nothing else matches, then the &quot;/Login.jsp&quot; page is returned instead. </P>
+
+<P><IMG class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/check.gif" height="16" width="16" align="absmiddle" alt="" border="0"> Wildcard mappings let you create your own conventions, so that you can avoid redundant configuration. The <B>first</B> mapping that matches a request wins. (So put a mapping like <TT>&lt;action name=&quot;&#42;&quot; &gt;</TT> <B>last</B>!)</P>
+
+<P>If you are coding along, you can replace the Welcome action in your <TT>struts.xml</TT> with the Wildcard version.</P>
+
+<H2><A name="UsingTags-DataEntryForms"></A>Data Entry Forms</H2>
+
+<P>Most applications will use several data entry forms. The Struts Tags make creating input forms easy. </P>
+
+<DIV class="panel" style="border-width: 1px;"><DIV class="panelContent">
+<P><SPAN class="image-wrap" style=""><IMG src="using-tags.data/Logon.PNG" style="border: 0px solid black"></SPAN></P>
+</DIV></DIV>
+
+<H3><A name="UsingTags-TheCode"></A>The Code</H3>
+<DIV class="code panel" style="border-style: solid;border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;border-bottom-style: solid;"><B>Logon.jsp</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;%@ taglib prefix=<SPAN class="code-quote">&quot;s&quot;</SPAN> uri=<SPAN class="code-quote">&quot;/struts-tags&quot;</SPAN> %&gt;</SPAN>
+<SPAN class="code-tag">&lt;html&gt;</SPAN>
+<SPAN class="code-tag">&lt;head&gt;</SPAN>
+  <SPAN class="code-tag">&lt;title&gt;</SPAN>Login<SPAN class="code-tag">&lt;/title&gt;</SPAN>
+<SPAN class="code-tag">&lt;/head&gt;</SPAN>
+<SPAN class="code-tag">&lt;body&gt;</SPAN>
+<SPAN class="code-tag">&lt;s:form action=<SPAN class="code-quote">&quot;Logon&quot;</SPAN>&gt;</SPAN> 
+  <SPAN class="code-tag">&lt;s:textfield label=<SPAN class="code-quote">&quot;User Name&quot;</SPAN> name=<SPAN class="code-quote">&quot;username&quot;</SPAN>/&gt;</SPAN>
+  <SPAN class="code-tag">&lt;s:password label=<SPAN class="code-quote">&quot;Password&quot;</SPAN> name=<SPAN class="code-quote">&quot;password&quot;</SPAN> /&gt;</SPAN>
+  <SPAN class="code-tag">&lt;s:submit/&gt;</SPAN>
+<SPAN class="code-tag">&lt;/s:form&gt;</SPAN>
+<SPAN class="code-tag">&lt;/body&gt;</SPAN>
+<SPAN class="code-tag">&lt;/html&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H3><A name="UsingTags-HowTheCodeWorks"></A>How The Code Works</H3>
+
+<UL>
+	<LI>The JSP engine reads the taglib reference at the top of the page and loads the Struts Tags for use with this page under the prefix &quot;s&quot;.</LI>
+	<LI>The Struts Tags &ndash; textfield, password, and submit &ndash; each emit the appropriate label and control type.</LI>
+</UL>
+
+
+<H2><A name="UsingTags-WhattoRemember"></A>What to Remember </H2>
+
+<P>The hardest part of writing a web application can be coding the pages. The framework makes coding pages easier by providing a set of custom tags. The Struts Tags can access dynamic data provided by the framework. Tags reduce the amount of markup needed to create a page. </P>
+
+<P><IMG class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/lightbulb_on.gif" height="16" width="16" align="absmiddle" alt="" border="0"> For more about Struts Tags, see the <A href="tag-developers-guide.html" title="Tag Developers Guide">Tag Developers Guide</A>.<BR>
+<IMG class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/lightbulb_on.gif" height="16" width="16" align="absmiddle" alt="" border="0"> For more on how to access action members, request attributes and others from pages, see <A href="ognl.html" title="OGNL">OGNL</A>.</P>
+
+<DIV class="table-wrap">
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TH class="confluenceTh"> Next </TH>
+<TD class="confluenceTd"> Onward to <A href="coding-actions.html" title="Coding Actions">Coding Actions</A> </TD>
+</TR>
+<TR>
+<TH class="confluenceTh"> Prev </TH>
+<TD class="confluenceTd"> Return to <A href="hello-world.html" title="Hello World">Hello World</A> </TD>
+</TR>
+</TBODY></TABLE>
+</DIV>
+
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

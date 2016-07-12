@@ -1,0 +1,212 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>S2-008</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="security-bulletins.html" title="Security Bulletins">Security Bulletins</A>&nbsp;&gt;&nbsp;<A href="" title="S2-008">S2-008</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">S2-008</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=27834715">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=27834715">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=27834715">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=27834715">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=27834715">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=27834715">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <H2><A name="S2-008-Summary"></A>Summary</H2>
+
+
+<P>Multiple critical vulnerabilities in Struts2</P>
+
+
+<DIV class="table-wrap">
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TH class="confluenceTh"> Who should read this </TH>
+<TD class="confluenceTd"> All Struts 2 developers </TD>
+</TR>
+<TR>
+<TH class="confluenceTh"> Impact of vulnerability </TH>
+<TD class="confluenceTd"> Remote command execution and arbitrary file overwrite, Strict DMI does not work correctly </TD>
+</TR>
+<TR>
+<TH class="confluenceTh"> Maximum security rating </TH>
+<TD class="confluenceTd"> Critical </TD>
+</TR>
+<TR>
+<TH class="confluenceTh"> Recommendation </TH>
+<TD class="confluenceTd"> Developers should immediately upgrade to <A href="http://struts.apache.org/download.cgi#struts2311" class="external-link" rel="nofollow">Struts 2.3.1.1</A> or read the following solution instructions carefully for a configuration change to mitigate the vulnerability </TD>
+</TR>
+<TR>
+<TH class="confluenceTh"> Affected Software </TH>
+<TD class="confluenceTd"> Struts 2.1.0 - Struts 2.3.1 </TD>
+</TR>
+<TR>
+<TH class="confluenceTh"> Original JIRA Ticket </TH>
+<TD class="confluenceTd"> <A href="https://issues.apache.org/jira/browse/WW-3729" class="external-link" rel="nofollow">WW-3729</A> </TD>
+</TR>
+<TR>
+<TH class="confluenceTh"> Reporter </TH>
+<TD class="confluenceTd"> Johannes Dahse, SEC Consult Vulnerability Lab and Bruce Phillips (blog post) </TD>
+</TR>
+<TR>
+<TH class="confluenceTh"> CVE Identifier </TH>
+<TD class="confluenceTd">&nbsp;</TD>
+</TR>
+<TR>
+<TH class="confluenceTh"> Original Description </TH>
+<TD class="confluenceTd"> <A href="https://www.sec-consult.com/files/20120104-0_Apache_Struts2_Multiple_Critical_Vulnerabilities.txt" class="external-link" rel="nofollow">Reported directly to security@struts.a.o</A> and <A href="http://www.brucephillips.name/blog/index.cfm/2011/2/19/Struts-2-Security-Vulnerability--Dynamic-Method-Invocation" class="external-link" rel="nofollow">Struts 2 Security Vulnerability - Dynamic Method Invocation</A> </TD>
+</TR>
+</TBODY></TABLE>
+</DIV>
+
+
+<H2><A name="S2-008-Problem"></A>Problem</H2>
+
+<P>To prevent attackers calling arbitrary methods within parameters the flag <TT>xwork.MethodAccessor.denyMethodExecution</TT> is set to <TT>true</TT> and the <TT>SecurityMemberAccess</TT> field <TT>allowStaticMethodAccess</TT> is set to <TT>false</TT> by default. Also, to prevent access to context variables an improved character whitelist for parameter names is applied in the <TT>ParameterInterceptor</TT> since Struts 2.2.1.1:</P>
+
+<P><TT>acceptedParamNames = &quot;[a-zA-Z0-9\.][()_']+&quot;;</TT></P>
+
+<P>Under certain circumstances these restrictions can be bypassed to execute malicious Java code.</P>
+
+<OL>
+	<LI><B>Remote command execution in Struts &lt;= 2.2.1.1 (<TT>ExceptionDelegator</TT>)</B><BR>
+When an exception occurs while applying parameter values to properties, the value is evaluated as an OGNL expression. For example, this occurs when setting a string value to an integer property. Since the values are not filtered an attacker can abuse the power of the OGNL language to execute arbitrary Java code leading to remote command execution. This issue has been reported (<A href="https://issues.apache.org/jira/browse/WW-3668" class="external-link" rel="nofollow">https://issues.apache.org/jira/browse/WW-3668</A>) and was fixed in Struts 2.2.3.1. However the ability to execute arbitrary Java code has been overlooked.</LI>
+	<LI><B>Remote command execution in Struts &lt;= 2.3.1 (<TT>CookieInterceptor</TT>)</B><BR>
+The character whitelist for parameter names is not applied to the <TT>CookieInterceptor</TT>. When Struts is configured to handle cookie names, an attacker can execute arbitrary system commands with static method access to Java functions. Therefore the flag <TT>allowStaticMethodAccess</TT> can be set to true within the request.</LI>
+	<LI><B>Arbitrary File Overwrite in Struts &lt;= 2.3.1 (<TT>ParameterInterceptor</TT>)</B><BR>
+While accessing the flag <TT>allowStaticMethodAccess</TT> within parameters is prohibited since Struts 2.2.3.1 an attacker can still access public constructors with only one parameter of type String to create new Java objects and access their setters with only one parameter of type String. This can be abused in example to create and overwrite arbitrary files. To inject forbidden characters into a filename an uninitialized string property can be used.</LI>
+	<LI><B>Remote command execution in Struts &lt;= 2.3.1 (<TT>DebuggingInterceptor</TT>)</B><BR>
+While not being a security vulnerability itself, please note that applications running in developer mode and using the <TT>DebuggingInterceptor</TT> are prone to remote command execution as well. While applications should never run in developer mode during production, developers should be aware that doing so not only has performance issues (as documented) but also a critical security impact.</LI>
+</OL>
+
+
+<H2><A name="S2-008-Solution"></A>Solution</H2>
+
+<DIV class="panelMacro"><TABLE class="warningMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/forbidden.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD><B>It is strongly recommended to upgrade to <A href="http://struts.apache.org/download.cgi#struts2311" class="external-link" rel="nofollow">Struts 2.3.1.1</A></B><B>, which contains the corrected classes.</B></TD></TR></TABLE></DIV>
+
+<P>Update to Struts 2.3.1 and apply a stronger <TT>acceptedParamNames</TT> filter to the <TT>ParameterInterceptor</TT> and <TT>CookieInterceptor</TT>:</P>
+
+<P><TT>acceptedParamNames = &quot;[a-zA-Z0-9\.][()_']+&quot;;</TT></P>
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

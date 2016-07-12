@@ -1,0 +1,274 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Nutshell</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="guides.html" title="Guides">Guides</A>&nbsp;&gt;&nbsp;<A href="core-developers-guide.html" title="Core Developers Guide">Core Developers Guide</A>&nbsp;&gt;&nbsp;<A href="" title="Nutshell">Nutshell</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Nutshell</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=45368">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=45368">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=45368">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=45368">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=45368">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=45368">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <DIV class="panelMacro"><TABLE class="infoMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>The framework documentation is written for active web developers and assumes a working knowledge about how Java web applications are built. For more about the underlying nuts and bolts, see the <A href="http://struts.apache.org/primer.html" class="external-link" rel="nofollow">Key Technologies Primer</A>.</TD></TR></TABLE></DIV>
+
+<H2><A name="Nutshell-ApacheStruts2ArchitectureinaNutshell"></A>Apache Struts 2 Architecture in a Nutshell</H2>
+
+<DIV class="table-wrap">
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TD class="confluenceTd"> <SPAN class="image-wrap" style=""><IMG src="nutshell.data/struts2-arch.png" style="border: 0px solid black"></SPAN> </TD>
+<TD class="confluenceTd"><OL>
+	<LI>The web browser requests a resource (/mypage.action, /reports/myreport.pdf, et cetera)</LI>
+	<LI>The Filter Dispatcher looks at the request and determines the appropriate Action</LI>
+	<LI>The Interceptors automatically apply common functionality to the request, like workflow, validation, and file upload handling</LI>
+	<LI>The Action method executes, usually storing and/or retrieving information from a database</LI>
+	<LI>The Result renders the output to the browser, be it HTML, images, PDF, or something else</LI>
+</OL>
+</TD>
+</TR>
+</TBODY></TABLE>
+</DIV>
+
+
+<H2><A name="Nutshell-StrutsTagsinanutshell"></A>Struts Tags in a nutshell</H2>
+
+<P>The Struts Tags help you create rich web applications with a minimum of coding. Often, much of the coding effort in a web application goes into the pages. The Struts Tags reduce effort by reducing code.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;% User user = ... %&gt;</SPAN>
+<SPAN class="code-tag">&lt;form action=<SPAN class="code-quote">&quot;Profile_update.action&quot;</SPAN> method=<SPAN class="code-quote">&quot;post&quot;</SPAN>&gt;</SPAN>
+    <SPAN class="code-tag">&lt;table&gt;</SPAN>
+        <SPAN class="code-tag">&lt;tr&gt;</SPAN>
+            <SPAN class="code-tag">&lt;td align=<SPAN class="code-quote">&quot;right&quot;</SPAN>&gt;</SPAN><SPAN class="code-tag">&lt;label&gt;</SPAN>First name:<SPAN class="code-tag">&lt;/label&gt;</SPAN><SPAN class="code-tag">&lt;/td&gt;</SPAN>
+            <SPAN class="code-tag">&lt;td&gt;</SPAN><SPAN class="code-tag">&lt;input type=<SPAN class="code-quote">&quot;text&quot;</SPAN> name=<SPAN class="code-quote">&quot;user.firstname&quot;</SPAN> value=&quot;&lt;%=user.getFirstname() %&gt;</SPAN> /&gt;<SPAN class="code-tag">&lt;/td&gt;</SPAN>
+        <SPAN class="code-tag">&lt;/tr&gt;</SPAN>
+        <SPAN class="code-tag">&lt;tr&gt;</SPAN>
+            <SPAN class="code-tag">&lt;td&gt;</SPAN>&lt;input type=<SPAN class="code-quote">&quot;radio&quot;</SPAN> name=<SPAN class="code-quote">&quot;user.gender&quot;</SPAN> value=<SPAN class="code-quote">&quot;0&quot;</SPAN> id=<SPAN class="code-quote">&quot;user.gender0&quot;</SPAN> 
+                <SPAN class="code-tag">&lt;% if (user.getGender()==0) { %&gt;</SPAN> checked=<SPAN class="code-quote">&quot;checked&quot;</SPAN> %&gt; } %&gt; /&gt;
+            <SPAN class="code-tag">&lt;label for=<SPAN class="code-quote">&quot;user.gender0&quot;</SPAN>&gt;</SPAN>Female<SPAN class="code-tag">&lt;/label&gt;</SPAN>
+        <SPAN class="code-tag">&lt;/tr&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/table&gt;</SPAN>
+<SPAN class="code-tag">&lt;/form&gt;</SPAN>
+...
+</PRE>
+</DIV></DIV>
+
+<P>Looking over the markup, it's easy to see why Java web development without the aid from a modern framework is hard!  So far, we've only coded two controls, and there are six more to go! Let's rewrite and finish the form using Struts Tags.</P>
+
+
+<DIV class="table-wrap">
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TD class="confluenceTd"> <SPAN class="image-wrap" style=""><IMG src="nutshell.data/nutshell.GIF" style="border: 0px solid black"></SPAN> </TD>
+<TD class="confluenceTd"> <DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;s:actionerror/&gt;</SPAN>
+<SPAN class="code-tag">&lt;s:form action=<SPAN class="code-quote">&quot;Profile_update&quot;</SPAN> validate=<SPAN class="code-quote">&quot;true&quot;</SPAN>&gt;</SPAN>
+    <SPAN class="code-tag">&lt;s:textfield label=<SPAN class="code-quote">&quot;Username&quot;</SPAN> name=<SPAN class="code-quote">&quot;username&quot;</SPAN>/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;s:password label=<SPAN class="code-quote">&quot;Password&quot;</SPAN> name=<SPAN class="code-quote">&quot;password&quot;</SPAN>/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;s:password label=<SPAN class="code-quote">&quot;(Repeat) Password&quot;</SPAN> name=<SPAN class="code-quote">&quot;password2&quot;</SPAN>/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;s:textfield label=<SPAN class="code-quote">&quot;Full Name&quot;</SPAN> name=<SPAN class="code-quote">&quot;fullName&quot;</SPAN>/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;s:textfield label=<SPAN class="code-quote">&quot;From Address&quot;</SPAN> name=<SPAN class="code-quote">&quot;fromAddress&quot;</SPAN>/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;s:textfield label=<SPAN class="code-quote">&quot;Reply To Address&quot;</SPAN> name=<SPAN class="code-quote">&quot;replyToAddress&quot;</SPAN>/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;s:submit value=<SPAN class="code-quote">&quot;Save&quot;</SPAN> name=<SPAN class="code-quote">&quot;Save&quot;</SPAN>/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;s:submit action=<SPAN class="code-quote">&quot;Register_cancel&quot;</SPAN> value=<SPAN class="code-quote">&quot;Cancel&quot;</SPAN> name=<SPAN class="code-quote">&quot;Cancel&quot;</SPAN>  onclick=<SPAN class="code-quote">&quot;form.onsubmit=null&quot;</SPAN>/&gt;</SPAN>
+<SPAN class="code-tag">&lt;/s:form&gt;</SPAN>
+</PRE>
+</DIV></DIV> <DIV class="panelMacro"><TABLE class="tipMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>The Struts Tags also support validation and localization as first-class features. So not only is there less code, but there is <EM>more</EM> utility. 
+
+<P>In about the same amount of code as two conventional controls, the Struts Tags can create an entire data-input form with eight controls. Not only is there less code, but the code is easier to read and maintain.</P></TD></TR></TABLE></DIV></TD>
+</TR>
+</TBODY></TABLE>
+</DIV>
+
+
+<H2><A name="Nutshell-StrutsConfigurationinaNutshell"></A>Struts Configuration in a Nutshell</H2>
+
+<P>A web application uses a deployment descriptor to initialize resources like filters and listeners. The web deployment descriptor is formatted as a XML document and named <TT>web.xml</TT>. Struts can either initialize its resources by scanning your classes using Java packages declared in this <TT>web.xml</TT> file, or you can have full control over the configuration via a configuration file, named <TT>struts.xml</TT>. These resources include action mappings, to direct input to server-side Action classes, and result types, to select output pages. </P>
+
+<P>Here's a typical configuration (<TT>struts.xml</TT>) for a login workflow:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;struts&gt;</SPAN>
+    <SPAN class="code-tag">&lt;package name=<SPAN class="code-quote">&quot;default&quot;</SPAN> extends=<SPAN class="code-quote">&quot;struts-default&quot;</SPAN>&gt;</SPAN>
+        <SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;Logon&quot;</SPAN> class=<SPAN class="code-quote">&quot;mailreader2.Logon&quot;</SPAN>&gt;</SPAN>
+            <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;input&quot;</SPAN>&gt;</SPAN>/pages/Logon.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+            <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;cancel&quot;</SPAN> type=<SPAN class="code-quote">&quot;redirectAction&quot;</SPAN>&gt;</SPAN>Welcome<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+            <SPAN class="code-tag">&lt;result type=<SPAN class="code-quote">&quot;redirectAction&quot;</SPAN>&gt;</SPAN>MainMenu<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+            <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;expired&quot;</SPAN> type=<SPAN class="code-quote">&quot;chain&quot;</SPAN>&gt;</SPAN>ChangePassword<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+        <SPAN class="code-tag">&lt;/action&gt;</SPAN>
+
+        <SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;Logoff&quot;</SPAN> class=<SPAN class="code-quote">&quot;mailreader2.Logoff&quot;</SPAN>&gt;</SPAN>
+            <SPAN class="code-tag">&lt;result type=<SPAN class="code-quote">&quot;redirectAction&quot;</SPAN>&gt;</SPAN>Welcome<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+        <SPAN class="code-tag">&lt;/action&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/package&gt;</SPAN>
+<SPAN class="code-tag">&lt;/struts&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P><IMG class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/lightbulb_on.gif" height="16" width="16" align="absmiddle" alt="" border="0"> The framework provides general-purpose defaults, so we can start using Struts right away, &quot;out of the box&quot;. Any factory defaults can be overridden in an application's configuration, as needed.</P>
+
+<H2><A name="Nutshell-StrutsMVCinaNutshell"></A>Struts MVC in a Nutshell</H2>
+
+<P>Struts is a <A href="http://struts.apache.org/primer.html#mvc" class="external-link" rel="nofollow">Model View Controller</A> framework. Struts provides Controller and View components, and integrates with other technologies to provide the Model. The framework's Controller acts as a bridge between the application's Model and the web View. </P>
+
+<P>To make it easier to present dynamic data, the framework includes a library of markup tags. The tags interact with the framework's validation and internationalization features, to ensure that input is correct and output is localized. The tag library can be used with JSP, FreeMarker, or Velocity. Of course, other tag libraries, JSTL, and AJAX can also be used, with or without the Struts tags. JavaServer Faces components are also supported.</P>
+
+<P>When a request is received, the Controller invokes an Action class. The Action class examines or updates the application's state by consulting the Model (or, preferably, an interface representing the Model). To transfer data between the Model and the View, properties can be placed on the Action class, or on a plain old JavaBean. </P>
+
+<P>Most often, the Model is represented as a graph of JavaBean objects. The Model should do the &quot;heavy lifting&quot;, and the Action will act as a &quot;traffic cop&quot; or adapter. The framework provides sophisticated, automatic type conversion to simplify transfering data between rich domain objects and text-only HTTP requests. </P>
+
+<P>Struts is extensible. <EM>Very</EM> extensible. Every class deployed by the framework is based on an interface. We provide all the base classes an application may ever need, but if we missed something, it's easy to add your own. We provide the general-purpose framework, but you can still write <EM>your</EM> application <EM>your</EM> way.</P>
+
+<H2><A name="Nutshell-IsStrutsthebestchoiceforeveryproject%3F"></A>Is Struts the best choice for every project?</H2>
+
+<P>Apache Struts 2 helps you create an extensible development environment for enterprise-grade applications, based on industry standards and proven design patterns. If you need to write a very simple application, with a handful of pages, then you might consider a &quot;Model 1&quot; solution that uses only server pages.</P>
+
+<P>But, if you are writing a more complicated application, with dozens of pages, that need to be maintained over time, then Struts can help. For more about whether Model 1 or MVC/Model 2 is right for you, see <A href="http://www.javaworld.com/javaworld/jw-12-1999/jw-12-ssj-jspmvc.html" class="external-link" rel="nofollow">Understanding JavaServer Pages Model 2 architecture</A>. </P>
+
+<H2><A name="Nutshell-PlatformRequirements"></A>Platform Requirements </H2>
+
+<P>Struts 2 requires </P>
+
+<UL>
+	<LI>Servlet API 2.4</LI>
+	<LI>JSP API 2.0</LI>
+	<LI>Java 5</LI>
+</UL>
+
+
+<P>For a full list of requirements, including dependencies used by optional plugins, see <A href="http://struts.apache.org/2.x/struts2-core/dependencies.html" class="external-link" rel="nofollow">Project Dependencies</A> </P>
+
+<P><IMG class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/check.gif" height="16" width="16" align="absmiddle" alt="" border="0"> An alternate set of JARs for Java 4 are also available. See the &quot;J4&quot; distribution. </P>
+
+
+
+<H2><A name="Nutshell-Next%3AAJAX"></A>Next: <A href="ajax.html" title="AJAX">AJAX</A></H2>
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

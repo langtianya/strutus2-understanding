@@ -1,0 +1,195 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Result Annotation</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="guides.html" title="Guides">Guides</A>&nbsp;&gt;&nbsp;<A href="core-developers-guide.html" title="Core Developers Guide">Core Developers Guide</A>&nbsp;&gt;&nbsp;<A href="annotations.html" title="Annotations">Annotations</A>&nbsp;&gt;&nbsp;<A href="" title="Result Annotation">Result Annotation</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Result Annotation</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=43811">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=43811">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=43811">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=43811">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=43811">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=43811">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <P>The <TT>@Result</TT> annotation allows the definition of <TT>Action</TT> results in the <TT>Action</TT> class rather than an XML file.</P>
+
+<DIV class="panelMacro"><TABLE class="tipMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>The <TT>@Result</TT> annotation lives at the <TT>Action</TT> <EM>class</EM> level and not the method level. This matches what is found in an XML-based <TT>Action</TT> configuration. <B>Do not be tempted to annotate your <TT>Action</TT>'s methods; it will not work.</B></TD></TR></TABLE></DIV>
+
+<P>In order for <TT>@Result</TT> and <TT>@Results</TT> annotations to be configured correctly you must set the <TT>actionPackages</TT> filter <TT>init-param</TT> to a comma-separated list of packages containing the annotated <TT>Action</TT> classes. See <A href="zero-configuration.html" title="Zero Configuration">Zero Configuration</A> for further information; there are <TT>Action</TT> class naming conventions if you don't implement the <TT>Action</TT> interface and other tidbits there.</P>
+
+<H2><A name="ResultAnnotation-%7B%7B@Result%7D%7DAnnotationParameters"></A><TT>@Result</TT> Annotation Parameters</H2>
+
+<DIV class="navmenu" style="float:right; width:300px; background:white; margin:3px; padding:3px">  <DIV class="panelMacro"><TABLE class="infoMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>See org.apache.struts2.config.Result annotation JavaDocs.</TD></TR></TABLE></DIV></DIV>
+
+<UL>
+	<LI>name - Result name; default <TT>Action.SUCCESS</TT></LI>
+	<LI>value - Value of result (result destination)</LI>
+	<LI>type - Type of result; default <TT>NullResult</TT>. For example:
+	<UL>
+		<LI><TT>NullResult.class</TT></LI>
+		<LI><TT>FreemarkerResult.class</TT></LI>
+		<LI><TT>PlainTextResult.class</TT></LI>
+		<LI><TT>VelocityResult.class</TT></LI>
+		<LI><TT>ServletDispatcherResult.class</TT></LI>
+		<LI><TT>ServletRedirectResult.class</TT></LI>
+		<LI><TT>ServletActionRedirectResult.class</TT> - equivalent to the <TT>redirectAction</TT> type in XML config</LI>
+		<LI><TT>TilesResult.class</TT></LI>
+		<LI>.. (for more result, please consult the API docs, and look for implementations of the XWork <TT>Result</TT> interface)</LI>
+	</UL>
+	</LI>
+	<LI>params - An Array of the parameters in the form {key1, value1, key2, value2}</LI>
+</UL>
+
+
+<H2><A name="ResultAnnotation-%7B%7B@Result%7D%7DDefiningaSingleResult"></A><TT>@Result</TT> &ndash; Defining a Single Result</H2>
+
+<P>Map the &quot;success&quot; result (explicitly named) to a Tile definition named &quot;/home.page&quot;.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Defining a Single Result</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+@Result(name=<SPAN class="code-quote">&quot;success&quot;</SPAN>, value=<SPAN class="code-quote">&quot;/home.page&quot;</SPAN>, type=TilesResult.class)
+<SPAN class="code-keyword">public</SPAN> class HomeAction <SPAN class="code-keyword">extends</SPAN> ActionSupport {
+    <SPAN class="code-comment">// ...
+</SPAN>}
+</PRE>
+</DIV></DIV>
+
+<H2><A name="ResultAnnotation-%7B%7B@Results%7D%7DDefiningMultipleResults"></A><TT>@Results</TT> &ndash; Defining Multiple Results</H2>
+
+<P>Defines a set of results for an <TT>Action</TT>.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Defining Multiple Results</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+@Results({
+    @Result(name=<SPAN class="code-quote">&quot;success&quot;</SPAN>, value=<SPAN class="code-quote">&quot;/home.page&quot;</SPAN>, type=TilesResult.class),
+    @Result(name=<SPAN class="code-quote">&quot;homeError&quot;</SPAN>, value=<SPAN class="code-quote">&quot;/homeError.page&quot;</SPAN>, type=TilesResult.class)
+})
+<SPAN class="code-keyword">public</SPAN> class HomeAction <SPAN class="code-keyword">extends</SPAN> ActionSupport {
+    <SPAN class="code-comment">// ....
+</SPAN>}
+</PRE>
+</DIV></DIV>
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

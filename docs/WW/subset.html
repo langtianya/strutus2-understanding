@@ -1,0 +1,293 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>subset</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="guides.html" title="Guides">Guides</A>&nbsp;&gt;&nbsp;<A href="tag-developers-guide.html" title="Tag Developers Guide">Tag Developers Guide</A>&nbsp;&gt;&nbsp;<A href="struts-tags.html" title="Struts Tags">Struts Tags</A>&nbsp;&gt;&nbsp;<A href="tag-reference.html" title="Tag Reference">Tag Reference</A>&nbsp;&gt;&nbsp;<A href="generic-tag-reference.html" title="Generic Tag Reference">Generic Tag Reference</A>&nbsp;&gt;&nbsp;<A href="" title="subset">subset</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">subset</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=14071">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=14071">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14071">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14071">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14071">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14071">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <H2><A name="subset-Description"></A>Description</H2>
+
+<P><B>NOTE: JSP-TAG</B></P>
+
+<P><P>A tag that takes an iterator and outputs a subset of it. It delegates to
+org.apache.struts2.util.SubsetIteratorFilter internally to
+perform the subset functionality.</P></P>
+
+<H2><A name="subset-Parameters"></A>Parameters</H2>
+
+<P><TABLE width="100%">
+	<TR>
+		<TD colspan="6"><H4>Dynamic Attributes Allowed:</H4> false</TD>
+	</TR>
+	<TR>
+		<TD colspan="6">&nbsp;</TD>
+	</TR>
+	<TR>
+		<TH align="left" valign="top"><H4>Name</H4></TH>
+		<TH align="left" valign="top"><H4>Required</H4></TH>
+		<TH align="left" valign="top"><H4>Default</H4></TH>
+		<TH align="left" valign="top"><H4>Evaluated</H4></TH>
+		<TH align="left" valign="top"><H4>Type</H4></TH>
+		<TH align="left" valign="top"><H4>Description</H4></TH>
+	</TR>
+		<TR>
+			<TD align="left" valign="top">count</TD>
+			<TD align="left" valign="top">false</TD>
+			<TD align="left" valign="top"></TD>
+			<TD align="left" valign="top">false</TD>
+			<TD align="left" valign="top">Integer</TD>
+			<TD align="left" valign="top">Indicate the number of entries to be in the resulting subset iterator</TD>
+		</TR>
+		<TR>
+			<TD align="left" valign="top">decider</TD>
+			<TD align="left" valign="top">false</TD>
+			<TD align="left" valign="top"></TD>
+			<TD align="left" valign="top">false</TD>
+			<TD align="left" valign="top">org.apache.struts2.util.SubsetIteratorFilter.Decider</TD>
+			<TD align="left" valign="top">Extension to plug-in a decider to determine if that particular entry is to be included in the resulting subset iterator</TD>
+		</TR>
+		<TR>
+			<TD align="left" valign="top">id</TD>
+			<TD align="left" valign="top">false</TD>
+			<TD align="left" valign="top"></TD>
+			<TD align="left" valign="top">false</TD>
+			<TD align="left" valign="top">String</TD>
+			<TD align="left" valign="top">Deprecated. Use 'var' instead</TD>
+		</TR>
+		<TR>
+			<TD align="left" valign="top">source</TD>
+			<TD align="left" valign="top">false</TD>
+			<TD align="left" valign="top"></TD>
+			<TD align="left" valign="top">false</TD>
+			<TD align="left" valign="top">String</TD>
+			<TD align="left" valign="top">Indicate the source of which the resulting subset iterator is to be derived base on</TD>
+		</TR>
+		<TR>
+			<TD align="left" valign="top">start</TD>
+			<TD align="left" valign="top">false</TD>
+			<TD align="left" valign="top"></TD>
+			<TD align="left" valign="top">false</TD>
+			<TD align="left" valign="top">Integer</TD>
+			<TD align="left" valign="top">Indicate the starting index (eg. first entry is 0) of entries in the source to be available as the first entry in the resulting subset iterator</TD>
+		</TR>
+		<TR>
+			<TD align="left" valign="top">var</TD>
+			<TD align="left" valign="top">false</TD>
+			<TD align="left" valign="top"></TD>
+			<TD align="left" valign="top">false</TD>
+			<TD align="left" valign="top">String</TD>
+			<TD align="left" valign="top">The name to store the resultant iterator into page context, if such name is supplied</TD>
+		</TR>
+</TABLE></P>
+
+<H2><A name="subset-Examples"></A>Examples</H2>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java"><SPAN class="code-keyword">public</SPAN> class MySubsetTagAction <SPAN class="code-keyword">extends</SPAN> ActionSupport {
+     <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> execute() <SPAN class="code-keyword">throws</SPAN> Exception {
+        l = <SPAN class="code-keyword">new</SPAN> ArrayList();
+        l.add(<SPAN class="code-keyword">new</SPAN> <SPAN class="code-object">Integer</SPAN>(1));
+        l.add(<SPAN class="code-keyword">new</SPAN> <SPAN class="code-object">Integer</SPAN>(2));
+        l.add(<SPAN class="code-keyword">new</SPAN> <SPAN class="code-object">Integer</SPAN>(3));
+        l.add(<SPAN class="code-keyword">new</SPAN> <SPAN class="code-object">Integer</SPAN>(4));
+        l.add(<SPAN class="code-keyword">new</SPAN> <SPAN class="code-object">Integer</SPAN>(5));
+        <SPAN class="code-keyword">return</SPAN> <SPAN class="code-quote">&quot;done&quot;</SPAN>;
+     }
+
+
+     <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">Integer</SPAN>[] getMyArray() {
+        <SPAN class="code-keyword">return</SPAN> a;
+     }
+
+     <SPAN class="code-keyword">public</SPAN> List getMyList() {
+        <SPAN class="code-keyword">return</SPAN> l;
+      }
+
+     <SPAN class="code-keyword">public</SPAN> Decider getMyDecider() {
+     <SPAN class="code-keyword">return</SPAN> <SPAN class="code-keyword">new</SPAN> Decider() {
+         <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">boolean</SPAN> decide(<SPAN class="code-object">Object</SPAN> element) <SPAN class="code-keyword">throws</SPAN> Exception {
+             <SPAN class="code-object">int</SPAN> i = ((<SPAN class="code-object">Integer</SPAN>)element).intValue();
+             <SPAN class="code-keyword">return</SPAN> (((i % 2) == 0)?<SPAN class="code-keyword">true</SPAN>:<SPAN class="code-keyword">false</SPAN>);
+         }
+     };
+     }
+ }
+</PRE>
+</DIV></DIV>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml"><SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- s: List basic --&gt;</SPAN></SPAN>
+   <SPAN class="code-tag">&lt;s:subset source=<SPAN class="code-quote">&quot;myList&quot;</SPAN>&gt;</SPAN>
+      <SPAN class="code-tag">&lt;s:iterator&gt;</SPAN>
+         <SPAN class="code-tag">&lt;s:property /&gt;</SPAN>
+      <SPAN class="code-tag">&lt;/s:iterator&gt;</SPAN>
+   <SPAN class="code-tag">&lt;/s:subset&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml"><SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- B: List with count --&gt;</SPAN></SPAN>
+   <SPAN class="code-tag">&lt;s:subset source=<SPAN class="code-quote">&quot;myList&quot;</SPAN> count=<SPAN class="code-quote">&quot;3&quot;</SPAN>&gt;</SPAN>
+      <SPAN class="code-tag">&lt;s:iterator&gt;</SPAN>
+          <SPAN class="code-tag">&lt;s:property /&gt;</SPAN>
+      <SPAN class="code-tag">&lt;/s:iterator&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/s:subset&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml"><SPAN class="code-tag"><SPAN class="code-comment">&lt;!--  C: List with start --&gt;</SPAN></SPAN>
+     <SPAN class="code-tag">&lt;s:subset source=<SPAN class="code-quote">&quot;myList&quot;</SPAN> count=<SPAN class="code-quote">&quot;13&quot;</SPAN> start=<SPAN class="code-quote">&quot;3&quot;</SPAN>&gt;</SPAN>
+        <SPAN class="code-tag">&lt;s:iterator&gt;</SPAN>
+          <SPAN class="code-tag">&lt;s:property /&gt;</SPAN>
+        <SPAN class="code-tag">&lt;/s:iterator&gt;</SPAN>
+     <SPAN class="code-tag">&lt;/s:subset&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml"><SPAN class="code-tag"><SPAN class="code-comment">&lt;!--  D: List with var --&gt;</SPAN></SPAN>
+     <SPAN class="code-tag">&lt;s:subset var=<SPAN class="code-quote">&quot;mySubset&quot;</SPAN> source=<SPAN class="code-quote">&quot;myList&quot;</SPAN> count=<SPAN class="code-quote">&quot;13&quot;</SPAN> start=<SPAN class="code-quote">&quot;3&quot;</SPAN> /&gt;</SPAN>
+     &lt;%
+         Iterator i = (Iterator) pageContext.getAttribute(<SPAN class="code-quote">&quot;mySubset&quot;</SPAN>);
+         while(i.hasNext()) {
+     %&gt;
+     <SPAN class="code-tag">&lt;%=i.next() %&gt;</SPAN>
+     <SPAN class="code-tag">&lt;%  } %&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml"><SPAN class="code-tag"><SPAN class="code-comment">&lt;!--  D: List with Decider --&gt;</SPAN></SPAN>
+    <SPAN class="code-tag">&lt;s:subset source=<SPAN class="code-quote">&quot;myList&quot;</SPAN> decider=<SPAN class="code-quote">&quot;myDecider&quot;</SPAN>&gt;</SPAN>
+           <SPAN class="code-tag">&lt;s:iterator&gt;</SPAN>
+                <SPAN class="code-tag">&lt;s:property /&gt;</SPAN>
+           <SPAN class="code-tag">&lt;/s:iterator&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/s:subset&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

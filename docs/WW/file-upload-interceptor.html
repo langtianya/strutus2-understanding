@@ -1,0 +1,270 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>File Upload Interceptor</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="guides.html" title="Guides">Guides</A>&nbsp;&gt;&nbsp;<A href="core-developers-guide.html" title="Core Developers Guide">Core Developers Guide</A>&nbsp;&gt;&nbsp;<A href="interceptors.html" title="Interceptors">Interceptors</A>&nbsp;&gt;&nbsp;<A href="" title="File Upload Interceptor">File Upload Interceptor</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">File Upload Interceptor</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=14299">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=14299">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14299">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14299">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14299">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14299">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <DIV class="panelMacro"><TABLE class="noteMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>See <A href="file-upload.html" title="File Upload">this page</A> for more examples and advanced configuration</TD></TR></TABLE></DIV>
+
+<P><P>
+Interceptor that is based off of MultiPartRequestWrapper, which is automatically applied for any request that
+includes a file. It adds the following parameters, where [File Name] is the name given to the file uploaded by the
+HTML form:
+<P>
+<UL>
+<P>
+<LI>[File Name] : File - the actual File</LI>
+<P>
+<LI>[File Name]ContentType : String - the content type of the file</LI>
+<P>
+<LI>[File Name]FileName : String - the actual name of the file uploaded (not the HTML name)</LI>
+<P>
+</UL>
+<P>
+<P> You can get access to these files by merely providing setters in your action that correspond to any of the three
+patterns above, such as setDocument(File document), setDocumentContentType(String contentType), etc.
+<BR>See the example code section.
+<P>
+<P> This interceptor will add several field errors, assuming that the action implements ValidationAware.
+These error messages are based on several i18n values stored in struts-messages.properties, a default i18n file
+processed for all i18n requests. You can override the text of these messages by providing text for the following
+keys:
+<P>
+<UL>
+<P>
+<LI>struts.messages.error.uploading - a general error that occurs when the file could not be uploaded</LI>
+<P>
+<LI>struts.messages.error.file.too.large - occurs when the uploaded file is too large</LI>
+<P>
+<LI>struts.messages.error.content.type.not.allowed - occurs when the uploaded file does not match the expected
+content types specified</LI>
+<P>
+<LI>struts.messages.error.file.extension.not.allowed - occurs when the uploaded file does not match the expected
+file extensions specified</LI>
+<P>
+</UL>
+<P></P>
+
+<H2><A name="FileUploadInterceptor-Parameters"></A>Parameters</H2>
+
+<P><P>
+<UL>
+<P>
+<LI>maximumSize (optional) - the maximum size (in bytes) that the interceptor will allow a file reference to be set
+on the action. Note, this is <B>not</B> related to the various properties found in struts.properties.
+Default to approximately 2MB.</LI>
+<P>
+<LI>allowedTypes (optional) - a comma separated list of content types (ie: text/html) that the interceptor will allow
+a file reference to be set on the action. If none is specified allow all types to be uploaded.</LI>
+<P>
+<LI>allowedExtensions (optional) - a comma separated list of file extensions (ie: .html) that the interceptor will allow
+a file reference to be set on the action. If none is specified allow all extensions to be uploaded.</LI>
+</UL>
+<P>
+<P></P>
+
+<H2><A name="FileUploadInterceptor-ExtendingtheInterceptor"></A>Extending the Interceptor</H2>
+
+<P><P>
+You can extend this interceptor and override the acceptFile method to provide more control over which files
+are supported and which are not.
+<P></P>
+
+<H2><A name="FileUploadInterceptor-Examples"></A>Examples</H2>
+<P><B>Example action mapping:</B></P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;doUpload&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.example.UploadAction&quot;</SPAN>&gt;</SPAN>
+    <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;fileUpload&quot;</SPAN>/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;basicStack&quot;</SPAN>/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;success&quot;</SPAN>&gt;</SPAN>good_result.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+<SPAN class="code-tag">&lt;/action&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>Notice the interceptor configuration in the preceding example. </P>
+
+<P><B>Example JSP form tags:</B></P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;s:form action=<SPAN class="code-quote">&quot;doUpload&quot;</SPAN> method=<SPAN class="code-quote">&quot;post&quot;</SPAN> enctype=<SPAN class="code-quote">&quot;multipart/form-data&quot;</SPAN>&gt;</SPAN>
+    <SPAN class="code-tag">&lt;s:file name=<SPAN class="code-quote">&quot;upload&quot;</SPAN> label=<SPAN class="code-quote">&quot;File&quot;</SPAN>/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;s:submit/&gt;</SPAN>
+<SPAN class="code-tag">&lt;/s:form&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+<P><P>
+You must set the encoding to <CODE>multipart/form-data</CODE> in the form where the user selects the file to upload.
+<P></P>
+<P><B>Example Action class:</B></P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">   <SPAN class="code-keyword">package</SPAN> com.example;
+
+   <SPAN class="code-keyword">import</SPAN> java.io.File;
+   <SPAN class="code-keyword">import</SPAN> com.opensymphony.xwork2.ActionSupport;
+
+   <SPAN class="code-keyword">public</SPAN> UploadAction <SPAN class="code-keyword">extends</SPAN> ActionSupport {
+      <SPAN class="code-keyword">private</SPAN> File file;
+      <SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">String</SPAN> contentType;
+      <SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">String</SPAN> filename;
+
+      <SPAN class="code-keyword">public</SPAN> void setUpload(File file) {
+         <SPAN class="code-keyword">this</SPAN>.file = file;
+      }
+
+      <SPAN class="code-keyword">public</SPAN> void setUploadContentType(<SPAN class="code-object">String</SPAN> contentType) {
+         <SPAN class="code-keyword">this</SPAN>.contentType = contentType;
+      }
+
+      <SPAN class="code-keyword">public</SPAN> void setUploadFileName(<SPAN class="code-object">String</SPAN> filename) {
+         <SPAN class="code-keyword">this</SPAN>.filename = filename;
+      }
+
+      <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> execute() {
+         <SPAN class="code-comment">//...
+</SPAN>         <SPAN class="code-keyword">return</SPAN> SUCCESS;
+      }
+ }
+</PRE>
+</DIV></DIV>
+
+<P><B>Setting parameters example:</B></P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;fileUpload&quot;</SPAN>&gt;</SPAN>
+  <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;allowedTypes&quot;</SPAN>&gt;</SPAN>
+     image/png,image/gif,image/jpeg
+  <SPAN class="code-tag">&lt;/param&gt;</SPAN>
+<SPAN class="code-tag">&lt;/interceptor-ref&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+<P>This part is optional and would be done in place of the <TT>&lt;interceptor-ref name=&quot;fileUpload&quot;/&gt;</TT> line in the action mapping example above.</P>
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

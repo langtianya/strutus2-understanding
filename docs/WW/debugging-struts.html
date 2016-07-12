@@ -1,0 +1,204 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Debugging Struts</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="tutorials.html" title="Tutorials">Tutorials</A>&nbsp;&gt;&nbsp;<A href="getting-started.html" title="Getting Started">Getting Started</A>&nbsp;&gt;&nbsp;<A href="exception-handling.html" title="Exception Handling">Exception Handling</A>&nbsp;&gt;&nbsp;<A href="" title="Debugging Struts">Debugging Struts</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Debugging Struts</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=16941310">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=16941310">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=16941310">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=16941310">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=16941310">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=16941310">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <DIV class="panelMacro"><TABLE class="infoMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>The example code for this tutorial, Debugging_Struts2_Mvn, is available on Google Code - <A href="http://code.google.com/p/struts2-examples/downloads/list" class="external-link" rel="nofollow">http://code.google.com/p/struts2-examples/downloads/list</A>. After downloading and unzipping the file, you'll have a folder named Debugging_Struts2_Mvn. In that folder will be a README.txt file with instructions on how to build and run the example application.</TD></TR></TABLE></DIV>
+
+<H3><A name="DebuggingStruts-Introduction"></A>Introduction</H3>
+<P>During development of a Struts 2 web application you may want to view the information being managed by the Struts 2 framework.  This tutorial will cover two tools you can use to see how Struts 2 views your web application.  One tool is the Struts 2 configuration plugin and the other is the debugging interceptor.  This article also discusses how to set the log level to see more or fewer log messages.</P>
+
+<P>The code discussed in this tutorial can be downloaded from Google Code - <A href="http://code.google.com/p/struts2-examples/downloads/list" class="external-link" rel="nofollow">http://code.google.com/p/struts2-examples/downloads/list</A>.</P>
+
+<DIV class="panelMacro"><TABLE class="tipMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>The Struts 2 <A href="http://struts.apache.org/mail.html" class="external-link" rel="nofollow">user mailing list</A> is an excellent place to get help. If you are having a problem getting the tutorial example applications to work search the Struts 2 mailing list. If you don't find an answer to your problem, post a question on the mailing list.</TD></TR></TABLE></DIV>
+
+<H3><A name="DebuggingStruts-ConfigurationPlugin"></A>Configuration Plugin</H3>
+<P>The Struts 2 config browser plugin provides details about the configuration the Struts 2 framework is using to run your application. To use the plugin your application needs to have the struts2-config-browser-plugin-x.x.x.x.jar in your application's class path.  The config-browser-plugin jar is part of the Struts 2 download and is also available in the Maven repository.</P>
+
+<P>To use the plugin in your application, just call index.action in namespace config-browser. For example you could have the following link on your admin page (or just anywhere during your development).</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-html">
+<SPAN class="code-tag">&lt;a href=<SPAN class="code-quote">&quot;&lt;s:url action=&quot;</SPAN>index<SPAN class="code-quote">&quot; namespace=&quot;</SPAN>config-browser<SPAN class="code-quote">&quot; /&gt;</SPAN>&quot;</SPAN>&gt;Launch the configuration browser<SPAN class="code-tag">&lt;/a&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+
+<P>In the example application, there is a link to the configuration browser on the index.jsp page.</P>
+
+<P>Clicking on the link for the configuration browser will cause the Struts 2 framework to return this page to your browser.<BR>
+<SPAN class="image-wrap" style=""><IMG src="debugging-struts.data/Screen%20shot%202010-04-14%20at%208.45.13%20PM.png" style="border: 0px solid black"></SPAN></P>
+
+<P>You can click on an action link to see the configuration for that action.  For example clicking on the register action link results in this.<BR>
+<SPAN class="image-wrap" style=""><IMG src="debugging-struts.data/Screen%20shot%202010-04-14%20at%208.46.26%20PM.png" style="border: 0px solid black"></SPAN></P>
+
+<P>You may then click on one of the tabs (Results, Exception Mappings, Interceptors, Properties, Validators) to get more information about how the Struts 2 framework is has configured that specific action. </P>
+
+<P>On the left side of the page is the config browser plugin menu. Clicking on constants will render a view that lists all the Struts 2 constants and their properties for your application.  Clicking on beans shows the beans Struts 2 is managing.  Clicking on Jars shows the jars your application is using.</P>
+
+<H3><A name="DebuggingStruts-UsingtheDebuggingInterceptor"></A>Using the Debugging Interceptor</H3>
+<P>If you have set devmode to true (in the example application see struts.xml) then one of the interceptors that is activated when Struts 2 processes an action is the DebuggingInterceptor.  The DebuggingInterceptor looks for a query string appended to the action URL with a name of debug and a value of xml, console, command, or browser.</P>
+
+<P>If the DebuggingInterceptor finds that query string then it will halt further execution of the action and instead return to the browser debugging information.  The format of the returned information depends on the value of the debug query parameter.  See debugginginterceptor for more detail.</P>
+
+<P>In the example application on the index.jsp is a link for displaying debugging information.  This link includes the query string debug=browser.  If you click on this link you'll see a table with columns that can be expanded and collapsed.  The table contains the various objects and their state being managed by the Struts 2 framework.<BR>
+<SPAN class="image-wrap" style=""><IMG src="debugging-struts.data/Screen%20shot%202010-04-14%20at%208.48.04%20PM.png" style="border: 0px solid black"></SPAN></P>
+
+<P>Note that to enable the correct display and interaction of the expand/collapse links on the debugging information web page you need to include the s:head tag in your JSP's head section (see index.jsp in the example application) and also include the Struts 2 dojo plugin in your application's class path.  The Struts 2 dojo plugin is available as part of the Struts 2 download and from the Maven repository.</P>
+
+<H3><A name="DebuggingStruts-Struts2Logging"></A>Struts 2 Logging</H3>
+<P>The Struts 2 framework will write to a log a great deal of information if you've configured the log properties to log at the debug level.  In the example application, view log4j.xml.  The two major packages involved in the Struts 2 framework, com.opensymphony and org.apache.struts2, are configured to write debug and above log messages.  When you run the application view the standard out for your Servlet container to see all the information written to the log.  </P>
+
+<H3><A name="DebuggingStruts-Summary"></A>Summary</H3>
+<P>Using the configuration browser plugin and the debugging interceptor can assist you in trouble shooting a problem with a Struts 2 web application.  These tools should only be used in development.</P>
+
+<P>Prior to creating your war file for deployment to production you should change devmode to false and remove the debugging links.  You may also want to adjust the level of logging in your log properties file to a higher level (info or warn) to reduce the number of log messages.</P>
+
+<H3><A name="DebuggingStruts-UpNext"></A>Up Next</H3>
+
+<P>In our next tutorial we'll cover how to use additional Struts 2 form tags.</P>
+
+<DIV class="table-wrap">
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TH class="confluenceTh"> Next </TH>
+<TD class="confluenceTd"> Onward to <A href="struts-2-form-tags.html" title="Struts 2 Form Tags">Struts 2 Form Tags</A> </TD>
+</TR>
+<TR>
+<TH class="confluenceTh"> Prev </TH>
+<TD class="confluenceTd"> Return to <A href="exception-handling.html" title="Exception Handling">Exception Handling</A> </TD>
+</TR>
+</TBODY></TABLE>
+</DIV>
+
+
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

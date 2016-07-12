@@ -1,0 +1,227 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Wildcard Method Selection</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="tutorials.html" title="Tutorials">Tutorials</A>&nbsp;&gt;&nbsp;<A href="getting-started.html" title="Getting Started">Getting Started</A>&nbsp;&gt;&nbsp;<A href="" title="Wildcard Method Selection">Wildcard Method Selection</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Wildcard Method Selection</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=21791589">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=21791589">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=21791589">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=21791589">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=21791589">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=21791589">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <DIV class="panelMacro"><TABLE class="infoMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>The example code for this tutorial, Wildcard_Method_Struts2_Ant or Wildcard_Method_Struts2_Mvn, is available on Google Code - <A href="http://code.google.com/p/struts2-examples/downloads/list" class="external-link" rel="nofollow">http://code.google.com/p/struts2-examples/downloads/list</A>. After downloading and unzipping the file, you'll have a folder named Wildcard_Method_Struts2_Ant (or Wildcard_Method_Struts2_Mvn). In that folder will be a README.txt file with instructions on now to build and run the example application.</TD></TR></TABLE></DIV>
+
+<H3><A name="WildcardMethodSelection-Introduction"></A>Introduction</H3>
+<P>In this tutorial we'll cover how to configure an action node in the struts.xml configuration file so that one action node can be used to<BR>
+relate several different Action URLs to specific methods of the Action class.  This will reduce the number of action nodes we must write in the struts.xml configuration file.</P>
+
+<DIV class="panelMacro"><TABLE class="tipMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>The <A href="http://struts.apache.org/mail.html" class="external-link" rel="nofollow">Struts 2 user mailing list</A> is an excellent place to get help. If you are having a problem getting the tutorial example applications to work search the Struts 2 mailing list. If you don't find an answer to your problem, post a question on the mailing list.</TD></TR></TABLE></DIV>
+
+<H3><A name="WildcardMethodSelection-ExampleApplication"></A>Example Application</H3>
+
+<P><SPAN class="image-wrap" style=""><IMG src="wildcard-method-selection.data/Screen%20shot%202010-05-30%20at%208.51.40%20AM.png" style="border: 1px solid black"></SPAN></P>
+
+<P>The example application that supports this tutorial (Wildcard_Method_Struts2 available at <A href="http://code.google.com/p/struts2-examples/downloads/list" class="external-link" rel="nofollow">http://code.google.com/p/struts2-examples/downloads/list</A>.) shows how to use Struts 2's wildcard method selection methodology.  The example application is just a simple one that lists some people and lets you edit them, delete them, and add a new person to the list. Everything that the application needs to do with a Person (the model class) is controlled by the Struts 2 ActionSupport class PersonAction. The PersonAction class has several different methods (e.g. create, edit, delete) that are called depending on what the user wants to do.</P>
+
+<H3><A name="WildcardMethodSelection-WildcardMethodSelection"></A>Wildcard Method Selection</H3>
+<P>Without using the wildcard method selection technique, I'd have to write an action mapping node in the Struts 2 configuration file for each separate action I'd want to call. For example:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Struts.xml Action Configuration</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+
+<SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;createPerson&quot;</SPAN> class=<SPAN class="code-quote">&quot;org.apache.struts.tutorials.wildcardmethod.action.PersonAction&quot;</SPAN> method=<SPAN class="code-quote">&quot;create&quot;</SPAN>&gt;</SPAN>
+  <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;input&quot;</SPAN>&gt;</SPAN>input.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+  <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;success&quot;</SPAN>&gt;</SPAN>view.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+<SPAN class="code-tag">&lt;/action&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;editPerson&quot;</SPAN> class=<SPAN class="code-quote">&quot;org.apache.struts.tutorials.wildcardmethod.action.PersonAction&quot;</SPAN> method=<SPAN class="code-quote">&quot;edit&quot;</SPAN>&gt;</SPAN>
+  <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;input&quot;</SPAN>&gt;</SPAN>input.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+  <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;success&quot;</SPAN>&gt;</SPAN>view.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+<SPAN class="code-tag">&lt;/action&gt;</SPAN>
+
+
+
+</PRE>
+</DIV></DIV>
+
+<P>So even for this simple application, I'd have to write four separate action mapping nodes (create, edit, delete, saveOrUpdate) in the configuration file. So you can easily see that a more complex application can have dozens of action mapping nodes.</P>
+
+<P>To implement the wildcard method selection technique to enable the Struts 2 framework to dynamically select the correct method to call at runtime you just need to use the wildcard character, *, in your name value and an attribute value place holder ( {1} ) for the method value. For example:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Struts.xml Action Configuration Using Wildcard Method Selection</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+
+<SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;*Person&quot;</SPAN> class=<SPAN class="code-quote">&quot;org.apache.struts.tutorials.wildcardmethod.action.PersonAction&quot;</SPAN> method=<SPAN class="code-quote">&quot;{1}&quot;</SPAN>&gt;</SPAN>
+  <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;success&quot;</SPAN>&gt;</SPAN>view.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+  <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;input&quot;</SPAN>&gt;</SPAN>input.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+<SPAN class="code-tag">&lt;/action&gt;</SPAN>
+
+</PRE>
+</DIV></DIV>
+
+<P>The * is the wildcard character. Any action name values that end in &quot;Person&quot; will be handled by this action mapping. Whatever value is before &quot;Person&quot; will be the value used for the method attribute (the {1} place holder will be replaced with that value). For example this URL:</P>
+
+<P>    <A href="http://localhost:8080/Wildcard_Method_Struts_2_Mvn/createPerson.action" class="external-link" rel="nofollow">http://localhost:8080/Wildcard_Method_Struts_2_Mvn/createPerson.action</A></P>
+
+<P>will be be processed by the the above action mapping and method create of class PersonAction will be called. While this URL</P>
+
+<P>    <A href="http://localhost:8080/Wildcard_Method_Struts_2_Mvn/deletePerson.action" class="external-link" rel="nofollow">http://localhost:8080/Wildcard_Method_Struts_2_Mvn/deletePerson.action</A></P>
+
+<P>will cause the delete method of class PersonAction to be called.</P>
+
+<P>What happens if we have a URL with nothing in front of Person? For example:</P>
+
+<P>    <A href="http://localhost:8080/Wildcard_Method_Struts_2_Mvn/Person.action" class="external-link" rel="nofollow">http://localhost:8080/Wildcard_Method_Struts_2_Mvn/Person.action</A></P>
+
+<P>If there is no value in front of Person, then the Struts 2 framework will call the execute method of the class PersonAction.</P>
+
+<H3><A name="WildcardMethodSelection-DynamicMethodInvocation"></A>Dynamic Method Invocation</H3>
+
+<P>The wildcard method selection technique explained above should not be confused with the &quot;Dynamic Method Invocation&quot; technique. The Struts 2 documentation explains this technique (which uses the bang, !, operator in the action name) and recommends against using the &quot;Dynamic Method Invocation&quot; technique due to security and other reasons related to how this technique is implemented internally.</P>
+
+<P>The Struts 2 documentation also recommends turning off the option to use the dynamic method invocation by setting struts.enable.DynamicMethodInvocation to FALSE in the Struts configuration.</P>
+
+<H3><A name="WildcardMethodSelection-Summary"></A>Summary</H3>
+
+<P>By using the wildcard method selection technique explained above, you can significantly reduce the number of action mapping nodes you need to write and manage in the Struts 2 XML configuration file.</P>
+
+<H3><A name="WildcardMethodSelection-UpNext"></A>Up Next</H3>
+
+<P>In our next tutorial we'll cover how control the appearance of the Struts 2 tags when they are rendered in the browser.</P>
+
+<DIV class="table-wrap">
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TH class="confluenceTh"> Next </TH>
+<TD class="confluenceTd"> Onward to <A href="struts-2-themes.html" title="Struts 2 Themes">Struts 2 Themes</A> </TD>
+</TR>
+</TBODY></TABLE>
+</DIV>
+
+
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

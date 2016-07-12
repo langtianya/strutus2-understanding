@@ -1,0 +1,580 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Form Tags</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="guides.html" title="Guides">Guides</A>&nbsp;&gt;&nbsp;<A href="tag-developers-guide.html" title="Tag Developers Guide">Tag Developers Guide</A>&nbsp;&gt;&nbsp;<A href="struts-tags.html" title="Struts Tags">Struts Tags</A>&nbsp;&gt;&nbsp;<A href="ui-tags.html" title="UI Tags">UI Tags</A>&nbsp;&gt;&nbsp;<A href="" title="Form Tags">Form Tags</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Form Tags</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=14230">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=14230">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14230">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14230">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14230">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14230">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <DIV class="panelMacro"><TABLE class="noteMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>Please make sure you have read the <A href="tag-syntax.html" title="Tag Syntax">Tag Syntax</A> document and understand how tag attribute syntax works.</TD></TR></TABLE></DIV>
+<P>Within the form tags, there are two classes of tags: the form tag itself, and all other tags, which make up the individual form elements. The behavior of the form tag is different than the elements enclosed within it.</P>
+
+<H2><A name="FormTags-FormTagThemes"></A>Form Tag Themes</H2>
+
+<P>As explained in <A href="themes-and-templates.html" title="Themes and Templates">Themes and Templates</A>, the HTML Tags (which includes Form Tags) are all driven by templates. Templates are grouped together to create themes. The framework bundles three themes in the distribution.</P>
+<DIV class="table-wrap">
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TH class="confluenceTh"> simple </TH>
+<TD class="confluenceTd"> Sometimes <EM>too</EM> simple </TD>
+</TR>
+<TR>
+<TH class="confluenceTh"> xhtml </TH>
+<TD class="confluenceTd"> Extends simple </TD>
+<TD class="confluenceTd"> (default) </TD>
+</TR>
+<TR>
+<TH class="confluenceTh"> ajax </TH>
+<TD class="confluenceTd"> Extends xhtml </TD>
+</TR>
+</TBODY></TABLE>
+</DIV>
+
+<P>The predefined themes can be used &quot;as is&quot; or customized.</P>
+<DIV class="panelMacro"><TABLE class="tipMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD><B>xhtml layout</B><BR>The xhtml theme renders out a two-column table. If a different layout is needed, do <EM>not</EM> write your own HTML. Create a new theme or utilize the simple theme.</TD></TR></TABLE></DIV>
+
+<H3><A name="FormTags-Simplethemecaveats"></A>Simple theme caveats</H3>
+
+<P>The downside of using the simple theme is that it doesn't support as many of the attributes that the other themes do. For example, the <TT>label</TT> attribute does nothing in the simple theme, and the automatic display of error messages is not supported.</P>
+
+<H2><A name="FormTags-CommonAttributes"></A>Common Attributes</H2>
+
+<P>All the form tags extend the UIBean class. This base class provides a set of common attributes, that can be grouped in to three categories: <TT>templated-related</TT>, javascript-related, and general attributes. The individual attributes are documented on each tag's reference page.</P>
+
+<P>In addition to the common attributes, a special attribute exists for all form element tags: <TT>form</TT> (${parameters.form}). The <TT>form</TT> property represents the attributes used to render the form tag, such as the form's id. In a template, the form's ID can be found by calling ${parameters.form.id}.</P>
+
+<H2><A name="FormTags-TemplateRelatedAttributes"></A>Template-Related Attributes</H2>
+
+
+<P><TABLE border="1">
+   <THEAD>
+      <TR>
+         <TD>Attribute</TD>
+         <TD>Theme</TD>
+         <TD>Data Types</TD>
+         <TD>Description</TD>
+      </TR>
+   </THEAD>
+   <TBODY>
+      <TR>
+         <TD>templateDir</TD>
+         <TD>n/a</TD>
+         <TD>String</TD>
+         <TD>define the template directory</TD>
+      </TD>
+      <TR>
+         <TD>theme</TD>
+         <TD>n/a</TD>
+         <TD>String</TD>
+         <TD>define the theme name</TD>
+      </TD>
+      <TR>
+         <TD>template</TD>
+         <TD>n/a</TD>
+         <TD>String</TD>
+         <TD>define the template name</TD>
+      </TD>
+   </TBODY>
+</TABLE></P>
+
+
+<H2><A name="FormTags-JavascriptRelatedAttributes"></A>Javascript-Related Attributes</H2>
+
+
+<P><TABLE border="1">
+   <THEAD>
+      <TR>
+         <TD>Attribute</TD>
+         <TD>Theme</TD>
+         <TD>Data Types</TD>
+         <TD>Description</TD>
+      </TR>
+   </THEAD>
+   <TBODY>
+      <TR>
+         <TD>onclick</TD>
+         <TD>simple</TD>
+         <TD>String</TD>
+         <TD>html javascript onclick attribute</TD>
+      </TR>
+      <TR>
+         <TD>ondblclick</TD>
+         <TD>simple</TD>
+         <TD>String</TD>
+         <TD>html javascript ondbclick attribute</TD>
+      </TR>
+      <TR>
+         <TD>onmousedown</TD>
+         <TD>simple</TD>
+         <TD>String</TD>
+         <TD>html javascript onmousedown attribute</TD>
+      </TR>
+      <TR>
+         <TD>onmouseup</TD>
+         <TD>simple</TD>
+         <TD>String</TD>
+         <TD>html javascript onmouseup attribute</TD>
+      </TR>
+      <TR>
+         <TD>onmouseover</TD>
+         <TD>simple</TD>
+         <TD>String</TD>
+         <TD>html javascript onmouseover attribute</TD>
+      </TR>
+      <TR>
+         <TD>onmouseout</TD>
+         <TD>simple</TD>
+         <TD>String</TD>
+         <TD>html javascript onmouseout attribute</TD>
+      </TR>
+      <TR>
+         <TD>onfocus</TD>
+         <TD>simple</TD>
+         <TD>String</TD>
+         <TD>html javascript onfocus attribute</TD>
+      </TR>
+      <TR>
+         <TD>onblur</TD>
+         <TD>simple</TD>
+         <TD>String</TD>
+         <TD>html javascript onblur attribute</TD>
+      </TR>
+      <TR>
+         <TD>onkeypress</TD>
+         <TD>simple</TD>
+         <TD>String</TD>
+         <TD>html javascript onkeypress attribute</TD>
+      </TR>
+      <TR>
+         <TD>onkeyup</TD>
+         <TD>simple</TD>
+         <TD>String</TD>
+         <TD>html javascript onkeyup attribute</TD>
+      </TR>
+      <TR>
+         <TD>onkeydown</TD>
+         <TD>simple</TD>
+         <TD>String</TD>
+         <TD>html javascript onkeydown attribute</TD>
+      </TR>
+      <TR>
+         <TD>onselect</TD>
+         <TD>simple</TD>
+         <TD>String</TD>
+         <TD>html javascript onselect attribute</TD>
+      </TR>
+      <TR>
+         <TD>onchange</TD>
+         <TD>simple</TD>
+         <TD>String</TD>
+         <TD>html javascript onchange attribute</TD>
+      </TR>
+   </TBODY>
+</TABLE></P>
+
+
+<H2><A name="FormTags-TooltipRelatedAttributes"></A>Tooltip Related Attributes</H2>
+
+
+<P><TABLE border="1">
+ <TR>
+    <TD>Attribute</TD>
+    <TD>Data Type</TD>
+    <TD>Default</TD>
+    <TD>Description</TD>
+ </TR>
+ <TR>
+     <TD>tooltip</TD>
+     <TD>String</TD>
+     <TD>none</TD>
+     <TD>Set the tooltip of this particular component</TD>
+ </TR>
+ <TR>
+     <TD>jsTooltipEnabled</TD>
+     <TD>String</TD>
+     <TD>false</TD>
+     <TD>Enable js tooltip rendering</TD>
+ </TR>
+   <TR>
+     <TD>tooltipIcon</TD>
+     <TD>String</TD>
+     <TD>/struts/static/tooltip/tooltip.gif</TD>
+     <TD>The url to the tooltip icon</TD>
+  <TR>
+     <TD>tooltipDelay</TD>
+     <TD>String</TD>
+     <TD>500</TD>
+     <TD>Tooltip shows up after the specified timeout (miliseconds). A behavior similar to that of OS based tooltips.</TD>
+  </TR>
+  <TR>
+     <TD>key</TD>
+     <TD>simple</TD>
+     <TD>String</TD>
+     <TD>The name of the property this input field represents.  This will auto populate the name, label, and value</TD>
+  </TR>
+</TABLE></P>
+
+
+<H2><A name="FormTags-GeneralAttributes"></A>General Attributes</H2>
+
+
+<P><TABLE border="1">
+   <THEAD>
+      <TR>
+         <TD>Attribute</TD>
+         <TD>Theme</TD>
+         <TD>Data Types</TD>
+         <TD>Description</TD>
+      </TR>
+   </THEAD>
+   <TBODY>
+      <TR>
+         <TD>cssClass</TD>
+         <TD>simple</TD>
+         <TD>String</TD>
+         <TD>define html class attribute</TD>
+      </TR>
+      <TR>
+         <TD>cssStyle</TD>
+         <TD>simple</TD>
+         <TD>String</TD>
+         <TD>define html style attribute</TD>
+      </TR>
+      <TR>
+         <TD>cssClass</TD>
+         <TD>simple</TD>
+         <TD>String</TD>
+         <TD>error class attribute</TD>
+      </TR>
+      <TR>
+         <TD>cssStyle</TD>
+         <TD>simple</TD>
+         <TD>String</TD>
+         <TD>error style attribute</TD>
+      </TR>
+      <TR>
+         <TD>title</TD>
+         <TD>simple</TD>
+         <TD>String</TD>
+         <TD>define html title attribute</TD>
+      </TR>
+      <TR>
+         <TD>disabled</TD>
+         <TD>simple</TD>
+         <TD>String</TD>
+         <TD>define html disabled attribute</TD>
+      </TR>
+      <TR>
+         <TD>label</TD>
+         <TD>xhtml</TD>
+         <TD>String</TD>
+         <TD>define label of form element</TD>
+      </TR>
+      <TR>
+         <TD>labelPosition</TD>
+         <TD>xhtml</TD>
+         <TD>String</TD>
+         <TD>define label position of form element (top/left), default to left</TD>
+      </TR>
+      <TR>
+         <TD>requiredposition</TD>
+         <TD>xhtml</TD>
+         <TD>String</TD>
+         <TD>define required label position of form element (left/right), default to right</TD>
+      </TR>
+       <TR>
+         <TD>errorPosition</TD>
+         <TD>xhtml</TD>
+         <TD>String</TD>
+         <TD>define error position of form element (top|bottom), default to top</TD>
+      </TR>
+      <TR>
+         <TD>name</TD>
+         <TD>simple</TD>
+         <TD>String</TD>
+         <TD>Form Element's field name mapping</TD>
+      </TR>
+      <TR>
+         <TD>required</TD>
+         <TD>xhtml</TD>
+         <TD>Boolean</TD>
+         <TD>add * to label (true to add false otherwise)</TD>
+      </TR>
+      <TR>
+         <TD>tabIndex</TD>
+         <TD>simple</TD>
+         <TD>String</TD>
+         <TD>define html tabindex attribute</TD>
+      </TR>
+      <TR>
+         <TD>value</TD>
+         <TD>simple</TD>
+         <TD>Object</TD>
+         <TD>define value of form element</TD>
+      </TR>
+   </TBODY>
+</TABLE></P>
+
+<DIV class="panelMacro"><TABLE class="noteMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD><B>When some attributes don't apply</B><BR>Some tag attributes may not be utilized by all, or any, of the templates. For example, the form tag supports the <TT>tabindex</TT> attribute, but none of the themes render the <TT>tabindex</TT>.</TD></TR></TABLE></DIV>
+
+<H2><A name="FormTags-Value%2FNameRelationship"></A>Value/Name Relationship</H2>
+
+<P>In many of the tags (except for the form tag) there is a unique relationship between the <TT>name</TT> and <TT>value</TT> attributes. The <TT>name</TT> attribute provides the name for the tag, which in turn is used as the control attribute when the form is submitted. The value submitted is bound to the <TT>name</TT>. In most cases, the <TT>name</TT> maps to a simple JavaBean property, such as &quot;postalCode&quot;. On a submit, the value would be set to the property by calling the <TT>setPostalCode</TT> mutator.</P>
+
+<P>Likewise, a form control could be populated by calling a JavaBean accessor, like <TT>getPostalCode</TT>. In the expression language, we can refer to the JavaBean property by name. An expression like &quot;%{postalCode}&quot; would in turn call <TT>getPostalCode</TT>.</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Using Expressions to populate a form for editing</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;@s.form action=<SPAN class="code-quote">&quot;updateAddress&quot;</SPAN>&gt;</SPAN>
+    <SPAN class="code-tag">&lt;@s.textfield label=<SPAN class="code-quote">&quot;Postal Code&quot;</SPAN> name=<SPAN class="code-quote">&quot;postalCode&quot;</SPAN> value=<SPAN class="code-quote">&quot;%{postalCode}&quot;</SPAN>/&gt;</SPAN>
+    ...
+<SPAN class="code-tag">&lt;/@s.form&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+<P>However, since the tags imply a relationship between the <TT>name</TT> and <TT>value</TT>, the <TT>value</TT> attribute is optional. If a <TT>value</TT> is not specified, by default, the JavaBean accessor is used instead.</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;"><B>Populating a form for editing, the easy way</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag">&lt;@s.form action=<SPAN class="code-quote">&quot;updateAddress&quot;</SPAN>&gt;</SPAN>
+    <SPAN class="code-tag">&lt;@s.textfield label=<SPAN class="code-quote">&quot;Postal Code&quot;</SPAN> name=<SPAN class="code-quote">&quot;postalCode&quot;</SPAN>/&gt;</SPAN>
+    ...
+<SPAN class="code-tag">&lt;/@s.form&gt;</SPAN>
+</PRE>
+</DIV></DIV>
+<P>While most attributes are exposed to the underlying templates as the same key as the attribute (${parameters.label}), the <TT>value</TT> attribute is not. Instead, it can be accessed via the <TT>nameValue</TT> key (${parameters.nameValue}). The <TT>nameValue</TT> key indicates that the value may have been generated from the <TT>name</TT> attribute rather than explicitly defined in the <TT>value</TT> attribute.</P>
+
+<H2><A name="FormTags-IDNameAssignment"></A>ID Name Assignment</H2>
+
+<P>All form tags automatically assign an ID to the control, but the ID can be overridden if needed.</P>
+<DIV class="table-wrap">
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TH class="confluenceTh"> Forms </TH>
+<TD class="confluenceTd"> The default ID is the action name. For example, &quot;updateAddress&quot;. </TD>
+</TR>
+<TR>
+<TH class="confluenceTh"> Controls </TH>
+<TD class="confluenceTd"> The default ID is the form's name concatenated with the tag name. For example, &quot;updateAddress_postalCode&quot;. </TD>
+</TR>
+</TBODY></TABLE>
+</DIV>
+
+
+<H2><A name="FormTags-RequiredAttribute"></A>Required Attribute</H2>
+
+<P>The <TT>required</TT> attribute on many UI tags defaults to true only if you have client-side validation enabled, and a validator is associated with that particular field.</P>
+
+<H2><A name="FormTags-Tooltip"></A>Tooltip</H2>
+
+<P><B>tooltipConfig is deprecated, use individual tooltip configuration attributes instead </B></P>
+
+<P>Every Form UI component (in xhtml / css_xhtml or any other that extends them) can
+have tooltips assigned to them. The Form component's tooltip related attribute, once
+defined, will be applied to all form UI components that are created under it unless
+explicitly overriden by having the Form UI component itself defined with their own tooltip attribute.</P>
+
+<P><P></P>
+
+<P>In Example 1, the textfield will inherit the tooltipDelay and tooltipIconPath attribte from
+its containing form. In other words, although it doesn't define a tooltipIconPath
+attribute, it will have that attribute inherited from its containing form.</P>
+
+<P><P></P>
+
+<P>In Example 2, the  textfield will inherite both the tooltipDelay and
+tooltipIconPath attribute from its containing form, but the tooltipDelay
+attribute is overriden at the textfield itself. Hence, the textfield actually will
+have its tooltipIcon defined as /myImages/myIcon.gif, inherited from its containing form, and
+tooltipDelay defined as 5000.</P>
+
+<P><P></P>
+
+<P>Example 3, 4 and 5 show different ways of setting the tooltip configuration attribute.<BR>
+<B>Example 3:</B> Set tooltip config through the body of the param tag<BR>
+<B>Example 4:</B> Set tooltip config through the value attribute of the param tag<BR>
+<B>Example 5:</B> Set tooltip config through the tooltip attributes of the component tag<BR></P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-xml">
+<SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- Example 1: --&gt;</SPAN></SPAN>
+&lt;s:form
+         tooltipDelay=<SPAN class="code-quote">&quot;500&quot;</SPAN>
+         tooltipIconPath=<SPAN class="code-quote">&quot;/myImages/myIcon.gif&quot;</SPAN> .... &gt;
+  ....
+    <SPAN class="code-tag">&lt;s:textfield label=<SPAN class="code-quote">&quot;Customer Name&quot;</SPAN> tooltip=<SPAN class="code-quote">&quot;Enter the customer name&quot;</SPAN> .... /&gt;</SPAN>
+  ....
+<SPAN class="code-tag">&lt;/s:form&gt;</SPAN>
+
+<SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- Example 2: --&gt;</SPAN></SPAN>
+&lt;s:form
+         tooltipDelay=<SPAN class="code-quote">&quot;500&quot;</SPAN>
+         tooltipIconPath=<SPAN class="code-quote">&quot;/myImages/myIcon.gif&quot;</SPAN> .... &gt;
+  ....
+    &lt;s:textfield label=<SPAN class="code-quote">&quot;Address&quot;</SPAN>
+         tooltip=<SPAN class="code-quote">&quot;Enter your address&quot;</SPAN>
+         tooltipDelay=<SPAN class="code-quote">&quot;5000&quot;</SPAN> /&gt;
+  ....
+<SPAN class="code-tag">&lt;/s:form&gt;</SPAN>
+
+
+<SPAN class="code-tag">&lt;-- Example 3: --&gt;</SPAN>
+&lt;s:textfield
+       label=<SPAN class="code-quote">&quot;Customer Name&quot;</SPAN>
+       tooltip=<SPAN class="code-quote">&quot;One of our customer Details&quot;</SPAN>&gt;
+       <SPAN class="code-tag">&lt;s:param name=<SPAN class="code-quote">&quot;tooltipDelay&quot;</SPAN>&gt;</SPAN>
+            500
+       <SPAN class="code-tag">&lt;/s:param&gt;</SPAN>
+       <SPAN class="code-tag">&lt;s:param name=<SPAN class="code-quote">&quot;tooltipIconPath&quot;</SPAN>&gt;</SPAN>
+            /myImages/myIcon.gif
+       <SPAN class="code-tag">&lt;/s:param&gt;</SPAN>
+<SPAN class="code-tag">&lt;/s:textfield&gt;</SPAN>
+
+
+<SPAN class="code-tag">&lt;-- Example 4: --&gt;</SPAN>
+&lt;s:textfield
+         label=<SPAN class="code-quote">&quot;Customer Address&quot;</SPAN>
+         tooltip=<SPAN class="code-quote">&quot;Enter The Customer Address&quot;</SPAN> &gt;
+         &lt;s:param
+             name=<SPAN class="code-quote">&quot;tooltipDelay&quot;</SPAN>
+             value=<SPAN class="code-quote">&quot;500&quot;</SPAN> /&gt;
+<SPAN class="code-tag">&lt;/s:textfield&gt;</SPAN>
+
+
+<SPAN class="code-tag">&lt;-- Example 5: --&gt;</SPAN>
+&lt;s:textfield
+         label=<SPAN class="code-quote">&quot;Customer Telephone Number&quot;</SPAN>
+         tooltip=<SPAN class="code-quote">&quot;Enter customer Telephone Number&quot;</SPAN>
+         tooltipDelay=<SPAN class="code-quote">&quot;500&quot;</SPAN>
+         tooltipIconPath=<SPAN class="code-quote">&quot;/myImages/myIcon.gif&quot;</SPAN> /&gt;
+
+</PRE>
+</DIV></DIV>
+
+<H2><A name="FormTags-Next%3AUITagReference"></A>Next: <A href="ui-tag-reference.html" title="UI Tag Reference">UI Tag Reference</A></H2>
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

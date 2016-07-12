@@ -1,0 +1,429 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Release Notes 2.0.0</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="guides.html" title="Guides">Guides</A>&nbsp;&gt;&nbsp;<A href="migration-guide.html" title="Migration Guide">Migration Guide</A>&nbsp;&gt;&nbsp;<A href="" title="Release Notes 2.0.0">Release Notes 2.0.0</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Release Notes 2.0.0</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=13855">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=13855">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=13855">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=13855">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=13855">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=13855">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <P><A href="release-plan-200.html" title="Release Plan 2.0.0">Struts 2.0.0</A> is the first distribution of WebWork 2 as an Apache Struts product.</P>
+
+<UL>
+	<LI>If you are a Maven user, you might want to get started using the <A href="http://cwiki.apache.org/WW/quickstart-using-maven-2.html" class="external-link" rel="nofollow">Maven Archetype</A>.</LI>
+	<LI>Another quick-start entry point is the <B>blank</B> application. Rename and deploy the WAR as a starting point for your own development.</LI>
+</UL>
+
+
+<H2><A name="ReleaseNotes2.0.0-KnownIssues"></A>Known Issues </H2>
+
+<UL>
+	<LI>For known issues, see <A href="https://issues.apache.org/struts/secure/IssueNavigator.jspa?mode=hide&requestId=10692" class="external-link" rel="nofollow">Struts 2.0.1</A></LI>
+</UL>
+
+
+<H2><A name="ReleaseNotes2.0.0-KeySnippets"></A>Key Snippets</H2>
+
+<P>Maven Artifact ID </P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+&lt;dependency&gt;
+  &lt;groupId&gt;org.apache.struts&lt;/groupId&gt;
+    &lt;artifactId&gt;struts2-core&lt;/artifactId&gt;
+      &lt;version&gt;2.0.0&lt;/version&gt;
+&lt;/dependency&gt;
+</PRE>
+</DIV></DIV>
+
+<P>Struts Configuration XML</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+&lt;?xml version=<SPAN class="code-quote">&quot;1.0&quot;</SPAN> encoding=<SPAN class="code-quote">&quot;UTF-8&quot;</SPAN>?&gt;
+&lt;!DOCTYPE struts PUBLIC
+  <SPAN class="code-quote">&quot;-<SPAN class="code-comment">//Apache Software Foundation//DTD Struts Configuration 2.0//EN&quot;</SPAN>
+</SPAN>  <SPAN class="code-quote">&quot;http:<SPAN class="code-comment">//struts.apache.org/dtds/struts-2.0.dtd&quot;</SPAN>&gt;
+</SPAN>&lt;struts&gt;
+    &lt;include file=<SPAN class="code-quote">&quot;struts-<SPAN class="code-keyword">default</SPAN>.xml&quot;</SPAN>/&gt;
+    &lt;<SPAN class="code-keyword">package</SPAN> name=<SPAN class="code-quote">&quot;support&quot;</SPAN> <SPAN class="code-keyword">extends</SPAN>=<SPAN class="code-quote">&quot;struts-<SPAN class="code-keyword">default</SPAN>&quot;</SPAN>&gt;
+        &lt;action name=<SPAN class="code-quote">&quot;$name&quot;</SPAN> class=<SPAN class="code-quote">&quot;$class&quot;</SPAN>&gt;
+            &lt;result&gt;$location&lt;/result&gt;
+        &lt;/action&gt;
+    &lt;/<SPAN class="code-keyword">package</SPAN>&gt;
+&lt;/struts&gt;
+</PRE>
+</DIV></DIV>
+
+<P>XWork Validation XML</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+&lt;?xml version=<SPAN class="code-quote">&quot;1.0&quot;</SPAN> encoding=<SPAN class="code-quote">&quot;UTF-8&quot;</SPAN>?&gt;
+&lt;!DOCTYPE validators PUBLIC 
+   <SPAN class="code-quote">&quot;-<SPAN class="code-comment">//OpenSymphony Group//XWork Validator 1.0.2//EN&quot;</SPAN> 
+</SPAN>   <SPAN class="code-quote">&quot;http:<SPAN class="code-comment">//www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd&quot;</SPAN>&gt;
+</SPAN>&lt;validators&gt;
+    &lt;field name=<SPAN class="code-quote">&quot;$name&quot;</SPAN>&gt;
+        &lt;field-validator type=<SPAN class="code-quote">&quot;$type&quot;</SPAN>&gt;
+            &lt;message&gt;$message&lt;/message&gt;
+        &lt;/field-validator&gt;
+    &lt;/field&gt;
+&lt;/validators&gt;
+</PRE>
+</DIV></DIV>
+
+<H2><A name="ReleaseNotes2.0.0-NewFeaturesandExtensions"></A>New Features and Extensions</H2>
+
+<UL>
+	<LI><A href="can-we-use-acegi-security-with-the-framework.html" title="Can we use Acegi Security with the framework">Can we use Acegi Security with the framework</A> extension is available.</LI>
+	<LI><A href="checkbox-interceptor.html" title="Checkbox Interceptor">Checkbox Interceptor</A> detects unchecked checkboxes and adds a parameter with a default value (usually 'false') .</LI>
+	<LI><A href="../S2PLUGINS/jsf-plugin.html" title="JSF Plugin">JavaServer Faces</A> extension is available.</LI>
+	<LI>A <TT>struts.xml</TT> file can be placed in a JAR and automatically plugged into an application, so that modules can be self-contained and automatically configured.
+	<UL>
+		<LI>In the case of Freemarker and Velocity modules, the templates can also be loaded from the classpath, so the entire module can be plugged in as a single JAR.</LI>
+	</UL>
+	</LI>
+	<LI><A href="debugging.html" title="Debugging">DebuggingInterceptor</A> displays the value stack at runtime.</LI>
+</UL>
+
+
+<H2><A name="ReleaseNotes2.0.0-KeyChanges"></A>Key Changes</H2>
+
+<P>Depending on whether you are coming from a Struts 1 or a WebWork 2 background, your perspective on the key changes will differ. </P>
+
+<H3><A name="ReleaseNotes2.0.0-FromStruts1"></A>From Struts 1</H3>
+
+<UL>
+	<LI>See <A href="comparing-struts-1-and-2.html" title="Comparing Struts 1 and 2">Comparing Struts 1 and 2</A></LI>
+	<LI><IMG class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" height="16" width="16" align="absmiddle" alt="" border="0"> More notes to come ...</LI>
+</UL>
+
+
+<H3><A name="ReleaseNotes2.0.0-FromWebWork2"></A>From WebWork 2 </H3>
+
+<UL>
+	<LI>Struts 2 is dependant on XWork 2 (nightly build).</LI>
+	<LI>Java 1.5 is required to build and deploy Struts 2.
+	<UL>
+		<LI>For Java 1.4 deployments, RetroWeaver or RetroTranslater may be used to provide Java 1.4 support</LI>
+		<LI>A pre-packaged set of RetroTranslator JARs is being provided with the distribution.</LI>
+	</UL>
+	</LI>
+</UL>
+
+
+<P>For other changes from WebWork 2, see the &quot;Members to rename&quot;, &quot;New property settings&quot;, &quot;New features or feature changes&quot;, and &quot;Removed or deprecated&quot;.</P>
+
+<H4><A name="ReleaseNotes2.0.0-Memberstorename"></A>Members to rename </H4>
+
+<DIV class="table-wrap">
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TH class="confluenceTh">WebWork 2                  </TH>
+<TH class="confluenceTh"> Struts 2             </TH>
+</TR>
+<TR>
+<TD class="confluenceTd"><TT>com.opensymphony.xwork.*</TT>  </TD>
+<TD class="confluenceTd"> <TT>com.opensymphony.xwork2.*</TT> </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"><TT>com.opensymphony.webwork.*</TT> </TD>
+<TD class="confluenceTd"> <TT>org.apache.struts2.*</TT>  </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"><TT>xwork.xml</TT>               </TD>
+<TD class="confluenceTd"> <TT>struts.xml</TT>        </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"><TT>webwork.properties</TT>      </TD>
+<TD class="confluenceTd"> <TT>struts.properties</TT> </TD>
+</TR>
+<TR>
+<TD class="confluenceTd">DispatcherUtil              </TD>
+<TD class="confluenceTd"> Dispatcher            </TD>
+</TR>
+<TR>
+<TD class="confluenceTd">com.opensymphony.webwork.config.Configuration</TD>
+<TD class="confluenceTd">org.apache.struts2.config.Settings</TD>
+</TR>
+</TBODY></TABLE>
+</DIV>
+
+
+<P>The tag prefix conventions in the example applications have changed. </P>
+
+<DIV class="table-wrap">
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TH class="confluenceTh">JSP        </TH>
+<TD class="confluenceTd"> s: </TD>
+<TD class="confluenceTd"> <EM>&lt;s:form ...&gt;</EM> </TD>
+</TR>
+<TR>
+<TH class="confluenceTh">Freemarker </TH>
+<TD class="confluenceTd"> s. </TD>
+<TD class="confluenceTd"> <EM>&lt;@s.form ...&gt;</EM> </TD>
+</TR>
+<TR>
+<TH class="confluenceTh">Velocity   </TH>
+<TD class="confluenceTd"> s  </TD>
+<TD class="confluenceTd"> <EM>#sform ( ... )</EM> </TD>
+</TR>
+</TBODY></TABLE>
+</DIV>
+
+
+<H4><A name="ReleaseNotes2.0.0-Newpropertysettings"></A>New property settings </H4>
+
+<DIV class="table-wrap">
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TH class="confluenceTh">struts.enable.DynamicMethodInvocation </TH>
+<TD class="confluenceTd"> Enable support for the hardwired <TT>action!alias</TT> syntax (Default is <TT>TRUE</TT>)</TD>
+</TR>
+</TBODY></TABLE>
+</DIV>
+
+
+<DIV class="panelMacro"><TABLE class="tipMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>It is recommended that all applications specify the DynamicMethodInvocation setting for now, since the default may change. The recommended approach to action aliasing is to use <A href="action-configuration.html#ActionConfiguration-WildcardAliases">wildcard aliases</A> instead of the hardwired bang.</TD></TR></TABLE></DIV>
+
+<H4><A name="ReleaseNotes2.0.0-Newfeaturesandfeaturechanges"></A>New features and feature changes</H4>
+
+<UL>
+	<LI>Various changes to ConfigurationManager
+	<UL>
+		<LI>ConfigurationManager is no longer a static factory. It is now an instance created through Dispatcher. Custom configuration could be done through DispatcherListener.</LI>
+		<LI>Custom configuration to ConfigurationManager and Configuration cannot be done statically anymore, instead use Dispatcher's DispatcherListener to achieve the same effect.</LI>
+	</UL>
+	</LI>
+	<LI>The <TT>prepare</TT> interceptor now uses reflection to call prepare_Method_ where <EM>method</EM> is the action method configured for the particular action in <TT>struts.xml</TT>.
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+   &lt;action name=<SPAN class="code-quote">&quot;myAction&quot;</SPAN> method=<SPAN class="code-quote">&quot;insert&quot;</SPAN> ....&gt;
+     .....
+   &lt;/action&gt;
+
+   <SPAN class="code-comment">// with the above configuration, and PrepareInterceptor in play, 
+</SPAN>   <SPAN class="code-comment">// callsequence will be 
+</SPAN>   1] prepareInsert() (If it exists)
+   2] prepare() (Unless Interceptor's alwaysInvokePrepare parameter is set to <SPAN class="code-keyword">false</SPAN>)
+   3] insert()
+</PRE>
+</DIV></DIV></LI>
+	<LI>DefaultWorkflowInterceptor (named <TT>workflow</TT> in <TT>struts-default.xml</TT>) now uses reflection to call <TT>validateMethod</TT> on the action class that implements Validateable interface where <TT>method</TT> is the action method configured for the particular action in <TT>struts.xml</TT>.
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+&lt;action name=<SPAN class="code-quote">&quot;myAction&quot;</SPAN> method=<SPAN class="code-quote">&quot;insert&quot;</SPAN> ...&gt;
+       ...
+    &lt;/action&gt;
+
+    <SPAN class="code-comment">// with the above configuration, and DefaultWorkflowInterceptor in play, 
+</SPAN>    <SPAN class="code-comment">// call sequence <SPAN class="code-keyword">for</SPAN> action that <SPAN class="code-keyword">implements</SPAN> Validateable <SPAN class="code-keyword">interface</SPAN> will be 
+</SPAN>    1] validateInsert()
+    2] validate() (unless Interceptor's alwaysInvokeValidate parameter is set to <SPAN class="code-keyword">false</SPAN>)
+    3] insert()
+</PRE>
+</DIV></DIV></LI>
+	<LI>Datepicker tag is now using dojo's (limited in terms functionality and internationalization)</LI>
+	<LI><A href="../S2PLUGINS/tiles-plugin.html" title="Tiles Plugin">Tiles integration</A> extension is available.</LI>
+	<LI><A href="action-configuration.html#ActionConfiguration-WildcardAliases">Wildcards</A> can be specified in action mappings.</LI>
+	<LI><A href="message-store-interceptor.html" title="Message Store Interceptor">MessageStoreInterceptor</A> is introduced to allow field errors / action errors and messages to be store and retrieve through session, resulting them to be preservable across request.</LI>
+</UL>
+
+
+
+<H4><A name="ReleaseNotes2.0.0-Removedordeprecated"></A>Removed or deprecated</H4>
+
+<DIV class="table-wrap">
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TH class="confluenceTh">AroundInterceptor</TH>
+<TD class="confluenceTd"> The AroundInterceptor has been removed. If your application extends the AroundInterceptor, either import the class into your source code form WebWork 2 (pursuant to the Open Symphony License) and modify it to server as your own base class, or rewrite your interceptor. </TD>
+</TR>
+<TR>
+<TH class="confluenceTh"><TT>oldSyntax</TT></TH>
+<TD class="confluenceTd"> Support for the &quot;oldSyntax&quot; is removed. </TD>
+</TR>
+<TR>
+<TH class="confluenceTh"> Rich text editor tag </TH>
+<TD class="confluenceTd"> Rich text editor tag has been removed (a possible replacement would be to use the textarea tag with theme=&quot;ajax&quot;, this will used dojo's rich text editor) 
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java"> &lt;s:textarea theme=<SPAN class="code-quote">&quot;ajax&quot;</SPAN> /&gt; </PRE>
+</DIV></DIV>
+<P> </P></TD>
+</TR>
+<TR>
+<TH class="confluenceTh"> <TT>doActionMethod</TT> </TH>
+<TD class="confluenceTd"> The convention of trying a &quot;do&quot; form of an action method is not supported. 
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+  &lt;action name=<SPAN class="code-quote">&quot;...&quot;</SPAN> method=<SPAN class="code-quote">&quot;submit&quot;</SPAN>&gt;
+    ...
+  &lt;/action&gt;
+</PRE>
+</DIV></DIV>
+<P>In WebWork,</P>
+<UL>
+	<LI>try to execute <TT>submit</TT> method in the action, <EM>fail</EM></LI>
+	<LI>try to execute <TT>doSubmit</TT> method in the action if Step 1, <EM>fail</EM></LI>
+	<LI><EM>fail</EM><BR>
+In Struts,</LI>
+	<LI>try to execute <TT>submit</TT> method in the action, <EM>fail</EM></LI>
+	<LI><EM>fail</EM></LI>
+</UL>
+</TD>
+</TR>
+<TR>
+</TR>
+<TR>
+<TH class="confluenceTh"> <TT>default method</TT> </TH>
+<TD class="confluenceTd"> Calling the &quot;default&quot; method via &quot;doDefault&quot; is not supported.  </TD>
+</TR>
+</TBODY></TABLE>
+</DIV>
+
+
+<H3><A name="ReleaseNotes2.0.0-Detail"></A>Detail </H3>
+
+<UL>
+	<LI><A href="https://issues.apache.org/struts/secure/ReleaseNote.jspa?version=21510&styleName=Text&projectId=10030&Create=Create" class="external-link" rel="nofollow">Release Notes (to date)</A></LI>
+</UL>
+
+
+<H3><A name="ReleaseNotes2.0.0-Pendingandopenissues"></A>Pending and open issues</H3>
+
+<DIV class="error"><SPAN class="error">Error formatting macro: jiraissues: java.lang.RuntimeException: Not Found</SPAN> </DIV>
+
+<H3><A name="ReleaseNotes2.0.0-Otherresources"></A>Other resources </H3>
+
+<UL>
+	<LI><A href="http://www.mail-archive.com/commits@struts.apache.org/" class="external-link" rel="nofollow">Commit Logs (Struts 1 and Struts 2)</A></LI>
+	<LI><A href="http://svn.apache.org/viewvc/struts/struts2/trunk/" class="external-link" rel="nofollow">Source Code Repository (includes change browsing)</A></LI>
+</UL>
+
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

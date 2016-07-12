@@ -1,0 +1,242 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Validation Annotation</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="guides.html" title="Guides">Guides</A>&nbsp;&gt;&nbsp;<A href="core-developers-guide.html" title="Core Developers Guide">Core Developers Guide</A>&nbsp;&gt;&nbsp;<A href="annotations.html" title="Annotations">Annotations</A>&nbsp;&gt;&nbsp;<A href="" title="Validation Annotation">Validation Annotation</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Validation Annotation</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=13916">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=13916">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=13916">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=13916">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=13916">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=13916">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <P>This annotation has been deprecated since 2.1 as its previous purpose, to define classes that support annotation validations,
+is no longer necessary.</P>
+
+<H2><A name="ValidationAnnotation-Usage"></A>Usage</H2>
+
+<P><P>The Validation annotation must be applied at Type level.</P>
+
+<H2><A name="ValidationAnnotation-Parameters"></A>Parameters</H2>
+
+<P><TABLE class="confluenceTable">
+<TR>
+<TH class="confluenceTh"> Parameter </TH>
+<TH class="confluenceTh"> Required </TH>
+<TH class="confluenceTh"> Default </TH>
+<TH class="confluenceTh"> Notes </TH>
+</TR>
+<TR>
+<TD class="confluenceTd">validations</TD>
+<TD class="confluenceTd">yes</TD>
+<TD class="confluenceTd">&nbsp;</TD>
+<TD class="confluenceTd"></TD>
+</TR>
+</TABLE></P>
+
+<H2><A name="ValidationAnnotation-Examples"></A>Examples</H2>
+
+<P><B>An Annotated Interface</B></P>
+<UL>
+	<LI>Mark the interface with @Validation()</LI>
+	<LI>Apply standard or custom annoations at method level</LI>
+</UL>
+
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">@Validation()
+<SPAN class="code-keyword">public</SPAN> <SPAN class="code-keyword">interface</SPAN> AnnotationDataAware {
+
+    void setBarObj(Bar b);
+
+    Bar getBarObj();
+
+    @RequiredFieldValidator(message = <SPAN class="code-quote">&quot;You must enter a value <SPAN class="code-keyword">for</SPAN> data.&quot;</SPAN>)
+    @RequiredStringValidator(message = <SPAN class="code-quote">&quot;You must enter a value <SPAN class="code-keyword">for</SPAN> data.&quot;</SPAN>)
+    void setData(<SPAN class="code-object">String</SPAN> data);
+
+    <SPAN class="code-object">String</SPAN> getData();
+}
+</PRE>
+</DIV></DIV>
+<P><B>An Annotated Class</B></P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">@Validation()
+<SPAN class="code-keyword">public</SPAN> class SimpleAnnotationAction <SPAN class="code-keyword">extends</SPAN> ActionSupport {
+
+    @RequiredFieldValidator(type = ValidatorType.FIELD, message = <SPAN class="code-quote">&quot;You must enter a value <SPAN class="code-keyword">for</SPAN> bar.&quot;</SPAN>)
+    @IntRangeFieldValidator(type = ValidatorType.FIELD, min = <SPAN class="code-quote">&quot;6&quot;</SPAN>, max = <SPAN class="code-quote">&quot;10&quot;</SPAN>, message = <SPAN class="code-quote">&quot;bar must be between ${min} and ${max}, current value is ${bar}.&quot;</SPAN>)
+    <SPAN class="code-keyword">public</SPAN> void setBar(<SPAN class="code-object">int</SPAN> bar) {
+        <SPAN class="code-keyword">this</SPAN>.bar = bar;
+    }
+
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">int</SPAN> getBar() {
+        <SPAN class="code-keyword">return</SPAN> bar;
+    }
+
+    @Validations(
+            requiredFields =
+                    {@RequiredFieldValidator(type = ValidatorType.SIMPLE, fieldName = <SPAN class="code-quote">&quot;customfield&quot;</SPAN>, message = <SPAN class="code-quote">&quot;You must enter a value <SPAN class="code-keyword">for</SPAN> field.&quot;</SPAN>)},
+            requiredStrings =
+                    {@RequiredStringValidator(type = ValidatorType.SIMPLE, fieldName = <SPAN class="code-quote">&quot;stringisrequired&quot;</SPAN>, message = <SPAN class="code-quote">&quot;You must enter a value <SPAN class="code-keyword">for</SPAN> string.&quot;</SPAN>)},
+            emails =
+                    { @EmailValidator(type = ValidatorType.SIMPLE, fieldName = <SPAN class="code-quote">&quot;emailaddress&quot;</SPAN>, message = <SPAN class="code-quote">&quot;You must enter a value <SPAN class="code-keyword">for</SPAN> email.&quot;</SPAN>)},
+            urls =
+                    { @UrlValidator(type = ValidatorType.SIMPLE, fieldName = <SPAN class="code-quote">&quot;hreflocation&quot;</SPAN>, message = <SPAN class="code-quote">&quot;You must enter a value <SPAN class="code-keyword">for</SPAN> email.&quot;</SPAN>)},
+            stringLengthFields =
+                    {@StringLengthFieldValidator(type = ValidatorType.SIMPLE, trim = <SPAN class="code-keyword">true</SPAN>, minLength=<SPAN class="code-quote">&quot;10&quot;</SPAN> , maxLength = <SPAN class="code-quote">&quot;12&quot;</SPAN>, fieldName = <SPAN class="code-quote">&quot;needstringlength&quot;</SPAN>, message = <SPAN class="code-quote">&quot;You must enter a stringlength.&quot;</SPAN>)},
+            intRangeFields =
+                    { @IntRangeFieldValidator(type = ValidatorType.SIMPLE, fieldName = <SPAN class="code-quote">&quot;intfield&quot;</SPAN>, min = <SPAN class="code-quote">&quot;6&quot;</SPAN>, max = <SPAN class="code-quote">&quot;10&quot;</SPAN>, message = <SPAN class="code-quote">&quot;bar must be between ${min} and ${max}, current value is ${bar}.&quot;</SPAN>)},
+            dateRangeFields =
+                    {@DateRangeFieldValidator(type = ValidatorType.SIMPLE, fieldName = <SPAN class="code-quote">&quot;datefield&quot;</SPAN>, min = <SPAN class="code-quote">&quot;-1&quot;</SPAN>, max = <SPAN class="code-quote">&quot;99&quot;</SPAN>, message = <SPAN class="code-quote">&quot;bar must be between ${min} and ${max}, current value is ${bar}.&quot;</SPAN>)},
+            expressions = {
+                @ExpressionValidator(expression = <SPAN class="code-quote">&quot;foo &gt; 1&quot;</SPAN>, message = <SPAN class="code-quote">&quot;Foo must be greater than Bar 1. Foo = ${foo}, Bar = ${bar}.&quot;</SPAN>),
+                @ExpressionValidator(expression = <SPAN class="code-quote">&quot;foo &gt; 2&quot;</SPAN>, message = <SPAN class="code-quote">&quot;Foo must be greater than Bar 2. Foo = ${foo}, Bar = ${bar}.&quot;</SPAN>),
+                @ExpressionValidator(expression = <SPAN class="code-quote">&quot;foo &gt; 3&quot;</SPAN>, message = <SPAN class="code-quote">&quot;Foo must be greater than Bar 3. Foo = ${foo}, Bar = ${bar}.&quot;</SPAN>),
+                @ExpressionValidator(expression = <SPAN class="code-quote">&quot;foo &gt; 4&quot;</SPAN>, message = <SPAN class="code-quote">&quot;Foo must be greater than Bar 4. Foo = ${foo}, Bar = ${bar}.&quot;</SPAN>),
+                @ExpressionValidator(expression = <SPAN class="code-quote">&quot;foo &gt; 5&quot;</SPAN>, message = <SPAN class="code-quote">&quot;Foo must be greater than Bar 5. Foo = ${foo}, Bar = ${bar}.&quot;</SPAN>)
+    }
+    )
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> execute() <SPAN class="code-keyword">throws</SPAN> Exception {
+        <SPAN class="code-keyword">return</SPAN> SUCCESS;
+    }
+}
+
+</PRE>
+</DIV></DIV>
+
+<DIV class="panelMacro"><TABLE class="warningMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/forbidden.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>When multiple methods are used to map different actions on the same class, and one of them is annotated with <EM>@Validations</EM>, those validators will be triggered for all the actions, unless they are annotated with @SkipValidation or <EM>validateAnnotatedMethodOnly</EM> is set to <EM>true</EM> in the &quot;validation&quot; interceptor, like:
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+&lt;interceptor-ref name=<SPAN class="code-quote">&quot;validation&quot;</SPAN>&gt;
+    &lt;param name=<SPAN class="code-quote">&quot;validateAnnotatedMethodOnly&quot;</SPAN>&gt;<SPAN class="code-keyword">true</SPAN>&lt;/param&gt;
+    &lt;param name=<SPAN class="code-quote">&quot;excludeMethods&quot;</SPAN>&gt;input,back,cancel,browse&lt;/param&gt;
+&lt;/interceptor-ref&gt;
+</PRE>
+</DIV></DIV></TD></TR></TABLE></DIV>
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

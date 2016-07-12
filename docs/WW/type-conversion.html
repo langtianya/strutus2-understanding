@@ -1,0 +1,578 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Type Conversion</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="guides.html" title="Guides">Guides</A>&nbsp;&gt;&nbsp;<A href="core-developers-guide.html" title="Core Developers Guide">Core Developers Guide</A>&nbsp;&gt;&nbsp;<A href="" title="Type Conversion">Type Conversion</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Type Conversion</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=14106">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=14106">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14106">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14106">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14106">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14106">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <P>Routine type conversion in the framework is transparent. Generally, all you need to do is ensure that HTML inputs have names that can be used in <A href="ognl.html" title="OGNL">OGNL</A> expressions. (HTML inputs are form elements and other GET/POST parameters.)</P>
+
+<STYLE type="text/css">/*<![CDATA[*/
+div.rbtoc1247384709426 {margin-left: 0px;padding: 0px;}
+div.rbtoc1247384709426 ul {list-style: none;margin-left: 0px;}
+div.rbtoc1247384709426 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</STYLE><DIV class="rbtoc1247384709426">
+<UL>
+    <LI><SPAN class="TOCOutline">1</SPAN> <A href="#TypeConversion-BuiltinTypeConversionSupport">Built in Type Conversion Support</A></LI>
+    <LI><SPAN class="TOCOutline">2</SPAN> <A href="#TypeConversion-RelationshiptoParameterNames">Relationship to Parameter Names</A></LI>
+    <LI><SPAN class="TOCOutline">3</SPAN> <A href="#TypeConversion-CreatingaTypeConverter">Creating a Type Converter</A></LI>
+    <LI><SPAN class="TOCOutline">4</SPAN> <A href="#TypeConversion-ApplyingaTypeConvertertoanAction">Applying a Type Converter to an Action</A></LI>
+    <LI><SPAN class="TOCOutline">5</SPAN> <A href="#TypeConversion-ApplyingaTypeConvertertoabeanormodel">Applying a Type Converter to a bean or model</A></LI>
+    <LI><SPAN class="TOCOutline">6</SPAN> <A href="#TypeConversion-ApplyingaTypeConverterforanapplication">Applying a Type Converter for an application</A></LI>
+    <LI><SPAN class="TOCOutline">7</SPAN> <A href="#TypeConversion-ASimpleExample">A Simple Example</A></LI>
+    <LI><SPAN class="TOCOutline">8</SPAN> <A href="#TypeConversion-AdvancedTypeConversion">Advanced Type Conversion</A></LI>
+<UL>
+    <LI><SPAN class="TOCOutline">8.1</SPAN> <A href="#TypeConversion-NullPropertyHandling">Null Property Handling</A></LI>
+    <LI><SPAN class="TOCOutline">8.2</SPAN> <A href="#TypeConversion-CollectionandMapSupport">Collection and Map Support</A></LI>
+<UL>
+    <LI><SPAN class="TOCOutline">8.2.1</SPAN> <A href="#TypeConversion-Indexingacollectionbyapropertyofthatcollection">Indexing a collection by a property of that collection</A></LI>
+</UL>
+</UL>
+    <LI><SPAN class="TOCOutline">9</SPAN> <A href="#TypeConversion-AnadvancedexampleforindexedListsandMaps">An advanced example for indexed Lists and Maps</A></LI>
+    <LI><SPAN class="TOCOutline">10</SPAN> <A href="#TypeConversion-TypeConversionErrorHandling">Type Conversion Error Handling</A></LI>
+    <LI><SPAN class="TOCOutline">11</SPAN> <A href="#TypeConversion-CommonProblems">Common Problems</A></LI>
+<UL>
+    <LI><SPAN class="TOCOutline">11.1</SPAN> <A href="#TypeConversion-NullandBlankValues">Null and Blank Values</A></LI>
+    <LI><SPAN class="TOCOutline">11.2</SPAN> <A href="#TypeConversion-Interfaces">Interfaces</A></LI>
+    <LI><SPAN class="TOCOutline">11.3</SPAN> <A href="#TypeConversion-GenericsandErasure">Generics and Erasure</A></LI>
+</UL>
+    <LI><SPAN class="TOCOutline">12</SPAN> <A href="#TypeConversion-Next%253AInterceptors">Next: Interceptors</A></LI>
+</UL></DIV>
+
+<H2><A name="TypeConversion-BuiltinTypeConversionSupport"></A>Built in Type Conversion Support</H2>
+<P>Type Conversion is implemented by XWork.</P>
+<P><P>
+XWork will automatically handle the most common type conversion for you. This includes support for converting to
+and from Strings for each of the following:
+<P>
+<UL>
+<LI>String</LI>
+<LI>boolean / Boolean</LI>
+<LI>char / Character</LI>
+<LI>int / Integer, float / Float, long / Long, double / Double</LI>
+<LI>dates - uses the SHORT format for the Locale associated with the current request</LI>
+<LI>arrays - assuming the individual strings can be coverted to the individual items</LI>
+<LI>collections - if not object type can be determined, it is assumed to be a String and a new ArrayList is
+created</LI>
+</UL>
+<P> Note that with arrays the type conversion will defer to the type of the array elements and try to convert each
+item individually. As with any other type conversion, if the conversion can't be performed the standard type
+conversion error reporting is used to indicate a problem occurred while processing the type conversion.</P>
+<UL>
+	<LI>Enumerations</LI>
+	<LI>BigDecimal and BigInteger</LI>
+</UL>
+
+
+<H2><A name="TypeConversion-RelationshiptoParameterNames"></A>Relationship to Parameter Names</H2>
+
+<P>There is no need to capture form values using intermediate Strings and primitives. Instead, the framework can read from and write to properties of objects addressed via OGNL expressions and perform the appropriate type conversion for you.</P>
+
+<P>Here are some tips for leveraging the framework's type conversion capabilities:</P>
+<UL>
+	<LI>Use OGNL expressions - the framework will automatically take care of creating the actual objects for you.</LI>
+	<LI>Use JavaBeans&#33; The framework can only create objects that obey the JavaBean specification, provide no-arg constructions and include getters and setters where appropriate.</LI>
+	<LI>Remember that <EM>person.name</EM> will call <B>getPerson().setName()</B>.  If the framework creates the Person object for you, it remember that a <TT>setPerson</TT> method must also exist.</LI>
+	<LI>The framework will not instantiate an object if an instance already exists.  The PrepareInterceptor or action's constructor can be used to create target objects before type conversion.</LI>
+	<LI>For lists and maps, use index notation, such as <EM>people[0].name</EM> or <EM>friends['patrick'].name</EM>. Often these HTML form elements are being rendered inside a loop. For <A href="jsp-tags.html" title="JSP Tags">JSP Tags</A>, use the iterator tag's status attribute. For <A href="freemarker-tags.html" title="FreeMarker Tags">FreeMarker Tags</A>, use the special property ${foo_index}[].</LI>
+	<LI>For multiple select boxes, it isn't possible to use index notation to name each individual item. Instead, name your element <EM>people.name</EM> and the framework will understand that it should create a new Person object for each selected item and set its name accordingly.</LI>
+</UL>
+
+
+<H2><A name="TypeConversion-CreatingaTypeConverter"></A>Creating a Type Converter</H2>
+
+<P>Create a type converter by extending StrutsTypeConverter.  The Converter's role is to convert a String to an Object and an Object to a String.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+ <SPAN class="code-keyword">public</SPAN> class MyConverter <SPAN class="code-keyword">extends</SPAN> StrutsTypeConverter {
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">Object</SPAN> convertFromString(Map context, <SPAN class="code-object">String</SPAN>[] values, <SPAN class="code-object">Class</SPAN> toClass) {
+       .....
+    }
+
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> convertToString(Map context, <SPAN class="code-object">Object</SPAN> o) {
+       .....
+    }
+ }
+</PRE>
+</DIV></DIV>
+
+<DIV class="panelMacro"><TABLE class="noteMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>To allow Struts to recognize that a conversion error has occurred, the converter class needs to throw XWorkException or preferably TypeConversionException.</TD></TR></TABLE></DIV>
+
+<H2><A name="TypeConversion-ApplyingaTypeConvertertoanAction"></A>Applying a Type Converter to an Action</H2>
+
+<P>Create a file called 'ActionClassName-conversion.properties' in the same location of the classpath as the Action class itself resides. </P>
+
+<P>Eg. if the action class name is MyAction, the action-level conversion properties file should be named 'MyAction-conversion.properties'.  If the action's package is com.myapp.actions the conversion file should also be in the classpath at /com/myapp/actions/.</P>
+
+<P>Within the conversion file, name the action's property and the Converter to apply to it:</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+# syntax: &lt;propertyName&gt; = &lt;converterClassName&gt;
+point = com.acme.PointConverter 
+person.phoneNumber = com.acme.PhoneNumberConverter
+</PRE>
+</DIV></DIV>
+
+<P>Type conversion can also be specified via <A href="annotations.html" title="Annotations">Annotations</A> within the action.</P>
+
+<H2><A name="TypeConversion-ApplyingaTypeConvertertoabeanormodel"></A>Applying a Type Converter to a bean or model</H2>
+
+<P>When getting or setting the property of a bean, the framework will look for &quot;classname-conversion.properties&quot; in the same location of the <B>classpath</B> as the target bean.  This is the same mechanism as used for actions.</P>
+
+<P><B>Example:</B> A custom converter is required for the Amount property of a Measurement bean.  The Measurement class cannot be modified as its located within one of the application's dependencies.  The action using Measurement implements ModelDriven&lt;Measurement&gt; so it cannot apply converters to the properties directly.<BR>
+<B>Solution:</B> The conversion file needs to be in the same location of the classpath as Measurement.  Create a directory in your source or resources tree matching the package of Measurement and place the converters file there.<BR>
+eg. for com.acme.measurements.Measurement, create a file in the application source/resources at /com/acme/measurements/Measurement-conversion.properties:</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-none">
+# syntax: &lt;propertyName&gt;=&lt;converterClassName&gt;
+amount=com.acme.converters.MyCustomBigDecimalConverter
+</PRE>
+</DIV></DIV>
+
+<H2><A name="TypeConversion-ApplyingaTypeConverterforanapplication"></A>Applying a Type Converter for an application</H2>
+
+<P>Application-wide converters can be specified in a file called xwork-conversion.properties located in the root of the classpath.</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+# syntax: &lt;type&gt; = &lt;converterClassName&gt;
+java.math.BigDecimal = com.acme.MyBigDecimalConverter 
+</PRE>
+</DIV></DIV>
+
+<H2><A name="TypeConversion-ASimpleExample"></A>A Simple Example</H2>
+
+<P><P>
+Type conversion is great for situations where you need to turn a String in to a more complex object. Because the web
+is type-agnostic (everything is a string in HTTP), Struts 2's type conversion features are very useful. For instance,
+if you were prompting a user to enter in coordinates in the form of a string (such as &quot;3, 22&quot;), you could have
+Struts 2 do the conversion both from String to Point and from Point to String.
+<P>
+<P> Using this &quot;point&quot; example, if your action (or another compound object in which you are setting properties on)
+has a corresponding ClassName-conversion.properties file, Struts 2 will use the configured type converters for
+conversion to and from strings. So turning &quot;3, 22&quot; in to new Point(3, 22) is done by merely adding the following
+entry to <B>ClassName-conversion.properties</B> (Note that the PointConverter should impl the TypeConverter
+interface):
+<P>
+<P><B>point = com.acme.PointConverter</B>
+<P>
+<P> Your type converter should be sure to check what class type it is being requested to convert. Because it is used
+for both to and from strings, you will need to split the conversion method in to two parts: one that turns Strings in
+to Points, and one that turns Points in to Strings.
+<P>
+<P> After this is done, you can now reference your point (using &lt;s:property value=&quot;point&quot;/&gt; in JSP or ${point}
+in FreeMarker) and it will be printed as &quot;3, 22&quot; again. As such, if you submit this back to an action, it will be
+converted back to a Point once again.
+<P>
+<P> In some situations you may wish to apply a type converter globally. This can be done by editing the file
+<B>xwork-conversion.properties</B> in the root of your class path (typically WEB-INF/classes) and providing a
+property in the form of the class name of the object you wish to convert on the left hand side and the class name of
+the type converter on the right hand side. For example, providing a type converter for all Point objects would mean
+adding the following entry:
+<P>
+<P><B>com.acme.Point = com.acme.PointConverter</B>
+<P></P>
+<DIV class="panelMacro"><TABLE class="noteMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD><P><P>
+Type conversion should not be used as a substitute for i18n. It is not recommended to use this feature to print out
+properly formatted dates. Rather, you should use the i18n features of Struts 2 (and consult the JavaDocs for JDK's
+MessageFormat object) to see how a properly formatted date should be displayed.
+<P></P></TD></TR></TABLE></DIV>
+<P>The framework ships with a base helper class that simplifies converting to and from Strings, <TT>org.apache.struts2.util.StrutsTypeConverter</TT>. The helper class makes it easy to write type converters that handle converting objects to Strings as well as from Strings.</P>
+
+<P>From the JavaDocs:</P>
+
+<P>Base class for type converters used in Struts. This class provides two abstract methods that are used to convert
+both to and from strings &ndash; the critical functionality that is core to Struts's type coversion system.</P>
+
+<P><P> Type converters do not have to use this class. It is merely a helper base class, although it is recommended that
+you use this class as it provides the common type conversion contract required for all web-based type conversion.</P>
+
+<P><P> There's a hook (fall back method) called <CODE>performFallbackConversion</CODE> of which
+could be used to perform some fallback conversion if <CODE>convertValue</CODE> method of this
+failed. By default it just ask its super class (Ognl's DefaultTypeConverter) to do the conversion.</P>
+
+<P><P> To allow the framework to recognize that a conversion error has occurred, throw an XWorkException or
+preferable a TypeConversionException.</P>
+
+
+<H2><A name="TypeConversion-AdvancedTypeConversion"></A>Advanced Type Conversion</H2>
+
+<P>The framework also handles advanced type conversion cases, like null property handling and converting values in Maps and Collections, and type conversion error handling.</P>
+
+<H3><A name="TypeConversion-NullPropertyHandling"></A>Null Property Handling</H3>
+
+<P>Null property handling will automatically create objects where null references are found.</P>
+
+<P>Provided that the key ReflectionContextState#CREATE_NULL_OBJECTS is in the action context with a value of true (this key is set
+only during the execution of the com.opensymphony.xwork2.interceptor.ParametersInterceptor), OGNL expressions
+that have caused a NullPointerException will be temporarily stopped for evaluation while the system automatically
+tries to solve the null references by automatically creating the object.</P>
+
+<P><P> The following rules are used when handling null references:</P>
+
+<P><UL></P>
+
+<P><LI>If the property is declared <I>exactly</I> as a Collection or List, then an ArrayList shall be
+returned and assigned to the null references.</LI></P>
+
+<P><LI>If the property is declared as a Map, then a HashMap will be returned and assigned to the null
+references.</LI></P>
+
+<P><LI>If the null property is a simple bean with a no-arg constructor, it will simply be created using the {@link
+ObjectFactory#buildBean(java.lang.Class, java.util.Map)} method.</LI></P>
+
+<P></UL></P>
+
+
+<P>For example, if a form element has a text field named <B>person.name</B> and the expression <I>person</I> evaluates
+to null, then this class will be invoked. Because the <I>person</I> expression evaluates to a <I>Person</I> class, a
+new Person is created and assigned to the null reference. Finally, the name is set on that object and the overall
+effect is that the system automatically created a Person object for you, set it by calling setUsers() and then
+finally called getUsers().setName() as you would typically expect.</P>
+
+
+<H3><A name="TypeConversion-CollectionandMapSupport"></A>Collection and Map Support</H3>
+
+<P>Collection and Map support provides intelligent null handling and type conversion for Java Collections.</P>
+
+<P>The framework supports ways to discover the object type for elements in a collection. The discover is made via an <EM>ObjectTypeDeterminer</EM>. A default implementation is provided with the framework. The Javadocs explain how Map and Collection support is discovered in the <TT>DefaultObjectTypeDeterminer</TT>.</P>
+
+<P>This ObjectTypeDeterminer looks at the <B>Class-conversion.properties</B> for entries that indicated what
+objects are contained within Maps and Collections. For Collections, such as Lists, the element is specified using the
+pattern <B>Element_xxx</B>, where xxx is the field name of the collection property in your action or object. For
+Maps, both the key and the value may be specified by using the pattern <B>Key_xxx</B> and <B>Element_xxx</B>,
+respectively.</P>
+
+<P><P> From WebWork 2.1.x, the <B>Collection_xxx</B> format is still supported and honored, although it is deprecated
+and will be removed eventually.</P>
+
+<P>Additionally, you can create your own custom <TT>ObjectTypeDeterminer</TT> by implementing the <TT>ObjectTypeDeterminer</TT> interface. There is also an optional ObjectTypeDeterminer that utilizes Java 5 generics. See the <A href="annotations.html" title="Annotations">Annotations</A> page for more information.</P>
+
+<H4><A name="TypeConversion-Indexingacollectionbyapropertyofthatcollection"></A>Indexing a collection by a property of that collection</H4>
+
+<P>It is also possible to obtain a unique element of a collection by passing the value of a given property of that element. By default, the property of the element of the collection is determined in <EM>Class</EM>&#45;conversion.properties using <TT>KeyProperty_xxx=yyy</TT>, where xxx is the property of the bean <EM>Class</EM> that returns the collection and yyy is the property of the collection element that we want to index on.</P>
+
+<P>For an example, see the following two classes:</P>
+<DIV class="code panel" style="border-style: solid;border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;border-bottom-style: solid;"><B>MyAction.java</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+/**
+ * @<SPAN class="code-keyword">return</SPAN> a Collection of Foo objects
+ */
+<SPAN class="code-keyword">public</SPAN> Collection getFooCollection()
+{
+    <SPAN class="code-keyword">return</SPAN> foo;
+}
+</PRE>
+</DIV></DIV>
+<DIV class="code panel" style="border-style: solid;border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;border-bottom-style: solid;"><B>Foo.java</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+/**
+ * @<SPAN class="code-keyword">return</SPAN> a unique identifier
+ */
+<SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">Long</SPAN> getId()
+{
+    <SPAN class="code-keyword">return</SPAN> id;
+}
+</PRE>
+</DIV></DIV>
+<P>To enable type conversion, put the instruction <TT>KeyProperty_fooCollection=id</TT> in the <TT>MyAction-conversion.properties</TT> file. This technique allows use of the idiom <TT>fooCollection(someIdValue)</TT> to obtain the Foo object with value <TT>someIdValue</TT> in the Set <TT>fooCollection</TT>. For example, <TT>fooCollection(22)</TT> would return the Foo object in the <TT>fooCollection</TT> Collection whose <TT>id</TT> property value was 22.</P>
+
+<P>This technique is useful, because it ties a collection element directly to its unique identifier. You are not forced to use an index. You can edit the elements of a collection associated to a bean without any additional coding. For example, parameter name <TT>fooCollection(22).name</TT> and value <TT>Phil</TT> would set name the Foo Object in the <TT>fooCollection</TT> Collection whose <TT>id</TT> property value was 22 to be Phil.</P>
+
+<P>The framework automatically converts the type of the parameter sent in to the type of the key property using type conversion.</P>
+
+<P>Unlike Map and List element properties, if <TT>fooCollection(22)</TT> does not exist, it will not be created. If you would like it created, use the notation <TT>fooCollection.makeNew[index]</TT> where <EM>index</EM> is an integer 0, 1, and so on. Thus, parameter value pairs <TT>fooCollection.makeNew[0]=Phil</TT> and <TT>fooCollection.makeNew[1]=John</TT> would add two new Foo Objects to <TT>fooCollection &#45;&#45;</TT> one with name property value <TT>Phil</TT> and the other with name property value <TT>John</TT>. However, in the case of a Set, the <TT>equals</TT> and <TT>hashCode</TT> methods should be defined such that they don't only include the <TT>id</TT> property. Otherwise, one element of the null <TT>id</TT> properties Foos to be removed from the Set.</P>
+
+<H2><A name="TypeConversion-AnadvancedexampleforindexedListsandMaps"></A>An advanced example for indexed Lists and Maps</H2>
+
+<P>Here is the model bean used within the list. The KeyProperty for this bean is the <TT>id</TT> attribute.</P>
+<DIV class="code panel" style="border-style: solid;border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;border-bottom-style: solid;"><B>MyBean.java</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+<SPAN class="code-keyword">public</SPAN> class MyBean <SPAN class="code-keyword">implements</SPAN> Serializable {
+
+    <SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">Long</SPAN> id;
+    <SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">String</SPAN> name;
+
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">Long</SPAN> getId() {
+        <SPAN class="code-keyword">return</SPAN> id;
+    }
+
+    <SPAN class="code-keyword">public</SPAN> void setId(<SPAN class="code-object">Long</SPAN> id) {
+        <SPAN class="code-keyword">this</SPAN>.id = id;
+    }
+
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> getName() {
+        <SPAN class="code-keyword">return</SPAN> name;
+    }
+
+    <SPAN class="code-keyword">public</SPAN> void setName(<SPAN class="code-object">String</SPAN> name) {
+        <SPAN class="code-keyword">this</SPAN>.name = name;
+    }
+
+
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> toString() {
+        <SPAN class="code-keyword">return</SPAN> <SPAN class="code-quote">&quot;MyBean{&quot;</SPAN> +
+                <SPAN class="code-quote">&quot;id=&quot;</SPAN> + id +
+                <SPAN class="code-quote">&quot;, name='&quot;</SPAN> + name + '\'' +
+                '}';
+    }
+}
+</PRE>
+</DIV></DIV>
+<P>The Action has a <TT>beanList</TT> attribute initialized with an empty ArrayList.</P>
+<DIV class="code panel" style="border-style: solid;border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;border-bottom-style: solid;"><B>MyBeanAction.java</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+<SPAN class="code-keyword">public</SPAN> class MyBeanAction <SPAN class="code-keyword">implements</SPAN> Action {
+
+    <SPAN class="code-keyword">private</SPAN> List beanList = <SPAN class="code-keyword">new</SPAN> ArrayList();
+    <SPAN class="code-keyword">private</SPAN> Map beanMap = <SPAN class="code-keyword">new</SPAN> HashMap();
+
+    <SPAN class="code-keyword">public</SPAN> List getBeanList() {
+        <SPAN class="code-keyword">return</SPAN> beanList;
+    }
+
+    <SPAN class="code-keyword">public</SPAN> void setBeanList(List beanList) {
+        <SPAN class="code-keyword">this</SPAN>.beanList = beanList;
+    }
+
+    <SPAN class="code-keyword">public</SPAN> Map getBeanMap() {
+        <SPAN class="code-keyword">return</SPAN> beanMap;
+    }
+
+    <SPAN class="code-keyword">public</SPAN> void setBeanMap(Map beanMap) {
+        <SPAN class="code-keyword">this</SPAN>.beanMap = beanMap;
+    }
+
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> execute() <SPAN class="code-keyword">throws</SPAN> Exception {
+        <SPAN class="code-keyword">return</SPAN> SUCCESS;
+    }
+}
+</PRE>
+</DIV></DIV>
+<P>These <TT>conversion.properties</TT> tell the TypeConverter to use MyBean instances as elements of the List.</P>
+<DIV class="code panel" style="border-style: solid;border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;border-bottom-style: solid;"><B>MyBeanAction-conversion.properties</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+KeyProperty_beanList=id
+Element_beanList=MyBean
+CreateIfNull_beanList=<SPAN class="code-keyword">true</SPAN>
+</PRE>
+</DIV></DIV>
+<UL>
+	<LI>When submitting this via a form, the <TT>id</TT> value is used as KeyProperty for the MyBean instances in the beanList.</LI>
+</UL>
+
+
+<UL>
+	<LI>Notice the () notation&#33; Do not use [] notation, which is for Maps only&#33;</LI>
+</UL>
+
+
+<UL>
+	<LI>The value for name will be set to the MyBean instance with this special id.</LI>
+</UL>
+
+
+<UL>
+	<LI>The List does not have null values added for unavailable id values. This approach avoids the risk of OutOfMemoryErrors&#33;</LI>
+</UL>
+
+
+<DIV class="code panel" style="border-style: solid;border-width: 1px;"><DIV class="codeHeader panelHeader" style="border-bottom-width: 1px;border-bottom-style: solid;"><B>MyBeanAction.jsp</B></DIV><DIV class="codeContent panelContent">
+<PRE class="code-java">
+&lt;s:iterator value=<SPAN class="code-quote">&quot;beanList&quot;</SPAN> id=<SPAN class="code-quote">&quot;bean&quot;</SPAN>&gt;
+  &lt;stextfield name=<SPAN class="code-quote">&quot;beanList(%{bean.id}).name&quot;</SPAN> /&gt;
+&lt;/s:iterator&gt;
+</PRE>
+</DIV></DIV>
+
+<H2><A name="TypeConversion-TypeConversionErrorHandling"></A>Type Conversion Error Handling</H2>
+
+<P>Type conversion error handling provides a simple way to distinguish between an input <EM>validation</EM> problem and an input <EM>type conversion</EM> problem.</P>
+<P><P>
+Any error that occurs during type conversion may or may not wish to be reported. For example, reporting that the
+input &quot;abc&quot; could not be converted to a number might be important. On the other hand, reporting that an empty string,
+&quot;&quot;, cannot be converted to a number might not be important - especially in a web environment where it is hard to
+distinguish between a user not entering a value vs. entering a blank value.
+<P>
+<P> By default, all conversion errors are reported using the generic i18n key <B>xwork.default.invalid.fieldvalue</B>,
+which you can override (the default text is <I>Invalid field value for field &quot;xxx&quot;</I>, where xxx is the field name)
+in your global i18n resource bundle.
+<P>
+<P>However, sometimes you may wish to override this message on a per-field basis. You can do this by adding an i18n
+key associated with just your action (Action.properties) using the pattern <B>invalid.fieldvalue.xxx</B>, where xxx
+is the field name.
+<P>
+<P>It is important to know that none of these errors are actually reported directly. Rather, they are added to a map
+called <I>conversionErrors</I> in the ActionContext. There are several ways this map can then be accessed and the
+errors can be reported accordingly.
+<P></P>
+<P>There are two ways the error reporting can occur:</P>
+<OL>
+	<LI>Globally, using the <A href="conversion-error-interceptor.html" title="Conversion Error Interceptor">Conversion Error Interceptor</A></LI>
+	<LI>On a per-field basis, using the <A href="conversion-validator.html" title="conversion validator">conversion validator</A></LI>
+</OL>
+
+
+<P>By default, the conversion interceptor is included in <TT><A href="struts-defaultxml.html" title="struts-default.xml">struts&#45;default.xml</A></TT> in the default stack. To keep conversion errors from reporting globally, change the interceptor stack, and add additional validation rules.</P>
+
+<H2><A name="TypeConversion-CommonProblems"></A>Common Problems</H2>
+
+<H3><A name="TypeConversion-NullandBlankValues"></A>Null and Blank Values</H3>
+
+<P>Some properties cannot be set to null. Primitives like boolean and int cannot be null.  If your action needs to or will accept null or blank values, use the object equivalents Boolean and Integer.  Similarly, a blank string &quot;&quot; cannot be set on a primitive.  At the time of writing, a blank string also cannot be set on a BigDecimal or BigInteger.  Use server-side validation to prevent invalid values from being set on your properties (or handle the conversion errors appropriately).</P>
+
+<H3><A name="TypeConversion-Interfaces"></A>Interfaces</H3>
+<P>The framework cannot instantiate an object if it can't determine an appropriate implementation.  It recognizes well-known collection interfaces (List, Set, Map, etc) but cannot instantiate MyCustomInterface when all it sees is the interface. In this case, instantiate the target implementation first (eg. in a prepare method) or substitute in an implementation.</P>
+
+<H3><A name="TypeConversion-GenericsandErasure"></A>Generics and Erasure</H3>
+<P>The framework will inspect generics to determine the appropriate type for collections and array elements.  However, in some cases Erasure can result in base types that cannot be converted (typically Object or Enum).</P>
+
+<P>The following is an example of this problem:</P>
+
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+<SPAN class="code-keyword">public</SPAN> <SPAN class="code-keyword">abstract</SPAN> class Measurement&lt;T <SPAN class="code-keyword">extends</SPAN> Enum&gt;
+   <SPAN class="code-keyword">public</SPAN> void setUnits(T enumValue) {...}
+}
+
+<SPAN class="code-keyword">public</SPAN> class Area <SPAN class="code-keyword">extends</SPAN> Measurement&lt;UnitsOfArea&gt; {
+  @Override
+  <SPAN class="code-keyword">public</SPAN> void setUnits(UnitsOfArea enumValue){...}
+}
+</PRE>
+</DIV></DIV>
+<P>Although to the developer the area.setUnits(enumValue) method only accepts a UnitsOfArea enumeration, due to erasure the signature of this method is actually setUnits(java.lang.Enum). The framework does not know that the parameter is a UnitsOfArea and when it attempts to instantiate the Enum an exception is thrown (java.lang.IllegalArgumentException: java.lang.Enum is not an enum type).</P>
+
+<H2><A name="TypeConversion-Next%3AInterceptors"></A>Next: <A href="interceptors.html" title="Interceptors">Interceptors</A></H2>
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

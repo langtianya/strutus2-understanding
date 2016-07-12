@@ -1,0 +1,210 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Building the Framework from Source</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="guides.html" title="Guides">Guides</A>&nbsp;&gt;&nbsp;<A href="contributors-guide.html" title="Contributors Guide">Contributors Guide</A>&nbsp;&gt;&nbsp;<A href="" title="Building the Framework from Source">Building the Framework from Source</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Building the Framework from Source</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=13829">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=13829">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=13829">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=13829">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=13829">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=13829">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <H2><A name="BuildingtheFrameworkfromSource-WhyBuild%3F"></A>Why Build?</H2>
+
+<P>Most developers will never need to build the framework from source. The distribution package contains everything a developer needs to get started and become productive with the framework. For more on how to go to work with the distributed binaries right away, see <A href="ready-set-go.html" title="Ready, Set, Go!">Ready, Set, Go&#33;</A>. However, there are situations when someone will want to build the framework from scratch. You may want to try out new tweaks and patches, or you might want to try writing your own tweak or patch.</P>
+<DIV class="panelMacro"><TABLE class="infoMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>If you just want to use the latest development build, perhaps because a patch you need has been applied, you can also <A href="http://people.apache.org/builds/struts/nightlies/" class="external-link" rel="nofollow">download a nightly build</A>.</TD></TR></TABLE></DIV>
+
+<H2><A name="BuildingtheFrameworkfromSource-GettingtheSources"></A>Getting the Sources</H2>
+
+<P>The source code for the framework is available as a distribution you can download directly and from the source code repository.</P>
+
+<H3><A name="BuildingtheFrameworkfromSource-Distribution"></A>Distribution</H3>
+
+<P>The distributions of the framework contain all sources, as well as all needed libraries for building JARs and running. Distributions can be downloaded from the <A href="http://struts.apache.org/downloads.html" class="external-link" rel="nofollow">Apache Struts project</A>.</P>
+
+<H3><A name="BuildingtheFrameworkfromSource-Repository%28SVN%29"></A>Repository (SVN)</H3>
+
+<P>Use <A href="http://subversion.tigris.org/" class="external-link" rel="nofollow">Subversion</A> to checkout the source code.</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+&gt; cd C:\projects\Apache\
+&gt; svn co https:<SPAN class="code-comment">//svn.apache.org/repos/asf/struts/current/ struts</SPAN>
+</PRE>
+</DIV></DIV>
+
+<H2><A name="BuildingtheFrameworkfromSource-BuildingwithMaven"></A>Building with Maven</H2>
+
+<P>The default build environment is Maven. To get started with Maven</P>
+<UL>
+	<LI>Download Maven 2</LI>
+	<LI>Extract Maven 2 to a directory of your choice
+	<UL>
+		<LI>(e.g. <TT>\opt\Apache\Maven\maven-2.0.4</TT>)</LI>
+	</UL>
+	</LI>
+	<LI>Add the bin folder under that directory to your system path
+	<UL>
+		<LI>(e.g. <TT>PATH=%PATH%;C:\opt\Apache\Maven\maven-2.0.4</TT>)</LI>
+	</UL>
+	</LI>
+</UL>
+
+
+<P>Change to your framework home directory (e.g. <TT>C:\projects\Apache\struts\struts2</TT>) and run</P>
+<DIV class="code panel" style="border-width: 1px;"><DIV class="codeContent panelContent">
+<PRE class="code-java">
+&gt; cd C:\projects\Apache\struts\struts2\
+&gt; mvn clean install -Pall
+</PRE>
+</DIV></DIV>
+<P>That will take care of the basic maven build. There is a bunch more that you can do. Checkout out <A href="building-with-maven.html" title="Building with Maven">Building with Maven</A> for more information.</P>
+
+<P><B>NOTE:</B> The above assumes that the Struts build depends on a version of XWork which is available from a Maven repository. If this is not the case (e.g. when Struts depends on an unreleased XWork snapshot), you will need to build XWork yourself, and install it into your local Maven repository, before attempting to build Struts itself. See <A href="building-with-maven.html" title="Building with Maven">Building with Maven</A> for instructions on building XWork.</P>
+
+<H2><A name="BuildingtheFrameworkfromSource-JDK%2FJRECompatibility"></A>JDK/JRE Compatibility</H2>
+
+<UL>
+	<LI>The framework requires JDK 1.5 to build.</LI>
+	<LI>A set of JARs that are backwardly-compatible with JDK 1.4 are available for download.</LI>
+</UL>
+
+
+<H2><A name="BuildingtheFrameworkfromSource-Next%3ABuildingwithMaven"></A>Next: <A href="building-with-maven.html" title="Building with Maven">Building with Maven</A></H2>
+        </DIV>
+
+                  <DIV class="tabletitle">
+            Children
+            <SPAN class="smalltext" id="show" style="display: inline;">
+              <A href="javascript:showChildren()">Show Children</A></SPAN>
+            <SPAN class="smalltext" id="hide" style="display: none;">
+              <A href="javascript:hideChildren()">Hide Children</A></SPAN>
+          </DIV>
+          <DIV class="greybox" id="children" style="display: none;">
+                                      <A href="building-with-maven.html" title="Building with Maven">Building with Maven</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                      </DIV>
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>

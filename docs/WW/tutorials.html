@@ -1,0 +1,247 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="https://struts.apache.org/css/default.css">
+    <STYLE type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </STYLE>
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Tutorials</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" align="left" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="" title="Tutorials">Tutorials</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Tutorials</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=13978">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=13978">Edit Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=13978">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=13978">Add Page</A>
+          &nbsp;
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=13978">
+            <IMG src="https://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=13978">Add News</A>
+        </DIV>
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <DIV class="panelMacro"><TABLE class="infoMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>The framework documentation is written for active web developers and assumes a working knowledge about how Java web applications are built. For more about the underlying nuts and bolts, see the <A href="http://struts.apache.org/primer.html" class="external-link" rel="nofollow">Key Technologies Primer</A>.</TD></TR></TABLE></DIV>
+<HR>
+
+<P>Several tutorials are available to help you get started with the framework, from all-purpose &quot;soup to nuts&quot; tutorials to specialty tutorials on portlets and database access.</P>
+
+<H3><A name="Tutorials-Primers"></A>Primers</H3>
+
+<UL>
+	<LI><A href="getting-started.html" title="Getting Started">Getting Started</A> - Tutorials For Struts 2 Beginners</LI>
+	<LI><IMG class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/star_yellow.gif" height="16" width="16" align="absmiddle" alt="" border="0"> <A href="http://www.vaannila.com/struts-2/struts-2-tutorial/struts-2-tutorial.html" class="external-link" rel="nofollow">Struts 2 Tutorials</A></LI>
+	<LI><A href="struts-2-spring-2-jpa-ajax.html" title="Struts 2 + Spring 2 + JPA + AJAX">Struts 2 &#43; Spring 2 &#43; JPA &#43; AJAX</A></LI>
+	<LI><IMG class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/star_yellow.gif" height="16" width="16" align="absmiddle" alt="" border="0"> <A href="http://www.scribd.com/doc/25244173/Java-Struts-Hibernate-Tutorial" class="external-link" rel="nofollow">Struts 2 / Hibernate Tutorial</A></LI>
+	<LI><IMG class="emoticon" src="https://cwiki.apache.org/confluence/images/icons/emoticons/star_yellow.gif" height="16" width="16" align="absmiddle" alt="" border="0"> <A href="http://www.brucephillips.name/blog/index.cfm/2010/12/28/Recommended-Way-To-Structure-A-Spring-3-JPA-2-and-Maven-Web-Application" class="external-link" rel="nofollow">Struts 2, Spring 3, JPA 2, Maven Example</A></LI>
+</UL>
+
+
+<H3><A name="Tutorials-Speciality"></A>Speciality</H3>
+
+<UL>
+	<LI><A href="extending-an-application-with-custom-plugins.html" title="Extending an Application with Custom Plugins">Extending an Application with Custom Plugins</A></LI>
+	<LI><A href="crud-demo-i.html" title="CRUD Demo I">CRUD Made Easy</A></LI>
+	<LI><A href="jasperreports-tutorial.html" title="JasperReports Tutorial">JasperReports Tutorial</A></LI>
+	<LI><A href="struts-2-portlet-tutorial.html" title="Struts 2 Portlet Tutorial">Portlet Tutorial</A></LI>
+	<LI><A href="developing-a-portlet-using-eclipse.html" title="Developing a Portlet using Eclipse">Developing a Portlet using Eclipse</A></LI>
+	<LI><A href="struts-2-junit-plugin-tutorial.html" title="Struts 2 JUnit Plugin Tutorial">Struts 2 JUnit Plugin Tutorial</A></LI>
+</UL>
+
+
+<H3><A name="Tutorials-Examples"></A>Examples</H3>
+
+<P>Several example applications are bundled with the framework, as ready-to-deploy WARs.</P>
+
+<DIV class="table-wrap">
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TD class="confluenceTd"> Blank</TD>
+<TD class="confluenceTd"> An &quot;empty&quot; application that you can use as the starting point for your own projects. </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> MailReader </TD>
+<TD class="confluenceTd"> A simple application that demonstrates best practices. </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> Portlet </TD>
+<TD class="confluenceTd"> An application demonstrating portlet support </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> Showcase </TD>
+<TD class="confluenceTd"> A sampling of common (and not so common) use cases. </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> <A href="examples.html" title="Examples">Other Examples</A> </TD>
+<TD class="confluenceTd"> Simple examples and links to &quot;powered by&quot; sites </TD>
+</TR>
+</TBODY></TABLE>
+</DIV>
+
+
+<P>For the complete source code to the applications, see the source code <A href="home.html#Home-Distributions">distribution</A>.</P>
+
+<H2><A name="Tutorials-Errata%3F"></A>Errata?</H2>
+
+<DIV class="panelMacro"><TABLE class="tipMacro"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="https://cwiki.apache.org/confluence/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>To suggest a change or a correction to any part of the documentation, log in and leave a comment on the appropriate page. We are always looking for <A href="http://struts.apache.org/2.x/docs/contributors-guide.html" class="external-link" rel="nofollow">help with the documentation!</A></TD></TR></TABLE></DIV>
+
+<H2><A name="Tutorials-Next%3AGuides"></A>Next: <A href="guides.html" title="Guides">Guides</A></H2>
+        </DIV>
+
+                  <DIV class="tabletitle">
+            Children
+            <SPAN class="smalltext" id="show" style="display: inline;">
+              <A href="javascript:showChildren()">Show Children</A></SPAN>
+            <SPAN class="smalltext" id="hide" style="display: none;">
+              <A href="javascript:hideChildren()">Hide Children</A></SPAN>
+          </DIV>
+          <DIV class="greybox" id="children" style="display: none;">
+                                      <A href="bootstrap.html" title="Bootstrap">Bootstrap</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="jasperreports-tutorial.html" title="JasperReports Tutorial">JasperReports Tutorial</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="portlet-tutorial-webwork-22.html" title="Portlet Tutorial (WebWork 2.2)">Portlet Tutorial (WebWork 2.2)</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="adminapp.html" title="AdminApp">AdminApp</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="testimonials.html" title="Testimonials">Testimonials</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="crud-demo-i.html" title="CRUD Demo I">CRUD Demo I</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="examples.html" title="Examples">Examples</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="struts-2-spring-2-jpa-ajax.html" title="Struts 2 + Spring 2 + JPA + AJAX">Struts 2 + Spring 2 + JPA + AJAX</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="extending-an-application-with-custom-plugins.html" title="Extending an Application with Custom Plugins">Extending an Application with Custom Plugins</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="developing-a-portlet-using-eclipse.html" title="Developing a Portlet using Eclipse">Developing a Portlet using Eclipse</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="getting-started.html" title="Getting Started">Getting Started</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="struts-2-junit-plugin-tutorial.html" title="Struts 2 JUnit Plugin Tutorial">Struts 2 JUnit Plugin Tutorial</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                      </DIV>
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 3.4.9 Build: 2042 Feb 14, 2011)
+      <A href="http://could.it/autoexport/">Auto Export Plugin</A> (Version: 1.0.0-dkulp)
+    </DIV>
+  </BODY>
+</HTML>
